@@ -93,34 +93,29 @@ fi
 if [ $1 = "dsec" ]; then
     cd sec
 
-    echo "--------------"
-    echo "- handle sec -"
-    echo "--------------"
-
     gpg sec.tgz.gpg
     tar --auto-compress --extract --file sec.tgz 
     rm sec.tgz
 fi
 
 if [ $1 = "sec" ]; then
+    cd sec
+    
+    echo "--------------"
+    echo "- handle sec -"
+    echo "--------------"
+    
     ./bootstrap.sh dsec
 
-    cd sec
     ./sec.sh all
 fi
 
 if [ $1 = "esec" ]; then
     cd sec
 
-    echo "--------------"
-    echo "- handle sec -"
-    echo "--------------"
-
     tar --gzip --create --file sec.tgz config sec.sh
-    #gpg -c sec.tgz
     gpg --cipher-algo AES256 --symmetric sec.tgz
     rm sec.tgz
-
 fi
 
 
