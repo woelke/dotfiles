@@ -18,7 +18,7 @@
 
     "standard" : {
         "xclip": "termianl clipboard tool",
-        "pdftk": "pdf munipulator, pdf merge, etc.",
+        "pdftk": "pdf manipulator, pdf merge, etc.",
         "okular": "pdf viewer",
         "numlockx": "set numlock a startup",
         "xsane": "scan programm",
