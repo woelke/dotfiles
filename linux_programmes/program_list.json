@@ -1,0 +1,46 @@
+{
+    "development" : {
+        "wireshark":"",
+        "build-essential":"",
+        "libboost-all-dev":"",
+        "git":"",
+        "gitk":"",
+        "cmake":"",
+        "eclipse":"",
+        "qtcreator":"",
+        "doxygen":"",
+        "doxygen-gui":"",
+        "doxygen-doc":"",
+        "texlive-full":"",
+        "r-base":"",
+        "clang":""
+    },
+
+    "standard" : {
+        "xclip": "termianl clipboard tool",
+        "pdftk": "pdf munipulator, pdf merge, etc.",
+        "okular": "pdf viewer",
+        "numlockx": "set numlock a startup",
+        "xsane": "scan programm",
+        "links": "consolen browser",
+        "pinta": "paint for linux",
+        "shutter": "Screen shoot tool",
+        "speedcrunch": "calculator",
+        "ssh": "secure source shell",
+        "sshpass": "sshpass -p your_password ssh user@hostname",
+        "sshfs": "mount file systems over ssh",
+        "bmon": "netzwerk diagnose tool",
+        "netcat6": "run with cmd: nc6",
+        "gtklp": "drucker einstellungen optimieren",
+        "acpi": "batterie status",
+        "minicom": "serial communication program like putty (RS232)",
+        "synaptic": "gui packet manager",
+        "calibre": "ebook manager",
+        "vlc": "multimedia player",
+        "screen": "console emulation programm",
+        "unrar": "",
+        "xxxxxxxxxxxar": "",
+        "p7zip-rar": ""
+    }
+
+}
