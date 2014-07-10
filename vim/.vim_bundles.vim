@@ -1,5 +1,5 @@
 "vundle
-set nocompatible               " be iMproved
+set nocompatible               " be improved
 filetype off                   " required!
 
 set rtp+=~/.vim/bundle/vundle/
@@ -10,7 +10,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"=> My Bundles here:
+"=> My Bundles:
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "filesystem navigator 
 Bundle 'scrooloose/nerdtree'
