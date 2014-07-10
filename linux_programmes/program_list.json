@@ -1,24 +1,24 @@
 {
     "development" : {
-        "wireshark":"",
-        "build-essential":"",
-        "libboost-all-dev":"",
-        "git":"",
-        "gitk":"",
-        "cmake":"",
-        "eclipse":"",
-        "qtcreator":"",
-        "doxygen":"",
-        "doxygen-gui":"",
-        "doxygen-doc":"",
-        "texlive-full":"",
-        "r-base":"",
-        "clang":""
+        "wireshark": "",
+        "build-essential": "",
+        "libboost-all-dev": "",
+        "git": "",
+        "gitk": "",
+        "cmake": "",
+        "eclipse": "",
+        "qtcreator": "",
+        "doxygen": "",
+        "doxygen-gui": "",
+        "doxygen-doc": "",
+        "texlive-full": "",
+        "r-base": "",
+        "clang": ""
     },
 
     "standard" : {
         "xclip": "termianl clipboard tool",
-        "pdftk": "pdf munipulator, pdf merge, etc.",
+        "pdftk": "pdf manipulator, pdf merge, etc.",
         "okular": "pdf viewer",
         "numlockx": "set numlock a startup",
         "xsane": "scan programm",
@@ -39,7 +39,6 @@
         "vlc": "multimedia player",
         "screen": "console emulation programm",
         "unrar": "",
-        "xxxxxxxxxxxar": "",
         "p7zip-rar": ""
     }
 

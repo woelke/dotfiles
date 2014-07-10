@@ -76,7 +76,7 @@ def help():
     print ("allowed parameters are:")
     print ("\t[-h | --help]") 
     print ("\t[-i | --install (X|all)]".ljust(w) + "intall programm of group X")
-    print ("\t[-r | --remove X]".ljust(w) + "remove group of programms X")  
+    print ("\t[-r | --remove X]".ljust(w) + "remove programms of group X")  
     print ("\t[-l | --list]".ljust(w) + "list all groups")
     print ("\t[--items X]".ljust(w) + "list all elements of group X")
     print ("\t[-c | --check (X|all)]".ljust(w) + "compare programms with the repository")
