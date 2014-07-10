@@ -18,6 +18,7 @@ if [ $# = 0 ]; then
     ./bootstrap.sh zsh 
     ./bootstrap.sh helper 
     ./bootstrap.sh vim 
+    ./bootstrap.sh sec 
     exit 0
 fi
 
@@ -85,5 +86,41 @@ if [ $1 = "vim" ]; then
     ./install_vim all
 fi
 
+##############
+# handle sec #
+##############
+
+if [ $1 = "dsec" ]; then
+    cd sec
+
+    echo "--------------"
+    echo "- handle sec -"
+    echo "--------------"
+
+    gpg sec.tgz.gpg
+    tar --auto-compress --extract --file sec.tgz 
+    rm sec.tgz
+fi
+
+if [ $1 = "sec" ]; then
+    ./bootstrap.sh dsec
+
+    cd sec
+    ./sec.sh all
+fi
+
+if [ $1 = "esec" ]; then
+    cd sec
+
+    echo "--------------"
+    echo "- handle sec -"
+    echo "--------------"
+
+    tar --gzip --create --file sec.tgz config sec.sh
+    #gpg -c sec.tgz
+    gpg --cipher-algo AES256 --symmetric sec.tgz
+    rm sec.tgz
+
+fi
 
 
