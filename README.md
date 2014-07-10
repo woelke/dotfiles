@@ -6,7 +6,7 @@ My Dotefiles contains a quite complex vim configuration, my favorite Linux progr
 
 Startup
 =======
-Run the following commands, to configure all automatically:
+Run the following commands to configure all automatically:
 
     git clone https://github.com/aufgang001/dotfiles.git ~/.dotfiles
     ~/.dotfiles/bootstrap.sh
