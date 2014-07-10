@@ -1,19 +1,19 @@
 {
     "development" : {
-        "wireshark":"",
-        "build-essential":"",
-        "libboost-all-dev":"",
-        "git":"",
-        "gitk":"",
-        "cmake":"",
-        "eclipse":"",
-        "qtcreator":"",
-        "doxygen":"",
-        "doxygen-gui":"",
-        "doxygen-doc":"",
-        "texlive-full":"",
-        "r-base":"",
-        "clang":""
+        "wireshark": "",
+        "build-essential": "",
+        "libboost-all-dev": "",
+        "git": "",
+        "gitk": "",
+        "cmake": "",
+        "eclipse": "",
+        "qtcreator": "",
+        "doxygen": "",
+        "doxygen-gui": "",
+        "doxygen-doc": "",
+        "texlive-full": "",
+        "r-base": "",
+        "clang": ""
     },
 
     "standard" : {
