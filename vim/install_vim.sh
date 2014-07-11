@@ -13,12 +13,12 @@ fi
 ##-- install vim --##
 #https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source
 if [ "$1" = "install_vim" ]; then  
-  sudo apt-get install libncurses5-dev libgnome2-dev libgnomeui-dev \
+  sudo apt-get -y install libncurses5-dev libgnome2-dev libgnomeui-dev \
     libgtk2.0-dev libatk1.0-dev libbonoboui2-dev \
     libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev ruby-dev mercurial
 
-  sudo apt-get remove vim vim-runtime gvim gnome-vim
-  sudo apt-get remove vim-tiny vim-common vim-gui-common
+  sudo apt-get -y remove vim vim-runtime gvim gnome-vim
+  sudo apt-get -y remove vim-tiny vim-common vim-gui-common
 
   cd ~
   hg clone https://code.google.com/p/vim/
@@ -60,19 +60,19 @@ fi
 if [ "$1" = "link_dotfile_init" ]; then
     current_dir=$(pwd)
     cd ~/.
-    ln -s $current_dir/.vimrc_init .vimrc 
-    ln -s $current_dir/.vim_bundles.vim .vim_bundles.vim
+    ln -sf $current_dir/.vimrc_init .vimrc 
+    ln -sf $current_dir/.vim_bundles.vim .vim_bundles.vim
 fi
 
 
 if [ "$1" = "link_dotfile" ]; then
     current_dir=$(pwd)
     cd ~/.
-    ln -s $current_dir/.vimrc .vimrc 
-    ln -s $current_dir/.vim_bundles.vim .vim_bundles.vim
-    ln -s $current_dir/.gdbinit .gdbinit #gnu debugger init file
-    ln -s $current_dir/.pyclewn_keys.gdb .pyclewn_keys.gdb #pyclewn is a vim plugin für gdb
-    ln -s $current_dir/.clang-format .clang-format #
+    ln -sf $current_dir/.vimrc .vimrc 
+    ln -sf $current_dir/.vim_bundles.vim .vim_bundles.vim
+    ln -sf $current_dir/.gdbinit .gdbinit #gnu debugger init file
+    ln -sf $current_dir/.pyclewn_keys.gdb .pyclewn_keys.gdb #pyclewn is a vim plugin für gdb
+    ln -sf $current_dir/.clang-format .clang-format #
 fi
 
 

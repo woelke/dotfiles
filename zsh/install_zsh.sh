@@ -14,6 +14,6 @@ fi
 if [ "$1" = "link_dotfile" ]; then
     current_dir=$(pwd)
     cd ~/.
-    ln -s $current_dir/.zshrc .zshrc 
+    ln -sf $current_dir/.zshrc .zshrc 
 fi
 

@@ -83,7 +83,7 @@ if [ $1 = "vim" ]; then
     echo "- install vim -"
     echo "---------------"
 
-    ./install_vim all
+    ./install_vim.sh all
 fi
 
 ##############
@@ -99,14 +99,13 @@ if [ $1 = "dsec" ]; then
 fi
 
 if [ $1 = "sec" ]; then
+    ./bootstrap.sh dsec
     cd sec
     
     echo "--------------"
     echo "- handle sec -"
     echo "--------------"
     
-    ./bootstrap.sh dsec
-
     ./sec.sh all
 fi
 
