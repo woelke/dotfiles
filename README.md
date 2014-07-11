@@ -7,7 +7,7 @@ My Dotefiles contain a quite complex vim configuration, my favorite Linux progra
 
 Requirement
 ===========
- * Git:
+** Git: **
     
     sudo apt-get install git    
 
