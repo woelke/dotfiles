@@ -1,18 +1,5 @@
 #!/bin/bash
 
-function ask_for {
-    while true; do 
-        echo $1
-        read -n 1 input
-        if [ $input = "Y" ] || [ $input = "y" ]; then
-            return 1
-        elif [ $input = "N" ] || [ $input = "n" ]; then
-            return 0 
-        fi
-    done
-}
-
-
 if [ $# = 0 ]; then
     ./bootstrap.sh programmes
     ./bootstrap.sh zsh 
@@ -32,16 +19,8 @@ if [ $1 = "programmes" ]; then
     echo "----------------------------"
     echo "- install linux programmes -"
     echo "----------------------------"
-
-    python3 linux_easy_install.py --check all
-    if [ $? != 0 ]; then
-        ask_for "Not all programmes can be installed. Shall I ignore these files? (Y/n)"
-        if [ $? = 0 ]; then
-            exit 0
-        fi
-    fi
-
-    python3 linux_easy_install.py --install all
+    
+    ./linux_programmes.sh all
 fi
 
 ###############
@@ -93,9 +72,9 @@ fi
 if [ $1 = "dsec" ]; then
     cd sec
 
-    gpg sec.tgz.gpg
-    tar --auto-compress --extract --file sec.tgz 
-    rm sec.tgz
+    gpg sec.tar.gz.gpg
+    tar --auto-compress --extract --file sec.tar.gz 
+    rm sec.tar.gz
 fi
 
 if [ $1 = "sec" ]; then
@@ -112,9 +91,9 @@ fi
 if [ $1 = "esec" ]; then
     cd sec
 
-    tar --gzip --create --file sec.tgz config sec.sh
-    gpg --cipher-algo AES256 --symmetric sec.tgz
-    rm sec.tgz
+    tar --gzip --create --file sec.tar.gz sec.sh .ssh 
+    gpg --cipher-algo AES256 --symmetric sec.tar.gz
+    rm sec.tar.gz
 fi
 
 
