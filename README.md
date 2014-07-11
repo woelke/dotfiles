@@ -5,9 +5,9 @@ This is my Dotefile project. I saved these files on Github just for myself, but 
 My Dotefiles contain a quite complex vim configuration, my favorite Linux programmes, a few helper scripts, and a simple zsh configuration.
 
 
-Requirement
+Requirements
 ===========
-** Git: **
+Git:
     
     sudo apt-get install git    
 

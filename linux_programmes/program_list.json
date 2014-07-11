@@ -17,6 +17,7 @@
     },
 
     "standard" : {
+        "nautilus-dropbox" : "",
         "xclip": "termianl clipboard tool",
         "pdftk": "pdf manipulator, pdf merge, etc.",
         "okular": "pdf viewer",
