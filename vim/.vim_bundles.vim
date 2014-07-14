@@ -74,7 +74,7 @@ Bundle 'vim-scripts/TaskList.vim'
 
 "ToDO
 "write an mcproxy script hihlighter
-
+"https://github.com/bbchung/clighter
 "book
 "http://learnvimscriptthehardway.stevelosh.com/
 
