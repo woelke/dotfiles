@@ -8,7 +8,6 @@ if [ "$1" = "all" ]; then
     vim -c "call InstallMe()"
     ./install_vim.sh link_dotfile
     ./install_vim.sh ycm
-    ./install_vim.sh nautilus 
 fi
 
 ##-- install vim --##
@@ -95,26 +94,6 @@ if [ "$1" = "ycm" ]; then
         #cd ~/.vim/bundle/YouCompleteMe
         #./install.sh --clang-completer --system-libclang
     #fi
-fi
-
-#add integration for nautilus file browser
-if [ "$1" = "nautilus" ]; then  
-    cd ~/.local/share/applications/
-
-cat > vim.desktop <<EOF 
-[Desktop Entry]
-Categories=;
-Comment=Edit file in Vim
-Exec=gvim %f
-GenericName=Process Viewer
-Hidden=false
-Icon=gvim
-Name=gvim
-Terminal=true
-Type=Application
-Version=1.0
-EOF
-
 fi
 
 ##-- install astyle --##

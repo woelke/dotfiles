@@ -6,6 +6,7 @@ if [ $# = 0 ]; then
     ./bootstrap.sh helper 
     ./bootstrap.sh vim 
     ./bootstrap.sh sec 
+    ./bootstrap.sh ubuntu 
     exit 0
 fi
 
@@ -97,3 +98,16 @@ if [ $1 = "esec" ]; then
 fi
 
 
+#################################
+# ubuntu specific configuration #
+#################################
+
+if [ $1 = "ubuntu" ]; then
+    cd ubuntu
+
+    echo "---------------------------------"
+    echo "- ubuntu specific configuration -"
+    echo "---------------------------------"
+
+    ./ubuntu.sh all
+fi
