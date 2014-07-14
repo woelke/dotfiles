@@ -91,6 +91,9 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 #############################
 export TERM=xterm-256color
 
+##-- generic open cmd --##
+alias o='gnome-open'
+
 ##-- pdf --##
 alias pdf='okular'
 
