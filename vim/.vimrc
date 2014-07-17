@@ -93,7 +93,7 @@ endfunction
 
 function! Set_options_for_texting()
     
-    setlocal spell spelllang=en_us
+    setlocal spell spelllang=en,de
 
     noremap <leader><leader>s :setlocal spell! spelllang=en_us<CR>
     call Set_makefile_shortcut_F5()
@@ -112,6 +112,7 @@ endfunction
 
 function! Set_makefile_shortcut_F5() 
     noremap <F5> :make<CR> :copen<CR> :redraw!<CR>
+    noremap <S-F5> :make clean<CR> :copen<CR> :redraw!<CR>
 endfunction 
 
 
@@ -318,17 +319,7 @@ inoremap <S-CR> <ESC>lDO<ESC>p0i
 " => test function 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! TestFunction()
-
-    let i = 0
-
-    while i < 10
-        echo i . getline(i)
-        let i += 1
-    endwhile
-
-
-
-
+    echo "bobbobobobo"
 endfunction 
 
 noremap <F4> :call TestFunction() <CR>

@@ -64,6 +64,8 @@ Bundle 'mcproxy/vim-mcproxy_conf_highlighting'
 "list all TODOs in your project
 Bundle 'vim-scripts/TaskList.vim'
 
+Bundle 'mattn/flappyvird-vim'
+
 "http://vimawesome.com/
 
 "the clean vimrc
