@@ -112,7 +112,7 @@ endfunction
 
 function! Set_makefile_shortcut_F5() 
     noremap <F5> :make<CR> :copen<CR> :redraw!<CR>
-    noremap <S-F5> :make clean<CR> :copen<CR> :redraw!<CR>
+    noremap <S-F5> :make clean<CR> :redraw!<CR>
 endfunction 
 
 
@@ -203,6 +203,8 @@ let g:syntastic_cpp_compiler_options = '-std=c++11'
 " => youcompleteme
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 noremap <leader><leader>j :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+let g:ycm_filetype_whitelist = { 'latex': 1 }
 let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1
 let g:ycm_seed_identifiers_with_syntax = 1
