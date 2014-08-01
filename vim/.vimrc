@@ -186,6 +186,10 @@ noremap <F12> :w <CR> :silent !astyle --quiet --style=1tbs --indent=spaces=4 --p
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 filetype plugin on
 
+let g:NERDCustomDelimiters = {
+    \ 'mcproxy': { 'left': '#' }
+    \}
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => syntastic
