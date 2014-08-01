@@ -126,34 +126,48 @@ set undodir=~/.vim/undo "where to save undo histories
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => gui options
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set guioptions-=m  "remove menu bar
-set guioptions-=T  "remove toolbar
-set guioptions-=r  "remove right-hand scroll bar
-set guioptions-=L  "remove left-hand scroll bar
-set guioptions-=l  "remove left-hand scroll bar
-set guifont=Monospace\ 12
-
-
 let s:pattern = '^\(.* \)\([1-9][0-9]*\)$'
 let s:minfontsize = 2
 let s:maxfontsize = 60 
 function! AdjustFontSize(amount)
-  if has("gui_gtk2") && has("gui_running")
-    let fontname = substitute(&guifont, s:pattern, '\1', '')
-    let cursize = substitute(&guifont, s:pattern, '\2', '')
-    let newsize = cursize + a:amount
-    if (newsize >= s:minfontsize) && (newsize <= s:maxfontsize)
-      let newfont = fontname . newsize
-      let &guifont = newfont
+    if has("gui_gtk2")
+        let fontname = substitute(&guifont, s:pattern, '\1', '')
+        let cursize = substitute(&guifont, s:pattern, '\2', '')
+        let newsize = cursize + a:amount
+        if (newsize >= s:minfontsize) && (newsize <= s:maxfontsize)
+            let newfont = fontname . newsize
+            let &guifont = newfont
+        endif
+    else
+        echoerr "You need to run the GTK2 version of Vim to use this function."
     endif
-  else
-    echoerr "You need to run the GTK2 version of Vim to use this function."
-  endif
 endfunction
 
-noremap <C-kPlus> :call AdjustFontSize(1)<CR>
-noremap <C-kMinus> :call AdjustFontSize(-1)<CR>
-noremap <C-kMultiply> :set guifont=Monospace\ 12<CR>
+function! Gui_shortcuts()
+    noremap <C-kPlus> :call AdjustFontSize(1)<CR>
+    noremap <C-kMinus> :call AdjustFontSize(-1)<CR>
+    noremap <C-kMultiply> :set guifont=Monospace\ 12<CR>
+
+    " avoid escape
+    inoremap <A-h> <ESC>h
+    inoremap <A-j> <ESC>j
+    inoremap <A-k> <ESC>k
+    inoremap <A-l> <ESC>l
+    inoremap <A-o> <ESC>o
+    inoremap <A-x> <ESC>x
+endfunction
+
+if has("gui_running") 
+    set guioptions-=m  "remove menu bar
+    set guioptions-=T  "remove toolbar
+    set guioptions-=r  "remove right-hand scroll bar
+    set guioptions-=L  "remove left-hand scroll bar
+    set guioptions-=l  "remove left-hand scroll bar
+    set guifont=Monospace\ 12
+
+    call Gui_shortcuts()
+endif
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => NERDTree options
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -204,7 +218,7 @@ let g:syntastic_cpp_compiler_options = '-std=c++11'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 noremap <leader><leader>j :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-let g:ycm_filetype_whitelist = { 'latex': 1 }
+"let g:ycm_filetype_whitelist = { 'latex': 1 }
 let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1
 let g:ycm_seed_identifiers_with_syntax = 1
