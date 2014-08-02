@@ -40,7 +40,8 @@
         "vlc": "multimedia player",
         "screen": "console emulation programm",
         "unrar": "",
-        "p7zip-rar": ""
+        "p7zip-rar": "",
+        "unison": "backup and syncronisation tool"
     }
 
 }
