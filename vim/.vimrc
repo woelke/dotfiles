@@ -329,6 +329,22 @@ let g:signify_disable_by_default = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vimwiki 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let wiki = {}
+let wiki.path = '~/Dropbox/MyDB/'
+let wiki.path_html = '~/Dropbox/MyDB/'
+
+"let wiki.template_path = '~/Dropbox/MyDB/.html/vimwiki-assets'
+"let wiki.template_default = 'default'
+"let wiki.template_ext = '.html'
+
+let wiki.auto_export = 1
+let wiki.ext = '.md'
+let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'shell': 'sh', 'sshconfig': 'sshconfig', 'gitconfig': 'gitconfig'}
+let g:vimwiki_list = [wiki]
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => my scripts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "inverse return
