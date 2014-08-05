@@ -80,6 +80,9 @@ Bundle 'mattn/flappyvird-vim'
 "book
 "http://learnvimscriptthehardway.stevelosh.com/
 
+"maybe better plugin manager
+"https://github.com/junegunn/vim-plug
+
 "an other formater
 "https://github.com/Chiel92/vim-autoformat
 

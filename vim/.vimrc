@@ -149,12 +149,32 @@ function! Gui_shortcuts()
     noremap <C-kMultiply> :set guifont=Monospace\ 12<CR>
 
     " avoid escape
+        "" moves
     inoremap <A-h> <ESC>h
+    "inoremap <A-j> <ESC><j>
     inoremap <A-j> <ESC>j
     inoremap <A-k> <ESC>k
     inoremap <A-l> <ESC>l
+    inoremap <A-b> <ESC>b
+    inoremap <A-w> <ESC>w
+    imap <A-f> <ESC>f
+    noremap <A-h> h 
+    noremap <A-j> j
+    noremap <A-k> k
+    noremap <A-l> l
+    noremap <A-b> b
+    noremap <A-w> w
+
+        "" modification
     inoremap <A-o> <ESC>o
+    inoremap <A-O> <ESC>O
     inoremap <A-x> <ESC>x
+    inoremap <A-0> <ESC>0
+    inoremap <A-$> <ESC>$
+    inoremap <A-u> <ESC>u
+    inoremap <A-C-r> <ESC><C-r>
+    inoremap <A-p> <ESC>p
+    inoremap <A-S-a> <ESC><S-a>
 endfunction
 
 if has("gui_running") 
@@ -181,7 +201,8 @@ autocmd vimenter * if !argc() | NERDTree | endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => NerdtreePluginOpen
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:nerdtree_plugin_open_cmd = 'gnome-open'
+let g:nerdtree_plugin_open_cmd = 'o'
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => astyle
