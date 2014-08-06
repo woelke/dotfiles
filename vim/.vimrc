@@ -22,7 +22,7 @@ set autoread
 set so=7
 
 " Turn on the WiLd menu
-set wildmenu
+set wildmenu "auto completion for vim commands
 
 colorscheme molokai
 set shell=/bin/bash\ -i 
@@ -34,7 +34,7 @@ set incsearch "Makes search act like search in modern browsers
 set showmatch "Show matching brackets when text indicator is over them
 set tabstop=4
 set shiftwidth=4
-set expandtab
+set expandtab "expand tabs with whitespaces"
 set mouse=a
 hi Search ctermbg=7 "grey
 set cindent
@@ -112,7 +112,7 @@ endfunction
 
 function! Set_makefile_shortcut_F5() 
     noremap <F5> :make<CR> :copen<CR> :redraw!<CR>
-    noremap <S-F5> :make clean<CR> :redraw!<CR>
+    noremap <S-F5> :make clean<CR> :copen<CR> :redraw!<CR>
 endfunction 
 
 
@@ -201,7 +201,7 @@ autocmd vimenter * if !argc() | NERDTree | endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => NerdtreePluginOpen
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:nerdtree_plugin_open_cmd = 'o'
+let g:nerdtree_plugin_open_cmd = 'gnome-open'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -350,6 +350,13 @@ let g:signify_disable_by_default = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => CtrlP
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ctrlp_custom_ignore = {
+  \ 'file': '\v\.(o|orig|swp)$'
+  \ }
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vimwiki 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let wiki = {}
@@ -360,7 +367,7 @@ let wiki.path_html = '~/Dropbox/MyDB/'
 "let wiki.template_default = 'default'
 "let wiki.template_ext = '.html'
 
-let wiki.auto_export = 1
+let wiki.auto_export = 0 
 let wiki.ext = '.md'
 let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'shell': 'sh', 'sshconfig': 'sshconfig', 'gitconfig': 'gitconfig'}
 let g:vimwiki_list = [wiki]
