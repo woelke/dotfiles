@@ -189,7 +189,8 @@ if has("gui_running")
     set guioptions-=L  "remove left-hand scroll bar
     set guioptions-=l  "remove left-hand scroll bar
     set guifont=Monospace\ 12
-
+    set guioptions+=c  "remove left-hand scroll bar
+    set winaltkeys=no
     call Gui_shortcuts()
 endif
 
