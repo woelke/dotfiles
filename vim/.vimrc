@@ -155,8 +155,7 @@ function! Gui_shortcuts()
 
     " avoid escape
         "" moves
-    inoremap <A-h> <ESC>h
-    "inoremap <A-j> <ESC><j>
+    inoremap <A-h> <ESC>
     inoremap <A-j> <ESC>j
     inoremap <A-k> <ESC>k
     inoremap <A-l> <ESC>l
