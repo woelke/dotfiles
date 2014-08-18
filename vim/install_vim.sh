@@ -13,6 +13,10 @@ fi
 ##-- install vim --##
 #https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source
 if [ "$1" = "install_vim" ]; then  
+    #this looks like the officaly way
+    #http://www.vim.org/mercurial.php
+    #need overwork
+    
   sudo apt-get -y install libncurses5-dev libgnome2-dev libgnomeui-dev \
     libgtk2.0-dev libatk1.0-dev libbonoboui2-dev \
     libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev ruby-dev mercurial
