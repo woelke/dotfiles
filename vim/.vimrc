@@ -100,7 +100,7 @@ function! Set_options_for_texting()
     
     setlocal spell spelllang=en,de
 
-    noremap <leader><leader>s :setlocal spell! spelllang=en_us<CR>
+    noremap <leader><leader>s :setlocal spell! spelllang=en,de<CR>
     call Set_makefile_shortcut_F5()
 
     "next wrong word
