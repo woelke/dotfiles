@@ -43,8 +43,14 @@ if [ $1 = "truecrypt" ]; then
     known_sum="43f895cfcdbe230907c47b4cd465e5c967bbe741a9b68512c09f809d1a2da1e9  truecrypt-7.1a-linux-x64.tar.gz"
     if [ "$calc_sum" = "$known_sum" ]; then
         tar -axf truecrypt-7.1a-linux-x64.tar.gz
-        ./truecrypt-7.1a-setup-x64 &
+        ./linux_programmes.sh run_and_clean_truecrypt &
     else 
         echo "Failed to install truecrypt! Checksum is incorrect."
     fi
+fi
+
+if [ $1 = "run_and_clean_truecrypt" ]; then
+        ./truecrypt-7.1a-setup-x64
+        rm truecrypt-7.1a-linux-x64.tar.gz
+        rm truecrypt-7.1a-setup-x64
 fi
