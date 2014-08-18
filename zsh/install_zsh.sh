@@ -8,7 +8,7 @@ fi
 if [ "$1" = "install" ]; then
     sudo apt-get -y install zsh
     git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh 
-    chsh -s /bin/zsh #change login shell 
+    sudo chsh -s /bin/zsh #change login shell 
 fi
 
 if [ "$1" = "link_dotfile" ]; then

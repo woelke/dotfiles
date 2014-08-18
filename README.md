@@ -17,6 +17,7 @@ Startup
 Run the following commands to configure all automatically:
 
     git clone https://github.com/aufgang001/dotfiles.git ~/.dotfiles
-    ~/.dotfiles/bootstrap.sh
+    cd ~/.dotfiles
+    ./bootstrap.sh
 
 
