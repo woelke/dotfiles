@@ -21,3 +21,8 @@ Run the following commands to configure all automatically:
     ./bootstrap.sh
 
 
+And reboot your system:
+
+    sudo reboot
+
+
