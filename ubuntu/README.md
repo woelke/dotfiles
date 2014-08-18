@@ -11,6 +11,9 @@ Disable the HUD (Head-Up-Display):
 
     Launcher -> Keyboard -> Shortcuts -> Key to show the HUD -> Backspace Key
 
+Uninstall gnome-keyring
+
+    sudo apt-get remove gnome-keyring
 
 
 
