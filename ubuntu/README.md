@@ -3,7 +3,7 @@ Ubuntu Specific Configuration
 
 Ubuntu 14.04
 ============
-Auto hide of Starter
+Auto hide of Launcher 
 
     Launcher -> Appearance -> Behavior -> Auto-hide the Launcher -> ON
 
