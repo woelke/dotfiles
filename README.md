@@ -6,7 +6,7 @@ My Dotefiles contain a quite complex vim configuration, my favorite Linux progra
 
 
 Requirements
-===========
+============
 Git:
     
     sudo apt-get install git    
@@ -25,4 +25,7 @@ And reboot your system:
 
     sudo reboot
 
+Specific Configuration
+======================
+[Ubuntu](ubuntu/README.md)
 
