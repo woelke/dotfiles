@@ -14,7 +14,7 @@ Disable the HUD (Head-Up-Display):
 Uninstall gnome-keyring:
 
     sudo apt-get remove gnome-keyring
-
+    sudo reboot 
 
 
 

@@ -21,7 +21,6 @@
         "nautilus-dropbox" : "",
         "xclip": "termianl clipboard tool",
         "pdftk": "pdf manipulator, pdf merge, etc.",
-        "okular": "pdf viewer",
         "numlockx": "set numlock a startup",
         "xsane": "scan programm",
         "links": "consolen browser",
@@ -42,8 +41,9 @@
         "screen": "console emulation programm",
         "unrar": "",
         "p7zip-rar": "",
-        "unison": "backup and syncronisation tool"
-        "htop": "process viewer like top"
+        "unison": "backup and syncronisation tool",
+        "htop": "process viewer like top",
+        "xournal": "app for pdf manipulation, notetaking, ..."
     }
 
 }

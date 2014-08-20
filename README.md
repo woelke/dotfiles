@@ -12,6 +12,11 @@ Git:
     sudo apt-get install git    
 
 
+Distribution specific configuration
+===================================
+[Ubuntu](ubuntu/README.md)
+
+
 Startup
 =======
 Run the following commands to configure all automatically:
@@ -25,7 +30,4 @@ And reboot your system:
 
     sudo reboot
 
-Specific Configuration
-======================
-[Ubuntu](ubuntu/README.md)
 
