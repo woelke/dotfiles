@@ -1,5 +1,4 @@
-" .vimrc
-
+#!/usr/bin/vim 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vundle
@@ -43,10 +42,9 @@ set autowriteall
 set cryptmethod=blowfish
 
 "speed up vim
-set synmaxcol=200
+set synmaxcol=2000
 set ttyfast "u got a fast terminal
 set lazyredraw " to avoid scrolling problems
-set nocompatible 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => short keys

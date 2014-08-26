@@ -1,4 +1,5 @@
-"vundle
+#!/usr/bin/vim 
+
 set nocompatible               " be improved
 filetype off                   " required!
 
@@ -50,6 +51,7 @@ Bundle 'vim-scripts/DrawIt'
 Bundle 'kien/tabman.vim'
 Bundle 'rhysd/vim-clang-format'
 Bundle 'aufgang001/vim-nerdtree_plugin_open'
+Bundle 'markgandolfo/nerdtree-fetch.vim'
 Bundle 'myusuf3/numbers.vim'
 Bundle 'Yggdroot/indentLine'
 Bundle 'junegunn/goyo.vim'
@@ -66,7 +68,15 @@ Bundle 'vim-scripts/TaskList.vim'
 
 Bundle 'mattn/flappyvird-vim'
 
+"currently not working, we should wait a while
+"Bundle 'XadillaX/json-formatter.vim'
+
+"this looks cool
+"http://www.vim.org/scripts/script.php?script_id=4957#1.0.3
+
 "http://vimawesome.com/
+
+"http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
 
 "the clean vimrc
 "http://usevim.com/2012/05/09/clean-vimrc/
