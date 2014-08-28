@@ -2,7 +2,7 @@
 
 if [ "$1" = "all" ]; then
     ./install_vim.sh install_vim
-    ./install_vim.sh vundle
+    ./install_vim.sh vim-plug 
     ./install_vim.sh undotree 
     ./install_vim.sh link_dotfile_init
     vim -c "call InstallMe()"
@@ -43,21 +43,18 @@ if [ "$1" = "install_vim" ]; then
   sudo update-alternatives --set vi /usr/bin/vim
 fi
 
-
-##-- install vundle --##
-#plugin manager für vim
-#https://github.com/gmarik/vundle#about
-#http://gmarik.info/blog/2011/05/17/chicken-or-egg-dilemma
-if [ "$1" = "vundle" ]; then  
-    git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-#cmd in vim ausführen :BundleInstall
+##--install vim-plug --##
+#plugin manager for vim
+#https://github.com/junegunn/vim-plug
+if [ "$1" = "vim-plug" ]; then  
+    mkdir -p ~/.vim/autoload
+    curl -fLo ~/.vim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
-
 
 ##-- configure persistent undo tree --##
 #selbst definierter speicherort für alle undo dateien
 if [ "$1" = "undotree" ]; then  
-    mkdir ~/.vim/undo
+    mkdir -p ~/.vim/undo
 fi
 
 
@@ -86,9 +83,9 @@ fi
 #https://github.com/Valloric/YouCompleteMe/blob/master/cpp/ycm/.ycm_extra_conf.py
 if [ "$1" = "ycm" ]; then  
     sudo apt-get install python-dev
-    whereami=$(pwd)
-    cd ~/.vim/bundle/YouCompleteMe
-    ./install.sh --clang-completer 
+    #whereami=$(pwd)
+    #cd ~/.vim/bundle/YouCompleteMe
+    #./install.sh --clang-completer 
 
     #if [ "$2" = "problem" ]; then  
         #cd $whereami 
@@ -98,19 +95,6 @@ if [ "$1" = "ycm" ]; then
         #cd ~/.vim/bundle/YouCompleteMe
         #./install.sh --clang-completer --system-libclang
     #fi
-fi
-
-##-- install astyle --##
-#source code formatter
-#http://astyle.sourceforge.net/
-#für später sudo apt-get install astyle
-if [ "$1" = "astyle" ]; then  
-    cd ~/Downloads
-#downlaod  http://sourceforge.net/projects/astyle/"
-    tar xfvz astyle_2.03_linux.tar.gz
-    cd astyle/build/gcc
-    make
-    sudo make install
 fi
 
 ##-- install plyclewn --##

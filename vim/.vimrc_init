@@ -2,12 +2,12 @@
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => vundle
+" => vim-plug 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 source ~/.vim_bundles.vim
 
 
 function! InstallMe() 
-    :BundleInstall
+    :PlugInstall
     :qa!    
 endfunction 

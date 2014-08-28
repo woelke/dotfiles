@@ -9,6 +9,11 @@ source ~/.vim_bundles.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => general settings 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"be improved
+set nocompatible  
+
+let s:myOpenCmd = "gnome-open"
+
 let mapleader = ","
 
 " Set to auto read when a file is changed from the outside
@@ -60,15 +65,13 @@ noremap <leader><leader>b :!bash<CR>
 noremap <leader><leader>i :set cindent! cindent?<CR>
 
 function! OpenUrlUnderCursor()
-execute "normal BvEy"
-let url=matchstr(@0, '[a-z]*:\/\/[^ >,;]*')
-if url != ""
-    "silent exec "!open -a ".path." '".url."'" | redraw! 
-    silent exec "!gnome-open  '".url."'"  | redraw! 
-    echo "opened ".url
-else
-    echo "No URL under cursor."
-endif
+    execute "normal BvEy"
+    let url=matchstr(@0, '[a-z]*:\/\/[^ >,;]*')
+    if url != ""
+        silent exec "!".s:myOpenCmd."  '".url."'"  | redraw! 
+    else
+        echo "No URL under cursor."
+    endif
 endfunction
 noremap <leader><leader>w :call OpenUrlUnderCursor()<CR>
 
@@ -85,7 +88,6 @@ autocmd! BufNewFile,BufRead \v*.c|*.cpp|*.h|*.hpp call Set_options_for_coding()
 autocmd! BufNewFile,BufRead,BufWritePost    \v.vimrc|*.vim call Set_options_for_vimrc()
 
 function! Set_options_for_coding() 
-    
     set cursorline "its to cpu CPU-intensive in latex files
 
     call Set_makefile_shortcut_F5()
@@ -95,7 +97,6 @@ function! Set_options_for_coding()
 endfunction 
 
 function! Set_options_for_texting()
-    
     setlocal spell spelllang=en,de
 
     call Set_makefile_shortcut_F5()
@@ -223,7 +224,7 @@ autocmd vimenter * if !argc() | NERDTree | endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => NerdtreePluginOpen
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:nerdtree_plugin_open_cmd = 'gnome-open'
+let g:nerdtree_plugin_open_cmd = s:myOpenCmd 
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -294,7 +295,7 @@ noremap <leader><leader>d :Pyclewn<CR> :Cmapkeys<CR> :Cshell setsid lxterminal -
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-g
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:vim_g_open_command = "gnome-open"
+let g:vim_g_open_command = s:myOpenCmd 
 let g:vim_g_perl_command = "perl"
 let g:vim_g_query_url = "http://google.com/search?q="
 let g:vim_g_command = "Google"

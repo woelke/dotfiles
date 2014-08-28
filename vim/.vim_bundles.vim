@@ -1,80 +1,72 @@
 #!/usr/bin/vim 
 
-set nocompatible               " be improved
-filetype off                   " required!
-
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-"let Vundle manage Vundle
-"required! 
-Bundle 'gmarik/vundle'
+call plug#begin('~/.vim/plugged')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "=> My Bundles:
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "filesystem navigator 
-Bundle 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 
 "syntax checking plugin
-Bundle 'scrooloose/syntastic' 
+Plug 'scrooloose/syntastic' 
 
 "commenting of code
-Bundle 'scrooloose/nerdcommenter' 
+Plug 'scrooloose/nerdcommenter' 
 
 "code-completion engine
-Bundle 'Valloric/YouCompleteMe' 
+Plug 'Valloric/YouCompleteMe', {'do': './install.sh --clang-completer'} 
 
 "snippet completion
-Bundle 'SirVer/ultisnips' 
+Plug 'SirVer/ultisnips' 
 
 "summary of snippets
-Bundle 'honza/vim-snippets.git'
+Plug 'honza/vim-snippets'
 
 "highlighting schemes
-Bundle 'flazz/vim-colorschemes' 
+Plug 'flazz/vim-colorschemes' 
 
 "git intergration
-Bundle 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 "unobtrusive git diff indicator
-Bundle 'mhinz/vim-signify'
+Plug 'mhinz/vim-signify'
 
 "translate words or phrases with goolge translater
-Bundle 'maksimr/vim-translator' 
+Plug 'maksimr/vim-translator' 
 
 "search for a word or a phrase on google
-Bundle 'szw/vim-g'
+Plug 'szw/vim-g'
 
-Bundle 'Raimondi/delimitMate'
-Bundle 'itchyny/lightline.vim'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'mbbill/undotree'
-Bundle 'LaTeX-Box-Team/LaTeX-Box'
-Bundle 'kien/ctrlp.vim'
-Bundle 'vim-scripts/DrawIt'
-Bundle 'kien/tabman.vim'
-Bundle 'rhysd/vim-clang-format'
-Bundle 'aufgang001/vim-nerdtree_plugin_open'
-Bundle 'markgandolfo/nerdtree-fetch.vim'
-Bundle 'myusuf3/numbers.vim'
-Bundle 'Yggdroot/indentLine'
-Bundle 'junegunn/goyo.vim'
-Bundle 'vimwiki/vimwiki'
+Plug 'Raimondi/delimitMate'
+Plug 'itchyny/lightline.vim'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'mbbill/undotree'
+Plug 'LaTeX-Box-Team/LaTeX-Box'
+Plug 'kien/ctrlp.vim'
+Plug 'vim-scripts/DrawIt'
+Plug 'kien/tabman.vim'
+Plug 'rhysd/vim-clang-format'
+Plug 'aufgang001/vim-nerdtree_plugin_open'
+Plug 'markgandolfo/nerdtree-fetch.vim'
+Plug 'myusuf3/numbers.vim'
+Plug 'Yggdroot/indentLine'
+Plug 'junegunn/goyo.vim'
+Plug 'vimwiki/vimwiki'
 
 "synatax highlighting pack
-Bundle 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot'
 
 "highlighting mcproxy config files
-Bundle 'mcproxy/vim-mcproxy_conf_highlighting'
+Plug 'mcproxy/vim-mcproxy_conf_highlighting'
 
 "list all TODOs in your project
-Bundle 'vim-scripts/TaskList.vim'
+Plug 'vim-scripts/TaskList.vim'
 
-Bundle 'mattn/flappyvird-vim'
+Plug 'mattn/flappyvird-vim'
 
 "currently not working, we should wait a while
-"Bundle 'XadillaX/json-formatter.vim'
+"Plug 'XadillaX/json-formatter.vim'
 
 "this looks cool
 "http://www.vim.org/scripts/script.php?script_id=4957#1.0.3
@@ -110,14 +102,15 @@ Bundle 'mattn/flappyvird-vim'
 "https://github.com/amix/vimrc ==> bääääm boooom bäsch get das up
 "FredKSchott/CoVim
 " non github repos
-"Bundle 'git://git.wincent.com/command-t.git'
+"Plug 'git://git.wincent.com/command-t.git'
 
 " git repos on your local machine (ie. when working on your own plugin)
-"Bundle 'file:///Users/gmarik/path/to/plugin'
+"Plug 'file:///Users/gmarik/path/to/plugin'
 
 " check this out https://github.com/spf13/spf13-vim
 " https://github.com/skwp/dotfiles
 
 " old plugins
-"Bundle 'mhinz/vim-startify' 
+"Plug 'mhinz/vim-startify' 
 
+call plug#end()
