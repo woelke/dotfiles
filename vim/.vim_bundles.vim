@@ -81,6 +81,9 @@ Bundle 'mattn/flappyvird-vim'
 "the clean vimrc
 "http://usevim.com/2012/05/09/clean-vimrc/
 
+"mybe better than vimwiki
+"https://github.com/Rykka/riv.vim
+
 "the better shell
 "http://code.hootsuite.com/vimshell/
 
