@@ -293,9 +293,20 @@ noremap <leader><leader>d :Pyclewn<CR> :Cmapkeys<CR> :Cshell setsid lxterminal -
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-g
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:vim_g_open_command = "gnome-open"
+let g:vim_g_perl_command = "perl"
+let g:vim_g_query_url = "http://google.com/search?q="
+let g:vim_g_command = "Google"
+noremap <leader><leader>g :Google<CR>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-translator
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:goog_user_conf = { 'langpair': 'en|de', 'v_key': 'T' }
+let g:goog_user_conf = { 'langpair': 'en|de' }
+noremap <leader><leader>t :call GoogTranslateBlock()<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -324,7 +335,7 @@ let g:goyo_width = 120
 let g:goyo_margin_top = 2
 let g:goyo_margin_bottom = 1
 
-noremap <Leader>z :Goyo<CR>  
+noremap <leader>z :Goyo<CR>  
 
 function! s:goyo_before()
     "call NumbersToggle()
@@ -409,4 +420,4 @@ function! TestFunction()
     echo "bobbobobobo"
 endfunction 
 
-noremap <F4> :call TestFunction() <CR>
+"noremap <F4> :call TestFunction() <CR>

@@ -40,7 +40,12 @@ Bundle 'tpope/vim-fugitive'
 "unobtrusive git diff indicator
 Bundle 'mhinz/vim-signify'
 
+"translate words or phrases with goolge translater
 Bundle 'maksimr/vim-translator' 
+
+"search for a word or a phrase on google
+Bundle 'szw/vim-g'
+
 Bundle 'Raimondi/delimitMate'
 Bundle 'itchyny/lightline.vim'
 Bundle 'Lokaltog/vim-easymotion'
