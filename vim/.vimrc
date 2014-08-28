@@ -64,7 +64,7 @@ execute "normal BvEy"
 let url=matchstr(@0, '[a-z]*:\/\/[^ >,;]*')
 if url != ""
     "silent exec "!open -a ".path." '".url."'" | redraw! 
-    silent exec "!xdg-open  '".url."'"  | redraw! 
+    silent exec "!gnome-open  '".url."'"  | redraw! 
     echo "opened ".url
 else
     echo "No URL under cursor."
@@ -98,7 +98,6 @@ function! Set_options_for_texting()
     
     setlocal spell spelllang=en,de
 
-    noremap <leader><leader>s :setlocal spell! spelllang=en,de<CR>
     call Set_makefile_shortcut_F5()
 
     "next wrong word
@@ -121,21 +120,20 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => spellcheck configurations 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-noremap zg :echo "asdf"<CR>zg
+noremap <leader><leader>s nospell 
+noremap <leader><leader>se :spelllang=en<CR>
+noremap <leader><leader>sd :spelllang=de<CR> 
+
+"short remminder form myself 
+noremap zg zg:echo "Think of uploading the spellfile!"<CR>
+
+"cleanup a spellfile (remove comments)
+noremap zc :runtime spell/cleanadd.vim<CR>
+
+"to sort a spellfile
+noremap zs :%sort 
 
 
-
-" Spell checking  --- 
-"if version >= 700
-  "hi clear SpellBad
-  "hi clear SpellCap
-  "hi clear SpellRare
-  "hi clear SpellLocal
-  "hi SpellBad    ctermfg=9
-  "hi SpellCap    ctermfg=3    cterm=underline
-  "hi SpellRare   ctermfg=13   cterm=underline
-  "hi SpellLocal  cterm=None
-"endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Undo files
@@ -417,7 +415,7 @@ inoremap <S-CR> <ESC>lDO<ESC>p0i
 " => test function 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! TestFunction()
-    echo "bobbobobobo"
+echo "bobbobobobo"
 endfunction 
 
 "noremap <F4> :call TestFunction() <CR>
