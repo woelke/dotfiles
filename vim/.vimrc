@@ -120,9 +120,10 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => spellcheck configurations 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-noremap <leader><leader>s nospell 
-noremap <leader><leader>se :spelllang=en<CR>
-noremap <leader><leader>sd :spelllang=de<CR> 
+noremap <leader><leader>s :setlocal nospell<CR> 
+noremap <leader><leader>se :setlocal spell<CR> :setlocal spelllang=en<CR>
+noremap <leader><leader>sd :setlocal spell<CR> :setlocal spelllang=de<CR> 
+noremap <leader><leader>sa :setlocal spell<CR> :setlocal spelllang=de,en<CR> 
 
 "short remminder form myself 
 noremap zg zg:echo "Think of uploading the spellfile!"<CR>
