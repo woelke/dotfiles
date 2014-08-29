@@ -118,6 +118,7 @@ function! Set_makefile_shortcut_F5()
     noremap <S-F5> :make clean<CR> :copen<CR> :redraw!<CR>
 endfunction 
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => spellcheck configurations 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -125,16 +126,6 @@ noremap <leader><leader>s :setlocal nospell<CR>
 noremap <leader><leader>se :setlocal spell<CR> :setlocal spelllang=en<CR>
 noremap <leader><leader>sd :setlocal spell<CR> :setlocal spelllang=de<CR> 
 noremap <leader><leader>sa :setlocal spell<CR> :setlocal spelllang=de,en<CR> 
-
-"short remminder form myself 
-noremap zg zg:echo "Think of uploading the spellfile!"<CR>
-
-"cleanup a spellfile (remove comments)
-noremap zc :runtime spell/cleanadd.vim<CR>
-
-"to sort a spellfile
-noremap zs :%sort 
-
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

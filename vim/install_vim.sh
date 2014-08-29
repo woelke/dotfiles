@@ -26,7 +26,7 @@ if [ "$1" = "install_vim" ]; then
 
   cd ~
   hg clone https://code.google.com/p/vim/
-  cd vim
+  cd vim_build
   ./configure --with-features=huge \
               --enable-rubyinterp \
               --enable-pythoninterp \
@@ -41,6 +41,10 @@ if [ "$1" = "install_vim" ]; then
   sudo update-alternatives --set editor /usr/bin/vim
   sudo update-alternatives --install /usr/bin/vi vi /usr/bin/vim 1
   sudo update-alternatives --set vi /usr/bin/vim
+ 
+  #remove build directory  
+  cd ~
+  rm -rf vim_build
 fi
 
 ##--install vim-plug --##

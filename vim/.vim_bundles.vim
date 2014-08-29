@@ -65,6 +65,10 @@ Plug 'vim-scripts/TaskList.vim'
 
 Plug 'mattn/flappyvird-vim'
 
+"my synconized spell files
+Plug 'aufgang001/vim-custom_spellfile', {'do': './install.sh'} 
+
+
 "currently not working, we should wait a while
 "Plug 'XadillaX/json-formatter.vim'
 
