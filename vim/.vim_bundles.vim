@@ -88,6 +88,9 @@ Plug 'aufgang001/vim-custom_spellfile', {'do': './install.sh'}
 "the better shell
 "http://code.hootsuite.com/vimshell/
 
+"language detection
+"https://github.com/daaugusto/spelllangidentifier
+
 "ToDO
 "write an mcproxy script hihlighter
 "https://github.com/bbchung/clighter

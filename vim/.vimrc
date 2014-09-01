@@ -38,6 +38,7 @@ set incsearch "Makes search act like search in modern browsers
 set showmatch "Show matching brackets when text indicator is over them
 set tabstop=4
 set shiftwidth=4
+set backspace=indent,eol,start " backspacing over autoindent, line breaks, start of insert
 set expandtab "expand tabs with whitespaces"
 set mouse=a
 hi Search ctermbg=7 "grey
@@ -97,7 +98,7 @@ function! Set_options_for_coding()
 endfunction 
 
 function! Set_options_for_texting()
-    setlocal spell spelllang=en,de
+    setlocal spell spelllang=de,en
 
     call Set_makefile_shortcut_F5()
 
@@ -184,6 +185,7 @@ function! Gui_shortcuts()
     inoremap <A-O> <ESC>O
     inoremap <A-x> <ESC>x
     inoremap <A-S-d> <ESC>l<S-d>
+    inoremap <A-d>w <ESC>dw
     inoremap <A-u> <ESC>u
     inoremap <A-C-r> <ESC><C-r>
     inoremap <A-p> <ESC>p
@@ -385,8 +387,8 @@ let g:ctrlp_custom_ignore = {
 " => vimwiki 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let wiki = {}
-let wiki.path = '~/Dropbox/MyDB/'
-let wiki.path_html = '~/Dropbox/MyDB/'
+let wiki.path = '~/Dropbox/MyWiki/'
+let wiki.path_html = '~/Dropbox/MyWiki/'
 
 "let wiki.template_path = '~/Dropbox/MyDB/.html/vimwiki-assets'
 "let wiki.template_default = 'default'
