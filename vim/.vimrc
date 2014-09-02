@@ -185,7 +185,7 @@ function! Gui_shortcuts()
     inoremap <A-O> <ESC>O
     inoremap <A-x> <ESC>x
     inoremap <A-S-d> <ESC>l<S-d>
-    inoremap <A-d>w <ESC>dw
+    inoremap <A-d>w <ESC>ldw
     inoremap <A-u> <ESC>u
     inoremap <A-C-r> <ESC><C-r>
     inoremap <A-p> <ESC>p
