@@ -1,5 +1,4 @@
 #!/usr/bin/vim 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vundle
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -183,7 +182,7 @@ function! Gui_shortcuts()
         "" modifications
     inoremap <A-o> <ESC>o
     inoremap <A-O> <ESC>O
-    inoremap <A-x> <ESC>x
+    inoremap <A-x> <ESC>lx
     inoremap <A-S-d> <ESC>l<S-d>
     inoremap <A-d>w <ESC>ldw
     inoremap <A-u> <ESC>u
