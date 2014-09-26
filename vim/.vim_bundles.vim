@@ -24,7 +24,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 "highlighting schemes
-Plug 'flazz/vim-colorschemes' 
+Plug 'flazz/vim-colorschemes'
 
 "git intergration
 Plug 'tpope/vim-fugitive'
@@ -42,7 +42,6 @@ Plug 'Raimondi/delimitMate'
 Plug 'itchyny/lightline.vim'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'mbbill/undotree'
-Plug 'LaTeX-Box-Team/LaTeX-Box'
 Plug 'kien/ctrlp.vim'
 Plug 'vim-scripts/DrawIt'
 Plug 'kien/tabman.vim'
