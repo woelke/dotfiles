@@ -116,8 +116,18 @@ Plug 'aufgang001/vim-custom_spellfile', {'do': './install.sh'}
 
 " check this out https://github.com/spf13/spf13-vim
 " https://github.com/skwp/dotfiles
+"
+" maybe a better vimplugin
+" http://www.vim.org/scripts/script.php?script_id=3508#1.3.13
 
+
+" an autosave plugin
+" https://github.com/907th/vim-auto-save
+" 
 " old plugins
 "Plug 'mhinz/vim-startify' 
+
+
+
 
 call plug#end()
