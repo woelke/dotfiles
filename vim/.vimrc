@@ -168,11 +168,12 @@ function! Gui_shortcuts()
     inoremap <A-j> <ESC>j
     inoremap <A-k> <ESC>k
     inoremap <A-l> <ESC>l
-    inoremap <A-b> <ESC>b
+    inoremap <A-b> <ESC>lb
     inoremap <A-w> <ESC>w
     inoremap <A-e> <ESC>e
     inoremap <A-0> <ESC>0
     inoremap <A-$> <ESC>$
+    inoremap <A-v> <ESC>v
     imap <A-f> <ESC>f
     noremap <A-h> h 
     noremap <A-j> j
