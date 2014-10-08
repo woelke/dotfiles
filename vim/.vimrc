@@ -83,7 +83,7 @@ inoremap <F9> <ESC>:q<CR>
 noremap <F8> :wa<CR>
 inoremap <F8> <ESC>:wa<CR>
 
-autocmd! BufNewFile,BufRead \v*.md|*.tex|README|*.md|COMMIT_EDITMSG call Set_options_for_texting()
+autocmd! BufNewFile,BufRead \v*.md|*.tex|README|*.md|COMMIT_EDITMSG|de.utf-8.add call Set_options_for_texting()
 autocmd! BufNewFile,BufRead \v*.c|*.cpp|*.h|*.hpp call Set_options_for_coding()
 autocmd! BufNewFile,BufRead,BufWritePost    \v.vimrc|*.vim call Set_options_for_vimrc()
 
@@ -105,7 +105,9 @@ function! Set_options_for_texting()
     noremap <F6> ]s 
     
     "previous wrong word
-    noremap <F7> [s 
+    "h is a bugfix: I had a problem with a latex file and the keybinding
+    "]s. It jumps to the second letter of the next wrong written word, which blocks the backword jump .. for whatever reason
+    noremap <F7> h[s 
 endfunction
 
 function! Set_options_for_vimrc() 
