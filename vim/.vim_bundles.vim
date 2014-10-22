@@ -17,20 +17,8 @@ Plug 'scrooloose/nerdcommenter'
 "code-completion engine
 Plug 'Valloric/YouCompleteMe', {'do': './install.sh --clang-completer'} 
 
-"snippet completion
-Plug 'SirVer/ultisnips' 
-
-"summary of snippets
-Plug 'honza/vim-snippets'
-
 "highlighting schemes
 Plug 'flazz/vim-colorschemes'
-
-"git intergration
-Plug 'tpope/vim-fugitive'
-
-"unobtrusive git diff indicator
-Plug 'mhinz/vim-signify'
 
 "translate words or phrases with goolge translater
 Plug 'maksimr/vim-translator' 
@@ -61,8 +49,6 @@ Plug 'mcproxy/vim-mcproxy_conf_highlighting'
 
 "list all TODOs in your project
 Plug 'vim-scripts/TaskList.vim'
-
-Plug 'mattn/flappyvird-vim'
 
 "my synconized spell files
 Plug 'aufgang001/vim-custom_spellfile', {'do': './install.sh'} 

@@ -83,7 +83,7 @@ inoremap <F9> <ESC>:q<CR>
 noremap <F8> :wa<CR>
 inoremap <F8> <ESC>:wa<CR>
 
-autocmd! BufNewFile,BufRead \v*.md|*.tex|README|*.md|COMMIT_EDITMSG|de.utf-8.add call Set_options_for_texting()
+autocmd! BufNewFile,BufRead \v*.mywiki|*.tex|README|*.md|COMMIT_EDITMSG|de.utf-8.add call Set_options_for_texting()
 autocmd! BufNewFile,BufRead \v*.c|*.cpp|*.h|*.hpp call Set_options_for_coding()
 autocmd! BufNewFile,BufRead,BufWritePost    \v.vimrc|*.vim call Set_options_for_vimrc()
 
@@ -174,6 +174,8 @@ function! Gui_shortcuts()
     inoremap <A-0> <ESC>0
     inoremap <A-$> <ESC>$
     inoremap <A-v> <ESC>v
+    inoremap <A-n> <ESC>n
+    inoremap <A-S-n> <ESC><S-n>
     imap <A-f> <ESC>f
     noremap <A-h> h 
     noremap <A-j> j
@@ -184,7 +186,7 @@ function! Gui_shortcuts()
 
         "" modifications
     inoremap <A-o> <ESC>o
-    inoremap <A-O> <ESC>O
+    inoremap <A-S-o> <ESC><S-o>
     inoremap <A-x> <ESC>lx
     inoremap <A-S-d> <ESC>l<S-d>
     inoremap <A-d>w <ESC>ldw
@@ -350,35 +352,6 @@ let g:goyo_callbacks = [function('s:goyo_before'), function('s:goyo_after')]
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Fugitive 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <silent> <leader>gs :Gstatus<CR>
-nnoremap <silent> <leader>gd :Gdiff<CR>
-nnoremap <silent> <leader>gc :Gcommit<CR>
-nnoremap <silent> <leader>gb :Gblame<CR>
-nnoremap <silent> <leader>gl :Glog<CR>
-nnoremap <silent> <leader>gp :Git push<CR>
-
-"same as: git checkout %
-nnoremap <silent> <leader>gr :Gread<CR>
-
-"same as: git add %
-nnoremap <silent> <leader>gw :Gwrite<CR> 
-
-nnoremap <silent> <leader>ge :Gedit<CR>
-nnoremap <silent> <leader>gi :Git add -p %<CR>
-
-"small tool to indicate git dffs
-nnoremap <silent> <leader>gg :SignifyToggle<CR>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => vim-signify 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:signify_disable_by_default = 1
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => CtrlP
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ctrlp_custom_ignore = {
@@ -397,9 +370,12 @@ let wiki.path_html = '~/Dropbox/MyWiki/'
 "let wiki.template_ext = '.html'
 
 let wiki.auto_export = 0 
-let wiki.ext = '.md'
+let wiki.ext = '.mywiki'
 let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'shell': 'sh', 'sshconfig': 'sshconfig', 'gitconfig': 'gitconfig'}
 let g:vimwiki_list = [wiki]
+
+
+let g:vimwiki_ext2syntax = {'.mywiki': 'default'} 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => my scripts
