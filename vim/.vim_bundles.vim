@@ -108,6 +108,8 @@ Plug 'aufgang001/vim-custom_spellfile', {'do': './install.sh'}
 "F5 auto make file 
 "johnsyweb/vim-makeshift
 
+"GDB extension
+"http://www.vim.org/scripts/script.php?script_id=4582#0.11
 
 " an autosave plugin
 " https://github.com/907th/vim-auto-save
