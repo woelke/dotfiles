@@ -14,7 +14,8 @@
         "texlive-full": "",
         "r-base": "",
         "astyle": "",
-        "clang": ""
+        "clang": "",
+        "unifdef": "remove preprocessor conditionsals from code"
     },
 
     "standard" : {
