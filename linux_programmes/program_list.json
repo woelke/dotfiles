@@ -44,7 +44,9 @@
         "p7zip-rar": "",
         "unison": "backup and syncronisation tool",
         "htop": "process viewer like top",
-        "xournal": "app for pdf manipulation, notetaking, ..."
+        "xournal": "app for pdf manipulation, notetaking, ...",
+        "kazam": "simple screen recording program"
+
     }
 
 }

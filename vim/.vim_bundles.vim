@@ -35,7 +35,6 @@ Plug 'vim-scripts/DrawIt'
 Plug 'kien/tabman.vim'
 Plug 'rhysd/vim-clang-format'
 Plug 'aufgang001/vim-nerdtree_plugin_open'
-Plug 'markgandolfo/nerdtree-fetch.vim'
 Plug 'myusuf3/numbers.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'junegunn/goyo.vim'
@@ -53,6 +52,9 @@ Plug 'vim-scripts/TaskList.vim'
 "my synconized spell files
 Plug 'aufgang001/vim-custom_spellfile', {'do': './install.sh'} 
 
+
+"Sammlung von Basis Eisntellungen
+"http://usevim.com/2014/11/07/opinion/
 
 "currently not working, we should wait a while
 "Plug 'XadillaX/json-formatter.vim'

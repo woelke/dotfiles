@@ -389,7 +389,7 @@ inoremap <S-CR> <ESC>lDO<ESC>p0i
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => test function 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! TestFunction()
+function! Test()
 echo "bobbobobobo"
 endfunction 
 
