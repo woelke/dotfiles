@@ -64,17 +64,6 @@ noremap <leader><leader>l :set cursorline! cursorline?<CR>
 noremap <leader><leader>b :!bash<CR>
 noremap <leader><leader>i :set cindent! cindent?<CR>
 
-function! OpenUrlUnderCursor()
-    execute "normal BvEy"
-    let url=matchstr(@0, '[a-z]*:\/\/[^ >,;]*')
-    if url != ""
-        silent exec "!".s:myOpenCmd."  '".url."'"  | redraw! 
-    else
-        echo "No URL under cursor."
-    endif
-endfunction
-noremap <leader><leader>w :call OpenUrlUnderCursor()<CR>
-
 noremap <leader><leader>pp :hardcopy > this_file_is_for_printing_only.ps<CR> :!gtklp this_file_is_for_printing_only.ps<CR> :!rm this_file_is_for_printing_only.ps<CR>
 noremap <leader><leader>pf :hardcopy > %.ps<CR> :!ps2pdf %".ps" %.pdf<CR> :!rm %.ps<CR> :!pdf %.pdf<CR>
 
@@ -292,23 +281,6 @@ noremap <leader><leader>d :Pyclewn<CR> :Cmapkeys<CR> :Cshell setsid lxterminal -
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => vim-g
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:vim_g_open_command = s:myOpenCmd 
-let g:vim_g_perl_command = "perl"
-let g:vim_g_query_url = "http://google.com/search?q="
-let g:vim_g_command = "Google"
-noremap <leader><leader>g :Google<CR>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => vim-translator
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:goog_user_conf = { 'langpair': 'en|de' }
-noremap <leader><leader>t :call GoogTranslateBlock()<CR>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => ligthline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set laststatus=2
@@ -378,6 +350,39 @@ let g:vimwiki_list = [wiki]
 
 
 let g:vimwiki_ext2syntax = {'.mywiki': 'default'} 
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => www  (https://github.com/waiting-for-dev/www.vim)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:www_urls = {
+         \ 'd?' : 'http://www.dict.cc/?s=',
+         \ 'g?' : 'https://www.google.com/search?q=',
+         \ 'c?' : 'http://en.cppreference.com/w/cpp/io/',
+         \ 'te?' : 'https://translate.google.de/#ne/de/',
+         \ 'td?' : 'https://translate.google.de/#de/ne/',
+         \ }
+
+
+let g:www_default_search_engine = 'g?'
+
+"dict.cc
+vnoremap <leader>wd :call www#www#open_reference('d?'.@*)<CR>
+nnoremap <leader>wd :call www#www#open_reference('d?'.expand("<cWORD>"))<CR>
+
+"google.de
+vnoremap <leader>wg :call www#www#open_reference('g?'.@*)<CR>
+nnoremap <leader>wg :call www#www#open_reference('g?'.expand("<cWORD>"))<CR>
+
+"cppreference.com
+vnoremap <leader>wc :call www#www#open_reference('c?'.@*)<CR>
+nnoremap <leader>wc :call www#www#open_reference('c?'.expand("<cWORD>"))<CR>
+
+"google translater
+vnoremap <leader>wte :call www#www#open_reference('te?'.@*)<CR>
+nnoremap <leader>wte :call www#www#open_reference('te?'.expand("<cWORD>"))<CR>
+vnoremap <leader>wtd :call www#www#open_reference('td?'.@*)<CR>
+nnoremap <leader>wtd :call www#www#open_reference('td?'.expand("<cWORD>"))<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => my scripts

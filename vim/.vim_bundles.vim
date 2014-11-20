@@ -20,12 +20,6 @@ Plug 'Valloric/YouCompleteMe', {'do': './install.sh --clang-completer'}
 "highlighting schemes
 Plug 'flazz/vim-colorschemes'
 
-"translate words or phrases with goolge translater
-Plug 'maksimr/vim-translator' 
-
-"search for a word or a phrase on google
-Plug 'szw/vim-g'
-
 Plug 'Raimondi/delimitMate'
 Plug 'itchyny/lightline.vim'
 Plug 'Lokaltog/vim-easymotion'
@@ -52,9 +46,14 @@ Plug 'vim-scripts/TaskList.vim'
 "my synconized spell files
 Plug 'aufgang001/vim-custom_spellfile', {'do': './install.sh'} 
 
+"opens URLs in browser
+Plug 'waiting-for-dev/www.vim'
 
 "Sammlung von Basis Eisntellungen
 "http://usevim.com/2014/11/07/opinion/
+
+"vimwiki with tagbar
+"https://github.com/vimwiki/vimwiki/issues/36    https://gist.github.com/EinfachToll/9071573
 
 "currently not working, we should wait a while
 "Plug 'XadillaX/json-formatter.vim'
