@@ -359,8 +359,8 @@ let g:www_urls = {
          \ 'd?' : 'http://www.dict.cc/?s=',
          \ 'g?' : 'https://www.google.com/search?q=',
          \ 'c?' : 'http://en.cppreference.com/w/cpp/io/',
-         \ 'te?' : 'https://translate.google.de/#ne/de/',
-         \ 'td?' : 'https://translate.google.de/#de/ne/',
+         \ 'te?' : 'https://translate.google.de/#en/de/',
+         \ 'td?' : 'https://translate.google.de/#de/en/',
          \ }
 
 
