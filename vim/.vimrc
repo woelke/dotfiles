@@ -11,8 +11,7 @@ source ~/.vim_bundles.vim
 "be improved
 set nocompatible  
 
-let s:myOpenCmd = "gnome-open"
-
+let g:myOpenCmd = "gnome-open"
 let mapleader = ","
 
 " Set to auto read when a file is changed from the outside
@@ -65,7 +64,7 @@ noremap <leader><leader>b :!bash<CR>
 noremap <leader><leader>i :set cindent! cindent?<CR>
 
 noremap <leader><leader>pp :hardcopy > this_file_is_for_printing_only.ps<CR> :!gtklp this_file_is_for_printing_only.ps<CR> :!rm this_file_is_for_printing_only.ps<CR>
-noremap <leader><leader>pf :hardcopy > %.ps<CR> :!ps2pdf %".ps" %.pdf<CR> :!rm %.ps<CR> :!pdf %.pdf<CR>
+noremap <leader><leader>pf :hardcopy > %.ps<CR> :!ps2pdf %".ps" %.pdf<CR> :!rm %.ps<CR> :execute system(g:myOpenCmd." ".expand("%").".pdf")<CR>
 
 noremap <F9> :q<CR> 
 inoremap <F9> <ESC>:q<CR> 
@@ -212,7 +211,7 @@ autocmd vimenter * if !argc() | NERDTree | endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => NerdtreePluginOpen
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:nerdtree_plugin_open_cmd = s:myOpenCmd 
+let g:nerdtree_plugin_open_cmd = g:myOpenCmd 
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
