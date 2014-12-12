@@ -48,7 +48,6 @@ Plug 'aufgang001/vim-custom_spellfile', {'do': './install.sh'}
 
 "opens URLs in browser
 Plug 'waiting-for-dev/www.vim'
-
 "Sammlung von Basis Eisntellungen
 "http://usevim.com/2014/11/07/opinion/
 

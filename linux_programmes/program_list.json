@@ -45,6 +45,7 @@
         "unison": "backup and syncronisation tool",
         "htop": "process viewer like top",
         "xournal": "app for pdf manipulation, notetaking, ...",
+        "gparted": "storage partionition application",
         "kazam": "simple screen recording program"
 
     }
