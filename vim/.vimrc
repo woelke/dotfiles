@@ -104,7 +104,7 @@ function! Set_options_for_vimrc()
 endfunction 
 
 function! Set_makefile_shortcut_F5() 
-    noremap <F5> :make<CR> :copen<CR> :redraw!<CR>
+    noremap <F5> :make!<CR> :copen<CR> :redraw!<CR>
     noremap <S-F5> :make clean<CR> :copen<CR> :redraw!<CR>
     noremap <C-S-F5> :make ARGS=% run<CR> :copen<CR> :redraw!<CR>
 endfunction 
