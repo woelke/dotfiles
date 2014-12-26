@@ -85,6 +85,18 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 
+##################
+##-- My Stuff --##
+##################
+vman() {
+    #run command SuperMan and add opend manual to arglist 
+    #this is nessasary to prevent NERDTree from pop-up
+    vim -c "SuperMan $*" -c "argadd %" 
+
+    if [ "$?" != "0" ]; then
+        echo "No manual entry for $*"
+    fi
+}
 
 #############################
 ##-- bash simplification --##

@@ -34,6 +34,9 @@ Plug 'Yggdroot/indentLine'
 Plug 'junegunn/goyo.vim'
 Plug 'vimwiki/vimwiki'
 
+"Read Unix Man pages in vim
+Plug 'Z1MM32M4N/vim-superman'
+
 "synatax highlighting pack
 Plug 'sheerun/vim-polyglot'
 
