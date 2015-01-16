@@ -116,6 +116,9 @@ Plug 'waiting-for-dev/www.vim'
 
 " an autosave plugin
 " https://github.com/907th/vim-auto-save
+
+"colobration 
+"https://github.com/Floobits/floobits-vim
 " 
 " old plugins
 "Plug 'mhinz/vim-startify' 
