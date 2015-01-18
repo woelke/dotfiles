@@ -8,46 +8,37 @@ source ~/.vim_bundles.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => general settings 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"be improved
-set nocompatible  
+set nocompatible "be improved
 
 let g:myOpenCmd = "gnome-open"
 let mapleader = ","
 
-" Set to auto read when a file is changed from the outside
-set autoread
+set autoread "set to auto read when a file is changed from the outside
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Set 7 lines to the cursor - when moving vertically using j/k
-set so=7
-
-" Turn on the WiLd menu
-set wildmenu "auto completion for vim commands
+set scrolloff=7 "Set 7 lines to the cursor - when moving vertically using j/k
 
 colorscheme molokai
 set shell=/bin/bash\ -i 
 syntax on
-set number
+set number "show line numbers
 set ignorecase "Ignore case when searching
 set smartcase "When searching try to be smart about cases
-set incsearch "Makes search act like search in modern browsers
 set showmatch "Show matching brackets when text indicator is over them
 set tabstop=4
 set shiftwidth=4
-set backspace=indent,eol,start " backspacing over autoindent, line breaks, start of insert
 set expandtab "expand tabs with whitespaces"
 set mouse=a
 hi Search ctermbg=7 "grey
-set cindent
 set hlsearch
 set autowriteall
 set cryptmethod=blowfish
 
 "speed up vim
 set synmaxcol=2000
-set ttyfast "u got a fast terminal
+set ttyfast "you got a fast terminal
 set lazyredraw " to avoid scrolling problems
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

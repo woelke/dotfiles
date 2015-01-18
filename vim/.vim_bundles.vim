@@ -5,6 +5,9 @@ call plug#begin('~/.vim/plugged')
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "=> My Bundles:
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"an universal set of defaults that (hopefully) everyone can agree on
+Plug 'aufgang001/vim-sensible'
+
 "filesystem navigator 
 Plug 'scrooloose/nerdtree'
 
@@ -20,6 +23,12 @@ Plug 'Valloric/YouCompleteMe', {'do': './install.sh --clang-completer'}
 "highlighting schemes
 Plug 'flazz/vim-colorschemes'
 
+"displaying thin vertical lines at each indentation level
+Plug 'Yggdroot/indentLine'
+
+"intelligently toggling line numbers
+Plug 'myusuf3/numbers.vim'
+
 Plug 'Raimondi/delimitMate'
 Plug 'itchyny/lightline.vim'
 Plug 'Lokaltog/vim-easymotion'
@@ -29,8 +38,7 @@ Plug 'vim-scripts/DrawIt'
 Plug 'kien/tabman.vim'
 Plug 'rhysd/vim-clang-format'
 Plug 'aufgang001/vim-nerdtree_plugin_open'
-Plug 'myusuf3/numbers.vim'
-Plug 'Yggdroot/indentLine'
+
 Plug 'junegunn/goyo.vim'
 Plug 'vimwiki/vimwiki'
 
@@ -51,8 +59,6 @@ Plug 'aufgang001/vim-custom_spellfile', {'do': './install.sh'}
 
 "opens URLs in browser
 Plug 'waiting-for-dev/www.vim'
-"Sammlung von Basis Eisntellungen
-"http://usevim.com/2014/11/07/opinion/
 
 "vimwiki with tagbar
 "https://github.com/vimwiki/vimwiki/issues/36    https://gist.github.com/EinfachToll/9071573
@@ -60,8 +66,6 @@ Plug 'waiting-for-dev/www.vim'
 "currently not working, we should wait a while
 "Plug 'XadillaX/json-formatter.vim'
 
-"this looks cool
-"http://www.vim.org/scripts/script.php?script_id=4957#1.0.3
 
 "http://vimawesome.com/
 
