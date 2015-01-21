@@ -18,7 +18,17 @@ Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdcommenter' 
 
 "code-completion engine
-Plug 'Valloric/YouCompleteMe', {'do': './install.sh --clang-completer'} 
+function! BuildYCM(info)
+    " info is a dictionary with 3 fields
+    " - name:   name of the plugin
+    " - status: 'installed', 'updated', or 'unchanged'
+    " - force:  set on PlugInstall! or PlugUpdate!
+    if a:info.status != 'installed'
+        !./install.sh --clang-completer
+    endif
+endfunction
+Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+"Plug 'Valloric/YouCompleteMe', {'do': './install.sh --clang-completer'} 
 
 "highlighting schemes
 Plug 'flazz/vim-colorschemes'
@@ -59,6 +69,11 @@ Plug 'aufgang001/vim-custom_spellfile', {'do': './install.sh'}
 
 "opens URLs in browser
 Plug 'waiting-for-dev/www.vim'
+
+
+Plug 'shougo/unite.vim'
+Plug 'shougo/vimproc.vim', {'do': 'make'} 
+
 
 "vimwiki with tagbar
 "https://github.com/vimwiki/vimwiki/issues/36    https://gist.github.com/EinfachToll/9071573

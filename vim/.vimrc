@@ -380,6 +380,13 @@ nnoremap <leader>wtd :call www#www#open_reference('td?'.expand("<cWORD>"))<CR>
 "inverse return
 inoremap <S-CR> <ESC>lDO<ESC>p0i
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Unite
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap - :Unite<CR>
+vnoremap - <ESC>:Unite<CR>
+
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => test function 
