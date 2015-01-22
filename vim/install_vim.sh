@@ -10,43 +10,58 @@ if [ "$1" = "all" ]; then
     ./install_vim.sh ycm
 fi
 
+if [ "$1" = "install_lua" ]; then  
+    #source http://www.lua.org/download.html
+    curl -R -O http://www.lua.org/ftp/lua-5.2.3.tar.gz 
+    tar zxf lua-5.2.3.tar.gz
+    cd lua-5.2.3
+    make linux 
+    sudo make install
+fi
+
 ##-- install vim --##
 #https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source
 if [ "$1" = "install_vim" ]; then  
-    #this looks like the officaly way
-    #http://www.vim.org/mercurial.php
-    #need overwork
-    
-  sudo apt-get -y install libncurses5-dev libgnome2-dev libgnomeui-dev \
-    libgtk2.0-dev libatk1.0-dev libbonoboui2-dev \
-    libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev ruby-dev mercurial
+    #https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source
 
-  sudo apt-get -y remove vim vim-runtime gvim gnome-vim
-  sudo apt-get -y remove vim-tiny vim-common vim-gui-common
+    #requirements
+    sudo apt-get -y install libncurses5-dev libgnome2-dev libgnomeui-dev \
+        libgtk2.0-dev libatk1.0-dev libbonoboui2-dev \
+        libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev \
+        ruby-dev mercurial
+   
+    ./install_vim.sh install_lua 
 
-  cd ~
-  hg clone https://code.google.com/p/vim/
-  cd vim_build
-  ./configure --with-features=huge \
-              --enable-rubyinterp \
-              --enable-pythoninterp \
-              --enable-perlinterp \
-              --enable-gui=gnome2 \
-              --with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu/ \
-              --enable-cscope --prefix=/usr
-  make VIMRUNTIMEDIR=/usr/share/vim/vim74
-  sudo make install
+    #delete old stuff
+    sudo apt-get remove vim vim-runtime gvim
+    sudo apt-get remove vim-tiny vim-common vim-gui-common
 
-  sudo update-alternatives --install /usr/bin/editor editor /usr/bin/vim 1
-  sudo update-alternatives --set editor /usr/bin/vim
-  sudo update-alternatives --install /usr/bin/vi vi /usr/bin/vim 1
-  sudo update-alternatives --set vi /usr/bin/vim
- 
-  #remove build directory  
-  cd ~
-  rm -rf vim_build
+    #download, configure and install vim
+    cd ~
+    hg clone https://code.google.com/p/vim/ vim_build
+    cd vim_build
+    export LUA_PREFIX=/usr/local
+    ./configure --with-features=huge \
+                --enable-multibyte \
+                --enable-rubyinterp \
+                --enable-pythoninterp \
+                --with-python-config-dir=/usr/lib/python2.7/config \
+                --enable-perlinterp \
+                --enable-luainterp \
+                --enable-gui=gtk2 --enable-cscope --prefix=/usr
+    make VIMRUNTIMEDIR=/usr/share/vim/vim74
+    sudo make install
+
+    #set fim as default editor
+    sudo update-alternatives --install /usr/bin/editor editor /usr/bin/vim 1
+    sudo update-alternatives --set editor /usr/bin/vim
+    sudo update-alternatives --install /usr/bin/vi vi /usr/bin/vim 1
+    sudo update-alternatives --set vi /usr/bin/vim
+
+    #remove build directory  
+    cd ~
+    rm -rf vim_build
 fi
-
 ##--install vim-plug --##
 #plugin manager for vim
 #https://github.com/junegunn/vim-plug

@@ -8,8 +8,12 @@ call plug#begin('~/.vim/plugged')
 "an universal set of defaults that (hopefully) everyone can agree on
 Plug 'aufgang001/vim-sensible'
 
-"filesystem navigator 
+"Multi threading extention
+Plug 'shougo/vimproc.vim', {'do': 'make'} 
+
+"filesystem navigator
 Plug 'scrooloose/nerdtree'
+Plug 'aufgang001/vim-nerdtree_plugin_open'
 
 "syntax checking plugin
 Plug 'scrooloose/syntastic' 
@@ -43,11 +47,8 @@ Plug 'Raimondi/delimitMate'
 Plug 'itchyny/lightline.vim'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'mbbill/undotree'
-Plug 'kien/ctrlp.vim'
 Plug 'vim-scripts/DrawIt'
-Plug 'kien/tabman.vim'
 Plug 'rhysd/vim-clang-format'
-Plug 'aufgang001/vim-nerdtree_plugin_open'
 
 Plug 'junegunn/goyo.vim'
 Plug 'vimwiki/vimwiki'
@@ -70,9 +71,9 @@ Plug 'aufgang001/vim-custom_spellfile', {'do': './install.sh'}
 "opens URLs in browser
 Plug 'waiting-for-dev/www.vim'
 
-
+"Source browser 
 Plug 'shougo/unite.vim'
-Plug 'shougo/vimproc.vim', {'do': 'make'} 
+Plug 'Shougo/neomru.vim' 
 
 
 "vimwiki with tagbar
@@ -141,6 +142,7 @@ Plug 'shougo/vimproc.vim', {'do': 'make'}
 " 
 " old plugins
 "Plug 'mhinz/vim-startify' 
+"Plug 'kien/ctrlp.vim'
 
 
 

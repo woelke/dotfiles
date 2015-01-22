@@ -383,10 +383,55 @@ inoremap <S-CR> <ESC>lDO<ESC>p0i
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Unite
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap - :Unite<CR>
-vnoremap - <ESC>:Unite<CR>
+noremap - :Unite -toggle -start-insert<CR>
+noremap <C-p> :Unite -start-insert file_mru file_rec/async<CR>
+inoremap <C-p> <ESC>:Unite -start-insert file_mru file_rec/async<CR>
 
+"mru (most recently used) 
+let g:neomru#file_mru_path=$HOME.'/.vim/unite_mru.txt'
+let g:neomru#file_mru_limit=5000 
+    "restrict the files to the current project or the current directory
+call unite#custom#source('neomru/file', 'matchers', ['matcher_project_files', 'matcher_fuzzy'])
 
+"history yank
+let g:unite_source_history_yank_enable = 1
+let g:unite_source_history_yank_limit = 1000 "default 100
+let g:unite_source_history_yank_file=$HOME.'/.vim/unite_yankring.txt'
+let g:unite_source_history_yank_save_clipboard = 1
+
+"file recursive search
+let g:unite_source_rec_max_cache_files = 0
+call unite#custom#source('file_rec,file_rec/async', 'max_candidates', 200)
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+
+autocmd FileType unite call s:unite_my_settings()
+function! s:unite_my_settings()
+    nmap <buffer> <ESC> <Plug>(unite_exit)
+
+    nmap <buffer> <F9> <Plug>(unite_exit)
+    imap <buffer> <F9> <Plug>(unite_exit)
+
+    nmap <buffer> <F5> <Plug>(unite_redraw)
+    imap <buffer> <F5> <Plug>(unite_redraw)
+
+    imap <buffer> <A-f> <Plug>(unite_quick_match_default_action)
+
+    "CTRL-P like commands
+    imap <buffer><expr> <C-c> unite#do_action('choose') 
+    nmap <buffer><expr> <C-c> unite#do_action('choose') 
+
+    imap <buffer><expr> <C-t> unite#do_action('tabopen') 
+    nmap <buffer><expr> <C-t> unite#do_action('taboopen') 
+
+    imap <buffer><expr> <C-r> unite#do_action('switch') 
+    nmap <buffer><expr> <C-r> unite#do_action('switch') 
+
+    imap <buffer><expr> <C-s> unite#do_action('split') 
+    nmap <buffer><expr> <C-s> unite#do_action('split') 
+
+    imap <buffer><expr> <C-o> unite#do_action('right') 
+    nmap <buffer><expr> <C-o> unite#do_action('right') 
+endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => test function 
