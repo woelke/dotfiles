@@ -384,7 +384,7 @@ inoremap <S-CR> <ESC>lDO<ESC>p0i
 " => Unite
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 noremap - :Unite -toggle -start-insert<CR>
-noremap <C-p> :Unite -start-insert file_mru file_rec/async<CR>
+noremap <C-p> :Unite -start-insert file_rec/async<CR>
 inoremap <C-p> <ESC>:Unite -start-insert file_mru file_rec/async<CR>
 
 "mru (most recently used) 
