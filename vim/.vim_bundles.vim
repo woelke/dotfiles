@@ -43,6 +43,10 @@ Plug 'Yggdroot/indentLine'
 "intelligently toggling line numbers
 Plug 'myusuf3/numbers.vim'
 
+"vim plugin for changing background color of lines 
+Plug 'scottupdike/vim-wholelinecolor'
+
+
 Plug 'Raimondi/delimitMate'
 Plug 'itchyny/lightline.vim'
 Plug 'Lokaltog/vim-easymotion'

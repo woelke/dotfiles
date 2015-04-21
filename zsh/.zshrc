@@ -98,6 +98,9 @@ vman() {
     fi
 }
 
+
+setopt interactivecomments #activate the bash-syle comments, you can run a command with a comment
+
 #############################
 ##-- bash simplification --##
 #############################

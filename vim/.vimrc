@@ -11,7 +11,7 @@ source ~/.vim_bundles.vim
 set nocompatible "be improved
 
 let g:myOpenCmd = "gnome-open"
-let mapleader = ","
+let g:mapleader = ","
 
 set autoread "set to auto read when a file is changed from the outside
 
@@ -432,6 +432,28 @@ function! s:unite_my_settings()
     imap <buffer><expr> <C-o> unite#do_action('right') 
     nmap <buffer><expr> <C-o> unite#do_action('right') 
 endfunction
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-wholelinecolor
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:wholelinecolor_leader = g:mapleader
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vlc remote control
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! Vlc()
+    let g:qdbus_path= "/usr/lib/x86_64-linux-gnu/qt4/bin/"
+    let g:qdbus_vlc_cmd = "qdbus org.mpris.MediaPlayer2.vlc /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player."
+    let g:vlc_cmd = g:qdbus_path.g:qdbus_vlc_cmd
+
+"/usr/lib/x86_64-linux-gnu/qt4/bin/qdbusviewer
+"qdbus org.mpris.MediaPlayer2.vlc /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+    noremap <C-v> :execute system(qdbus_path."qdbusviewer&")<CR>
+    noremap <Space> :execute system(vlc_cmd."PlayPause")<CR>
+endfunction 
+
+let g:myOpenCmd = "gnome-open"
+noremap <leader><leader>pf :hardcopy > %.ps<CR> :!ps2pdf %".ps" %.pdf<CR> :!rm %.ps<CR> :execute system(g:myOpenCmd." ".expand("%").".pdf")<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => test function 
