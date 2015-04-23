@@ -318,9 +318,10 @@ let g:goyo_callbacks = [function('s:goyo_before'), function('s:goyo_after')]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => CtrlP
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ctrlp_custom_ignore = {
-  \ 'file': '\v\.(o|orig|swp)$'
-  \ }
+"let g:ctrlp_custom_ignore = {
+  "\ 'file': '\v\.(o|orig|swp)$'
+  "\ }
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vimwiki 
@@ -374,11 +375,6 @@ nnoremap <leader>wte :call www#www#open_reference('te?'.expand("<cWORD>"))<CR>
 vnoremap <leader>wtd :call www#www#open_reference('td?'.@*)<CR>
 nnoremap <leader>wtd :call www#www#open_reference('td?'.expand("<cWORD>"))<CR>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => my scripts
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"inverse return
-inoremap <S-CR> <ESC>lDO<ESC>p0i
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Unite
@@ -437,6 +433,8 @@ endfunction
 " => vim-wholelinecolor
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:wholelinecolor_leader = g:mapleader
+let g:wholelinecolor_next = '<NOP>'
+let g:wholelinecolor_prev = '<NOP>'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vlc remote control
@@ -454,6 +452,14 @@ endfunction
 
 let g:myOpenCmd = "gnome-open"
 noremap <leader><leader>pf :hardcopy > %.ps<CR> :!ps2pdf %".ps" %.pdf<CR> :!rm %.ps<CR> :execute system(g:myOpenCmd." ".expand("%").".pdf")<CR>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => my scripts
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"inverse return
+inoremap <S-CR> <ESC>lDO<ESC>p0i
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => test function 
