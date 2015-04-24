@@ -100,6 +100,14 @@ function! Set_makefile_shortcut_F5()
     noremap <C-S-F5> :make ARGS=% run<CR> :copen<CR> :redraw!<CR>
 endfunction 
 
+"spezial character
+inoremap @o ö
+inoremap @u ü
+inoremap @a ä
+inoremap @O Ö
+inoremap @U Ü
+inoremap @A Ä
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => spellcheck configurations 
