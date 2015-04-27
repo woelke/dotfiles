@@ -18,11 +18,12 @@ Uninstall gnome-keyring:
 
 Apple-Keyboard
 ==============
-Function keys as default
-{{{shell
-    echo 2 | sudo tee /sys/module/hid_apple/parameters/fnmode
-    echo 1 | sudo tee /sys/module/hid_apple/parameters/swap_opt_cmd
-}}}
+Function keys as default and swap Option and Command key ([source](https://help.ubuntu.com/community/AppleKeyboard))
+
+    echo options hid_apple fnmode=2 | sudo tee -a /etc/modprobe.d/hid_apple.conf
+    echo options hid_apple swap_opt_cmd=1 | sudo tee -a /etc/modprobe.d/hid_apple.conf
+    sudo update-initramfs -u -k all
+    sudo reboot
 
     
 
