@@ -47,7 +47,13 @@ set lazyredraw " to avoid scrolling problems
 
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
-command! W w !sudo tee % > /dev/null
+command! W call My_sudo_write()
+function! My_sudo_write() 
+    "overrides the current file with the content of the current buffer without
+    "and reloads the the file
+    execute "w !sudo tee % > /dev/null"
+    execute ":edit!"
+endfunction 
 
 noremap <leader><leader>h :set hlsearch! hlsearch?<CR>
 noremap <leader><leader>l :set cursorline! cursorline?<CR> 
@@ -441,8 +447,8 @@ endfunction
 " => vim-wholelinecolor
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:wholelinecolor_leader = g:mapleader
-let g:wholelinecolor_next = '<NOP>'
-let g:wholelinecolor_prev = '<NOP>'
+let g:wholelinecolor_next = '<nop>'
+let g:wholelinecolor_prev = '<nop>'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vlc remote control
@@ -473,7 +479,7 @@ inoremap <S-CR> <ESC>lDO<ESC>p0i
 " => test function 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! Test()
-echo "bobbobobobo"
+    echo "bobbobobobo"
 endfunction 
 
 "noremap <F4> :call TestFunction() <CR>
