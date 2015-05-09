@@ -41,6 +41,7 @@ set synmaxcol=2000
 set ttyfast "you got a fast terminal
 set lazyredraw " to avoid scrolling problems
 
+noremap <S-q> <nop>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => short keys
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -106,13 +107,14 @@ function! Set_makefile_shortcut_F5()
     noremap <C-S-F5> :make ARGS=% run<CR> :copen<CR> :redraw!<CR>
 endfunction 
 
-"spezial character
+"special character
 inoremap @o ö
 inoremap @u ü
 inoremap @a ä
 inoremap @O Ö
 inoremap @U Ü
 inoremap @A Ä
+inoremap @s ß
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

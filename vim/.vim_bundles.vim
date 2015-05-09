@@ -148,7 +148,8 @@ Plug 'Shougo/neomru.vim'
 "Plug 'mhinz/vim-startify' 
 "Plug 'kien/ctrlp.vim'
 
-
+"vimcat
+"http://www.vim.org/scripts/script.php?script_id=4325#2.0
 
 
 call plug#end()
