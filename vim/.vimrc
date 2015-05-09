@@ -41,6 +41,7 @@ set synmaxcol=2000
 set ttyfast "you got a fast terminal
 set lazyredraw " to avoid scrolling problems
 
+"Disable nasty command mode
 noremap <S-q> <nop>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => short keys
