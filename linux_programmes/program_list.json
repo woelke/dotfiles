@@ -46,8 +46,8 @@
         "htop": "process viewer like top",
         "xournal": "app for pdf manipulation, notetaking, ...",
         "gparted": "storage partionition application",
-        "kazam": "simple screen recording program"
-
+        "kazam": "simple screen recording program",
+        "tree": "list contents of directories in a tree-like format"
     }
 
 }
