@@ -14,7 +14,6 @@ function ask_for {
 
 if [ $1 = "all" ]; then
     ./linux_programmes.sh programmes    
-    ./linux_programmes.sh dropbox 
     ./linux_programmes.sh truecrypt 
 fi
 
@@ -30,14 +29,9 @@ if [ $1 = "programmes" ]; then
     python3 linux_easy_install.py --install all
 fi
 
-if [ $1 = "dropbox" ]; then
-    dropbox start &
-fi
-
-
 if [ $1 = "truecrypt" ]; then
     rm truecrypt-7.1a-linux-x64.tar.gz
-    wget http://www.truecrypt71a.com/get/truecrypt-7.1a-linux-x64.tar.gz
+    wget http://www.truecrypt71a.com/dl/truecrypt-7.1a-linux-x64.tar.gz
     v=$(ls -Al)
     calc_sum=$(sha256sum truecrypt-7.1a-linux-x64.tar.gz)
     known_sum="43f895cfcdbe230907c47b4cd465e5c967bbe741a9b68512c09f809d1a2da1e9  truecrypt-7.1a-linux-x64.tar.gz"

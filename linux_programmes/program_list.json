@@ -20,7 +20,7 @@
 
     "standard" : {
         "nautilus-dropbox" : "",
-        "xclip": "termianl clipboard tool",
+        "owncloud-clienti" : "", 
         "pdftk": "pdf manipulator, pdf merge, etc.",
         "numlockx": "set numlock a startup",
         "xsane": "scan programm",

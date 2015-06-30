@@ -33,8 +33,8 @@ if [ "$1" = "install_vim" ]; then
     ./install_vim.sh install_lua 
 
     #delete old stuff
-    sudo apt-get remove vim vim-runtime gvim
-    sudo apt-get remove vim-tiny vim-common vim-gui-common
+    sudo apt-get -y remove vim vim-runtime gvim
+    sudo apt-get -y remove vim-tiny vim-common vim-gui-common
 
     #download, configure and install vim
     cd ~
