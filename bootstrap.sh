@@ -7,6 +7,7 @@ if [ $# = 0 ]; then
     ./bootstrap.sh vim 
     ./bootstrap.sh ubuntu 
     ./bootstrap.sh sec 
+    ./bootstrap.sh git 
     exit 0
 fi
 
@@ -118,3 +119,23 @@ if [ $1 = "esec" ]; then
     gpg --cipher-algo AES256 --symmetric sec.tar.gz
     rm sec.tar.gz
 fi
+
+
+#####################
+# update git config #
+#####################
+
+if [ $1 = "git" ]; then
+    cd .git 
+
+    echo "---------------------"
+    echo "- update git config -"
+    echo "---------------------"
+
+     
+    var_git="git@github.com-aufgang001:aufgang001/dotfiles.git"
+    var_https="https://github.com/aufgang001/dotfiles.git"
+    sed -i s!"$var_https"!"$var_git"!g config
+
+fi
+
