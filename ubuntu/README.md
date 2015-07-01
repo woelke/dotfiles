@@ -16,7 +16,7 @@ Unity
     sudo apt-get update
     sudo apt-get install compizconfig-settings-manager
     ccsm 
-    #General -> Genearl Options -> Focus & Raise Behaiviour -> Focus Prevention Level -> Off
+    #General -> General Options -> Focus & Raise Behaiviour -> Focus Prevention Level -> Off
     #Effects -> Animations -> Off
     #Effects -> Fading Windows -> Off 
     
