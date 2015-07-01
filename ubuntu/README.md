@@ -12,12 +12,13 @@ Disable the HUD (Head-Up-Display):
     Launcher -> Keyboard -> Shortcuts -> Key to show the HUD -> Backspace Key
 
 Unity
+
     sudo apt-get update
     sudo apt-get install compizconfig-settings-manager
     ccsm 
-        #General -> Genearl Options -> Focus & Raise Behaiviour -> Focus Prevention Level -> Off
-        #Effects -> Animations -> Off
-        #Effects -> Fading Windows -> Off 
+    #General -> Genearl Options -> Focus & Raise Behaiviour -> Focus Prevention Level -> Off
+    #Effects -> Animations -> Off
+    #Effects -> Fading Windows -> Off 
     
 
 Uninstall gnome-keyring:
