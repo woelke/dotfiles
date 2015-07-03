@@ -127,11 +127,10 @@ alias docx='libreoffice'
 ##-- Archive --##
 alias tar.gz='tar xfvz'
 
-##-- clipboard --##
-alias c='xclip -in -selection clipboard'
-alias v='xclip -out -selection clipboard'
-
 ##-- rage time --##
+
+##-- other stuff --##
+alias logout='gnome-session-quit'
 
 # restart bash:
 # . ~/.bashrc

@@ -1,7 +1,15 @@
 {
-    "development" : {
-        "wireshark": "",
+
+    "dev_libs" : {
         "build-essential": "",
+        "libboost-all-dev": "",
+        "sqlite3": "",
+        "libsqlite3-dev": "",
+        "libpcap-dev": ""
+    },
+
+    "dev_tools" : {
+        "wireshark": "",
         "libboost-all-dev": "",
         "git": "",
         "gitk": "",
@@ -15,12 +23,14 @@
         "r-base": "",
         "astyle": "",
         "clang": "",
-        "unifdef": "remove preprocessor conditionsals from code"
+        "unifdef": "remove preprocessor conditionsals from code",
+        "python-pip": "Paketmanagment tool for python"
+
     },
 
     "standard" : {
         "nautilus-dropbox" : "",
-        "owncloud-clienti" : "", 
+        "owncloud-client" : "", 
         "pdftk": "pdf manipulator, pdf merge, etc.",
         "numlockx": "set numlock a startup",
         "xsane": "scan programm",
