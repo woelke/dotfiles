@@ -24,7 +24,8 @@
         "astyle": "",
         "clang": "",
         "unifdef": "remove preprocessor conditionsals from code",
-        "python-pip": "Paketmanagment tool for python"
+        "python-pip": "Paketmanagment tool for python",
+        "curl": "console donwload tool"
 
     },
 
@@ -57,7 +58,8 @@
         "xournal": "app for pdf manipulation, notetaking, ...",
         "gparted": "storage partionition application",
         "kazam": "simple screen recording program",
-        "tree": "list contents of directories in a tree-like format"
+        "tree": "list contents of directories in a tree-like format",
+        "terminator": "handy terminal emulator"
     }
 
 }

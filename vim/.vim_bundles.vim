@@ -27,7 +27,7 @@ function! BuildYCM(info)
     " - name:   name of the plugin
     " - status: 'installed', 'updated', or 'unchanged'
     " - force:  set on PlugInstall! or PlugUpdate!
-    if a:info.status != 'installed'
+    if a:info.status != 'unchanged'
         !./install.sh --clang-completer
     endif
 endfunction
