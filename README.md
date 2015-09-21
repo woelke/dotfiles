@@ -1,6 +1,6 @@
 Introduction
 ============
-This is my Dotfile project. I saved these files on Github just for myself, but of course I do not forbid to use it or snatch ideas from it.
+This is my Dotfile project. I store these files on Github just for myself, but of course I do not forbid to use it or snatch ideas from it.
 
 My Dotefiles contain a quite complex vim configuration, my favorite Linux programmes, a few helper scripts, and a simple zsh configuration.
 
