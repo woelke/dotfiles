@@ -21,10 +21,14 @@ Unity
     #Effects -> Fading Windows -> Off 
     
 
-Uninstall gnome-keyring:
+Disable new windows opening in background
 
-    sudo apt-get remove gnome-keyring
-    sudo reboot 
+    #http://askubuntu.com/questions/310470/newly-opened-applications-open-in-background
+    sudo apt-get install compizconfig-settings-manager
+    ccsm
+    #click on "General Options"
+    #Select the "Focus and Raise Behaviour" tab
+    #Check "Auto-raise" and set "Focus Prevention" level to Off
 
 Apple-Keyboard
 ==============

@@ -12,6 +12,7 @@
         "wireshark": "",
         "libboost-all-dev": "",
         "git": "",
+        "subversion" : "svn",
         "gitk": "",
         "cmake": "",
         "eclipse": "",
@@ -25,12 +26,13 @@
         "clang": "",
         "unifdef": "remove preprocessor conditionsals from code",
         "python-pip": "Paketmanagment tool for python",
-        "curl": "console donwload tool"
-
+        "curl": "console donwload tool",
+        "cppcheck": "static code analyzer"
     },
 
     "standard" : {
         "nautilus-dropbox" : "",
+        "nautilus-open-terminal" : "adds the option to open a terminal in the current directory in the file-browser nautilus",
         "owncloud-client" : "", 
         "pdftk": "pdf manipulator, pdf merge, etc.",
         "numlockx": "set numlock a startup",
