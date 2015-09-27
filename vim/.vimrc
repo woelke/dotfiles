@@ -70,7 +70,7 @@ inoremap <F9> <ESC>:q<CR>
 noremap <F8> :wa<CR>
 inoremap <F8> <ESC>:wa<CR>
 
-autocmd! BufNewFile,BufRead \v*.mywiki|*.tex|README|*.md|COMMIT_EDITMSG|de.utf-8.add call Set_options_for_texting()
+autocmd! BufNewFile,BufRead \v*.mywiki|*.tex|*.txt|README|*.md|COMMIT_EDITMSG|de.utf-8.add call Set_options_for_texting()
 autocmd! BufNewFile,BufRead \v*.c|*.cpp|*.h|*.hpp call Set_options_for_coding()
 autocmd! BufNewFile,BufRead,BufWritePost    \v.vimrc|*.vim call Set_options_for_vimrc()
 
