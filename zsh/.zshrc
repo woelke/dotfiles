@@ -104,7 +104,7 @@ setopt interactivecomments #activate the bash-syle comments, you can run a comma
 #############################
 ##-- bash simplification --##
 #############################
-export BIBINPUTS=/bib/
+export BIBINPUTS=/bib/:./
 export TERM=xterm-256color
 
 ##-- generic open cmd --##
