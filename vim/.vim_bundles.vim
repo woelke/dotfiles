@@ -83,6 +83,8 @@ Plug 'Shougo/neomru.vim'
 "Neovim Related projects
 "https://github.com/neovim/neovim/wiki/Related-projects
 
+"hot to terminal in neovim
+"https://medium.com/@garoth/neovim-terminal-usecases-tricks-8961e5ac19b9
 
 "vimwiki with tagbar
 "https://github.com/vimwiki/vimwiki/issues/36    https://gist.github.com/EinfachToll/9071573
