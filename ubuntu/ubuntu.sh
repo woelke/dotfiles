@@ -1,9 +1,7 @@
 #!/bin/bash
 
-
 if [ "$1" = "all" ]; then
     ./ubuntu.sh fixubuntu 
-    ./ubuntu.sh nautilus 
 fi
 
 if [ "$1" = "fixubuntu" ]; then
@@ -52,26 +50,4 @@ if [ "$1" = "fixubuntu" ]; then
       echo "All done. Enjoy your privacy."
     fi
 fi
-
-#add integration for nautilus file browser
-if [ "$1" = "nautilus" ]; then  
-    cd ~/.local/share/applications/
-
-cat > vim.desktop <<EOF 
-[Desktop Entry]
-Categories=;
-Comment=Edit file in Vim
-Exec=gvim %f
-GenericName=Process Viewer
-Hidden=false
-Icon=gvim
-Name=gvim
-Terminal=true
-Type=Application
-Version=1.0
-EOF
-
-fi
-
-
 

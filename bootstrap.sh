@@ -4,10 +4,12 @@ if [ $# = 0 ]; then
     ./bootstrap.sh programmes
     ./bootstrap.sh zsh 
     ./bootstrap.sh helper 
+    ./bootstrap.sh miscellaneous 
     ./bootstrap.sh vim 
     ./bootstrap.sh ubuntu 
     ./bootstrap.sh sec 
     ./bootstrap.sh git 
+
     exit 0
 fi
 
@@ -80,6 +82,21 @@ if [ $1 = "ubuntu" ]; then
     echo "---------------------------------"
 
     ./ubuntu.sh all
+fi
+
+
+#################
+# miscellaneous #
+#################
+
+if [ $1 = "miscellaneous" ]; then
+    cd miscellaneous
+
+    echo "-----------------"
+    echo "- miscellaneous -"
+    echo "-----------------"
+
+    ./miscellaneous all
 fi
 
 
