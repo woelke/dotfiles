@@ -12,23 +12,20 @@ Disable the HUD (Head-Up-Display):
     Launcher -> Keyboard -> Shortcuts -> Key to show the HUD -> Backspace Key
 
 Unity
-
+    
+    #http://askubuntu.com/questions/310470/newly-opened-applications-open-in-background
     sudo apt-get update
     sudo apt-get install compizconfig-settings-manager
     ccsm 
-    #General -> General Options -> Focus & Raise Behaiviour -> Focus Prevention Level -> Off
     #Effects -> Animations -> Off
     #Effects -> Fading Windows -> Off 
     
-
-Disable new windows opening in background
-
     #http://askubuntu.com/questions/310470/newly-opened-applications-open-in-background
-    sudo apt-get install compizconfig-settings-manager
-    ccsm
-    #click on "General Options"
-    #Select the "Focus and Raise Behaviour" tab
-    #Check "Auto-raise" and set "Focus Prevention" level to Off
+    #Disable new windows opening in background    
+    #General -> General Options -> Focus & Raise Behaiviour -> Focus Prevention Level -> Off
+
+
+
 
 Apple-Keyboard
 ==============
