@@ -13,15 +13,14 @@ Disable the HUD (Head-Up-Display):
 
 Unity
     
-    #http://askubuntu.com/questions/310470/newly-opened-applications-open-in-background
     sudo apt-get update
     sudo apt-get install compizconfig-settings-manager
     ccsm 
     #Effects -> Animations -> Off
     #Effects -> Fading Windows -> Off 
     
-    #http://askubuntu.com/questions/310470/newly-opened-applications-open-in-background
     #Disable new windows opening in background    
+    #http://askubuntu.com/questions/310470/newly-opened-applications-open-in-background
     #General -> General Options -> Focus & Raise Behaiviour -> Focus Prevention Level -> Off
 
 
