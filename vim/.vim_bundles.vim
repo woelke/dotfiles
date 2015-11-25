@@ -6,7 +6,7 @@ call plug#begin('~/.vim/plugged')
 "=> My Bundles:
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "an universal set of defaults that (hopefully) everyone can agree on
-Plug 'aufgang001/vim-sensible'
+Plug 'tpope/vim-sensible'
 
 "Multi threading extention
 Plug 'shougo/vimproc.vim', {'do': 'make'} 
