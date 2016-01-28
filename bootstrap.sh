@@ -3,13 +3,13 @@
 if [ $# = 0 ]; then
     ./bootstrap.sh programmes
     ./bootstrap.sh zsh 
-    ./bootstrap.sh helper 
     ./bootstrap.sh miscellaneous 
     ./bootstrap.sh vim 
     ./bootstrap.sh ubuntu 
     ./bootstrap.sh sec 
     exit 0
 fi
+
 
 ########################################
 # install all important linux progamms #
@@ -25,6 +25,7 @@ if [ $1 = "programmes" ]; then
     ./linux_programmes.sh all
 fi
 
+
 ###############
 # install zsh #
 ###############
@@ -39,19 +40,6 @@ if [ $1 = "zsh" ]; then
     ./install_zsh.sh all
 fi
 
-##########################
-# install helper scripts #
-##########################
-
-if [ $1 = "helper" ]; then
-    cd helper_scripts 
-
-    echo "--------------------------"
-    echo "- install helper scripts -"
-    echo "--------------------------"
-
-    ./install_helper_scripts.sh all
-fi
 
 ###############
 # install vim #

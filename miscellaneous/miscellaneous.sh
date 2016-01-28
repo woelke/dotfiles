@@ -2,8 +2,10 @@
 
 if [ "$1" = "all" ]; then
     ./miscellaneous.sh xresources 
-    ./miscellaneous.sh nautilus 
-    ./miscellaneous.sh terminator 
+    ./miscellaneous.sh nautilus_gvim 
+    ./miscellaneous.sh nautilus_scripts 
+    ./miscellaneous.sh terminator_config 
+    ./miscellaneous.sh auto_cat
 fi
 
 if [ "$1" = "xresources" ]; then
@@ -14,7 +16,7 @@ if [ "$1" = "xresources" ]; then
 fi
 
 #add integration for nautilus file browser
-if [ "$1" = "nautilus" ]; then  
+if [ "$1" = "nautilus_gvim" ]; then  
     cd ~/.local/share/applications/
 
 cat > vim.desktop <<EOF 
@@ -33,7 +35,23 @@ EOF
 
 fi
 
-if [ "$1" = "terminator" ]; then  
+
+if [ "$1" = "nautilus_scripts" ]; then  
+    current_dir=$(pwd)
+    cd ~/.local/share/nautilus/scripts
+    ln -s $current_dir/scripts/nautilus/merge_pdf
+    ln -s $current_dir/scripts/nautilus/terminator
+fi
+
+
+if [ "$1" = "auto_cat" ]; then
+    current_dir=$(pwd)
+    cd /usr/local/sbin/.
+    sudo ln -s $current_dir/scripts/auto_cat
+fi
+
+
+if [ "$1" = "terminator_config" ]; then  
     mkdir ~/.config/terminator
     cd ~/.config/terminator
 
