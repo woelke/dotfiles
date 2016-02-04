@@ -84,7 +84,7 @@ function! Set_options_for_coding()
 endfunction 
 
 function! Set_options_for_texting()
-    setlocal spell spelllang=de,en
+    setlocal spell spelllang=de,en_us
 
     call Set_makefile_shortcut_F5()
 
