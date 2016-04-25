@@ -157,5 +157,7 @@ Plug 'Shougo/neomru.vim'
 "vimcat
 "http://www.vim.org/scripts/script.php?script_id=4325#2.0
 
+"intersting Font recommended by Fefe
+"https://www.google.com/fonts/specimen/Roboto+Mono
 
 call plug#end()
