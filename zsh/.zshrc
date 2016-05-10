@@ -136,6 +136,11 @@ alias logout='gnome-session-quit'
 # restart bash:
 # . ~/.bashrc
 
-setxkbmap -option ctrl:nocaps
-numlockx on
 
+##-- Keyboard --##
+setxkbmap -option ctrl:nocaps # disable caps lock
+numlockx on # actrivate the nummber block 
+
+##-- Makefile --##
+#run make with flag -j<number of processors>
+export MAKEFLAGS="-j$(cat /proc/cpuinfo | grep processor | wc | awk '{ print $1 }')"
