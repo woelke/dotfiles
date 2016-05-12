@@ -66,7 +66,9 @@ noremap <leader><leader>pp :hardcopy > this_file_is_for_printing_only.ps<CR> :!g
 noremap <leader><leader>pf :hardcopy > %.ps<CR> :!ps2pdf %".ps" %.pdf<CR> :!rm %.ps<CR> :execute system(g:myOpenCmd." ".expand("%").".pdf")<CR>
 
 noremap <F9> :q<CR> 
+noremap <S-F9> :q!<CR> 
 inoremap <F9> <ESC>:q<CR> 
+inoremap <S-F9> <ESC>:q!<CR> 
 noremap <F8> :wa<CR>
 inoremap <F8> <ESC>:wa<CR>
 
