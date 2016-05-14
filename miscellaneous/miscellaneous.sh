@@ -6,6 +6,7 @@ if [ "$1" = "all" ]; then
     ./miscellaneous.sh nautilus_scripts 
     ./miscellaneous.sh terminator_config 
     ./miscellaneous.sh auto_cat
+    ./miscellaneous.sh autoenv
 fi
 
 if [ "$1" = "xresources" ]; then
@@ -75,4 +76,9 @@ cat > config <<EOF
 [plugins]
 EOF
 
+fi
+
+if [ "$1" = "autoenv" ]; then
+    #on entering a folder with a .env file it is automatically executed
+    git clone git://github.com/kennethreitz/autoenv.git ~/.autoenv
 fi

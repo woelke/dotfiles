@@ -88,6 +88,8 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 ##################
 ##-- My Stuff --##
 ##################
+
+##-- man in vim --##
 vman() {
     #run command SuperMan and add opend manual to arglist 
     #this is nessasary to prevent NERDTree from pop-up
@@ -98,44 +100,19 @@ vman() {
     fi
 }
 
-
 setopt interactivecomments #activate the bash-syle comments, you can run a command with a comment
 
-#############################
-##-- bash simplification --##
-#############################
+##-- latex bib path --##
 export BIBINPUTS=/bib/:./
+
+##-- vim color support --##
 export TERM=xterm-256color
 
 ##-- generic open cmd --##
 alias o='gnome-open'
 
-##-- pdf --##
-alias pdf='okular'
-
-##-- images --##
-alias png='gpicview'
-alias jpg='gpicview'
-alias gif='gpicview'
-
-##-- office --##
-alias odt='libreoffice'
-alias xlsx='libreoffice'
-alias pptx='libreoffice'
-alias doc='libreoffice'
-alias docx='libreoffice'
-
-##-- Archive --##
-alias tar.gz='tar xfvz'
-
-##-- rage time --##
-
 ##-- other stuff --##
 alias logout='gnome-session-quit'
-
-# restart bash:
-# . ~/.bashrc
-
 
 ##-- Keyboard --##
 setxkbmap -option ctrl:nocaps # disable caps lock
@@ -144,3 +121,7 @@ numlockx on # actrivate the nummber block
 ##-- Makefile --##
 #run make with flag -j<number of processors>
 export MAKEFLAGS="-j$(cat /proc/cpuinfo | grep processor | wc | awk '{ print $1 }')"
+
+##-- python auto environement --##
+source ~/.autoenv/activate.sh
+
