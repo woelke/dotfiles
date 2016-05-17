@@ -28,7 +28,7 @@ if [ "$1" = "install_vim" ]; then
     sudo apt-get -y install libncurses5-dev libgnome2-dev libgnomeui-dev \
         libgtk2.0-dev libatk1.0-dev libbonoboui2-dev \
         libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev \
-        ruby-dev mercurial
+        ruby-dev
    
     ./install_vim.sh install_lua 
 
@@ -38,7 +38,7 @@ if [ "$1" = "install_vim" ]; then
 
     #download, configure and install vim
     cd ~
-    hg clone https://code.google.com/p/vim/ vim_build
+    git clone https://github.com/vim/vim/ vim_build
     cd vim_build
     export LUA_PREFIX=/usr/local
     ./configure --with-features=huge \
