@@ -32,7 +32,6 @@
 
     "standard" : {
         "nautilus-dropbox" : "",
-        "nautilus-open-terminal" : "adds the option to open a terminal in the current directory in the file-browser nautilus",
         "owncloud-client" : "", 
         "pdftk": "pdf manipulator, pdf merge, etc.",
         "numlockx": "set numlock a startup",
@@ -45,7 +44,7 @@
         "sshpass": "sshpass -p your_password ssh user@hostname",
         "sshfs": "mount file systems over ssh",
         "bmon": "netzwerk diagnose tool",
-        "netcat6": "run with cmd: nc6",
+        "netcat": "run with cmd: nc6",
         "gtklp": "drucker einstellungen optimieren",
         "acpi": "batterie status",
         "minicom": "serial communication program like putty (RS232)",
