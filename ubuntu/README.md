@@ -10,6 +10,10 @@ Auto hide of Launcher:
 Disable the HUD (Head-Up-Display):
 
     Launcher -> Keyboard -> Shortcuts -> Key to show the HUD -> Backspace Key
+    
+Enable Workspace (multiple Desktops):
+
+    Launcher -> Apperance -> Behavior -> Enable Workspace
 
 Unity
     
