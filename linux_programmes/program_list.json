@@ -27,7 +27,8 @@
         "unifdef": "remove preprocessor conditionsals from code",
         "python-pip": "Paketmanagment tool for python",
         "curl": "console donwload tool",
-        "cppcheck": "static code analyzer"
+        "cppcheck": "static code analyzer",
+        "virtualenv": "python virtual environment creater":
     },
 
     "standard" : {
