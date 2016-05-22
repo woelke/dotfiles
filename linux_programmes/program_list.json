@@ -25,7 +25,8 @@
         "astyle": "",
         "clang": "",
         "unifdef": "remove preprocessor conditionsals from code",
-        "python-pip": "Paketmanagment tool for python",
+        "python-pip": "Paketmanagment tool for python2",
+        "python3-pip": "Paketmanagment tool for python3",
         "curl": "console donwload tool",
         "cppcheck": "static code analyzer",
         "virtualenv": "python virtual environment creater":
