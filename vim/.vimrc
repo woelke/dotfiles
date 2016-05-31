@@ -249,15 +249,16 @@ let g:NERDCustomDelimiters = {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => syntastic
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '!'
-let g:syntastic_cpp_compiler_options = '-std=c++11'
+"let g:syntastic_error_symbol = '✗'
+"let g:syntastic_warning_symbol = '!'
+"let g:syntastic_cpp_compiler_options = '-std=c++11'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => youcompleteme
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 noremap <leader><leader>j :YcmCompleter GoToDefinitionElseDeclaration<CR>
+noremap <leader><leader>d :YcmCompleter GetDoc<CR>
 
 "let g:ycm_filetype_whitelist = { 'latex': 1 }
 let g:ycm_complete_in_comments = 1
@@ -267,6 +268,8 @@ let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_error_symbol = '✗'
 let g:ycm_warning_symbol = '!'
 
+"let g:ycm_python_binary_path = '/usr/bin/python3.5'
+"let g:ycm_python_binary_path = '/usr/bin/python'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Ultrasnipts
@@ -280,7 +283,7 @@ let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => gnu debugger
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-noremap <leader><leader>d :Pyclewn<CR> :Cmapkeys<CR> :Cshell setsid lxterminal -e inferior_tty.py &<CR> :Cset environment TERM = xtermy<CR> :Cset inferior-tty /dev/pts/
+"noremap <leader><leader>d :Pyclewn<CR> :Cmapkeys<CR> :Cshell setsid lxterminal -e inferior_tty.py &<CR> :Cset environment TERM = xtermy<CR> :Cset inferior-tty /dev/pts/
             "lxterminal is the lubuntu terminal instead of it you can use
             "xterm ...
             "next commands: enter the terminal number

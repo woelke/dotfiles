@@ -5,11 +5,15 @@ Ubuntu 14.04
 ============
 Auto hide of Launcher:
 
-    Launcher -> Appearance -> Behavior -> Auto-hide the Launcher -> ON
+    #Launcher -> Appearance -> Behavior -> Auto-hide the Launcher -> ON
 
 Disable the HUD (Head-Up-Display):
 
-    Launcher -> Keyboard -> Shortcuts -> Key to show the HUD -> Backspace Key
+    #Launcher -> Keyboard -> Shortcuts -> Key to show the HUD -> Backspace Key
+    
+Enable Workspace (multiple Desktops):
+
+    #Launcher -> Apperance -> Behavior -> Enable Workspace
 
 Unity
     
@@ -23,7 +27,10 @@ Unity
     #http://askubuntu.com/questions/310470/newly-opened-applications-open-in-background
     #General -> General Options -> Focus & Raise Behaiviour -> Focus Prevention Level -> Off
 
+Show files on Destkop
 
+    sudo apt-get install gnome-tweak-tool
+    #Launcher -> Tweak Tool -> Destkop -> Home
 
 
 Apple-Keyboard

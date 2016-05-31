@@ -16,7 +16,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'aufgang001/vim-nerdtree_plugin_open'
 
 "syntax checking plugin
-Plug 'scrooloose/syntastic' 
+"Plug 'scrooloose/syntastic' 
 
 "commenting of code
 Plug 'scrooloose/nerdcommenter' 
