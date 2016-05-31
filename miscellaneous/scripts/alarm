@@ -10,9 +10,17 @@
 #uuencode clock.fig clock.gif >> alarm
 
 #extract binary data to file
+image_path="/tmp/clock.gif"
+
+
 uudecode $0
 
-gnome-open /tmp/clock.gif
+#add text to image
+if [ "$#" = 1 ]; then
+    convert -pointsize 40 -draw "text 10,370 '$1'" $image_path $image_path
+fi
+
+gnome-open $image_path
 
 for i in {1..5}
 do
