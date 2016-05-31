@@ -6,6 +6,7 @@ if [ "$1" = "all" ]; then
     ./miscellaneous.sh nautilus_scripts 
     ./miscellaneous.sh terminator_config 
     ./miscellaneous.sh auto_cat
+    ./miscellaneous.sh alarm 
     ./miscellaneous.sh autoenv
 fi
 
@@ -51,6 +52,14 @@ if [ "$1" = "auto_cat" ]; then
     sudo ln -s $current_dir/scripts/auto_cat
 fi
 
+if [ "$1" = "alarm" ]; then
+    sudo apt-get -y install sharutils
+    sudo apt-get -y install redshift 
+
+    current_dir=$(pwd)
+    cd /usr/local/sbin/.
+    sudo ln -s $current_dir/scripts/alarm
+fi
 
 if [ "$1" = "terminator_config" ]; then  
     mkdir ~/.config/terminator
