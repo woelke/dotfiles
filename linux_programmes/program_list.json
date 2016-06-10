@@ -62,7 +62,8 @@
         "gparted": "storage partionition application",
         "kazam": "simple screen recording program",
         "tree": "list contents of directories in a tree-like format",
-        "terminator": "handy terminal emulator"
+        "terminator": "handy terminal emulator",
+        "alarm-clock-applet": "alarm clock"
     }
 
 }
