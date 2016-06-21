@@ -6,6 +6,7 @@ if [ "$1" = "all" ]; then
     ./miscellaneous.sh nautilus_scripts 
     ./miscellaneous.sh terminator_config 
     ./miscellaneous.sh auto_cat
+    ./miscellaneous.sh firefox_tunnel_to
     ./miscellaneous.sh alarm 
     ./miscellaneous.sh autoenv
 fi
@@ -50,6 +51,12 @@ if [ "$1" = "auto_cat" ]; then
     current_dir=$(pwd)
     cd /usr/local/sbin/.
     sudo ln -s $current_dir/scripts/auto_cat
+fi
+
+if [ "$1" = "firefox_tunnel_to" ]; then
+    current_dir=$(pwd)
+    cd /usr/local/sbin/.
+    sudo ln -s $current_dir/scripts/firefox_tunnel_to
 fi
 
 if [ "$1" = "alarm" ]; then
