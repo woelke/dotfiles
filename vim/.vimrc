@@ -27,9 +27,10 @@ set number "show line numbers
 set ignorecase "Ignore case when searching
 set smartcase "When searching try to be smart about cases
 set showmatch "Show matching brackets when text indicator is over them
-set tabstop=4
-set shiftwidth=4
 set expandtab "expand tabs with whitespaces"
+set tabstop=2
+set softtabstop=-1 " Make 'softtabstop' follow 'shiftwidth'
+set shiftwidth=0 " Make 'shiftwidth' follow 'tabstop'
 set mouse=a
 hi Search ctermbg=7 "grey
 set hlsearch
@@ -51,10 +52,10 @@ noremap <S-q> <nop>
 " (useful for handling the permission-denied error)
 command! W call My_sudo_write()
 function! My_sudo_write() 
-    "overrides the current file with the content of the current buffer without
-    "and reloads the the file
-    execute "w !sudo tee % > /dev/null"
-    execute ":edit!"
+  "overrides the current file with the content of the current buffer without
+  "and reloads the the file
+  execute "w !sudo tee % > /dev/null"
+  execute ":edit!"
 endfunction 
 
 noremap <leader><leader>h :set hlsearch! hlsearch?<CR>
@@ -73,41 +74,42 @@ noremap <F8> :wa<CR>
 inoremap <F8> <ESC>:wa<CR>
 
 autocmd! BufNewFile,BufRead \v*.mywiki|*.tex|*.txt|README|*.md|COMMIT_EDITMSG|de.utf-8.add call Set_options_for_texting()
-autocmd! BufNewFile,BufRead \v*.c|*.cpp|*.h|*.hpp call Set_options_for_coding()
+autocmd! BufNewFile,BufRead \v*.c|*.cpp|*.h|*.hpp call Set_options_for_cpp_coding()
 autocmd! BufNewFile,BufRead,BufWritePost    \v.vimrc|*.vim call Set_options_for_vimrc()
 
-function! Set_options_for_coding() 
-    set cursorline "its to cpu CPU-intensive in latex files
+function! Set_options_for_cpp_coding() 
+  set cursorline "its to cpu CPU-intensive in latex files
 
-    call Set_makefile_shortcut_F5()
-    noremap <F6> :cnext<CR>
-    noremap <F7> :cprevious<CR> 
-    "noremap <F12> :ClangFormat<CR>
+  call Set_makefile_shortcut_F5()
+  noremap <F6> :cnext<CR>
+  noremap <F7> :cprevious<CR> 
+  set colorcolumn=80
+  "noremap <F12> :ClangFormat<CR>
 endfunction 
 
 function! Set_options_for_texting()
-    setlocal spell spelllang=de,en_us
+  setlocal spell spelllang=de,en_us
 
-    call Set_makefile_shortcut_F5()
+  call Set_makefile_shortcut_F5()
 
-    "next wrong word
-    noremap <F6> ]s 
+  "next wrong word
+  noremap <F6> ]s 
     
-    "previous wrong word
-    "h is a bugfix: I had a problem with a latex file and the keybinding
-    "]s. It jumps to the second letter of the next wrong written word, which blocks the backword jump .. for whatever reason
-    noremap <F7> h[s 
+  "previous wrong word
+  "h is a bugfix: I had a problem with a latex file and the keybinding
+  "]s. It jumps to the second letter of the next wrong written word, which blocks the backword jump .. for whatever reason
+  noremap <F7> h[s 
 endfunction
 
 function! Set_options_for_vimrc() 
-    "reload the vimrc file
-    noremap <F5> :source %<CR>
+  "reload the vimrc file
+  noremap <F5> :source %<CR>
 endfunction 
 
 function! Set_makefile_shortcut_F5() 
-    noremap <F5> :make!<CR> :copen<CR> :redraw!<CR>
-    noremap <S-F5> :make clean<CR> :copen<CR> :redraw!<CR>
-    noremap <C-S-F5> :make ARGS=% run<CR> :copen<CR> :redraw!<CR>
+  noremap <F5> :make!<CR> :copen<CR> :redraw!<CR>
+  noremap <S-F5> :make clean<CR> :copen<CR> :redraw!<CR>
+  noremap <C-S-F5> :make ARGS=% run<CR> :copen<CR> :redraw!<CR>
 endfunction 
 
 "special character
@@ -143,69 +145,69 @@ let s:pattern = '^\(.* \)\([1-9][0-9]*\)$'
 let s:minfontsize = 2
 let s:maxfontsize = 60 
 function! AdjustFontSize(amount)
-    if has("gui_gtk2")
-        let fontname = substitute(&guifont, s:pattern, '\1', '')
-        let cursize = substitute(&guifont, s:pattern, '\2', '')
-        let newsize = cursize + a:amount
-        if (newsize >= s:minfontsize) && (newsize <= s:maxfontsize)
-            let newfont = fontname . newsize
-            let &guifont = newfont
-        endif
-    else
-        echoerr "You need to run the GTK2 version of Vim to use this function."
-    endif
+  if has("gui_gtk2")
+      let fontname = substitute(&guifont, s:pattern, '\1', '')
+      let cursize = substitute(&guifont, s:pattern, '\2', '')
+      let newsize = cursize + a:amount
+      if (newsize >= s:minfontsize) && (newsize <= s:maxfontsize)
+          let newfont = fontname . newsize
+          let &guifont = newfont
+      endif
+  else
+      echoerr "You need to run the GTK2 version of Vim to use this function."
+  endif
 endfunction
 
 function! Gui_shortcuts()
-    noremap <C-kPlus> :call AdjustFontSize(1)<CR>
-    noremap <C-kMinus> :call AdjustFontSize(-1)<CR>
-    noremap <C-kMultiply> :set guifont=Monospace\ 12<CR>
+  noremap <C-kPlus> :call AdjustFontSize(1)<CR>
+  noremap <C-kMinus> :call AdjustFontSize(-1)<CR>
+  noremap <C-kMultiply> :set guifont=Monospace\ 12<CR>
 
-    " avoid escape
-        "" moves
-    inoremap <A-h> <ESC>
-    inoremap <A-j> <ESC>j
-    inoremap <A-k> <ESC>k
-    inoremap <A-l> <ESC>l
-    inoremap <A-b> <ESC>lb
-    inoremap <A-w> <ESC>lw
-    inoremap <A-e> <ESC>le
-    inoremap <A-0> <ESC>0
-    inoremap <A-$> <ESC>$
-    inoremap <A-v> <ESC>lv
-    inoremap <A-n> <ESC>n
-    inoremap <A-S-n> <ESC><S-n>
-    imap <A-f> <ESC>f
-    noremap <A-h> h 
-    noremap <A-j> j
-    noremap <A-k> k
-    noremap <A-l> l
-    noremap <A-b> b
-    noremap <A-w> w
+  " avoid escape
+      "" moves
+  inoremap <A-h> <ESC>
+  inoremap <A-j> <ESC>j
+  inoremap <A-k> <ESC>k
+  inoremap <A-l> <ESC>l
+  inoremap <A-b> <ESC>lb
+  inoremap <A-w> <ESC>lw
+  inoremap <A-e> <ESC>le
+  inoremap <A-0> <ESC>0
+  inoremap <A-$> <ESC>$
+  inoremap <A-v> <ESC>lv
+  inoremap <A-n> <ESC>n
+  inoremap <A-S-n> <ESC><S-n>
+  imap <A-f> <ESC>f
+  noremap <A-h> h 
+  noremap <A-j> j
+  noremap <A-k> k
+  noremap <A-l> l
+  noremap <A-b> b
+  noremap <A-w> w
 
-        "" modifications
-    inoremap <A-o> <ESC>o
-    inoremap <A-S-o> <ESC><S-o>
-    inoremap <A-x> <ESC>lx
-    inoremap <A-S-d> <ESC>l<S-d>
-    inoremap <A-d>w <ESC>ldw
-    inoremap <A-u> <ESC>u
-    inoremap <A-C-r> <ESC><C-r>
-    inoremap <A-p> <ESC>p
-    inoremap <A-S-p> <ESC><S-p>
-    inoremap <A-S-a> <ESC><S-a>
+      "" modifications
+  inoremap <A-o> <ESC>o
+  inoremap <A-S-o> <ESC><S-o>
+  inoremap <A-x> <ESC>lx
+  inoremap <A-S-d> <ESC>l<S-d>
+  inoremap <A-d>w <ESC>ldw
+  inoremap <A-u> <ESC>u
+  inoremap <A-C-r> <ESC><C-r>
+  inoremap <A-p> <ESC>p
+  inoremap <A-S-p> <ESC><S-p>
+  inoremap <A-S-a> <ESC><S-a>
 endfunction
 
 if has("gui_running") 
-    set guioptions-=m  "remove menu bar
-    set guioptions-=T  "remove toolbar
-    set guioptions-=r  "remove right-hand scroll bar
-    set guioptions-=L  "remove left-hand scroll bar
-    set guioptions-=l  "remove left-hand scroll bar
-    set guifont=Monospace\ 12
-    set guioptions+=c  "remove left-hand scroll bar
-    set winaltkeys=no
-    call Gui_shortcuts()
+  set guioptions-=m  "remove menu bar
+  set guioptions-=T  "remove toolbar
+  set guioptions-=r  "remove right-hand scroll bar
+  set guioptions-=L  "remove left-hand scroll bar
+  set guioptions-=l  "remove left-hand scroll bar
+  set guifont=Monospace\ 12
+  set guioptions+=c  "remove left-hand scroll bar
+  set winaltkeys=no
+  call Gui_shortcuts()
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -227,7 +229,7 @@ let g:nerdtree_plugin_open_cmd = g:myOpenCmd
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => astyle
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-noremap <F12> :w <CR> :silent !astyle --quiet --style=1tbs --indent=spaces=4 --pad-oper --pad-header --align-reference=type --add-brackets --convert-tabs % <CR> :e % <CR> :redraw! <CR>
+"noremap <F12> :w <CR> :silent !astyle --quiet --style=1tbs --indent=spaces=4 --pad-oper --pad-header --align-reference=type --add-brackets --convert-tabs % <CR> :e % <CR> :redraw! <CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -242,8 +244,8 @@ noremap <F12> :w <CR> :silent !astyle --quiet --style=1tbs --indent=spaces=4 --p
 filetype plugin on
 
 let g:NERDCustomDelimiters = {
-    \ 'mcproxy': { 'left': '#' }
-    \}
+  \ 'mcproxy': { 'left': '#' }
+  \}
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -321,17 +323,17 @@ let g:goyo_margin_bottom = 1
 noremap <leader>z :Goyo<CR>  
 
 function! s:goyo_before()
-    "call NumbersToggle()
-    
-    call NumbersDisable()
-    set nonumber
-    set norelativenumber
+  "call NumbersToggle()
+  
+  call NumbersDisable()
+  set nonumber
+  set norelativenumber
 endfunction
 
 function! s:goyo_after()
-    call NumbersEnable()
-    set number
-    set relativenumber
+  call NumbersEnable()
+  set number
+  set relativenumber
 endfunction
 
 let g:goyo_callbacks = [function('s:goyo_before'), function('s:goyo_after')]
@@ -369,12 +371,12 @@ let g:vimwiki_ext2syntax = {'.mywiki': 'default'}
 " => www  (https://github.com/waiting-for-dev/www.vim)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:www_urls = {
-         \ 'd?' : 'http://www.dict.cc/?s=',
-         \ 'g?' : 'https://www.google.com/search?q=',
-         \ 'c?' : 'http://en.cppreference.com/w/cpp/io/',
-         \ 'te?' : 'https://translate.google.de/#en/de/',
-         \ 'td?' : 'https://translate.google.de/#de/en/',
-         \ }
+  \ 'd?' : 'http://www.dict.cc/?s=',
+  \ 'g?' : 'https://www.google.com/search?q=',
+  \ 'c?' : 'http://en.cppreference.com/w/cpp/io/',
+  \ 'te?' : 'https://translate.google.de/#en/de/',
+  \ 'td?' : 'https://translate.google.de/#de/en/',
+  \ }
 
 
 let g:www_default_search_engine = 'g?'
@@ -424,31 +426,31 @@ call unite#filters#matcher_default#use(['matcher_fuzzy'])
 
 autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()
-    nmap <buffer> <ESC> <Plug>(unite_exit)
+  nmap <buffer> <ESC> <Plug>(unite_exit)
 
-    nmap <buffer> <F9> <Plug>(unite_exit)
-    imap <buffer> <F9> <Plug>(unite_exit)
+  nmap <buffer> <F9> <Plug>(unite_exit)
+  imap <buffer> <F9> <Plug>(unite_exit)
 
-    nmap <buffer> <F5> <Plug>(unite_redraw)
-    imap <buffer> <F5> <Plug>(unite_redraw)
+  nmap <buffer> <F5> <Plug>(unite_redraw)
+  imap <buffer> <F5> <Plug>(unite_redraw)
 
-    imap <buffer> <A-f> <Plug>(unite_quick_match_default_action)
+  imap <buffer> <A-f> <Plug>(unite_quick_match_default_action)
 
-    "CTRL-P like commands
-    imap <buffer><expr> <C-c> unite#do_action('choose') 
-    nmap <buffer><expr> <C-c> unite#do_action('choose') 
+  "CTRL-P like commands
+  imap <buffer><expr> <C-c> unite#do_action('choose') 
+  nmap <buffer><expr> <C-c> unite#do_action('choose') 
 
-    imap <buffer><expr> <C-t> unite#do_action('tabopen') 
-    nmap <buffer><expr> <C-t> unite#do_action('taboopen') 
+  imap <buffer><expr> <C-t> unite#do_action('tabopen') 
+  nmap <buffer><expr> <C-t> unite#do_action('taboopen') 
 
-    imap <buffer><expr> <C-r> unite#do_action('switch') 
-    nmap <buffer><expr> <C-r> unite#do_action('switch') 
+  imap <buffer><expr> <C-r> unite#do_action('switch') 
+  nmap <buffer><expr> <C-r> unite#do_action('switch') 
 
-    imap <buffer><expr> <C-s> unite#do_action('split') 
-    nmap <buffer><expr> <C-s> unite#do_action('split') 
+  imap <buffer><expr> <C-s> unite#do_action('split') 
+  nmap <buffer><expr> <C-s> unite#do_action('split') 
 
-    imap <buffer><expr> <C-o> unite#do_action('right') 
-    nmap <buffer><expr> <C-o> unite#do_action('right') 
+  imap <buffer><expr> <C-o> unite#do_action('right') 
+  nmap <buffer><expr> <C-o> unite#do_action('right') 
 endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -462,14 +464,14 @@ let g:wholelinecolor_prev = '<nop>'
 " => vlc remote control
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! Vlc()
-    let g:qdbus_path= "/usr/lib/x86_64-linux-gnu/qt4/bin/"
-    let g:qdbus_vlc_cmd = "qdbus org.mpris.MediaPlayer2.vlc /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player."
-    let g:vlc_cmd = g:qdbus_path.g:qdbus_vlc_cmd
+  let g:qdbus_path= "/usr/lib/x86_64-linux-gnu/qt4/bin/"
+  let g:qdbus_vlc_cmd = "qdbus org.mpris.MediaPlayer2.vlc /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player."
+  let g:vlc_cmd = g:qdbus_path.g:qdbus_vlc_cmd
 
-"/usr/lib/x86_64-linux-gnu/qt4/bin/qdbusviewer
-"qdbus org.mpris.MediaPlayer2.vlc /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
-    noremap <C-v> :execute system(qdbus_path."qdbusviewer&")<CR>
-    noremap <Space> :execute system(vlc_cmd."PlayPause")<CR>
+  "/usr/lib/x86_64-linux-gnu/qt4/bin/qdbusviewer
+  "qdbus org.mpris.MediaPlayer2.vlc /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+  noremap <C-v> :execute system(qdbus_path."qdbusviewer&")<CR>
+  noremap <Space> :execute system(vlc_cmd."PlayPause")<CR>
 endfunction 
 
 let g:myOpenCmd = "gnome-open"
@@ -487,7 +489,7 @@ inoremap <S-CR> <ESC>lDO<ESC>p0i
 " => test function 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! Test()
-    echo "bobbobobobo"
+  echo "bobbobobobo"
 endfunction 
 
 "noremap <F4> :call TestFunction() <CR>
