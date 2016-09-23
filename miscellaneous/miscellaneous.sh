@@ -1,21 +1,25 @@
 #!/bin/bash
 
+
+my_program_path="/usr/local/sbin/"
+
 if [ "$1" = "all" ]; then
-    ./miscellaneous.sh xresources 
-    ./miscellaneous.sh nautilus_gvim 
-    ./miscellaneous.sh nautilus_scripts 
-    ./miscellaneous.sh terminator_config 
-    ./miscellaneous.sh auto_cat
-    ./miscellaneous.sh firefox_tunnel_to
-    ./miscellaneous.sh alarm 
-    ./miscellaneous.sh autoenv
+  ./miscellaneous.sh xresources 
+  ./miscellaneous.sh nautilus_gvim 
+  ./miscellaneous.sh nautilus_scripts 
+  ./miscellaneous.sh terminator_config 
+  ./miscellaneous.sh auto_cat
+  ./miscellaneous.sh firefox_tunnel_to
+  ./miscellaneous.sh alarm 
+  ./miscellaneous.sh autoenv
+  ./miscellaneous.sh sift 
 fi
 
 if [ "$1" = "xresources" ]; then
-    current_dir=$(pwd)
-    cd ~/.
-    ln -s $current_dir/.Xresources .Xresources
-    xrdb -merge ~/.Xresources #load settings
+  current_dir=$(pwd)
+  cd ~/.
+  ln -sf $current_dir/.Xresources .Xresources
+  xrdb -merge ~/.Xresources #load settings
 fi
 
 #add integration for nautilus file browser
@@ -40,37 +44,37 @@ fi
 
 
 if [ "$1" = "nautilus_scripts" ]; then  
-    current_dir=$(pwd)
-    cd ~/.local/share/nautilus/scripts
-    ln -s $current_dir/scripts/nautilus/merge_pdf
-    ln -s $current_dir/scripts/nautilus/terminator
+  current_dir=$(pwd)
+  cd ~/.local/share/nautilus/scripts
+  ln -sf $current_dir/scripts/nautilus/merge_pdf
+  ln -sf $current_dir/scripts/nautilus/terminator
 fi
 
 
 if [ "$1" = "auto_cat" ]; then
-    current_dir=$(pwd)
-    cd /usr/local/sbin/.
-    sudo ln -s $current_dir/scripts/auto_cat
+  current_dir=$(pwd)
+  cd $my_program_path
+  sudo ln -sf $current_dir/scripts/auto_cat
 fi
 
 if [ "$1" = "firefox_tunnel_to" ]; then
-    current_dir=$(pwd)
-    cd /usr/local/sbin/.
-    sudo ln -s $current_dir/scripts/firefox_tunnel_to
+  current_dir=$(pwd)
+  cd $my_program_path
+  sudo ln -sf $current_dir/scripts/firefox_tunnel_to
 fi
 
 if [ "$1" = "alarm" ]; then
-    sudo apt-get -y install sharutils
-    sudo apt-get -y install redshift 
+  sudo apt-get -y install sharutils
+  sudo apt-get -y install redshift 
 
-    current_dir=$(pwd)
-    cd /usr/local/sbin/.
-    sudo ln -s $current_dir/scripts/alarm
+  current_dir=$(pwd)
+  cd $my_program_path
+  sudo ln -sf $current_dir/scripts/alarm
 fi
 
 if [ "$1" = "terminator_config" ]; then  
-    mkdir ~/.config/terminator
-    cd ~/.config/terminator
+  mkdir ~/.config/terminator
+  cd ~/.config/terminator
 
 cat > config <<EOF 
 [global_config]
@@ -95,6 +99,18 @@ EOF
 fi
 
 if [ "$1" = "autoenv" ]; then
-    #on entering a folder with a .env file it is automatically executed
-    git clone git://github.com/kennethreitz/autoenv.git ~/.autoenv
+  #on entering a folder with a .env file it is automatically executed
+  git clone git://github.com/kennethreitz/autoenv.git ~/.autoenv
+fi
+
+
+if [ "$1" = "sift" ]; then
+  mkdir ~/gocode
+  go get github.com/svent/sift
+  
+  cd ~/gocode/bin/
+  current_dir=$(pwd)
+
+  cd $my_program_path
+  sudo ln -sf $current_dir/sift
 fi

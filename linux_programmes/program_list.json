@@ -29,7 +29,8 @@
         "python3-pip": "Paketmanagment tool for python3",
         "curl": "console donwload tool",
         "cppcheck": "static code analyzer",
-        "virtualenv": "python virtual environment creater":
+        "virtualenv": "python virtual environment creater",
+        "golang": "go programming language"
     },
 
     "standard" : {
