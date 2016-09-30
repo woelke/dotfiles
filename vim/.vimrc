@@ -84,7 +84,8 @@ function! Set_options_for_cpp_coding()
   noremap <F6> :cnext<CR>
   noremap <F7> :cprevious<CR> 
   set colorcolumn=80
-  "noremap <F12> :ClangFormat<CR>
+  noremap <F12> :ClangFormat<CR>
+  noremap <C-K> :py3file ~/.vim/clang-format.py<CR>
 endfunction 
 
 function! Set_options_for_texting()
@@ -107,9 +108,9 @@ function! Set_options_for_vimrc()
 endfunction 
 
 function! Set_makefile_shortcut_F5() 
-  noremap <F5> :make!<CR> :copen<CR> :redraw!<CR>
-  noremap <S-F5> :make clean<CR> :copen<CR> :redraw!<CR>
-  noremap <C-S-F5> :make ARGS=% run<CR> :copen<CR> :redraw!<CR>
+  noremap <F5> :make!<CR> :copen<CR><C-W><S-J> :redraw!<CR>
+  noremap <S-F5> :make clean<CR> :copen<CR><C-W><S-J> :redraw!<CR>
+  noremap <C-S-F5> :make ARGS=% run<CR> :copen<CR><C-W><S-J> :redraw!<CR>
 endfunction 
 
 "special character
@@ -234,9 +235,9 @@ let g:nerdtree_plugin_open_cmd = g:myOpenCmd
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => clang-format
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let g:clang_format#detect_style_file = 1
-
+let g:clang_format#command = "clang-format-3.8"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => nerdcommenter

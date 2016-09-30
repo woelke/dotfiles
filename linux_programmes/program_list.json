@@ -1,36 +1,54 @@
 {
-  "dev_libs" : {
+  "dev_essentials" : {
     "build-essential": "",
     "libboost-all-dev": "",
     "sqlite3": "",
     "libsqlite3-dev": "",
-    "libpcap-dev": ""
+    "git": "",
+    "gitk": "",
+    "subversion" : "svn",
+    "texlive-full": ""
   },
 
-  "dev_tools" : {
+  "dev_network" : {
+    "libpcap-dev": "",
     "wireshark": "",
-    "libboost-all-dev": "",
-    "git": "",
-    "subversion" : "svn",
-    "gitk": "",
+    "minicom": "serial communication program like putty (RS232)",
+    "ssh": "secure source shell",
+    "sshpass": "sshpass -p your_password ssh user@hostname",
+    "sshfs": "mount file systems over ssh",
+    "bmon": "netzwerk diagnose tool",
+    "netcat": "run with cmd: nc6"
+  },
+
+  "dev_python" : {
+    "python-pip": "Paketmanagment tool for python2",
+    "python3-pip": "Paketmanagment tool for python3",
+    "python-virtualenv": "python virtual environment creater",
+    "python-dev": "Python headers (required by vim ycm)",
+    "python3-dev": "Python headers (required by vim ycm)"
+  },
+
+  "dev_c++" : {
     "cmake": "",
-    "eclipse": "",
+    "libboost-all-dev": "",
+    "clang": "",
     "qtcreator": "",
     "doxygen": "",
     "doxygen-gui": "",
     "doxygen-doc": "",
-    "texlive-full": "",
-    "r-base": "",
-    "astyle": "",
-    "clang": "",
     "unifdef": "remove preprocessor conditionsals from code",
-    "python-pip": "Paketmanagment tool for python2",
-    "python3-pip": "Paketmanagment tool for python3",
-    "curl": "console donwload tool",
     "cppcheck": "static code analyzer",
-    "virtualenv": "python virtual environment creater",
+    "clang-format-3.8": "formats c/c++ code",
+    "gdb": "GNU Debugger"
+  },
+
+  "dev_misc" : {
+    "eclipse": "",
+    "r-base": "",
     "golang": "go programming language",
-    "haskell-platform": "all necessary tools for haskell"
+    "haskell-platform": "all necessary tools for haskell",
+    "lua5.2": "Lua language"
   },
 
   "standard" : {
@@ -43,14 +61,8 @@
     "kolourpaint4": "paint for linux",
     "shutter": "Screen shoot tool",
     "speedcrunch": "calculator",
-    "ssh": "secure source shell",
-    "sshpass": "sshpass -p your_password ssh user@hostname",
-    "sshfs": "mount file systems over ssh",
-    "bmon": "netzwerk diagnose tool",
-    "netcat": "run with cmd: nc6",
     "gtklp": "drucker einstellungen optimieren",
     "acpi": "batterie status",
-    "minicom": "serial communication program like putty (RS232)",
     "synaptic": "gui packet manager",
     "calibre": "ebook manager",
     "vlc": "multimedia player",
@@ -64,6 +76,7 @@
     "kazam": "simple screen recording program",
     "tree": "list contents of directories in a tree-like format",
     "terminator": "handy terminal emulator",
-    "alarm-clock-applet": "alarm clock"
+    "alarm-clock-applet": "alarm clock",
+    "curl": "console donwload tool"
   }
 }

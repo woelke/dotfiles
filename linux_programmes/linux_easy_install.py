@@ -1,11 +1,11 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 import sys, getopt, json, os, subprocess
 
 def get_file_name():
     return "program_list.json"
 
 def get_json_data():
-    return json.load(open(get_file_name(), mode="r", encoding="utf-8")) 
+    return json.load(open(get_file_name(), mode="r")) 
 
 def get_programm_groups():
     return sorted(get_json_data().keys())
@@ -40,7 +40,7 @@ def check_programms(group):
         install_cmd = "apt-cache"
         argument = "dumpavail"
         output = subprocess.Popen([install_cmd, argument], stdout=subprocess.PIPE).communicate()[0]
-        str_list = str(output, encoding='utf8').split("\n")
+        str_list = str(output).split("\\n")
         for i in str_list:
             tmp = i.split(" ")
             if(tmp[0]== "Package:"):
@@ -69,7 +69,6 @@ def check_programms(group):
 
     if len(unkown_list) > 0:
         sys.exit(1) 
-
 
 def help():
     w=26

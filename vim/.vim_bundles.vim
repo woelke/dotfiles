@@ -28,7 +28,9 @@ function! BuildYCM(info)
     " - status: 'installed', 'updated', or 'unchanged'
     " - force:  set on PlugInstall! or PlugUpdate!
     if a:info.status != 'unchanged'
-        !./install.py --clang-completer
+        !./install.py --all
+    "install.py --all includes completion support for
+    "xbuild, go, tsserver, node, npm, rustc, and cargo
     endif
 endfunction
 Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
