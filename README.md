@@ -9,12 +9,7 @@ Requirements
 ============
 Git:
     
-    sudo apt-get install git    
-
-
-Distribution specific configuration
-===================================
-[Ubuntu](ubuntu/README.md)
+    sudo apt-get install -y git    
 
 
 Startup
@@ -31,3 +26,6 @@ And reboot your system:
     sudo reboot
 
 
+Distribution specific configuration
+===================================
+[Ubuntu](ubuntu/README.md)

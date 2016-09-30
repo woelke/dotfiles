@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ "$1" = "all" ]; then
-    ./ubuntu.sh fixubuntu 
+    #./ubuntu.sh fixubuntu 
 fi
 
 if [ "$1" = "fixubuntu" ]; then

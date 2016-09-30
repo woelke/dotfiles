@@ -7,7 +7,6 @@ if [ "$1" = "all" ]; then
   ./install_vim.sh link_dotfile_init
   vim -c "call InstallMe()"
   ./install_vim.sh link_dotfile
-  ./install_vim.sh ycm
 fi
 
 ##-- install vim --##
