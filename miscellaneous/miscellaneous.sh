@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 my_program_path="/usr/local/sbin/"
 
 if [ "$1" = "all" ]; then
