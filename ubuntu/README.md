@@ -36,7 +36,8 @@ Show files on Destkop
     sudo apt-get install gnome-tweak-tool
     #Launcher -> Tweak Tool -> Destkop -> Home
 
-
+Add spell files to vim by downlaoding all _de_ and _en_ files from [here](http://ftp.vim.org/vim/runtime/spell/) to ~/.vim/spell/
+    
 Apple-Keyboard
 ==============
 Function keys as default and swap Option and Command key ([source](https://help.ubuntu.com/community/AppleKeyboard))
