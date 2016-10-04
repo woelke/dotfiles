@@ -15,6 +15,7 @@ let g:mapleader = ","
 
 set autoread "set to auto read when a file is changed from the outside
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -44,6 +45,8 @@ set lazyredraw " to avoid scrolling problems
 
 "Disable nasty command mode
 noremap <S-q> <nop>
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => short keys
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -54,7 +57,7 @@ command! W call My_sudo_write()
 function! My_sudo_write() 
   "overrides the current file with the content of the current buffer without
   "and reloads the the file
-  execute "w !sudo tee % > /dev/null"
+  execute "write !sudo tee % > /dev/null"
   execute ":edit!"
 endfunction 
 
@@ -66,12 +69,12 @@ noremap <leader><leader>i :set cindent! cindent?<CR>
 noremap <leader><leader>pp :hardcopy > this_file_is_for_printing_only.ps<CR> :!gtklp this_file_is_for_printing_only.ps<CR> :!rm this_file_is_for_printing_only.ps<CR>
 noremap <leader><leader>pf :hardcopy > %.ps<CR> :!ps2pdf %".ps" %.pdf<CR> :!rm %.ps<CR> :execute system(g:myOpenCmd." ".expand("%").".pdf")<CR>
 
-noremap <F9> :q<CR> 
-noremap <S-F9> :q!<CR> 
-inoremap <F9> <ESC>:q<CR> 
-inoremap <S-F9> <ESC>:q!<CR> 
-noremap <F8> :wa<CR>
-inoremap <F8> <ESC>:wa<CR>
+noremap <F9> :quit<CR> 
+noremap <S-F9> :quit!<CR> 
+inoremap <F9> <ESC>:quit<CR> 
+inoremap <S-F9> <ESC>:quit!<CR> 
+noremap <F8> :wall<CR>
+inoremap <F8> <ESC>:wall<CR>
 
 autocmd! BufNewFile,BufRead \v*.mywiki|*.tex|*.txt|README|*.md|COMMIT_EDITMSG|de.utf-8.add call Set_options_for_texting()
 autocmd! BufNewFile,BufRead \v*.c|*.cpp|*.h|*.hpp call Set_options_for_cpp_coding()
@@ -85,7 +88,8 @@ function! Set_options_for_cpp_coding()
   noremap <F7> :cprevious<CR> 
   set colorcolumn=80
   noremap <F12> :ClangFormat<CR>
-  noremap <C-K> :py3file ~/.vim/clang-format.py<CR>
+
+
 endfunction 
 
 function! Set_options_for_texting()
@@ -211,6 +215,7 @@ if has("gui_running")
   call Gui_shortcuts()
 endif
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => NERDTree options
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -236,8 +241,8 @@ let g:nerdtree_plugin_open_cmd = g:myOpenCmd
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => clang-format
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:clang_format#detect_style_file = 1
-let g:clang_format#command = "clang-format-3.8"
+let g:clang_format_path = "clang-format-3.8"
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => nerdcommenter
@@ -274,6 +279,7 @@ let g:ycm_warning_symbol = '!'
 "let g:ycm_python_binary_path = '/usr/bin/python3.5'
 "let g:ycm_python_binary_path = '/usr/bin/python'
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Ultrasnipts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -282,6 +288,7 @@ let g:UltiSnipsJumpForwardTrigger = '<C-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
 "let g:UltiSnipsSnippetDirectories  = ["snips"]
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => gnu debugger
@@ -454,12 +461,14 @@ function! s:unite_my_settings()
   nmap <buffer><expr> <C-o> unite#do_action('right') 
 endfunction
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-wholelinecolor
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:wholelinecolor_leader = g:mapleader
 let g:wholelinecolor_next = '<nop>'
 let g:wholelinecolor_prev = '<nop>'
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vlc remote control
@@ -489,7 +498,8 @@ inoremap <S-CR> <ESC>lDO<ESC>p0i
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => test function 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! Test()
+function! Test() range
+  "echom a:firstline . ':' . a:lastline
   echo "bobbobobobo"
 endfunction 
 

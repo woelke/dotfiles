@@ -98,7 +98,6 @@ if [ "$1" = "pyclewn" ]; then
   sudo python setup.py install --force
 fi
 
-
 ##-- To Test --##
 #https://github.com/Valloric/ListToggle
 

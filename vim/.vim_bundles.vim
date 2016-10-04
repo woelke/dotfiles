@@ -15,9 +15,6 @@ Plug 'shougo/vimproc.vim', {'do': 'make'}
 Plug 'scrooloose/nerdtree'
 Plug 'aufgang001/vim-nerdtree_plugin_open'
 
-"syntax checking plugin
-"Plug 'scrooloose/syntastic' 
-
 "commenting of code
 Plug 'scrooloose/nerdcommenter' 
 
@@ -32,7 +29,9 @@ function! BuildYCM(info)
     endif
 endfunction
 Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
-"Plug 'Valloric/YouCompleteMe', {'do': './install.sh --clang-completer'} 
+
+"clang-formater wrapper
+Plug 'aufgang001/vim-clang-format-py'
 
 "highlighting schemes
 Plug 'flazz/vim-colorschemes'
@@ -53,7 +52,6 @@ Plug 'itchyny/lightline.vim'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'mbbill/undotree'
 Plug 'vim-scripts/DrawIt'
-Plug 'rhysd/vim-clang-format'
 
 Plug 'junegunn/goyo.vim'
 Plug 'vimwiki/vimwiki'
