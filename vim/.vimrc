@@ -4,7 +4,6 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 source ~/.vim_bundles.vim
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => general settings 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -127,6 +126,10 @@ inoremap @A Ä
 inoremap @s ß
 
 
+"avoid ESC
+inoremap jk <ESC>
+vnoremap jk <ESC>
+inoremap <ESC> <ESC>:echo "dont use ESC!!!!!!!!!!!!!!!!!!!!"<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => spellcheck configurations 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -168,39 +171,39 @@ function! Gui_shortcuts()
   noremap <C-kMinus> :call AdjustFontSize(-1)<CR>
   noremap <C-kMultiply> :set guifont=Monospace\ 12<CR>
 
-  " avoid escape
-      "" moves
-  inoremap <A-h> <ESC>
-  inoremap <A-j> <ESC>j
-  inoremap <A-k> <ESC>k
-  inoremap <A-l> <ESC>l
-  inoremap <A-b> <ESC>lb
-  inoremap <A-w> <ESC>lw
-  inoremap <A-e> <ESC>le
-  inoremap <A-0> <ESC>0
-  inoremap <A-$> <ESC>$
-  inoremap <A-v> <ESC>lv
-  inoremap <A-n> <ESC>n
-  inoremap <A-S-n> <ESC><S-n>
-  imap <A-f> <ESC>f
-  noremap <A-h> h 
-  noremap <A-j> j
-  noremap <A-k> k
-  noremap <A-l> l
-  noremap <A-b> b
-  noremap <A-w> w
+  "" avoid escape
+      """ moves
+  "inoremap <A-h> <ESC>
+  "inoremap <A-j> <ESC>j
+  "inoremap <A-k> <ESC>k
+  "inoremap <A-l> <ESC>l
+  "inoremap <A-b> <ESC>lb
+  "inoremap <A-w> <ESC>lw
+  "inoremap <A-e> <ESC>le
+  "inoremap <A-0> <ESC>0
+  "inoremap <A-$> <ESC>$
+  "inoremap <A-v> <ESC>lv
+  "inoremap <A-n> <ESC>n
+  "inoremap <A-S-n> <ESC><S-n>
+  "imap <A-f> <ESC>f
+  "noremap <A-h> h 
+  "noremap <A-j> j
+  "noremap <A-k> k
+  "noremap <A-l> l
+  "noremap <A-b> b
+  "noremap <A-w> w
 
-      "" modifications
-  inoremap <A-o> <ESC>o
-  inoremap <A-S-o> <ESC><S-o>
-  inoremap <A-x> <ESC>lx
-  inoremap <A-S-d> <ESC>l<S-d>
-  inoremap <A-d>w <ESC>ldw
-  inoremap <A-u> <ESC>u
-  inoremap <A-C-r> <ESC><C-r>
-  inoremap <A-p> <ESC>p
-  inoremap <A-S-p> <ESC><S-p>
-  inoremap <A-S-a> <ESC><S-a>
+      """ modifications
+  "inoremap <A-o> <ESC>o
+  "inoremap <A-S-o> <ESC><S-o>
+  "inoremap <A-x> <ESC>lx
+  "inoremap <A-S-d> <ESC>l<S-d>
+  "inoremap <A-d>w <ESC>ldw
+  "inoremap <A-u> <ESC>u
+  "inoremap <A-C-r> <ESC><C-r>
+  "inoremap <A-p> <ESC>p
+  "inoremap <A-S-p> <ESC><S-p>
+  "inoremap <A-S-a> <ESC><S-a>
 endfunction
 
 if has("gui_running") 
@@ -275,6 +278,9 @@ let g:ycm_seed_identifiers_with_syntax = 1
 
 let g:ycm_error_symbol = '✗'
 let g:ycm_warning_symbol = '!'
+
+"prevents ycm from asking to load a config file
+let g:ycm_confirm_extra_conf = 0
 
 "let g:ycm_python_binary_path = '/usr/bin/python3.5'
 "let g:ycm_python_binary_path = '/usr/bin/python'

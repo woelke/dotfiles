@@ -4,10 +4,10 @@
 #
 #-------------------------------------------------
 
-TARGET = project_name
+TARGET = project
 
 SOURCES += main.cpp
-#HEADERS += foo.hpp
+HEADERS += foo.hpp
 
 #QMAKE_CXX = clang
 
