@@ -7,10 +7,6 @@ Auto hide of Launcher:
 
     #Launcher -> Appearance -> Behavior -> Auto-hide the Launcher -> ON
 
-Enable Workspace (multiple Desktops):
-
-    #Launcher -> Apperance -> Behavior -> Enable Workspace
-
 Disable the HUD (Head-Up-Display):
 
     #Launcher -> Keyboard -> Shortcuts -> Key to show the HUD -> Backspace Key
