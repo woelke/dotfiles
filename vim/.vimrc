@@ -128,8 +128,7 @@ inoremap @s ß
 
 "avoid ESC
 inoremap jk <ESC>
-vnoremap jk <ESC>
-inoremap <ESC> <ESC>:echo "dont use ESC!!!!!!!!!!!!!!!!!!!!"<CR>
+"inoremap <ESC> <ESC>:echo "dont use ESC!!!!!!!!!!!!!!!!!!!!"<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => spellcheck configurations 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -171,39 +170,33 @@ function! Gui_shortcuts()
   noremap <C-kMinus> :call AdjustFontSize(-1)<CR>
   noremap <C-kMultiply> :set guifont=Monospace\ 12<CR>
 
-  "" avoid escape
-      """ moves
-  "inoremap <A-h> <ESC>
-  "inoremap <A-j> <ESC>j
-  "inoremap <A-k> <ESC>k
-  "inoremap <A-l> <ESC>l
-  "inoremap <A-b> <ESC>lb
-  "inoremap <A-w> <ESC>lw
-  "inoremap <A-e> <ESC>le
-  "inoremap <A-0> <ESC>0
-  "inoremap <A-$> <ESC>$
-  "inoremap <A-v> <ESC>lv
-  "inoremap <A-n> <ESC>n
-  "inoremap <A-S-n> <ESC><S-n>
-  "imap <A-f> <ESC>f
-  "noremap <A-h> h 
-  "noremap <A-j> j
-  "noremap <A-k> k
-  "noremap <A-l> l
-  "noremap <A-b> b
-  "noremap <A-w> w
+  " avoid escape
+      "" moves
+  noremap <A-h> <ESC>h
+  noremap <A-j> <ESC>j
+  noremap <A-k> <ESC>k
+  noremap <A-l> <ESC>l
+  inoremap <A-b> <ESC>lb
+  inoremap <A-w> <ESC>lw
+  inoremap <A-e> <ESC>le
+  inoremap <A-0> <ESC>0
+  inoremap <A-$> <ESC>$
+  inoremap <A-v> <ESC>lv
+  inoremap <A-n> <ESC>n
+  inoremap <A-S-n> <ESC><S-n>
+  imap <A-f> <ESC>f
 
-      """ modifications
-  "inoremap <A-o> <ESC>o
-  "inoremap <A-S-o> <ESC><S-o>
-  "inoremap <A-x> <ESC>lx
-  "inoremap <A-S-d> <ESC>l<S-d>
-  "inoremap <A-d>w <ESC>ldw
-  "inoremap <A-u> <ESC>u
-  "inoremap <A-C-r> <ESC><C-r>
-  "inoremap <A-p> <ESC>p
-  "inoremap <A-S-p> <ESC><S-p>
-  "inoremap <A-S-a> <ESC><S-a>
+      "" modifications
+  inoremap <A-o> <ESC>o
+  inoremap <A-S-o> <ESC><S-o>
+  inoremap <A-x> <ESC>lx
+  inoremap <A-S-d> <ESC>l<S-d>
+  inoremap <A-d>w <ESC>ldw
+  inoremap <A-u> <ESC>u
+  inoremap <A-C-r> <ESC><C-r>
+  inoremap <A-p> <ESC>p
+  inoremap <A-S-p> <ESC><S-p>
+  inoremap <A-S-a> <ESC><S-a>
 endfunction
 
 if has("gui_running") 
@@ -417,55 +410,74 @@ nnoremap <leader>wtd :call www#www#open_reference('td?'.expand("<cWORD>"))<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Unite
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-noremap - :Unite -toggle -start-insert<CR>
-noremap <C-p> :Unite -start-insert file_rec/async<CR>
-inoremap <C-p> <ESC>:Unite -start-insert file_mru file_rec/async<CR>
+"noremap - :Unite -toggle -start-insert<CR>
+"noremap <C-p> :Unite -start-insert file_rec/async<CR>
+"inoremap <C-p> <ESC>:Unite -start-insert file_mru file_rec/async<CR>
 
-"mru (most recently used) 
-let g:neomru#file_mru_path=$HOME.'/.vim/unite_mru.txt'
-let g:neomru#file_mru_limit=5000 
-    "restrict the files to the current project or the current directory
-call unite#custom#source('neomru/file', 'matchers', ['matcher_project_files', 'matcher_fuzzy'])
+""mru (most recently used) 
+"let g:neomru#file_mru_path=$HOME.'/.vim/unite_mru.txt'
+"let g:neomru#file_mru_limit=5000 
+    ""restrict the files to the current project or the current directory
+"call unite#custom#source('neomru/file', 'matchers', ['matcher_project_files', 'matcher_fuzzy'])
 
-"history yank
-let g:unite_source_history_yank_enable = 1
-let g:unite_source_history_yank_limit = 1000 "default 100
-let g:unite_source_history_yank_file=$HOME.'/.vim/unite_yankring.txt'
-let g:unite_source_history_yank_save_clipboard = 1
+""history yank
+"let g:unite_source_history_yank_enable = 1
+"let g:unite_source_history_yank_limit = 1000 "default 100
+"let g:unite_source_history_yank_file=$HOME.'/.vim/unite_yankring.txt'
+"let g:unite_source_history_yank_save_clipboard = 1
 
-"file recursive search
-let g:unite_source_rec_max_cache_files = 0
-call unite#custom#source('file_rec,file_rec/async', 'max_candidates', 200)
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
+""file recursive search
+"let g:unite_source_rec_max_cache_files = 0
+"call unite#custom#source('file_rec,file_rec/async', 'max_candidates', 200)
+"call unite#filters#matcher_default#use(['matcher_fuzzy'])
 
-autocmd FileType unite call s:unite_my_settings()
-function! s:unite_my_settings()
-  nmap <buffer> <ESC> <Plug>(unite_exit)
+"autocmd FileType unite call s:unite_my_settings()
+"function! s:unite_my_settings()
+  "nmap <buffer> <ESC> <Plug>(unite_exit)
 
-  nmap <buffer> <F9> <Plug>(unite_exit)
-  imap <buffer> <F9> <Plug>(unite_exit)
+  "nmap <buffer> <F9> <Plug>(unite_exit)
+  "imap <buffer> <F9> <Plug>(unite_exit)
 
-  nmap <buffer> <F5> <Plug>(unite_redraw)
-  imap <buffer> <F5> <Plug>(unite_redraw)
+  "nmap <buffer> <F5> <Plug>(unite_redraw)
+  "imap <buffer> <F5> <Plug>(unite_redraw)
 
-  imap <buffer> <A-f> <Plug>(unite_quick_match_default_action)
+  "imap <buffer> <A-f> <Plug>(unite_quick_match_default_action)
 
-  "CTRL-P like commands
-  imap <buffer><expr> <C-c> unite#do_action('choose') 
-  nmap <buffer><expr> <C-c> unite#do_action('choose') 
+  ""CTRL-P like commands
+  "imap <buffer><expr> <C-c> unite#do_action('choose') 
+  "nmap <buffer><expr> <C-c> unite#do_action('choose') 
 
-  imap <buffer><expr> <C-t> unite#do_action('tabopen') 
-  nmap <buffer><expr> <C-t> unite#do_action('taboopen') 
+  "imap <buffer><expr> <C-t> unite#do_action('tabopen') 
+  "nmap <buffer><expr> <C-t> unite#do_action('taboopen') 
 
-  imap <buffer><expr> <C-r> unite#do_action('switch') 
-  nmap <buffer><expr> <C-r> unite#do_action('switch') 
+  "imap <buffer><expr> <C-r> unite#do_action('switch') 
+  "nmap <buffer><expr> <C-r> unite#do_action('switch') 
 
-  imap <buffer><expr> <C-s> unite#do_action('split') 
-  nmap <buffer><expr> <C-s> unite#do_action('split') 
+  "imap <buffer><expr> <C-s> unite#do_action('split') 
+  "nmap <buffer><expr> <C-s> unite#do_action('split') 
 
-  imap <buffer><expr> <C-o> unite#do_action('right') 
-  nmap <buffer><expr> <C-o> unite#do_action('right') 
-endfunction
+  "imap <buffer><expr> <C-o> unite#do_action('right') 
+  "nmap <buffer><expr> <C-o> unite#do_action('right') 
+"endfunction
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Ctrl-P
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ctrlp_map = '<C-p>'
+"let g:ctrlp_custom_ignore = {
+  "\ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  "\ 'file': '\v\.(exe|so|dll)$',
+  "\ 'link': 'some_bad_symbolic_links',
+  "\ }
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => ack.vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"use ag instead of ack (because it is faster)
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+nnoremap <Leader>a :Ack!<Space>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

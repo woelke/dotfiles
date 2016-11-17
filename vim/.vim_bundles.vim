@@ -74,9 +74,11 @@ Plug 'aufgang001/vim-custom_spellfile', {'do': './install.sh'}
 "opens URLs in browser
 Plug 'waiting-for-dev/www.vim'
 
-"Source browser 
-Plug 'shougo/unite.vim'
-Plug 'Shougo/neomru.vim' 
+"search and open files
+Plug 'ctrlpvim/ctrlp.vim'
+
+"in file search
+Plug 'mileszs/ack.vim'
 
 "Neovim Related projects
 "https://github.com/neovim/neovim/wiki/Related-projects
