@@ -126,9 +126,6 @@ inoremap @A Ä
 inoremap @s ß
 
 
-"avoid ESC
-inoremap jk <ESC>
-"inoremap <ESC> <ESC>:echo "dont use ESC!!!!!!!!!!!!!!!!!!!!"<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => spellcheck configurations 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

@@ -40,7 +40,8 @@
     "unifdef": "remove preprocessor conditionsals from code",
     "cppcheck": "static code analyzer",
     "clang-format-3.8": "formats c/c++ code",
-    "gdb": "GNU Debugger"
+    "gdb": "GNU Debugger",
+    "ninja-build": "a small build system with a focus on speed"
   },
 
   "dev_misc" : {

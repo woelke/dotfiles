@@ -1,0 +1,8 @@
+MAIN = build
+
+all:
+	ninja -C $(MAIN)
+
+clean:
+	ninja -C $(MAIN) clean
+	

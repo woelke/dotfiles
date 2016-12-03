@@ -80,6 +80,9 @@ Plug 'ctrlpvim/ctrlp.vim'
 "in file search
 Plug 'mileszs/ack.vim'
 
+"gitplugin
+Plug 'tpope/vim-fugitive'
+
 "Neovim Related projects
 "https://github.com/neovim/neovim/wiki/Related-projects
 
