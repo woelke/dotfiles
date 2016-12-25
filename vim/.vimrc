@@ -259,6 +259,7 @@ let g:NERDCustomDelimiters = {
 " => youcompleteme
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 noremap <leader><leader>j :YcmCompleter GoToDefinitionElseDeclaration<CR>
+noremap <leader><leader>f :YcmCompleter FixIt<CR>
 noremap <leader><leader>d :YcmCompleter GetDoc<CR>
 
 "let g:ycm_filetype_whitelist = { 'latex': 1 }
