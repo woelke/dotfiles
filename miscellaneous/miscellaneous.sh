@@ -49,13 +49,6 @@ if [ "$1" = "nautilus_scripts" ]; then
   ln -sf $current_dir/scripts/nautilus/terminator
 fi
 
-
-if [ "$1" = "auto_cat" ]; then
-  current_dir=$(pwd)
-  cd $my_program_path
-  sudo ln -sf $current_dir/scripts/auto_cat
-fi
-
 if [ "$1" = "firefox_tunnel_to" ]; then
   current_dir=$(pwd)
   cd $my_program_path
