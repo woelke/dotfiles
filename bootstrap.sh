@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ $# = 0 ]; then
-    ./bootstrap.sh programmes
+    ./bootstrap.sh programs
     ./bootstrap.sh zsh 
     ./bootstrap.sh miscellaneous 
     ./bootstrap.sh vim 
@@ -15,14 +15,14 @@ fi
 # install all important linux progamms #
 ########################################
 
-if [ $1 = "programmes" ]; then
-    cd linux_programmes
+if [ $1 = "programs" ]; then
+    cd linux_programs
 
-    echo "----------------------------"
-    echo "- install linux programmes -"
-    echo "----------------------------"
+    echo "--------------------------"
+    echo "- install linux programs -"
+    echo "--------------------------"
     
-    ./linux_programmes.sh all
+    ./linux_programs.sh all
 fi
 
 
