@@ -226,12 +226,6 @@ let g:nerdtree_plugin_open_cmd = g:myOpenCmd
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => astyle
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"noremap <F12> :w <CR> :silent !astyle --quiet --style=1tbs --indent=spaces=4 --pad-oper --pad-header --align-reference=type --add-brackets --convert-tabs % <CR> :e % <CR> :redraw! <CR>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => clang-format
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:clang_format_path = "clang-format-3.8"
@@ -245,14 +239,6 @@ filetype plugin on
 let g:NERDCustomDelimiters = {
   \ 'mcproxy': { 'left': '#' }
   \}
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => syntastic
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:syntastic_error_symbol = '✗'
-"let g:syntastic_warning_symbol = '!'
-"let g:syntastic_cpp_compiler_options = '-std=c++11'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -345,14 +331,6 @@ let g:goyo_callbacks = [function('s:goyo_before'), function('s:goyo_after')]
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => CtrlP
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:ctrlp_custom_ignore = {
-  "\ 'file': '\v\.(o|orig|swp)$'
-  "\ }
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vimwiki 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let wiki = {}
@@ -373,100 +351,25 @@ let g:vimwiki_ext2syntax = {'.mywiki': 'default'}
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => www  (https://github.com/waiting-for-dev/www.vim)
+" => vim-www  (https://github.com/waiting-for-dev/www.vim)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:www_urls = {
-  \ 'd?' : 'http://www.dict.cc/?s=',
-  \ 'g?' : 'https://www.google.com/search?q=',
-  \ 'c?' : 'http://en.cppreference.com/w/cpp/io/',
-  \ 'te?' : 'https://translate.google.de/#en/de/',
-  \ 'td?' : 'https://translate.google.de/#de/en/',
-  \ }
+let g:www_engines = {
+  \ 'dict' : 'http://www.dict.cc/?s=',
+  \ 'cpp' : 'http://en.cppreference.com/mwiki/index.php?search=',
+\}
 
-
-let g:www_default_search_engine = 'g?'
-
-"dict.cc
-vnoremap <leader>wd :call www#www#open_reference('d?'.@*)<CR>
-nnoremap <leader>wd :call www#www#open_reference('d?'.expand("<cWORD>"))<CR>
-
-"google.de
-vnoremap <leader>wg :call www#www#open_reference('g?'.@*)<CR>
-nnoremap <leader>wg :call www#www#open_reference('g?'.expand("<cWORD>"))<CR>
-
-"cppreference.com
-vnoremap <leader>wc :call www#www#open_reference('c?'.@*)<CR>
-nnoremap <leader>wc :call www#www#open_reference('c?'.expand("<cWORD>"))<CR>
-
-"google translater
-vnoremap <leader>wte :call www#www#open_reference('te?'.@*)<CR>
-nnoremap <leader>wte :call www#www#open_reference('te?'.expand("<cWORD>"))<CR>
-vnoremap <leader>wtd :call www#www#open_reference('td?'.@*)<CR>
-nnoremap <leader>wtd :call www#www#open_reference('td?'.expand("<cWORD>"))<CR>
+let g:www_shortcut_engines = {
+  \ 'google': ['Wgoogle', '<leader>wg'],
+  \ 'dict': ['Wdict', '<leader>wd'],
+  \ 'cpp': ['Wcpp', '<leader>wc'],
+\}
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Unite
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"noremap - :Unite -toggle -start-insert<CR>
-"noremap <C-p> :Unite -start-insert file_rec/async<CR>
-"inoremap <C-p> <ESC>:Unite -start-insert file_mru file_rec/async<CR>
-
-""mru (most recently used) 
-"let g:neomru#file_mru_path=$HOME.'/.vim/unite_mru.txt'
-"let g:neomru#file_mru_limit=5000 
-    ""restrict the files to the current project or the current directory
-"call unite#custom#source('neomru/file', 'matchers', ['matcher_project_files', 'matcher_fuzzy'])
-
-""history yank
-"let g:unite_source_history_yank_enable = 1
-"let g:unite_source_history_yank_limit = 1000 "default 100
-"let g:unite_source_history_yank_file=$HOME.'/.vim/unite_yankring.txt'
-"let g:unite_source_history_yank_save_clipboard = 1
-
-""file recursive search
-"let g:unite_source_rec_max_cache_files = 0
-"call unite#custom#source('file_rec,file_rec/async', 'max_candidates', 200)
-"call unite#filters#matcher_default#use(['matcher_fuzzy'])
-
-"autocmd FileType unite call s:unite_my_settings()
-"function! s:unite_my_settings()
-  "nmap <buffer> <ESC> <Plug>(unite_exit)
-
-  "nmap <buffer> <F9> <Plug>(unite_exit)
-  "imap <buffer> <F9> <Plug>(unite_exit)
-
-  "nmap <buffer> <F5> <Plug>(unite_redraw)
-  "imap <buffer> <F5> <Plug>(unite_redraw)
-
-  "imap <buffer> <A-f> <Plug>(unite_quick_match_default_action)
-
-  ""CTRL-P like commands
-  "imap <buffer><expr> <C-c> unite#do_action('choose') 
-  "nmap <buffer><expr> <C-c> unite#do_action('choose') 
-
-  "imap <buffer><expr> <C-t> unite#do_action('tabopen') 
-  "nmap <buffer><expr> <C-t> unite#do_action('taboopen') 
-
-  "imap <buffer><expr> <C-r> unite#do_action('switch') 
-  "nmap <buffer><expr> <C-r> unite#do_action('switch') 
-
-  "imap <buffer><expr> <C-s> unite#do_action('split') 
-  "nmap <buffer><expr> <C-s> unite#do_action('split') 
-
-  "imap <buffer><expr> <C-o> unite#do_action('right') 
-  "nmap <buffer><expr> <C-o> unite#do_action('right') 
-"endfunction
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Ctrl-P
+" => CtrlP
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ctrlp_map = '<C-p>'
-"let g:ctrlp_custom_ignore = {
-  "\ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  "\ 'file': '\v\.(exe|so|dll)$',
-  "\ 'link': 'some_bad_symbolic_links',
-  "\ }
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => ack.vim
