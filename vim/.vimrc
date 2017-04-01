@@ -244,9 +244,11 @@ let g:NERDCustomDelimiters = {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => youcompleteme
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-noremap <leader><leader>j :YcmCompleter GoToDefinitionElseDeclaration<CR>
-noremap <leader><leader>f :YcmCompleter FixIt<CR>
-noremap <leader><leader>d :YcmCompleter GetDoc<CR>
+noremap <leader>yj :YcmCompleter GoToDefinitionElseDeclaration<CR>
+noremap <leader>yf :YcmCompleter FixIt<CR>
+noremap <leader>yd :YcmCompleter GetDoc<CR>
+noremap <leader>yp :YcmCompleter GetParent<CR>
+noremap <leader>yt :YcmCompleter GetType<CR>
 
 "let g:ycm_filetype_whitelist = { 'latex': 1 }
 let g:ycm_complete_in_comments = 1
@@ -369,6 +371,10 @@ let g:www_shortcut_engines = {
 " => CtrlP
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ctrlp_map = '<C-p>'
+
+let g:ctrlp_custom_ignore = {
+  \ 'file': '\v\.(o|cxx)$'
+  \ }
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
