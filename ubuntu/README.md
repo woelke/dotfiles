@@ -1,7 +1,7 @@
 Ubuntu Specific Configuration
 =============================
 
-Ubuntu 14.04
+Ubuntu 16.04
 ============
 Auto hide of Launcher:
 
@@ -17,15 +17,22 @@ Disable sticky edges:
 
 Unity
     
-    sudo apt-get update
-    sudo apt-get install compizconfig-settings-manager
+    sudo apt update
+    sudo apt install compizconfig-settings-manager
     ccsm 
-    #Effects -> Animations -> Off
-    #Effects -> Fading Windows -> Off 
+    #!Do manual: Effects -> Animations -> Off
+    #!Do manual: Effects -> Fading Windows -> Off 
     
-    #Disable new windows opening in background    
-    #http://askubuntu.com/questions/310470/newly-opened-applications-open-in-background
-    #General -> General Options -> Focus & Raise Behaiviour -> Focus Prevention Level -> Off
+Disable new windows opening in background [source](http://askubuntu.com/questions/310470/newly-opened-applications-open-in-background)
+    
+    #!Do manual: General -> General Options -> Focus & Raise Behaiviour -> Focus Prevention Level -> Off
+
+Swap Capslock and Escape
+
+    sudo apt install gnome-tweak-tool
+    gnome-tweak-tool
+    #!Do manual: Typing -> Caps Lock key behavior -> Swap ESC and Caps Lock
+    
 
 Show files on Destkop
 
@@ -33,15 +40,6 @@ Show files on Destkop
     #Launcher -> Tweak Tool -> Destkop -> Home
 
 Add spell files to vim by downlaoding all _de_ and _en_ files from [here](http://ftp.vim.org/vim/runtime/spell/) to ~/.vim/spell/
-    
-Apple-Keyboard
-==============
-Function keys as default and swap Option and Command key ([source](https://help.ubuntu.com/community/AppleKeyboard))
-
-    echo options hid_apple fnmode=2 | sudo tee -a /etc/modprobe.d/hid_apple.conf
-    echo options hid_apple swap_opt_cmd=1 | sudo tee -a /etc/modprobe.d/hid_apple.conf
-    sudo update-initramfs -u -k all
-    sudo reboot
 
     
 
