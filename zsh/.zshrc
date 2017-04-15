@@ -115,7 +115,6 @@ alias o='gnome-open'
 alias logout='gnome-session-quit'
 
 ##-- Keyboard --##
-setxkbmap -option ctrl:nocaps # disable caps lock
 numlockx on # actrivate the nummber block 
 
 ##-- Makefile --##
@@ -127,7 +126,3 @@ source ~/.autoenv/activate.sh
 
 ##-- folder for go scripts --##
 export GOPATH=~/gocode #needed by the go compiler e.g. go get github.com/svent/sift
-
-##-- Capslock to Escape --##
-xmodmap -e "keycode 66 = Escape NoSymbol Escape"
-

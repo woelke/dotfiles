@@ -421,7 +421,7 @@ inoremap <S-CR> <ESC>lDO<ESC>p0i
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => test function 
+" => test function and miscellaneous
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! Test() range
   "echom a:firstline . ':' . a:lastline
@@ -429,3 +429,9 @@ function! Test() range
 endfunction 
 
 "noremap <F4> :call TestFunction() <CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Temporary Scripts
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Convert NameLikeThis to name_like_this in current line. (CamelCase to snake_case)
+noremap <leader><leader>c :s#\C\(\<\u[a-z0-9]\+\\|[a-z0-9]\+\)\(\u\)#\l\1_\l\2#g<CR><S-v>gu

@@ -83,6 +83,9 @@ Plug 'mileszs/ack.vim'
 "gitplugin
 Plug 'tpope/vim-fugitive'
 
+"delete, change and add surroundings in pairs
+Plug 'tpope/vim-surround'
+
 "Neovim Related projects
 "https://github.com/neovim/neovim/wiki/Related-projects
 
