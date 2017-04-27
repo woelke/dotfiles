@@ -76,7 +76,7 @@ noremap <F8> :wall<CR>
 inoremap <F8> <ESC>:wall<CR>
 
 autocmd! BufNewFile,BufRead \v*.mywiki|*.tex|*.txt|README|*.md|COMMIT_EDITMSG|de.utf-8.add call Set_options_for_texting()
-autocmd! BufNewFile,BufRead \v*.c|*.cpp|*.h|*.hpp call Set_options_for_cpp_coding()
+autocmd! BufNewFile,BufRead \v*.c|*.cpp|*.h|*.hpp|*.java|*.scala call Set_options_for_cpp_coding()
 autocmd! BufNewFile,BufRead,BufWritePost    \v.vimrc|*.vim call Set_options_for_vimrc()
 
 function! Set_options_for_cpp_coding() 
@@ -372,10 +372,10 @@ let g:www_shortcut_engines = {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ctrlp_map = '<C-p>'
 
+" https://github.com/ctrlpvim/ctrlp.vim/issues/154
 let g:ctrlp_custom_ignore = {
-  \ 'file': '\v\.(o|cxx)$'
+  \ 'file': '\v.*\.(o|cxx|class)$',
   \ }
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => ack.vim
