@@ -113,8 +113,8 @@ alias o='gnome-open'
 
 ##-- git shortcuts --##
 alias gs='git status'
-alias gp='git pull'
-alias gpush='git push'
+#alias gp='git push' #added by default
+alias gpull='git pull'
 alias gc='git commit'
 alias ga='git add'
 alias gl='git log'
