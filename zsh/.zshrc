@@ -111,6 +111,15 @@ export TERM=xterm-256color
 ##-- generic open cmd --##
 alias o='gnome-open'
 
+##-- git shortcuts --##
+alias gs='git status'
+alias gpull='git pull'
+alias gpush='git push'
+alias gc='git commit'
+alias ga='git add'
+alias gl='git log'
+alias gd='git diff'
+
 ##-- other stuff --##
 alias logout='gnome-session-quit'
 
