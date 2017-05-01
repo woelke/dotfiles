@@ -11,6 +11,7 @@ if [ "$1" = "all" ]; then
   ./$0 set_install_rc
   nvim -c "call InstallMe()"
   ./$0 set_init_rc
+  ./$0 load_spellfiles
 fi
 
 if [ "$1" = "preperation" ]; then  
@@ -51,4 +52,11 @@ fi
 
 if [ "$1" = "set_init_rc" ]; then
   echo "source $nvim_path/nvim_config/init.vim" > $nvim_path/init.vim 
+fi
+
+if [ "$1" = "load_spellfiles" ]; then
+  tmp_file="tmp.txt"
+  touch $tmp_file
+  nvim $tmp_file
+  rm $tmp_file
 fi
