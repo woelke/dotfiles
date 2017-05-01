@@ -36,9 +36,6 @@ Plug 'flazz/vim-colorschemes'
 " displaying thin vertical lines at each indentation level
 Plug 'Yggdroot/indentLine'
 
-" intelligently toggling line numbers
-Plug 'myusuf3/numbers.vim'
-
 " provides automatic closing of quotes, parenthesis, brackets, etc.
 Plug 'Raimondi/delimitMate'
 
@@ -72,11 +69,14 @@ Plug 'waiting-for-dev/www.vim'
 " search and open files
 Plug 'ctrlpvim/ctrlp.vim'
 
-"in file search
+" in file search
 Plug 'mileszs/ack.vim'
 
-"delete, change and add surroundings in pairs
+" delete, change and add surroundings in pairs
 Plug 'tpope/vim-surround'
+
+" for always have an terminal if needed
+Plug 'kassio/neoterm'
 
 " Initialize plugin system
 call plug#end()

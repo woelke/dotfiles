@@ -40,15 +40,13 @@ function! My_sudo_write()
 endfunction 
 
 " toggles search highlighting
-noremap <leader><leader>h :set hlsearch! hlsearch?<CR>
-
-" creates a pdf of the current buffer
-noremap <leader><leader>pf :hardcopy > %.ps<CR> :!ps2pdf %".ps" %.pdf<CR> :!rm %.ps<CR> :execute system(g:myOpenCmd." ".expand("%").".pdf")<CR>
-
+noremap <Leader><Leader>h :set hlsearch! hlsearch?<CR>
+" quit a buffer
 noremap <F9> :quit<CR> 
 noremap <S-F9> :quit!<CR> 
 inoremap <F9> <ESC>:quit<CR> 
 inoremap <S-F9> <ESC>:quit!<CR> 
+" save a buffer
 noremap <F8> :wall<CR>
 inoremap <F8> <ESC>:wall<CR>
 
@@ -100,6 +98,54 @@ inoremap @s ß
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Neovim terminal
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Todo
+" https://github.com/mhinz/neovim-remote
+" https://github.com/kassio/neoterm
+
+" a terimal is allways entered in insert mode
+autocmd! BufEnter * if &buftype == 'terminal' | startinsert | endif
+
+" move left, right, up, down
+tnoremap <A-h> <C-\><C-n><C-w>h 
+tnoremap <A-j> <C-\><C-n><C-w>j
+tnoremap <A-k> <C-\><C-n><C-w>k
+tnoremap <A-l> <C-\><C-n><C-w>l
+" ESC in terminal
+tnoremap <A-Esc> <C-\><C-n>
+" emulate move shortcuts for other windows than the termial
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
+" open terminal in a new tab, horizontal split and vertical split
+" enew | call termopen('...') | startinsert
+nnoremap <A-t> :tabe<CR>:terminal<CR>
+nnoremap <A-o> :new<CR>:terminal<CR>
+nnoremap <A-e> :vnew<CR>:terminal<CR>
+tnoremap <A-t> <C-\><C-n>:tabe<CR>:terminal<CR>
+tnoremap <A-o> <C-\><C-n>:new<CR>:terminal<CR>
+tnoremap <A-e> <C-\><C-n>:vnew<CR>:terminal<CR>
+" switch to next or previous tab
+tnoremap <A-g>t <C-\><C-n>:tabnext<CR>
+tnoremap <A-g>p <C-\><C-n>:tabprevious<CR>
+" quit a terminal
+"function! CloseTerminalConfirm()
+  "let curline = getline('.')
+  "call inputsave()
+  "let l:name = input('Close terminal [Y/n]: ')
+  "if l:name ==? "Y" 
+    "" close the terminal
+    "execute ":close"
+  "else
+    "" stay in terminal
+    "startinsert
+  "endif
+  "call inputrestore()
+"endfunction
+"tnoremap <F9> <C-\><C-n>:call CloseTerminalConfirm()<CR>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Undotree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set undodir=~/.config/nvim/undo "where to save undo histories
@@ -139,11 +185,11 @@ let g:NERDCustomDelimiters = {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => youcompleteme
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-noremap <leader>yj :YcmCompleter GoToDefinitionElseDeclaration<CR>
-noremap <leader>yf :YcmCompleter FixIt<CR>
-noremap <leader>yd :YcmCompleter GetDoc<CR>
-noremap <leader>yp :YcmCompleter GetParent<CR>
-noremap <leader>yt :YcmCompleter GetType<CR>
+noremap <Leader>yj :YcmCompleter GoToDefinitionElseDeclaration<CR>
+noremap <Leader>yf :YcmCompleter FixIt<CR>
+noremap <Leader>yd :YcmCompleter GetDoc<CR>
+noremap <Leader>yp :YcmCompleter GetParent<CR>
+noremap <Leader>yt :YcmCompleter GetType<CR>
 
 let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1
@@ -185,7 +231,7 @@ let g:goyo_width = 120
 let g:goyo_margin_top = 2
 let g:goyo_margin_bottom = 1
 
-noremap <leader>z :Goyo<CR>  
+noremap <Leader>z :Goyo<CR>  
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -212,13 +258,14 @@ let g:www_engines = {
 \}
 
 let g:www_shortcut_engines = {
-  \ 'google': ['Wgoogle', '<leader>wg'],
-  \ 'dict': ['Wdict', '<leader>wd'],
-  \ 'cpp': ['Wcpp', '<leader>wc'],
+  \ 'google': ['Wgoogle', '<Leader>wg'],
+  \ 'dict': ['Wdict', '<Leader>wd'],
+  \ 'cpp': ['Wcpp', '<Leader>wc'],
 \}
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " => CtrlP
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ctrlp_map = '<C-p>'
@@ -239,7 +286,26 @@ nnoremap <Leader>a :Ack!<Space>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => neoterm
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"let g:neoterm_position = 'horizontal'
+"let g:neoterm_automap_keys = ',tt'
+
+""nnoremap <silent> <f10> :TREPLSendFile<cr>
+""nnoremap <silent> <f9> :TREPLSendLine<cr>
+""vnoremap <silent> <f9> :TREPLSendSelection<cr>
+
+"" Useful maps
+"" hide/close terminal
+"nnoremap <silent> ,th :call neoterm#close()<cr>
+"" clear terminal
+"nnoremap <silent> ,tl :call neoterm#clear()<cr>
+"" kills the current job (send a <c-c>)
+"nnoremap <silent> ,tc :call neoterm#kill()<cr>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => my scripts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "inverse return
 inoremap <S-CR> <ESC>lDO<ESC>p0i
+" creates a pdf of the current buffer
+noremap <Leader><Leader>pf :hardcopy > %.ps<CR> :!ps2pdf %".ps" %.pdf<CR> :!rm %.ps<CR> :execute system(g:myOpenCmd." ".expand("%").".pdf")<CR>
