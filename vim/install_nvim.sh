@@ -12,9 +12,11 @@ if [ "$1" = "all" ]; then
   nvim -c "call InstallMe()"
   ./$0 set_init_rc
   ./$0 load_spellfiles
+  ./$0 install_gui
 fi
 
 if [ "$1" = "preperation" ]; then  
+  mkdir tmp
   sudo apt install -y libtool libtool-bin autoconf automake cmake g++ pkg-config unzip
   sudo apt install -y python-dev python-pip python3-dev python3-pip
   sudo apt install -y xclip
@@ -23,8 +25,8 @@ if [ "$1" = "preperation" ]; then
 fi
 
 if [ "$1" = "install_neovim" ]; then  
-  git clone https://github.com/neovim/neovim
-  cd neovim
+  git clone https://github.com/neovim/neovim tmp/neovim
+  cd tmp/neovim
   make CMAKE_BUILD_TYPE=Release
   sudo make install
   # Add python suport #
@@ -55,8 +57,17 @@ if [ "$1" = "set_init_rc" ]; then
 fi
 
 if [ "$1" = "load_spellfiles" ]; then
-  tmp_file="tmp.txt"
+  tmp_file="tmp/tmp.txt"
   touch $tmp_file
   nvim $tmp_file
-  rm $tmp_file
+fi
+
+if [ "$1" = "install_gui" ]; then
+  git clone https://github.com/equalsraf/neovim-qt tmp/neovim-qt
+  cd tmp/neovim-qt
+  mkdir build
+  cd build
+  cmake -DCMAKE_BUILD_TYPE=Release ..
+  make
+  sudo make install
 fi
