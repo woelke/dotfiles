@@ -120,6 +120,10 @@ alias ga='git add'
 alias gl='git log'
 alias gd='git diff'
 
+##-- vim shortcuts --##
+alias v='nvim'
+alias g='nvim-qt'
+
 ##-- other stuff --##
 alias logout='gnome-session-quit'
 
