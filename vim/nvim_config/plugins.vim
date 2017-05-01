@@ -8,7 +8,8 @@ call plug#begin('~/.config/nvim/plugged')
 "=> My Neovim Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " an universal set of defaults that (hopefully) everyone can agree on
-Plug 'tpope/vim-sensible'
+"Plug 'tpope/vim-sensible' ":checkhealth says its not needed 01.05.17, will
+"try
 
 " multi threading extention (usefull in nvim??)
 "Plug 'shougo/vimproc.vim', {'do': 'make'} 

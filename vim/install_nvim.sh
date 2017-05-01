@@ -16,6 +16,7 @@ fi
 if [ "$1" = "preperation" ]; then  
   sudo apt install -y libtool libtool-bin autoconf automake cmake g++ pkg-config unzip
   sudo apt install -y python-dev python-pip python3-dev python3-pip
+  sudo apt install -y xclip
   sudo pip2 install --upgrade pip
   sudo pip3 install --upgrade pip
 fi
@@ -23,7 +24,7 @@ fi
 if [ "$1" = "install_neovim" ]; then  
   git clone https://github.com/neovim/neovim
   cd neovim
-  make
+  make CMAKE_BUILD_TYPE=Release
   sudo make install
   # Add python suport #
   sudo pip2 install --upgrade neovim
