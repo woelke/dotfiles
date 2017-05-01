@@ -1,6 +1,3 @@
-" install plugin manager
-" curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
 " Specify a directory for plugins
 call plug#begin('~/.config/nvim/plugged')
 

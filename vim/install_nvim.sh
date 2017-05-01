@@ -54,6 +54,7 @@ fi
 
 if [ "$1" = "set_init_rc" ]; then
   echo "source $nvim_path/nvim_config/init.vim" > $nvim_path/init.vim 
+  echo "source $nvim_path/nvim_config/ginit.vim" > $nvim_path/ginit.vim 
 fi
 
 if [ "$1" = "load_spellfiles" ]; then
