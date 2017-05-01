@@ -67,7 +67,7 @@ Plug 'sheerun/vim-polyglot'
  Plug 'mcproxy/vim-mcproxy_conf_highlighting'
 
 " my synconized spell files
-Plug 'aufgang001/vim-custom_spellfile', {'do': './install.sh'} 
+Plug 'aufgang001/vim-custom_spellfile', {'do': './install.sh nvim'} 
 
 " opens URLs in browser
 Plug 'waiting-for-dev/www.vim'
