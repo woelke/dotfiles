@@ -121,7 +121,8 @@ alias gl='git log'
 alias gd='git diff'
 
 ##-- vim shortcuts --##
-alias v='nvim'
+alias v='nvr --remote-silent'
+alias vt='nvr --remote-tab-silent'
 alias g='nvim-qt'
 
 ##-- other stuff --##

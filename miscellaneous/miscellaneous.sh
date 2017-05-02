@@ -12,6 +12,7 @@ if [ "$1" = "all" ]; then
   ./miscellaneous.sh alarm 
   ./miscellaneous.sh autoenv
   ./miscellaneous.sh sift 
+  ./miscellaneous.sh git_config
 fi
 
 if [ "$1" = "xresources" ]; then
@@ -95,7 +96,6 @@ if [ "$1" = "autoenv" ]; then
   git clone git://github.com/kennethreitz/autoenv.git ~/.autoenv
 fi
 
-
 if [ "$1" = "sift" ]; then
   mkdir ~/gocode
   go get github.com/svent/sift
@@ -105,4 +105,10 @@ if [ "$1" = "sift" ]; then
 
   cd $my_program_path
   sudo ln -sf $current_dir/sift
+fi
+
+if [ "$1" = "git_config" ]; then
+  current_dir=$(pwd)
+  cd ~/.config/git/
+  ln -sf $current_dir/scripts/git_config config
 fi

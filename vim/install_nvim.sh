@@ -57,12 +57,6 @@ if [ "$1" = "set_init_rc" ]; then
   echo "source $nvim_path/nvim_config/ginit.vim" > $nvim_path/ginit.vim 
 fi
 
-if [ "$1" = "load_spellfiles" ]; then
-  tmp_file="tmp/tmp.txt"
-  touch $tmp_file
-  nvim $tmp_file
-fi
-
 if [ "$1" = "install_gui" ]; then
   sudo apt install -y qt5-default 
   git clone https://github.com/equalsraf/neovim-qt tmp/neovim-qt
@@ -72,4 +66,14 @@ if [ "$1" = "install_gui" ]; then
   cmake -DCMAKE_BUILD_TYPE=Release ..
   make
   sudo make install
+fi
+
+if [ "$1" = "neovim_remote" ]; then
+  pip3 install --user neovim-remote
+fi
+
+if [ "$1" = "load_spellfiles" ]; then
+  tmp_file="tmp/tmp.txt"
+  touch $tmp_file
+  nvim $tmp_file
 fi
