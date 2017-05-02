@@ -11,8 +11,8 @@ if [ "$1" = "all" ]; then
   ./$0 set_install_rc
   nvim -c "call InstallMe()"
   ./$0 set_init_rc
-  ./$0 load_spellfiles
   ./$0 install_gui
+  ./$0 load_spellfiles
 fi
 
 if [ "$1" = "preperation" ]; then  
@@ -64,6 +64,7 @@ if [ "$1" = "load_spellfiles" ]; then
 fi
 
 if [ "$1" = "install_gui" ]; then
+  sudo apt install -y qt5-default 
   git clone https://github.com/equalsraf/neovim-qt tmp/neovim-qt
   cd tmp/neovim-qt
   mkdir build
