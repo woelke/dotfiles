@@ -78,5 +78,11 @@ Plug 'tpope/vim-surround'
 " for always have an terminal if needed
 Plug 'kassio/neoterm'
 
+" allows to rename tabs
+Plug 'gcmt/taboo.vim'
+
+" simple yank between nvim instances
+Plug 'bfredl/nvim-miniyank'
+
 " Initialize plugin system
 call plug#end()

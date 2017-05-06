@@ -3,7 +3,8 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:myOpenCmd = "gnome-open"
 let g:mapleader = ","
-
+" swap directory
+set directory=~/.config/nvim/swap/
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -286,6 +287,20 @@ nnoremap <Leader>a :Ack!<Space>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => taboo.vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:taboo_tab_format = "%N-%f "
+let g:taboo_renamed_tab_format = "%N-%l "
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => nvim-miniyank
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"map p <Plug>(miniyank-autoput)
+"map P <Plug>(miniyank-autoPut)
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => neoterm
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let g:neoterm_position = 'horizontal'
@@ -309,3 +324,9 @@ nnoremap <Leader>a :Ack!<Space>
 inoremap <S-CR> <ESC>lDO<ESC>p0i
 " creates a pdf of the current buffer
 noremap <Leader><Leader>pf :hardcopy > %.ps<CR> :!ps2pdf %".ps" %.pdf<CR> :!rm %.ps<CR> :execute system(g:myOpenCmd." ".expand("%").".pdf")<CR>
+" a quick terminal session
+"function! NewNeovimSession()
+  "execute "terminal"
+  "execute "vnew"
+  "execute "terminal"
+"endfunction 

@@ -12,6 +12,7 @@ if [ "$1" = "all" ]; then
   nvim -c "call InstallMe()"
   ./$0 set_init_rc
   ./$0 install_gui
+  ./$0 swap_directory
   ./$0 load_spellfiles
 fi
 
@@ -66,6 +67,10 @@ if [ "$1" = "install_gui" ]; then
   cmake -DCMAKE_BUILD_TYPE=Release ..
   make
   sudo make install
+fi
+
+if [ "$1" = "swap_directory" ]; then
+  mkdir -p $nvim_path/swap
 fi
 
 if [ "$1" = "neovim_remote" ]; then
