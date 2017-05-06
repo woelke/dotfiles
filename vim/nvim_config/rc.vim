@@ -105,6 +105,15 @@ inoremap @s ß
 " https://github.com/mhinz/neovim-remote
 " https://github.com/kassio/neoterm
 
+function! DoLcdToCurrentPath()
+  " source https://github.com/neovim/neovim/issues/4299
+  let l:procid = matchstr(bufname(""), '\(://.*/\)\@<=\(\d\+\)')
+  if l:procid != ""
+    let l:proc_cwd = resolve('/proc/'.l:procid.'/cwd')
+    exe 'lcd '.l:proc_cwd
+endif
+endfunction 
+
 " a terimal is allways entered in insert mode
 autocmd! BufEnter * if &buftype == 'terminal' | startinsert | endif
 
@@ -125,9 +134,9 @@ nnoremap <A-l> <C-w>l
 nnoremap <A-t> :tabe<CR>:terminal<CR>
 nnoremap <A-o> :new<CR>:terminal<CR>
 nnoremap <A-e> :vnew<CR>:terminal<CR>
-tnoremap <A-t> <C-\><C-n>:tabe<CR>:terminal<CR>
-tnoremap <A-o> <C-\><C-n>:new<CR>:terminal<CR>
-tnoremap <A-e> <C-\><C-n>:vnew<CR>:terminal<CR>
+tnoremap <A-t> <C-\><C-n>:call DoLcdToCurrentPath()<CR>:tabe<CR>:terminal<CR>
+tnoremap <A-o> <C-\><C-n>:call DoLcdToCurrentPath()<CR>:new<CR>:terminal<CR>
+tnoremap <A-e> <C-\><C-n>:call DoLcdToCurrentPath()<CR>:vnew<CR>:terminal<CR>
 " switch to next or previous tab
 tnoremap <A-g>t <C-\><C-n>:tabnext<CR>
 tnoremap <A-g>p <C-\><C-n>:tabprevious<CR>
