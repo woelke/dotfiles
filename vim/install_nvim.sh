@@ -13,6 +13,7 @@ if [ "$1" = "all" ]; then
   ./$0 set_init_rc
   ./$0 install_gui
   ./$0 swap_directory
+  ./$0 neovim_remote
   ./$0 load_spellfiles
 fi
 
