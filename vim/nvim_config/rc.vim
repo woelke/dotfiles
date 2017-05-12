@@ -23,7 +23,7 @@ set mouse=a         " enable the use of the mouse
 set hlsearch        " highlights all search matches
 set autowriteall    " saves all files on some events like :suspend"
 
-" disable nasty command mode
+" disable the nasty command mode
 noremap <S-q> <nop>
 
 
@@ -125,36 +125,30 @@ tnoremap <A-l> <C-\><C-n><C-w>l
 " ESC in terminal
 tnoremap <A-Esc> <C-\><C-n>
 " emulate move shortcuts for other windows than the termial
-nnoremap <A-h> <C-w>h
-nnoremap <A-j> <C-w>j
-nnoremap <A-k> <C-w>k
-nnoremap <A-l> <C-w>l
+noremap <A-h> <C-w>h
+noremap <A-j> <C-w>j
+noremap <A-k> <C-w>k
+noremap <A-l> <C-w>l
+inoremap <A-h> <ESC><C-w>h
+inoremap <A-j> <ESC><C-w>j
+inoremap <A-k> <ESC><C-w>k
+inoremap <A-l> <ESC><C-w>l
 " open terminal in a new tab, horizontal split and vertical split
 " enew | call termopen('...') | startinsert
 nnoremap <A-t> :tabe<CR>:terminal<CR>
 nnoremap <A-o> :new<CR>:terminal<CR>
 nnoremap <A-e> :vnew<CR>:terminal<CR>
+inoremap <A-t> <ESC>:tabe<CR>:terminal<CR>
+inoremap <A-o> <ESC:new<CR>:terminal<CR>
+inoremap <A-e> <ESC>:vnew<CR>:terminal<CR>
 tnoremap <A-t> <C-\><C-n>:call DoLcdToCurrentPath()<CR>:tabe<CR>:terminal<CR>
 tnoremap <A-o> <C-\><C-n>:call DoLcdToCurrentPath()<CR>:new<CR>:terminal<CR>
 tnoremap <A-e> <C-\><C-n>:call DoLcdToCurrentPath()<CR>:vnew<CR>:terminal<CR>
-" switch to next or previous tab
-tnoremap <A-g>t <C-\><C-n>:tabnext<CR>
-tnoremap <A-g>p <C-\><C-n>:tabprevious<CR>
-" quit a terminal
-"function! CloseTerminalConfirm()
-  "let curline = getline('.')
-  "call inputsave()
-  "let l:name = input('Close terminal [Y/n]: ')
-  "if l:name ==? "Y" 
-    "" close the terminal
-    "execute ":close"
-  "else
-    "" stay in terminal
-    "startinsert
-  "endif
-  "call inputrestore()
-"endfunction
-"tnoremap <F9> <C-\><C-n>:call CloseTerminalConfirm()<CR>
+" paste buffer to command line
+" temporary fix for https://github.com/equalsraf/neovim-qt/issues/215
+tnoremap <A-v> <C-\><C-n>"+pi
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Undotree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
