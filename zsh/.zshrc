@@ -127,6 +127,7 @@ alias vg='nvim-qt'
 
 ##-- other stuff --##
 alias logout='gnome-session-quit'
+alias rm='trash'
 
 ##-- Keyboard --##
 numlockx on # actrivate the nummber block 
