@@ -138,7 +138,7 @@ nnoremap <A-t> :tabe<CR>:terminal<CR>
 nnoremap <A-o> :new<CR>:terminal<CR>
 nnoremap <A-e> :vnew<CR>:terminal<CR>
 inoremap <A-t> <ESC>:tabe<CR>:terminal<CR>
-inoremap <A-o> <ESC:new<CR>:terminal<CR>
+inoremap <A-o> <ESC>:new<CR>:terminal<CR>
 inoremap <A-e> <ESC>:vnew<CR>:terminal<CR>
 tnoremap <A-t> <C-\><C-n>:call DoLcdToCurrentPath()<CR>:tabe<CR>:terminal<CR>
 tnoremap <A-o> <C-\><C-n>:call DoLcdToCurrentPath()<CR>:new<CR>:terminal<CR>
