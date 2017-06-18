@@ -121,8 +121,10 @@ alias gl='git log'
 alias gd='git diff'
 
 ##-- vim shortcuts --##
-alias v='nvr --remote'
-alias vt='nvr --remote-tab'
+alias v="execute_me 'nvr --remote-send \"<C-\\><C-n>:call DoLcdToCurrentPath()<CR>:edit \$2<CR>\"'"
+alias vs="execute_me 'nvr --remote-send \"<C-\\><C-n>:call DoLcdToCurrentPath()<CR>:split \$2<CR>\"'"
+alias vv="execute_me 'nvr --remote-send \"<C-\\><C-n>:call DoLcdToCurrentPath()<CR>:vsplit \$2<CR>\"'"
+alias vt="execute_me 'nvr --remote-send \"<C-\\><C-n>:call DoLcdToCurrentPath()<CR>:tabe \$2<CR>\"'"
 alias vg='nvim-qt'
 
 ##-- other stuff --##

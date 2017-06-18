@@ -28,7 +28,7 @@ noremap <S-q> <nop>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => short keys
+" => shortcuts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " :W saves the file even with sudo privileges
@@ -110,21 +110,20 @@ function! DoLcdToCurrentPath()
   let l:procid = matchstr(bufname(""), '\(://.*/\)\@<=\(\d\+\)')
   if l:procid != ""
     let l:proc_cwd = resolve('/proc/'.l:procid.'/cwd')
-    exe 'lcd '.l:proc_cwd
-endif
+    execute 'lcd '.l:proc_cwd
+  endif
 endfunction 
 
 " a terimal is allways entered in insert mode
 autocmd! BufEnter * if &buftype == 'terminal' | startinsert | endif
 
+" ESC in terminal
+tnoremap <A-Esc> <C-\><C-n>
 " move left, right, up, down
 tnoremap <A-h> <C-\><C-n><C-w>h 
 tnoremap <A-j> <C-\><C-n><C-w>j
 tnoremap <A-k> <C-\><C-n><C-w>k
 tnoremap <A-l> <C-\><C-n><C-w>l
-" ESC in terminal
-tnoremap <A-Esc> <C-\><C-n>
-" emulate move shortcuts for other windows than the termial
 noremap <A-h> <C-w>h
 noremap <A-j> <C-w>j
 noremap <A-k> <C-w>k

@@ -7,12 +7,12 @@ if [ "$1" = "all" ]; then
   ./miscellaneous.sh nautilus_gvim 
   ./miscellaneous.sh nautilus_scripts 
   ./miscellaneous.sh terminator_config 
-  ./miscellaneous.sh auto_cat
   ./miscellaneous.sh firefox_tunnel_to
   ./miscellaneous.sh alarm 
   ./miscellaneous.sh autoenv
   ./miscellaneous.sh sift 
   ./miscellaneous.sh git_config
+  ./miscellaneous.sh execute_me 
 fi
 
 if [ "$1" = "xresources" ]; then
@@ -63,6 +63,12 @@ if [ "$1" = "alarm" ]; then
   current_dir=$(pwd)
   cd $my_program_path
   sudo ln -sf $current_dir/scripts/alarm
+fi
+
+if [ "$1" = "execute_me" ]; then
+  current_dir=$(pwd)
+  cd $my_program_path
+  sudo ln -sf $current_dir/scripts/execute_me
 fi
 
 if [ "$1" = "terminator_config" ]; then  
