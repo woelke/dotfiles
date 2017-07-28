@@ -81,6 +81,8 @@
     "alarm-clock-applet": "alarm clock",
     "curl": "console donwload tool",
     "trash-cli": "put files in trash instead of removing them directly",
-    "silversearcher-ag": "A code searching tool similar to ack, with a focus on speed."
+    "silversearcher-ag": "A code searching tool similar to ack, with a focus on speed.",
+    "vim-gui-common": "gvim",
+    "vim": "vim"
   }
 }

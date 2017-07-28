@@ -4,7 +4,7 @@ if [ $# = 0 ]; then
     ./bootstrap.sh programs
     ./bootstrap.sh zsh 
     ./bootstrap.sh miscellaneous 
-    ./bootstrap.sh vim 
+    ./bootstrap.sh nvim 
     ./bootstrap.sh ubuntu 
     ./bootstrap.sh sec 
     exit 0
@@ -45,14 +45,14 @@ fi
 # install vim #
 ###############
 
-if [ $1 = "vim" ]; then
+if [ $1 = "nvim" ]; then
     cd vim
 
     echo "---------------"
-    echo "- install vim -"
+    echo "- install nvim -"
     echo "---------------"
 
-    ./install_vim.sh all
+    ./install_nvim.sh all
 fi
 
 
