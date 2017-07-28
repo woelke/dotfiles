@@ -10,7 +10,6 @@ if [ "$1" = "all" ]; then
   ./miscellaneous.sh firefox_tunnel_to
   ./miscellaneous.sh alarm 
   ./miscellaneous.sh autoenv
-  ./miscellaneous.sh sift 
   ./miscellaneous.sh git_config
   ./miscellaneous.sh execute_me 
 fi
@@ -102,19 +101,9 @@ if [ "$1" = "autoenv" ]; then
   git clone git://github.com/kennethreitz/autoenv.git ~/.autoenv
 fi
 
-if [ "$1" = "sift" ]; then
-  mkdir ~/gocode
-  go get github.com/svent/sift
-  
-  cd ~/gocode/bin/
-  current_dir=$(pwd)
-
-  cd $my_program_path
-  sudo ln -sf $current_dir/sift
-fi
-
 if [ "$1" = "git_config" ]; then
   current_dir=$(pwd)
+  mkdir ~/.config/git/
   cd ~/.config/git/
   ln -sf $current_dir/scripts/git_config config
 fi
