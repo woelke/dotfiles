@@ -13,14 +13,14 @@ function ask_for {
 }
 
 if [ $1 = "all" ]; then
-    ./linux_programmes.sh programmes    
-    ./linux_programmes.sh truecrypt 
+    ./linux_programs.sh programs    
+    ./linux_programs.sh truecrypt 
 fi
 
-if [ $1 = "programmes" ]; then
+if [ $1 = "programs" ]; then
     python3 linux_easy_install.py --check all
     if [ $? != 0 ]; then
-        ask_for "Not all programmes can be installed. Shall I ignore these files? (Y/n)"
+        ask_for "Not all programs can be installed. Shall I ignore these files? (Y/n)"
         if [ $? = 0 ]; then
             exit 0
         fi
