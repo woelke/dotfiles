@@ -25,6 +25,7 @@ Unity
     
 Disable new windows opening in background [source](http://askubuntu.com/questions/310470/newly-opened-applications-open-in-background)
     
+    ccsm
     #!Do manual: General -> General Options -> Focus & Raise Behaiviour -> Focus Prevention Level -> Off
 
 Swap Capslock and Escape
