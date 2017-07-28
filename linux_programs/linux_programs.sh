@@ -15,6 +15,7 @@ function ask_for {
 if [ $1 = "all" ]; then
     ./linux_programs.sh programs    
     ./linux_programs.sh truecrypt 
+    ./linux_programs.sh spideroak 
 fi
 
 if [ $1 = "programs" ]; then
@@ -44,7 +45,14 @@ if [ $1 = "truecrypt" ]; then
 fi
 
 if [ $1 = "run_and_clean_truecrypt" ]; then
-        ./truecrypt-7.1a-setup-x64
-        rm truecrypt-7.1a-linux-x64.tar.gz
-        rm truecrypt-7.1a-setup-x64
+  ./truecrypt-7.1a-setup-x64
+  rm truecrypt-7.1a-linux-x64.tar.gz
+  rm truecrypt-7.1a-setup-x64
+fi
+
+if [ $1 = "spideroak" ]; then
+  wget https://spideroak.com/release/spideroak/deb_x64 --output-document spideroak.deb
+  sudo dpkg -i spideroak.deb
+  rm spideroak.deb
+  sudo apt install -y spideroakone
 fi
