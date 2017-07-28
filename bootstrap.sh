@@ -41,9 +41,9 @@ if [ $1 = "zsh" ]; then
 fi
 
 
-###############
-# install vim #
-###############
+################
+# install nvim #
+################
 
 if [ $1 = "nvim" ]; then
     cd vim

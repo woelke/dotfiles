@@ -55,7 +55,6 @@
 
   "standard" : {
     "nautilus-dropbox" : "",
-    "owncloud-client" : "", 
     "pdftk": "pdf manipulator, pdf merge, etc.",
     "numlockx": "set numlock a startup",
     "xsane": "scan programm",
