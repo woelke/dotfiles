@@ -18,28 +18,18 @@ Disable sticky edges:
 Unity
     
     sudo apt update
-    sudo apt install compizconfig-settings-manager
+    sudo apt install -y compizconfig-settings-manager
     ccsm 
     #!Do manual: Effects -> Animations -> Off
     #!Do manual: Effects -> Fading Windows -> Off 
     
 Disable new windows opening in background [source](http://askubuntu.com/questions/310470/newly-opened-applications-open-in-background)
     
+    ccsm
     #!Do manual: General -> General Options -> Focus & Raise Behaiviour -> Focus Prevention Level -> Off
 
 Swap Capslock and Escape
 
-    sudo apt install gnome-tweak-tool
+    sudo apt install -y gnome-tweak-tool
     gnome-tweak-tool
     #!Do manual: Typing -> Caps Lock key behavior -> Swap ESC and Caps Lock
-    
-
-Show files on Destkop
-
-    sudo apt-get install gnome-tweak-tool
-    #Launcher -> Tweak Tool -> Destkop -> Home
-
-Add spell files to vim by downlaoding all _de_ and _en_ files from [here](http://ftp.vim.org/vim/runtime/spell/) to ~/.vim/spell/
-
-    
-
