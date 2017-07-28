@@ -18,7 +18,7 @@ Disable sticky edges:
 Unity
     
     sudo apt update
-    sudo apt install compizconfig-settings-manager
+    sudo apt install -y compizconfig-settings-manager
     ccsm 
     #!Do manual: Effects -> Animations -> Off
     #!Do manual: Effects -> Fading Windows -> Off 
@@ -30,7 +30,7 @@ Disable new windows opening in background [source](http://askubuntu.com/question
 
 Swap Capslock and Escape
 
-    sudo apt install gnome-tweak-tool
+    sudo apt install -y gnome-tweak-tool
     gnome-tweak-tool
     #!Do manual: Typing -> Caps Lock key behavior -> Swap ESC and Caps Lock
     
