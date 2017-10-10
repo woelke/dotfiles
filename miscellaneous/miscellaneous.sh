@@ -12,6 +12,7 @@ if [ "$1" = "all" ]; then
   ./miscellaneous.sh autoenv
   ./miscellaneous.sh git_config
   ./miscellaneous.sh execute_me 
+  ./miscellaneous.sh runtime
 fi
 
 if [ "$1" = "xresources" ]; then
@@ -68,6 +69,12 @@ if [ "$1" = "execute_me" ]; then
   current_dir=$(pwd)
   cd $my_program_path
   sudo ln -sf $current_dir/scripts/execute_me
+fi
+
+if [ "$1" = "runtime" ]; then
+  current_dir=$(pwd)
+  cd $my_program_path
+  sudo ln -sf $current_dir/scripts/runtime
 fi
 
 if [ "$1" = "terminator_config" ]; then  
