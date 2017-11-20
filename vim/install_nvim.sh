@@ -15,6 +15,7 @@ if [ "$1" = "all" ]; then
   ./$0 swap_directory
   ./$0 neovim_remote
   ./$0 load_spellfiles
+  ./$0 sec_vim
 fi
 
 if [ "$1" = "preperation" ]; then  
@@ -82,4 +83,8 @@ if [ "$1" = "load_spellfiles" ]; then
   tmp_file="tmp/tmp.txt"
   touch $tmp_file
   nvim $tmp_file
+fi
+
+if [ "$1" = "sec_vim" ]; then
+  mkdir -p $nvim_path/sec_plugged
 fi
