@@ -5,7 +5,6 @@ if [ $# = 0 ]; then
     ./bootstrap.sh zsh 
     ./bootstrap.sh miscellaneous 
     ./bootstrap.sh nvim 
-    ./bootstrap.sh ubuntu 
     ./bootstrap.sh sec 
     exit 0
 fi
@@ -53,21 +52,6 @@ if [ $1 = "nvim" ]; then
     echo "---------------"
 
     ./install_nvim.sh all
-fi
-
-
-#################################
-# ubuntu specific configuration #
-#################################
-
-if [ $1 = "ubuntu" ]; then
-    cd ubuntu
-
-    echo "---------------------------------"
-    echo "- ubuntu specific configuration -"
-    echo "---------------------------------"
-
-    ./ubuntu.sh all
 fi
 
 

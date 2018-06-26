@@ -1,118 +1,204 @@
 #!/usr/bin/python3
 import sys, getopt, json, os, subprocess
+from abc import ABC, abstractmethod
 
-def get_file_name():
-    return "program_list.json"
+program_list_file ="program_list.json"
 
-def get_json_data():
-    return json.load(open(get_file_name(), mode="r")) 
+class program_db:
+    def __init__(self, file):
+        self.reset(file)
 
-def get_programm_groups():
-    return sorted(get_json_data().keys())
-   
+    def reset(self, file):
+        self.data = json.load(open(file, mode="r"))
 
-def get_group_items(group):
-    if group in get_json_data(): 
-        return get_json_data()[group]
-    else:
-        return [] 
+    def groups(self):
+        return self.data.keys()
 
-def install_programms(group):
-    def install(group):    
-        install_cmd = "sudo apt-get -y install "
-        for g in get_group_items(group):
-            os.system(install_cmd + g)
+    def items(self, group_filter=[], source_filter=[]):
+        for group in self.groups():
+            if not group_filter or group in group_filter:
+                for name, (source, comment) in self.data[group].items():
+                    if not source_filter or source in source_filter:
+                        yield (name, source, comment)
 
-    if group == "all":
-        for i in get_programm_groups():
-            install(i)
-    else:
-        install(group)    
+    def sources(self, group_filter=[]):
+        found_sources = []
+        for name, source, comment in self.items(group_filter):
+            if source not in found_sources:
+                found_sources.append(source)
+                yield source 
 
-def remove_programms(group):
-    install_cmd = "sudo apt-get -y remove "
-    for g in get_group_items(group):
-        os.system(install_cmd + g)
+class source(ABC):
+    @abstractmethod
+    def install(self, names):
+        pass
 
-def check_programms(group):
-    def get_repro_set():
-        result_set = set()
-        install_cmd = "apt-cache"
-        argument = "dumpavail"
-        output = subprocess.Popen([install_cmd, argument], stdout=subprocess.PIPE).communicate()[0]
+    @abstractmethod
+    def remove(self, names):
+        pass
+
+    @abstractmethod
+    def validate(self, names):
+        pass
+
+class apt(source):
+    def __init__(self):
+        self.__available_names = self.available_names()
+
+    def available_names(self):
+        result = set()
+        cmd = "apt-cache"
+        arg = "dumpavail"
+        output = subprocess.Popen([cmd, arg], stdout=subprocess.PIPE).communicate()[0]
         str_list = str(output).split("\\n")
         for i in str_list:
             tmp = i.split(" ")
             if(tmp[0]== "Package:"):
-                result_set.add(tmp[1])    
-        return result_set 
+                result.add(tmp[1])
+        return result 
 
-    def check(group, repro_set):    
-        unkown_list = []
-        for g in get_group_items(group):
-            if g in repro_set:
-                print (g + ": OK!")
+    def install(self, names):
+        cmd = "sudo apt -y install "
+        if not names:
+            os.system(cmd + " ".join(names))
+
+    def remove(self, names):
+        cmd = "sudo apt -y remove "
+        if not names:
+            os.system(cmd + " ".join(names))
+
+    def validate(self, names):
+        valid = []
+        invalid = []
+        for name in names:
+            if name in self.__available_names:
+                valid.append(name)
             else:
-                unkown_list.append(g)
-        return unkown_list  
+                invalid.append(name)
+        return (valid, invalid)
 
-    repro_set = get_repro_set()
-    unkown_list = []
-    if group == "all":
-        for i in get_programm_groups():
-            unkown_list.extend(check(i,repro_set))
-    else:
-        unkown_list = check(group,repro_set)    
+class validation_statistics:
+    def __init__(self):
+        self.used_sources = set()
+        self.source_handlers = set()
+        self.valid_items = []
+        self.invalid_items = []
+        self.items_without_handler = []
 
-    for i in unkown_list:
-        print (i + ": NOT FOUND!!!")  
+    def missing_source_handlers(self):
+        return set(self.used_sources) - set(self.source_handlers)
 
-    if len(unkown_list) > 0:
-        sys.exit(1) 
+    def duplicate_valid_items(self):
+        seen = set()
+        duplicates = set()
+        for item in self.valid_items:
+            if item in seen:
+                duplicates.add(item)
+            else:
+                seen.add(item)
+        return duplicates 
 
-def help():
-    w=26
-    print ("allowed parameters are:")
-    print ("\t[-h | --help]") 
-    print ("\t[-i | --install (X|all)]".ljust(w) + "intall programm of group X")
-    print ("\t[-r | --remove X]".ljust(w) + "remove programms of group X")  
-    print ("\t[-l | --list]".ljust(w) + "list all groups")
-    print ("\t[--items X]".ljust(w) + "list all elements of group X")
-    print ("\t[-c | --check (X|all)]".ljust(w) + "compare programs with the repository")
+    def add(self, stat):
+        self.used_sources = set(self.used_sources) | set(stat.used_sources)
+        self.source_handlers = set(self.source_handlers) | set(stat.source_handlers)
+        self.valid_items = self.valid_items + list(stat.valid_items)
+        self.invalid_items = self.invalid_items + list(stat.invalid_items)
+        self.items_without_handler = self.items_without_handler + list(stat.items_without_handler)
 
-def list(group):
-    if(group == ""):
-        for i in get_programm_groups():
-            print (i)
-    else:
-        w=16
-        for i in get_group_items(group):
-            print (i[:w].ljust(w, " ") + " - " + get_group_items(group)[i])
+    def print(self, group="all"):
+        print("# group: " + str(group))
+        print("  - available source handlers: " + ", ".join(self.source_handlers))
+        print("  - missing source handlers: " + ", ".join(self.missing_source_handlers()))
+        print("  - valid items: " + ", ".join(self.valid_items))
+        print("  - invalid items: " + ", ".join(self.invalid_items))
+        print("  - items without handler: " + ", ".join(self.items_without_handler))
+        print("  - duplicate items: " + ", ".join(self.duplicate_valid_items()))
+
+class user_handler():
+    def help():
+        w=26
+        print ("allowed parameters are:")
+        print ("\t[-h | --help]")
+        print ("\t[-f | --file]".ljust(w) + "Select file list (default: program_list.json)")
+        print ("\t[-i | --install (X|all)]".ljust(w) + "Intall programm of group X")
+        print ("\t[-r | --remove X]".ljust(w) + "Remove programms of group X")
+        print ("\t[-l | --list]".ljust(w) + "List all groups")
+        print ("\t[--items X]".ljust(w) + "List all elements of group X")
+        print ("\t[-c | --check (X|all)]".ljust(w) + "Compare program list with source repositories")
+
+    def groups(db):
+        for i in db.groups():
+            print(i)
+
+    def items(db, group):
+            w=16
+            for name, source, comment in db.items(group_filter=[group]):
+                print(name[:w].ljust(w, " ") + " - (" + source + ") " + comment)
+
+    def validate(db, source_handlers, group):
+        def validate_group(db, source_handlers, group):
+            # validate sources
+            stat = validation_statistics()
+            stat.used_sources = db.sources(group_filter=[group]);
+            stat.source_handlers = source_handlers.keys()
+            # validate names
+            for source_name, source_handler in source_handlers.items():
+                names = [item[0] for item in db.items(group_filter=[group], source_filter=[source_name])]
+                valid, invalid = source_handler.validate(names)
+                stat.valid_items = stat.valid_items + valid
+                stat.invalid_items = stat.invalid_items + invalid
+            if len(stat.missing_source_handlers()) > 0:
+                stat.items_without_handler = [item[0] for item in db.items(group_filter=[group], source_filter=list(stat.missing_source_handlers))]
+            return stat
+        if group != "all":
+            validate_group(db, source_handlers, group).print(group)
+        else:
+            result = validation_statistics();
+            for group in db.groups():
+                result.add(validate_group(db, source_handlers, group))
+            result.print(group)
+
+    def for_each_source_handler(source_handlers, db, group, fun):
+        if group != "all":
+            for source_name, source_handler in source_handlers.itmes():
+                names = [items[0] for item in db.items(group_filter=[group], source_filter=[source_name])]
+                fun(source_handler, names)
+        else:
+            for source_name, source_handler in source_handlers.itmes():
+                names = [items[0] for item in db.items(source_filter=[source_name])]
+                fun(source_handler, names)
 
 def main(argv):
     try:
-        opts, args = getopt.getopt(argv,"hi:r:lc:",["help", "install=", "remove=", "list", "items=", "check="])
+        opts, args = getopt.getopt(argv,"hf:i:r:lc:",["help", "file=", "install=", "remove=", "list", "items=", "check="])
     except getopt.GetoptError:
-        help()
+        user_handler.help()
         sys.exit(1)
-
+    db = program_db(program_list_file)
+    source_handlers = {"apt": apt()}
     for opt, arg in opts:
         if opt in ("-h", "--help"):
-            help()
+            user_handler.help()
+        if opt in ("-f", "--file"):
+            db.reset(arg)
         elif opt in ("-i", "--install"):
-            install_programms(arg)
+            def install_fun(source_handler, names):
+                source_handler.install(names)
+            user_handler.for_each_source_handler(source_handlers, db, arg, install_fun)
         elif opt in ("-r", "--remove"):
-            remove_programms(arg)
+            def remove_fun(source_handler, names):
+                source_handler.remove(names)
+            user_handler.for_each_source_handler(source_handlers, db, arg, remove_fun)
         elif opt in ("-l", "--list"):
-            list("")
+            user_handler.groups(db)
         elif opt in ("-c", "--check"):
-            check_programms(arg)
+            user_handler.validate(db, source_handlers, arg)
         elif opt in ("--items"):
-            list(arg)
+            user_handler.items(db, arg)
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
         main(sys.argv[1:])
     else:
-        help()
-    
+        user_handler.help()
+

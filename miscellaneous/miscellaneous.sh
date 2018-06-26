@@ -1,18 +1,21 @@
 #!/bin/bash
 
-my_program_path="/usr/local/sbin/"
+#my_program_path="/usr/local/sbin/"
+my_program_path="$HOME/.local/bin/"
+if [ ! -d "$my_program_path" ]; then
+  mkdir $my_program_path
+fi
 
 if [ "$1" = "all" ]; then
-  ./miscellaneous.sh xresources 
-  ./miscellaneous.sh nautilus_gvim 
-  ./miscellaneous.sh nautilus_scripts 
-  ./miscellaneous.sh terminator_config 
+  ./miscellaneous.sh xresources
+  ./miscellaneous.sh nautilus_scripts
   ./miscellaneous.sh firefox_tunnel_to
-  ./miscellaneous.sh alarm 
+  ./miscellaneous.sh alarm
   ./miscellaneous.sh autoenv
   ./miscellaneous.sh git_config
-  ./miscellaneous.sh execute_me 
+  ./miscellaneous.sh execute_me
   ./miscellaneous.sh runtime
+  ./miscellaneous.sh autostart_script 
 fi
 
 if [ "$1" = "xresources" ]; then
@@ -21,27 +24,6 @@ if [ "$1" = "xresources" ]; then
   ln -sf $current_dir/.Xresources .Xresources
   xrdb -merge ~/.Xresources #load settings
 fi
-
-#add integration for nautilus file browser
-if [ "$1" = "nautilus_gvim" ]; then  
-    cd ~/.local/share/applications/
-
-cat > vim.desktop <<EOF 
-[Desktop Entry]
-Categories=;
-Comment=Edit file in Vim
-Exec=gvim %f
-GenericName=Process Viewer
-Hidden=false
-Icon=gvim
-Name=gvim
-Terminal=true
-Type=Application
-Version=1.0
-EOF
-
-fi
-
 
 if [ "$1" = "nautilus_scripts" ]; then  
   current_dir=$(pwd)
@@ -53,7 +35,7 @@ fi
 if [ "$1" = "firefox_tunnel_to" ]; then
   current_dir=$(pwd)
   cd $my_program_path
-  sudo ln -sf $current_dir/scripts/firefox_tunnel_to
+  ln -sf $current_dir/scripts/firefox_tunnel_to
 fi
 
 if [ "$1" = "alarm" ]; then
@@ -68,39 +50,13 @@ fi
 if [ "$1" = "execute_me" ]; then
   current_dir=$(pwd)
   cd $my_program_path
-  sudo ln -sf $current_dir/scripts/execute_me
+  ln -sf $current_dir/scripts/execute_me
 fi
 
 if [ "$1" = "runtime" ]; then
   current_dir=$(pwd)
   cd $my_program_path
-  sudo ln -sf $current_dir/scripts/runtime
-fi
-
-if [ "$1" = "terminator_config" ]; then  
-  mkdir ~/.config/terminator
-  cd ~/.config/terminator
-
-cat > config <<EOF 
-[global_config]
-[keybindings]
-[profiles]
-  [[default]]
-    scrollback_lines = 20000
-    font = Monospace 12
-    use_system_font = False
-    background_image = None
-[layouts]
-  [[default]]
-    [[[child1]]]
-      type = Terminal
-      parent = window0
-    [[[window0]]]
-      type = Window
-      parent = ""
-[plugins]
-EOF
-
+  ln -sf $current_dir/scripts/runtime
 fi
 
 if [ "$1" = "autoenv" ]; then
@@ -110,7 +66,25 @@ fi
 
 if [ "$1" = "git_config" ]; then
   current_dir=$(pwd)
-  mkdir ~/.config/git/
+  mkdir -p ~/.config/git/
   cd ~/.config/git/
   ln -sf $current_dir/scripts/git_config config
+fi
+
+if [ "$1" = "autostart_script" ]; then
+  autostart_file=autostart_script
+  touch $my_program_path/$autostart_file
+  chmod +x $my_program_path/$autostart_file
+cat > $HOME/.config/autostart/${autostart_file}.desktop << EOF
+[Desktop Entry]
+Name=autostart_script
+GenericName=autostart
+Comment=Run commands on startup
+Exec=${autostart_file}
+Terminal=false
+Type=Application
+Icon=dropbox
+Categories=Generic
+StartupNotify=false
+EOF
 fi

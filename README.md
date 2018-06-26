@@ -9,7 +9,7 @@ Requirements
 ============
 Git:
     
-    sudo apt-get install -y git    
+    sudo apt install -y git
 
 
 Startup
