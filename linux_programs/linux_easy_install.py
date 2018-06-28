@@ -29,6 +29,12 @@ class program_db:
                 yield source 
 
 class source(ABC):
+    def __init__(self, source_name):
+        self.source_name = source_name
+
+    def __str__(self):
+        return "source: " + self.source_name
+
     @abstractmethod
     def install(self, names):
         pass
@@ -43,6 +49,7 @@ class source(ABC):
 
 class apt(source):
     def __init__(self):
+        source.__init__(self, "apt")
         self.__available_names = self.available_names()
 
     def available_names(self):
@@ -59,12 +66,12 @@ class apt(source):
 
     def install(self, names):
         cmd = "sudo apt -y install "
-        if not names:
+        if names:
             os.system(cmd + " ".join(names))
 
     def remove(self, names):
         cmd = "sudo apt -y remove "
-        if not names:
+        if names:
             os.system(cmd + " ".join(names))
 
     def validate(self, names):
@@ -160,12 +167,12 @@ class user_handler():
 
     def for_each_source_handler(source_handlers, db, group, fun):
         if group != "all":
-            for source_name, source_handler in source_handlers.itmes():
+            for source_name, source_handler in source_handlers.items():
                 names = [items[0] for item in db.items(group_filter=[group], source_filter=[source_name])]
                 fun(source_handler, names)
         else:
-            for source_name, source_handler in source_handlers.itmes():
-                names = [items[0] for item in db.items(source_filter=[source_name])]
+            for source_name, source_handler in source_handlers.items():
+                names = [item[0] for item in db.items(source_filter=[source_name])]
                 fun(source_handler, names)
 
 def main(argv):
