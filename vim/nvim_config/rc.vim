@@ -21,7 +21,6 @@ set softtabstop=-1  " make 'softtabstop' follow 'shiftwidth'
 set shiftwidth=0    " make 'shiftwidth' follow 'tabstop'
 set mouse=a         " enable the use of the mouse
 set hlsearch        " highlights all search matches
-set autowriteall    " saves all files on some events like :suspend"
 
 " disable the nasty command mode
 noremap <S-q> <nop>
@@ -43,13 +42,14 @@ endfunction
 " toggles search highlighting
 noremap <Leader><Leader>h :set hlsearch! hlsearch?<CR>
 " quit a buffer
-noremap <F9> :quit<CR> 
-noremap <S-F9> :quit!<CR> 
-inoremap <F9> <ESC>:quit<CR> 
-inoremap <S-F9> <ESC>:quit!<CR> 
+noremap <A-w> :quit<CR> 
+noremap <A-S-w> :quit!<CR> 
+inoremap <A-w> <ESC>:quit<CR> 
+inoremap <A-S-w> <ESC>:quit!<CR> 
+tnoremap <A-w> <C-\><C-n>:quit<CR>
 " save a buffer
-noremap <F8> :wall<CR>
-inoremap <F8> <ESC>:wall<CR>
+noremap <A-s> :wall<CR>
+inoremap <A-s> <ESC>:wall<CR>
 
 autocmd! BufNewFile,BufRead \v*.mywiki|*.tex|*.txt|README|*.md|COMMIT_EDITMSG|de.utf-8.add call Set_options_for_texting()
 autocmd! BufNewFile,BufRead \v*.c|*.cpp|*.h|*.hpp call Set_options_for_cpp_coding()
