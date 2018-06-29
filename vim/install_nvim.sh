@@ -3,22 +3,26 @@
 # Abort this script on any error
 set -e
 
+echo "####################################"
+echo "## $0 $@"
+echo "####################################"
+
 nvim_path="${HOME}/.config/nvim"
 
 if [ "$1" = "all" ]; then
-  ./$0 preperation
-  ./$0 install_neovim
-  ./$0 vim_plug 
-  ./$0 undotree 
-  ./$0 link_nvim_config 
-  ./$0 set_install_rc
+  $0 preperation
+  $0 install_neovim
+  $0 vim_plug 
+  $0 undotree 
+  $0 link_nvim_config 
+  $0 set_install_rc
   nvim -c "call InstallMe()"
-  ./$0 set_init_rc
-  ./$0 install_gui
-  ./$0 swap_directory
-  ./$0 neovim_remote
-  ./$0 load_spellfiles
-  ./$0 sec_vim
+  $0 set_init_rc
+  $0 install_gui
+  $0 swap_directory
+  $0 neovim_remote
+  $0 load_spellfiles
+  $0 sec_vim
 fi
 
 if [ "$1" = "preperation" ]; then  

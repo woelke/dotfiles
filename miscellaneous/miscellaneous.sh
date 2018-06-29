@@ -1,5 +1,9 @@
 #!/bin/bash
 
+echo "####################################"
+echo "## $0 $@"
+echo "####################################"
+
 #my_program_path="/usr/local/sbin/"
 my_program_path="$HOME/.local/bin/"
 if [ ! -d "$my_program_path" ]; then
@@ -7,15 +11,15 @@ if [ ! -d "$my_program_path" ]; then
 fi
 
 if [ "$1" = "all" ]; then
-  ./miscellaneous.sh xresources
-  ./miscellaneous.sh nautilus_scripts
-  ./miscellaneous.sh firefox_tunnel_to
-  ./miscellaneous.sh alarm
-  ./miscellaneous.sh autoenv
-  ./miscellaneous.sh git_config
-  ./miscellaneous.sh execute_me
-  ./miscellaneous.sh runtime
-  ./miscellaneous.sh autostart_script 
+  $0 xresources
+  $0 nautilus_scripts
+  $0 firefox_tunnel_to
+  $0 alarm
+  $0 autoenv
+  $0 git_config
+  $0 execute_me
+  $0 runtime
+  $0 autostart_script 
 fi
 
 if [ "$1" = "xresources" ]; then

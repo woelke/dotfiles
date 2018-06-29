@@ -1,12 +1,11 @@
 #!/bin/bash
 
 if [ $# = 0 ]; then
-    ./bootstrap.sh programs
-    ./bootstrap.sh zsh 
-    ./bootstrap.sh miscellaneous 
-    ./bootstrap.sh nvim 
-    ./bootstrap.sh sec 
-    exit 0
+  $0 programs
+  $0 zsh 
+  $0 miscellaneous 
+  $0 nvim 
+  $0 sec 
 fi
 
 
@@ -15,13 +14,13 @@ fi
 ########################################
 
 if [ $1 = "programs" ]; then
-    cd linux_programs
+  cd linux_programs
 
-    echo "--------------------------"
-    echo "- install linux programs -"
-    echo "--------------------------"
-    
-    ./linux_programs.sh all
+  echo "--------------------------"
+  echo "- install linux programs -"
+  echo "--------------------------"
+  
+  ./linux_programs.sh all
 fi
 
 
@@ -30,13 +29,13 @@ fi
 ###############
 
 if [ $1 = "zsh" ]; then
-    cd zsh
+  cd zsh
 
-    echo "---------------"
-    echo "- install zsh -"
-    echo "---------------"
+  echo "---------------"
+  echo "- install zsh -"
+  echo "---------------"
 
-    ./install_zsh.sh all
+  ./install_zsh.sh all
 fi
 
 
@@ -45,13 +44,13 @@ fi
 ################
 
 if [ $1 = "nvim" ]; then
-    cd vim
+  cd vim
 
-    echo "---------------"
-    echo "- install nvim -"
-    echo "---------------"
+  echo "---------------"
+  echo "- install nvim -"
+  echo "---------------"
 
-    ./install_nvim.sh all
+  ./install_nvim.sh all
 fi
 
 
@@ -60,13 +59,13 @@ fi
 #################
 
 if [ $1 = "miscellaneous" ]; then
-    cd miscellaneous
+  cd miscellaneous
 
-    echo "-----------------"
-    echo "- miscellaneous -"
-    echo "-----------------"
+  echo "-----------------"
+  echo "- miscellaneous -"
+  echo "-----------------"
 
-    ./miscellaneous.sh all
+  ./miscellaneous.sh all
 fi
 
 
@@ -75,35 +74,35 @@ fi
 ##############
 
 if [ $1 = "dsec" ]; then
-    cd sec
-   
-    while true; do
-        gpg sec.tar.gz.gpg
+  cd sec
+ 
+  while true; do
+      gpg sec.tar.gz.gpg
 
-        if [ $? = "0" ]; then
-            tar --auto-compress --extract --file sec.tar.gz 
-            rm sec.tar.gz
-            exit 0 
-        fi
-    done
+      if [ $? = "0" ]; then
+          tar --auto-compress --extract --file sec.tar.gz 
+          rm sec.tar.gz
+          exit 0 
+      fi
+  done
 fi
 
 if [ $1 = "sec" ]; then
-    ./bootstrap.sh dsec
-    cd sec
-    
-    echo "--------------"
-    echo "- handle sec -"
-    echo "--------------"
-    
-    ./sec.sh all
+  $0 dsec
+  cd sec
+  
+  echo "--------------"
+  echo "- handle sec -"
+  echo "--------------"
+  
+  ./sec.sh all
 fi
 
 if [ $1 = "esec" ]; then
-    cd sec
+  cd sec
 
-    tar --gzip --create --file sec.tar.gz sec.sh folder 
-    gpg --cipher-algo AES256 --symmetric sec.tar.gz
-    rm sec.tar.gz
+  tar --gzip --create --file sec.tar.gz sec.sh folder 
+  gpg --cipher-algo AES256 --symmetric sec.tar.gz
+  rm sec.tar.gz
 fi
 
