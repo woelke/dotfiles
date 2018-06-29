@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Abort this script on any error
+set -e
+
 nvim_path="${HOME}/.config/nvim"
 
 if [ "$1" = "all" ]; then
