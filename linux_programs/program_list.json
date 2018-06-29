@@ -44,9 +44,7 @@
     "subversion" : ["apt", "svn"],
     "texlive-full": ["apt", ""],
     "gitk": ["apt", ""],
-    "python-virtualenv": ["apt", "Python virtual environment creater"],
-    "python-dev": ["apt", "Python headers (required by vim ycm)"],
-    "python3-dev": ["apt", "Python headers (required by vim ycm)"]
+    "python-virtualenv": ["apt", "Python virtual environment creater"]
   },
 
   "c++" : {
