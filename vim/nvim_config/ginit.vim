@@ -1,5 +1,8 @@
 " This file is only loaded by novim guis
- 
+
+" Enable 24-bit color for GUIs (suggested by falcon color scheme)
+set termguicolors
+
 " configuration for neovim-qt
 if exists('g:GuiLoaded')
   :Guifont DejaVu Sans Mono:h12

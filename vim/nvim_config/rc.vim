@@ -9,7 +9,8 @@ set directory=~/.config/nvim/swap/
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-colorscheme molokai
+"colorscheme molokai
+colorscheme falcon
 set scrolloff=7     " keep 7 lines above and below the cursor.
 set relativenumber  " show line numbers relative to the current line
 set ignorecase      " ignore case when searching
@@ -209,9 +210,11 @@ let g:ycm_confirm_extra_conf = 0
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => ligthline
+" => lightline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set laststatus=2 " the windows will always have a status line
+" Hides the mode information like INSERT or VISUAL in the bottom line
+set noshowmode
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -293,6 +296,15 @@ nnoremap <Leader>a :Ack!<Space>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:taboo_tab_format = "%N-%f "
 let g:taboo_renamed_tab_format = "%N-%l "
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => falcon colorscheme
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:falcon_lightline = 1
+let g:lightline = {
+      \ 'colorscheme': 'falcon',
+      \ }
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

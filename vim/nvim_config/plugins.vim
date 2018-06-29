@@ -31,7 +31,8 @@ Plug 'aufgang001/vim-clang-format-py'
 
 " highlighting schemes
 Plug 'flazz/vim-colorschemes'
-"Plug 'NLKNguyen/papercolor-theme'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'fenetikm/falcon'
 
 " displaying thin vertical lines at each indentation level
 Plug 'Yggdroot/indentLine'
