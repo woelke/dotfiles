@@ -83,7 +83,7 @@ if [ "$1" = "install_gui" ]; then
   cd tmp/neovim-gtk
   sudo make install
   ## disables the HEADEBAR even when started from a non terminal env
-  print "\n# neovim-gtk env variable\nexport NVIM_GTK_NO_HEADERBAR=1\n
+  print "\n# neovim-gtk env variable\nexport NVIM_GTK_NO_HEADERBAR=1" >> ~/.profile
 fi
 
 if [ "$1" = "swap_directory" ]; then
