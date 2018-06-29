@@ -170,7 +170,7 @@ class user_handler():
     def for_each_source_handler(source_handlers, db, group, fun):
         if group != "all":
             for source_name, source_handler in source_handlers.items():
-                names = [items[0] for item in db.items(group_filter=[group], source_filter=[source_name])]
+                names = [item[0] for item in db.items(group_filter=[group], source_filter=[source_name])]
                 fun(source_handler, names)
         else:
             for source_name, source_handler in source_handlers.items():
