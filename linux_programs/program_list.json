@@ -10,6 +10,7 @@
     "python-pip": ["apt", "Paketmanagment tool for python2"],
     "python3-pip": ["apt", "Paketmanagment tool for python3"],
     "trash-cli": ["apt", "Put files in trash instead of removing them directly"],
+    "fonts-firacode": ["apt", "Monospaced font with programming ligatures"],
     "curl": ["apt", "Console donwload tool"]
   },
 
