@@ -1,56 +1,18 @@
 {
-  "dev_essentials" : {
+  "essentials" : {
     "build-essential": ["apt", ""],
     "git": ["apt", ""],
-    "gitk": ["apt", ""],
-    "subversion" : ["apt", "svn"],
-    "texlive-full": ["apt", ""]
-  },
-
-  "dev_network" : {
-    "libpcap-dev": ["apt", ""],
-    "wireshark": ["apt", ""],
-    "minicom": ["apt", "Serial communication program like putty (RS232)"],
     "ssh": ["apt", "Secure source shell"],
-    "zssh": ["apt", "Ssh with file transfer wrapper"],
-    "sshpass": ["apt", "Sshpass -p your_password ssh user@hostname"],
-    "sshfs": ["apt", "Mount file systems over ssh"],
-    "bmon": ["apt", "Netzwerk diagnose tool"],
-    "netcat": ["apt", "Run with cmd: nc6"]
-  },
-
-  "dev_python" : {
-    "python-pip": ["apt", "Paketmanagment tool for python2"],
-    "python3-pip": ["apt", "Paketmanagment tool for python3"],
-    "python-virtualenv": ["apt", "Python virtual environment creater"],
-    "python-dev": ["apt", "Python headers (required by vim ycm)"],
-    "python3-dev": ["apt", "Python headers (required by vim ycm)"]
-  },
-
-  "dev_c++" : {
+    "vim": ["apt", "Vim"],
     "cmake": ["apt", ""],
-    "libboost-all-dev": ["apt", ""],
-    "clang": ["apt", ""],
-    "qtcreator": ["apt", ""],
-    "doxygen": ["apt", ""],
-    "doxygen-gui": ["apt", ""],
-    "doxygen-doc": ["apt", ""],
-    "unifdef": ["apt", "Remove preprocessor conditionsals from code"],
-    "cppcheck": ["apt", "Static code analyzer"],
-    "clang-format": ["apt", "Formats c/c++ code"],
-    "gdb": ["apt", "GNU Debugger"],
-    "ninja-build": ["apt", "A small build system with a focus on speed"]
+    "python": ["apt", ""],
+    "python3": ["apt", ""],
+    "python-pip": ["apt", "Paketmanagment tool for python2"],
+    "python3-pip": ["apt", "Paketmanagment tool for python3"]
+    "trash-cli": ["apt", "Put files in trash instead of removing them directly"],
   },
 
-  "dev_misc" : {
-    "eclipse": ["apt", ""],
-    "r-base": ["apt", ""],
-    "golang": ["apt", "Go programming language"],
-    "haskell-platform": ["apt", "All necessary tools for haskell"],
-    "lua5.2": ["apt", "Lua language"]
-  },
-
-  "standard" : {
+  "apps" : {
     "nautilus-dropbox" : ["apt", ""],
     "numlockx": ["apt", "Set numlock a startup"],
     "xsane": ["apt", "Scan programm"],
@@ -62,20 +24,53 @@
     "calibre": ["apt", "Ebook manager"],
     "vlc": ["apt", "Multimedia player"],
     "virtualbox": ["apt", "Hypervisor for x86 computers"],
-    "screen": ["apt", "Console emulation programm"],
     "unrar": ["apt", ""],
     "p7zip-rar": ["apt", ""],
-    "unison": ["apt", "Backup and syncronisation tool"],
     "htop": ["apt", "Process viewer like top"],
     "xournal": ["apt", "App for pdf manipulation, notetaking, ..."],
     "gparted": ["apt", "Storage partionition application"],
     "kazam": ["apt", "Simple screen recording program"],
     "tree": ["apt", "List contents of directories in a tree-like format"],
-    "terminator": ["apt", "Handy terminal emulator"],
     "alarm-clock-applet": ["apt", "Alarm clock"],
-    "curl": ["apt", "Console donwload tool"],
-    "trash-cli": ["apt", "Put files in trash instead of removing them directly"],
-    "vim-gui-common": ["apt", "Gvim"],
-    "vim": ["apt", "Vim"]
+    "curl": ["apt", "Console donwload tool"]
+  },
+
+  "developer-tools" : {
+    "eclipse": ["apt", ""],
+    "r-base": ["apt", ""],
+    "golang": ["apt", "Go programming language"],
+    "haskell-platform": ["apt", "All necessary tools for haskell"],
+    "lua5.2": ["apt", "Lua language"],
+    "subversion" : ["apt", "svn"],
+    "texlive-full": ["apt", ""],
+    "gitk": ["apt", ""],
+    "python-virtualenv": ["apt", "Python virtual environment creater"],
+    "python-dev": ["apt", "Python headers (required by vim ycm)"],
+    "python3-dev": ["apt", "Python headers (required by vim ycm)"]
+  },
+
+  "c++" : {
+    "gdb": ["apt", "GNU Debugger"],
+    "clang-format": ["apt", "Formats c/c++ code"],
+    "cppcheck": ["apt", "Static code analyzer"],
+    "unifdef": ["apt", "Remove preprocessor conditionsals from code"],
+    "libboost-all-dev": ["apt", ""],
+    "clang": ["apt", ""],
+    "ninja-build": ["apt", "A small build system with a focus on speed"],
+    "qtcreator": ["apt", ""],
+    "doxygen": ["apt", ""],
+    "doxygen-gui": ["apt", ""],
+    "doxygen-doc": ["apt", ""]
+  },
+
+  "network" : {
+    "libpcap-dev": ["apt", ""],
+    "wireshark": ["apt", ""],
+    "minicom": ["apt", "Serial communication program like putty (RS232)"],
+    "sshpass": ["apt", "Sshpass -p your_password ssh user@hostname"],
+    "sshfs": ["apt", "Mount file systems over ssh"],
+    "bmon": ["apt", "Netzwerk diagnose tool"],
+    "screen": ["apt", "Console emulation programm"],
+    "netcat": ["apt", "Run with cmd: nc6"]
   }
 }
