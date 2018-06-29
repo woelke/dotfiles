@@ -86,6 +86,9 @@ source $ZSH/oh-my-zsh.sh
 ##-- My Stuff --##
 ##################
 
+##-- Path to cargo rust applications --#
+export PATH=$HOME/.cargo/bin:$PATH
+
 ##-- man in vim --##
 vman() {
     #run command SuperMan and add opend manual to arglist 
@@ -116,6 +119,7 @@ alias gc='git commit'
 alias ga='git add'
 alias gl='git log'
 alias gd='git diff'
+alias gr='git rebase'
 
 ##-- vim shortcuts --##
 alias v="execute_me 'nvr --remote-send \"<C-\\><C-n>:call DoLcdToCurrentPath()<CR>:edit \$2<CR>\"'"
@@ -127,6 +131,8 @@ alias vg='nvim-gtk'
 ##-- other stuff --##
 alias logout='gnome-session-quit'
 alias rm='trash'
+alias l='exa'
+alias ll='exa -l'
 
 ##-- Keyboard --##
 #numlockx on # actrivate the nummber block 
