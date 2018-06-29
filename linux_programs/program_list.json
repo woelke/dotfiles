@@ -9,7 +9,8 @@
     "python3": ["apt", ""],
     "python-pip": ["apt", "Paketmanagment tool for python2"],
     "python3-pip": ["apt", "Paketmanagment tool for python3"],
-    "trash-cli": ["apt", "Put files in trash instead of removing them directly"]
+    "trash-cli": ["apt", "Put files in trash instead of removing them directly"],
+    "curl": ["apt", "Console donwload tool"]
   },
 
   "apps" : {
@@ -31,8 +32,7 @@
     "gparted": ["apt", "Storage partionition application"],
     "kazam": ["apt", "Simple screen recording program"],
     "tree": ["apt", "List contents of directories in a tree-like format"],
-    "alarm-clock-applet": ["apt", "Alarm clock"],
-    "curl": ["apt", "Console donwload tool"]
+    "alarm-clock-applet": ["apt", "Alarm clock"]
   },
 
   "developer-tools" : {
