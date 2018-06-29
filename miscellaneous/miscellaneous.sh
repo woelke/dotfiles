@@ -63,11 +63,6 @@ if [ "$1" = "runtime" ]; then
   ln -sf $current_dir/scripts/runtime
 fi
 
-if [ "$1" = "autoenv" ]; then
-  #on entering a folder with a .env file it is automatically executed
-  git clone git://github.com/kennethreitz/autoenv.git ~/.autoenv
-fi
-
 if [ "$1" = "git_config" ]; then
   current_dir=$(pwd)
   mkdir -p ~/.config/git/

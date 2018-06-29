@@ -138,8 +138,5 @@ alias rm='trash'
 #run make with flag -j<number of processors>
 export MAKEFLAGS="-j$(cat /proc/cpuinfo | grep processor | wc | awk '{ print $1 }')"
 
-##-- python auto environement --##
-#source ~/.autoenv/activate.sh
-
 ##-- folder for go scripts --##
 #export GOPATH=~/gocode #needed by the go compiler e.g. go get github.com/svent/sift
