@@ -68,6 +68,7 @@ if [ "$1" = "set_init_rc" ]; then
 fi
 
 if [ "$1" = "install_gui" ]; then
+  # neovim-qt
   sudo apt install -y qt5-default 
   git clone https://github.com/equalsraf/neovim-qt tmp/neovim-qt
   cd tmp/neovim-qt
@@ -76,6 +77,13 @@ if [ "$1" = "install_gui" ]; then
   cmake -DCMAKE_BUILD_TYPE=Release ..
   make
   sudo make install
+  # neovim-gtk
+  sudo apt install cargo libgtk-3-dev
+  git clone https://github.com/daa84/neovim-gtk tmp/neovim-gtk
+  cd tmp/neovim-gtk
+  sudo make install
+  ## disables the HEADEBAR even when started from a non terminal env
+  print "\n# neovim-gtk env variable\nexport NVIM_GTK_NO_HEADERBAR=1\n
 fi
 
 if [ "$1" = "swap_directory" ]; then
