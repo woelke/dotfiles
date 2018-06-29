@@ -147,6 +147,10 @@ tnoremap <A-e> <C-\><C-n>:call DoLcdToCurrentPath()<CR>:vnew<CR>:terminal<CR>
 " temporary fix for https://github.com/equalsraf/neovim-qt/issues/215
 tnoremap <A-v> <C-\><C-n>"+pi
 
+" opens terminal automatically on vim start if no files were specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | call termopen("eval $SHELL") | endif
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Undotree
@@ -159,10 +163,6 @@ set undofile            "Save undo's after file closes
 " => Nerdtree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let NERDTreeIgnore=['\.o$', '\~$', '\.orig$', '\.aux$','\.fls$', '\.out$','\.toc$','\.log$','\.fdb_latexmk$', '\.idx$', '\.ilg$', '\.ing$', '\.ind$']
-
-" opens nerdtree automatically on vim start if no files were specified
-autocmd! vimenter
-autocmd vimenter * if !argc() | NERDTree | endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
