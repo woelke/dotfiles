@@ -15,7 +15,6 @@
 
   "apps" : {
     "nautilus-dropbox" : ["apt", ""],
-    "numlockx": ["apt", "Set numlock a startup"],
     "xsane": ["apt", "Scan programm"],
     "krita": ["apt", "Paint for linux"],
     "shutter": ["apt", "Screen shoot tool"],
