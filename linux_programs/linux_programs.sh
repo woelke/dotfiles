@@ -27,7 +27,7 @@ if [ $1 = "programs" ]; then
         fi
     fi
 
-    python3 linux_easy_install.py --install all
+    python3 app_handler.py --install all
 fi
 
 if [ $1 = "truecrypt" ]; then
