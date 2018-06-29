@@ -50,9 +50,10 @@ class source(ABC):
 class apt(source):
     def __init__(self):
         source.__init__(self, "apt")
-        self.__available_names = self.available_names()
 
     def available_names(self):
+        if hasattr(self, "_apt__available_names"):
+            return self.__available_names
         result = set()
         cmd = "apt-cache"
         arg = "dumpavail"
@@ -62,7 +63,8 @@ class apt(source):
             tmp = i.split(" ")
             if(tmp[0]== "Package:"):
                 result.add(tmp[1])
-        return result 
+        self.__available_names = result
+        return self.__available_names
 
     def install(self, names):
         cmd = "sudo apt -y install "
@@ -78,7 +80,7 @@ class apt(source):
         valid = []
         invalid = []
         for name in names:
-            if name in self.__available_names:
+            if name in self.available_names():
                 valid.append(name)
             else:
                 invalid.append(name)
