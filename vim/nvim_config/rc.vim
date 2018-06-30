@@ -116,8 +116,8 @@ function! DoLcdToCurrentPath()
 endfunction 
 
 " a terimal is allways entered in insert mode
-autocmd TermOpen * startinsert
-autocmd! BufEnter, WinEnter term://* startinsert
+autocmd! TermOpen * startinsert
+autocmd! BufEnter term://* startinsert
 
 " ESC in terminal
 tnoremap <A-Esc> <C-\><C-n>
