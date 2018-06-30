@@ -85,5 +85,7 @@ Plug 'gcmt/taboo.vim'
 " simple yank between nvim instances
 Plug 'bfredl/nvim-miniyank'
 
+" highlights trailing withespaces and can delete them
+Plug 'ntpeters/vim-better-whitespace'
 " Initialize plugin system
 call plug#end()
