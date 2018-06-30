@@ -3,8 +3,8 @@
 " Other configuration files are loaded later as many
 " commands require installed plugins
 source ~/.config/nvim/nvim_config/plugins.vim
-function! InstallMe() 
+function! InstallMe()
     :PlugInstall
     :PlugUpdate
-    :qa!    
-endfunction 
+    :qa!
+endfunction

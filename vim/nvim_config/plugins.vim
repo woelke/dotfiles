@@ -9,14 +9,14 @@ call plug#begin('~/.config/nvim/plugged')
 "try
 
 " multi threading extention (usefull in nvim??)
-"Plug 'shougo/vimproc.vim', {'do': 'make'} 
+"Plug 'shougo/vimproc.vim', {'do': 'make'}
 
 " filesystem navigator
 Plug 'scrooloose/nerdtree'
 Plug 'aufgang001/vim-nerdtree_plugin_open'
 
 " commenting of code
-Plug 'scrooloose/nerdcommenter' 
+Plug 'scrooloose/nerdcommenter'
 
 "code-completion engine
 function! BuildYCM(info)
@@ -62,7 +62,7 @@ Plug 'sheerun/vim-polyglot'
  Plug 'mcproxy/vim-mcproxy_conf_highlighting'
 
 " my synconized spell files
-Plug 'aufgang001/vim-custom_spellfile', {'do': './install.sh nvim'} 
+Plug 'aufgang001/vim-custom_spellfile', {'do': './install.sh nvim'}
 
 " opens URLs in browser
 Plug 'waiting-for-dev/www.vim'

@@ -1,21 +1,21 @@
 #!/bin/bash
 
 function ask_for {
-    while true; do 
+    while true; do
         echo $1
         read -n 1 input
         if [ $input = "Y" ] || [ $input = "y" ]; then
             return 1
         elif [ $input = "N" ] || [ $input = "n" ]; then
-            return 0 
+            return 0
         fi
     done
 }
 
 if [ $1 = "all" ]; then
-    ./linux_programs.sh programs    
-    ./linux_programs.sh truecrypt 
-    ./linux_programs.sh spideroak 
+    ./linux_programs.sh programs
+    ./linux_programs.sh truecrypt
+    ./linux_programs.sh spideroak
 fi
 
 if [ $1 = "programs" ]; then
@@ -39,7 +39,7 @@ if [ $1 = "truecrypt" ]; then
     if [ "$calc_sum" = "$known_sum" ]; then
         tar -axf truecrypt-7.1a-linux-x64.tar.gz
         ./linux_programs.sh run_and_clean_truecrypt &
-    else 
+    else
         echo "Failed to install truecrypt! Checksum is incorrect."
     fi
 fi

@@ -26,7 +26,7 @@ all: MyDoc.pdf
 # -interactive=nonstopmode keeps the pdflatex backend from stopping at a
 # missing file reference and interactively asking you for an alternative.
 
-MyDoc.pdf: 
+MyDoc.pdf:
 	latexmk -pdf -bibtex -pdflatex="pdflatex -interactive=nonstopmode" -use-make $(MAIN).tex
 
 clean:

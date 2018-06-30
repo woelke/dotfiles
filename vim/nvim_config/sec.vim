@@ -29,10 +29,10 @@ noremap <S-q> <nop>
 " => shortcuts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " quit a buffer
-noremap <F9> :quit<CR> 
-noremap <S-F9> :quit!<CR> 
-inoremap <F9> <ESC>:quit<CR> 
-inoremap <S-F9> <ESC>:quit!<CR> 
+noremap <F9> :quit<CR>
+noremap <S-F9> :quit!<CR>
+inoremap <F9> <ESC>:quit<CR>
+inoremap <S-F9> <ESC>:quit!<CR>
 " save a buffer
 noremap <F8> :wall<CR>
 inoremap <F8> <ESC>:wall<CR>

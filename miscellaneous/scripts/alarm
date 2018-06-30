@@ -1,7 +1,7 @@
 #!/bin/bash
 #requirements
 #sudo apt-get install sharutils
-#sudo apt-get install redshift 
+#sudo apt-get install redshift
 
 #use for example with with
 #sudo apt-get install alarm-clock-applet
@@ -26,7 +26,7 @@ for i in {1..5}
 do
     redshift -O 1000
     sleep .1
-    redshift -x 
+    redshift -x
     sleep .1
 done
 

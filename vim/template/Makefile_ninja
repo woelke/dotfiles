@@ -7,5 +7,5 @@ clean:
 	ninja -C $(MAIN) clean
 
 install:
-	ninja -C $(MAIN) install 
-	
+	ninja -C $(MAIN) install
+

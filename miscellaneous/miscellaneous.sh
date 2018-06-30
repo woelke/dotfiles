@@ -19,7 +19,7 @@ if [ "$1" = "all" ]; then
   $0 git_config
   $0 execute_me
   $0 runtime
-  $0 autostart_script 
+  $0 autostart_script
 fi
 
 if [ "$1" = "xresources" ]; then
@@ -29,7 +29,7 @@ if [ "$1" = "xresources" ]; then
   xrdb -merge ~/.Xresources #load settings
 fi
 
-if [ "$1" = "nautilus_scripts" ]; then  
+if [ "$1" = "nautilus_scripts" ]; then
   current_dir=$(pwd)
   cd ~/.local/share/nautilus/scripts
   ln -sf $current_dir/scripts/nautilus/merge_pdf
@@ -44,7 +44,7 @@ fi
 
 if [ "$1" = "alarm" ]; then
   sudo apt-get -y install sharutils
-  sudo apt-get -y install redshift 
+  sudo apt-get -y install redshift
 
   current_dir=$(pwd)
   cd $my_program_path

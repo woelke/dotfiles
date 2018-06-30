@@ -1,5 +1,5 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => General settings 
+" => General settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:myOpenCmd = "gnome-open"
 let g:mapleader = ","
@@ -33,12 +33,12 @@ noremap <S-q> <nop>
 
 " :W saves the file even with sudo privileges
 command! W call My_sudo_write()
-function! My_sudo_write() 
+function! My_sudo_write()
   "overrides the current file with the content of the current buffer
   "and reloads the the file
   execute "write !sudo tee % > /dev/null"
   execute ":edit!"
-endfunction 
+endfunction
 
 " toggles search highlighting
 noremap <Leader><Leader>h :set hlsearch! hlsearch?<CR>
@@ -56,14 +56,14 @@ autocmd! BufNewFile,BufRead \v*.mywiki|*.tex|*.txt|README|*.md|COMMIT_EDITMSG|de
 autocmd! BufNewFile,BufRead \v*.c|*.cpp|*.h|*.hpp call Set_options_for_cpp_coding()
 autocmd! BufNewFile,BufRead,BufWritePost    \v.vimrc|*.vim call Set_options_for_vimrc()
 
-function! Set_options_for_cpp_coding() 
+function! Set_options_for_cpp_coding()
   set cursorline " its to CPU-intensive in latex files
   call Set_makefile_shortcut_F5()
   noremap <F6> :cnext<CR>
-  noremap <F7> :cprevious<CR> 
+  noremap <F7> :cprevious<CR>
   set colorcolumn=80
   noremap <F12> :ClangFormat<CR>
-endfunction 
+endfunction
 
 function! Set_options_for_texting()
   setlocal spell spelllang=de,en_us
@@ -71,23 +71,23 @@ function! Set_options_for_texting()
   call Set_makefile_shortcut_F5()
 
   "next wrong word
-  noremap <F6> ]s 
-    
+  noremap <F6> ]s
+
   "previous wrong word
   "h is a bugfix: I had a problem with a latex file and the keybinding
   "]s. It jumps to the second letter of the next wrong written word, which blocks the backword jump .. for whatever reason
-  noremap <F7> h[s 
+  noremap <F7> h[s
 endfunction
 
-function! Set_options_for_vimrc() 
+function! Set_options_for_vimrc()
   "reload the vimrc file
   noremap <F5> :source %<CR>
-endfunction 
+endfunction
 
-function! Set_makefile_shortcut_F5() 
+function! Set_makefile_shortcut_F5()
   noremap <F5> :make!<CR> :copen<CR><C-W><S-J> :redraw!<CR>
   noremap <S-F5> :make clean<CR> :copen<CR><C-W><S-J> :redraw!<CR>
-endfunction 
+endfunction
 
 "special character
 inoremap @o ö
@@ -113,7 +113,7 @@ function! DoLcdToCurrentPath()
     let l:proc_cwd = resolve('/proc/'.l:procid.'/cwd')
     execute 'lcd '.l:proc_cwd
   endif
-endfunction 
+endfunction
 
 " a terimal is allways entered in insert mode
 autocmd! TermOpen * startinsert
@@ -122,7 +122,7 @@ autocmd! BufEnter term://* startinsert
 " ESC in terminal
 tnoremap <A-Esc> <C-\><C-n>
 " move left, right, up, down
-tnoremap <A-h> <C-\><C-n><C-w>h 
+tnoremap <A-h> <C-\><C-n><C-w>h
 tnoremap <A-j> <C-\><C-n><C-w>j
 tnoremap <A-k> <C-\><C-n><C-w>k
 tnoremap <A-l> <C-\><C-n><C-w>l
@@ -170,7 +170,7 @@ let NERDTreeIgnore=['\.o$', '\~$', '\.orig$', '\.aux$','\.fls$', '\.out$','\.toc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Nerdtree plugin open
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:nerdtree_plugin_open_cmd = g:myOpenCmd 
+let g:nerdtree_plugin_open_cmd = g:myOpenCmd
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -222,7 +222,7 @@ set noshowmode
 " => easy motion
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Disable default mappings
-let g:EasyMotion_do_mapping = 0 
+let g:EasyMotion_do_mapping = 0
 
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_space_jump_first = 1
@@ -231,29 +231,29 @@ map f <Plug>(easymotion-bd-f)
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Goyo 
+" => Goyo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Map Goyo toggle to <Leader> + spacebar
 let g:goyo_width = 120
 let g:goyo_margin_top = 2
 let g:goyo_margin_bottom = 1
 
-noremap <Leader>z :Goyo<CR>  
+noremap <Leader>z :Goyo<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => vimwiki 
+" => vimwiki
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let wiki = {}
 let wiki.path = '~/Dropbox/MyWiki/'
 let wiki.path_html = '~/Dropbox/MyWiki/'
 
-let wiki.auto_export = 0 
+let wiki.auto_export = 0
 let wiki.ext = '.mywiki'
 let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'shell': 'sh', 'sshconfig': 'sshconfig', 'gitconfig': 'gitconfig'}
 let g:vimwiki_list = [wiki]
 
-let g:vimwiki_ext2syntax = {'.mywiki': 'default'} 
+let g:vimwiki_ext2syntax = {'.mywiki': 'default'}
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -344,4 +344,4 @@ noremap <Leader><Leader>pf :hardcopy > %.ps<CR> :!ps2pdf %".ps" %.pdf<CR> :!rm %
   "execute "terminal"
   "execute "vnew"
   "execute "terminal"
-"endfunction 
+"endfunction
