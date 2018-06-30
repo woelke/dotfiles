@@ -43,14 +43,14 @@ endfunction
 " toggles search highlighting
 noremap <Leader><Leader>h :set hlsearch! hlsearch?<CR>
 " quit a buffer
-noremap <A-w> :quit<CR> 
-noremap <A-S-w> :quit!<CR> 
-inoremap <A-w> <ESC>:quit<CR> 
-inoremap <A-S-w> <ESC>:quit!<CR> 
-tnoremap <A-w> <C-\><C-n>:quit<CR>
+noremap <A-q> :quit<CR>
+noremap <A-S-q> :quit!<CR>
+inoremap <A-q> <ESC>:quit<CR>
+inoremap <A-S-q> <ESC>:quit!<CR>
+tnoremap <A-q> <C-\><C-n>:quit<CR>
 " save a buffer
-noremap <A-s> :wall<CR>
-inoremap <A-s> <ESC>:wall<CR>
+noremap <A-w> :wall<CR>
+inoremap <A-w> <ESC>:wall<CR>
 
 autocmd! BufNewFile,BufRead \v*.mywiki|*.tex|*.txt|README|*.md|COMMIT_EDITMSG|de.utf-8.add call Set_options_for_texting()
 autocmd! BufNewFile,BufRead \v*.c|*.cpp|*.h|*.hpp call Set_options_for_cpp_coding()
