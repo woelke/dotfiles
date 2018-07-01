@@ -11,8 +11,9 @@ set directory=~/.config/nvim/swap/
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "colorscheme molokai
 colorscheme falcon
-set scrolloff=7     " keep 7 lines above and below the cursor.
-set relativenumber  " show line numbers relative to the current line
+set scrolloff=7     " Keep 7 lines above and below the cursor.
+set number          " Print the line number in front of each line.
+set relativenumber  " Show line numbers relative to the current line.
 set ignorecase      " ignore case when searching
 set smartcase       " when searching try to be smart about cases
 set showmatch       " show matching brackets when text indicator is over them
