@@ -76,14 +76,8 @@ Plug 'mileszs/ack.vim'
 " delete, change and add surroundings in pairs
 Plug 'tpope/vim-surround'
 
-" for always have an terminal if needed
-Plug 'kassio/neoterm'
-
 " allows to rename tabs
 Plug 'gcmt/taboo.vim'
-
-" simple yank between nvim instances
-Plug 'bfredl/nvim-miniyank'
 
 " highlights trailing withespaces and can delete them
 Plug 'ntpeters/vim-better-whitespace'
