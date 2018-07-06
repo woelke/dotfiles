@@ -53,6 +53,7 @@ if [ "$1" = "undotree" ]; then
 fi
 
 if [ "$1" = "link_nvim_config" ]; then
+  echo "\" Enter here your specific nvim configurations" > ~/.custom_nvimrc
   current_dir=$(pwd)
   cd $nvim_path
   ln -sf $current_dir/nvim_config
