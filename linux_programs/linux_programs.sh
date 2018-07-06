@@ -1,5 +1,15 @@
 #!/bin/bash
 
+echo "####################################"
+echo "## $0 $@"
+echo "####################################"
+
+if [ $1 = "all" ]; then
+    $0 programs
+    $0 truecrypt
+    $0 spideroak
+fi
+
 function ask_for {
     while true; do
         echo $1
@@ -11,12 +21,6 @@ function ask_for {
         fi
     done
 }
-
-if [ $1 = "all" ]; then
-    ./linux_programs.sh programs
-    ./linux_programs.sh truecrypt
-    ./linux_programs.sh spideroak
-fi
 
 if [ $1 = "programs" ]; then
     python3 linux_easy_install.py --check all
