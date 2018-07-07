@@ -60,7 +60,7 @@ autocmd! BufNewFile,BufRead,BufWritePost    \v.vimrc|*.vim call Set_options_for_
 
 function! Set_options_for_cpp_coding()
   set cursorline " its to CPU-intensive in latex files
-  call Set_makefile_shortcut_F5()
+  call Set_makefile_shortcut()
   noremap <F6> :cnext<CR>
   noremap <F7> :cprevious<CR>
   set colorcolumn=80
@@ -70,7 +70,7 @@ endfunction
 function! Set_options_for_texting()
   setlocal spell spelllang=de,en_us
 
-  call Set_makefile_shortcut_F5()
+  call Set_makefile_shortcut()
 
   "next wrong word
   noremap <F6> ]s
@@ -86,9 +86,9 @@ function! Set_options_for_vimrc()
   noremap <F5> :source %<CR>
 endfunction
 
-function! Set_makefile_shortcut_F5()
-  noremap <F5> :make!<CR> :copen<CR><C-W><S-J> :redraw!<CR>
-  noremap <S-F5> :make clean<CR> :copen<CR><C-W><S-J> :redraw!<CR>
+function! Set_makefile_shortcut()
+  noremap <A-b> :make!<CR> :copen<CR><C-W><S-J> :redraw!<CR>
+  noremap <A-S-b> :make clean<CR> :copen<CR><C-W><S-J> :redraw!<CR>
 endfunction
 
 "special character
