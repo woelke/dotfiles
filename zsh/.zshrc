@@ -109,7 +109,7 @@ export BIBINPUTS=/bib/:./
 export TERM=xterm-256color
 
 ##-- generic open cmd --##
-alias o='gnome-open'
+alias o='xdg-open'
 
 ##-- git shortcuts --##
 alias gs='git status'

@@ -1,7 +1,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:myOpenCmd = "gnome-open"
+let g:myOpenCmd = "xdg-open"
 let g:mapleader = ","
 " swap directory
 set directory=~/.config/nvim/swap/
