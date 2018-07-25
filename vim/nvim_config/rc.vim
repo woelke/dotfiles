@@ -9,7 +9,6 @@ set directory=~/.config/nvim/swap/
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"colorscheme molokai
 colorscheme falcon
 highlight ColorColumn ctermbg=0 guibg=#3e3e40 " Colored columns are dark grey.
 set scrolloff=7     " Keep 7 lines above and below the cursor.
