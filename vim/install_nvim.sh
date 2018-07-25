@@ -79,7 +79,7 @@ if [ "$1" = "install_gui" ]; then
   make
   sudo make install
   # neovim-gtk
-  sudo apt install cargo libgtk-3-dev
+  sudo apt install -y cargo libgtk-3-dev
   git clone https://github.com/daa84/neovim-gtk tmp/neovim-gtk
   cd tmp/neovim-gtk
   sudo make install
