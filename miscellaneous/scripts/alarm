@@ -20,13 +20,13 @@ if [ "$#" = 1 ]; then
     convert -pointsize 40 -draw "text 10,370 '$1'" $image_path $image_path
 fi
 
-gnome-open $image_path
+xdg-open $image_path
 
 for i in {1..5}
 do
-    redshift -O 1000
+    redshift -O 1000 &> /dev/null
     sleep .1
-    redshift -x
+    redshift -x &> /dev/null
     sleep .1
 done
 
