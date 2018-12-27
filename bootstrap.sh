@@ -2,10 +2,10 @@
 
 if [ $# = 0 ]; then
   $0 programs
-  $0 zsh 
-  $0 miscellaneous 
-  $0 nvim 
-  $0 sec 
+  $0 zsh
+  $0 miscellaneous
+  $0 nvim
+  $0 sec
 fi
 
 
@@ -19,7 +19,7 @@ if [ $1 = "programs" ]; then
   echo "--------------------------"
   echo "- install linux programs -"
   echo "--------------------------"
-  
+
   ./linux_programs.sh all
 fi
 
@@ -75,14 +75,14 @@ fi
 
 if [ $1 = "dsec" ]; then
   cd sec
- 
+
   while true; do
       gpg sec.tar.gz.gpg
 
       if [ $? = "0" ]; then
-          tar --auto-compress --extract --file sec.tar.gz 
+          tar --auto-compress --extract --file sec.tar.gz
           rm sec.tar.gz
-          exit 0 
+          exit 0
       fi
   done
 fi
@@ -90,18 +90,18 @@ fi
 if [ $1 = "sec" ]; then
   $0 dsec
   cd sec
-  
+
   echo "--------------"
   echo "- handle sec -"
   echo "--------------"
-  
+
   ./sec.sh all
 fi
 
 if [ $1 = "esec" ]; then
   cd sec
 
-  tar --gzip --create --file sec.tar.gz sec.sh folder 
+  tar --gzip --create --file sec.tar.gz sec.sh folder
   gpg --cipher-algo AES256 --symmetric sec.tar.gz
   rm sec.tar.gz
 fi

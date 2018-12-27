@@ -333,11 +333,12 @@ let g:lightline = {
 "nnoremap <silent> ,tl :call neoterm#clear()<cr>
 "" kills the current job (send a <c-c>)
 "nnoremap <silent> ,tc :call neoterm#kill()<cr>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => my scripts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"inverse return
-inoremap <S-CR> <ESC>lDO<ESC>p0i
+" inverse return
+inoremap <S-CR> <CR><ESC>ddkPi
 " creates a pdf of the current buffer
 noremap <Leader><Leader>pf :hardcopy > %.ps<CR> :!ps2pdf %".ps" %.pdf<CR> :!rm %.ps<CR> :execute system(g:myOpenCmd." ".expand("%").".pdf")<CR>
 " a quick terminal session

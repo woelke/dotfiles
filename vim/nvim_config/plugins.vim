@@ -81,5 +81,6 @@ Plug 'gcmt/taboo.vim'
 
 " highlights trailing withespaces and can delete them
 Plug 'ntpeters/vim-better-whitespace'
+
 " Initialize plugin system
 call plug#end()
