@@ -151,8 +151,8 @@ tnoremap <A-e> <C-\><C-n>:call DoLcdToCurrentPath()<CR>:vnew<CR>:terminal<CR>
 tnoremap <A-v> <C-\><C-n>"+pi
 
 " opens terminal automatically on vim start if no files were specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | call termopen("eval $SHELL") | endif
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | call termopen("eval $SHELL") | endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -308,6 +308,20 @@ let g:lightline = {
       \ 'colorscheme': 'falcon',
       \ }
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-project
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Configure Vim-project
+let g:project_use_nerdtree = 1
+let g:project_enable_welcome = 1
+"let g:project_enable_win_title = 1
+"let g:project_enable_tab_title_gui = 1
+"let g:project_enable_tab_title_term = 1
+"nmap <silent> <leader>we :Welcome<CR>
+"nmap <silent> <leader>wt :TabWelcome<CR>
+
+"set rtp+=~/.config/nvim/plugged/vim-project
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => nvim-miniyank
