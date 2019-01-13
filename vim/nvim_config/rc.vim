@@ -298,13 +298,11 @@ let g:ctrlp_custom_ignore = {
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => ack.vim
+" => grepper.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"use ag instead of ack (because it is faster)
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
-nnoremap <Leader>a :Ack!<Space>
+nnoremap <Leader>g :Grepper<CR>
+
+let g:grepper.highlight = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

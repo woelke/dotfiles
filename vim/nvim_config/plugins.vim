@@ -4,21 +4,14 @@ call plug#begin('~/.config/nvim/plugged')
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "=> My Neovim Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" an universal set of defaults that (hopefully) everyone can agree on
-"Plug 'tpope/vim-sensible' ":checkhealth says its not needed 01.05.17, will
-"try
-
-" multi threading extention (usefull in nvim??)
-"Plug 'shougo/vimproc.vim', {'do': 'make'}
-
-" filesystem navigator
+" Filesystem navigator
 Plug 'scrooloose/nerdtree'
 Plug 'aufgang001/vim-nerdtree_plugin_open'
 
-" commenting of code
+" Commenting of code
 Plug 'scrooloose/nerdcommenter'
 
-"code-completion engine
+" Code-completion engine
 function! BuildYCM(info)
     if a:info.status != 'unchanged'
         !./install.py --clang-completer
@@ -26,63 +19,63 @@ function! BuildYCM(info)
 endfunction
 Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 
-" clang-formater wrapper
+" Clang-formater wrapper
 Plug 'aufgang001/vim-clang-format-py'
 
-" highlighting schemes
+" Highlighting schemes
 Plug 'flazz/vim-colorschemes'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'fenetikm/falcon'
 
-" displaying thin vertical lines at each indentation level
+" Displaying thin vertical lines at each indentation level
 Plug 'Yggdroot/indentLine'
 
-" provides automatic closing of quotes, parenthesis, brackets, etc.
+" Provides automatic closing of quotes, parenthesis, brackets, etc.
 Plug 'Raimondi/delimitMate'
 
-" a light and configurable statusline/tabline
+" A light and configurable statusline/tabline
 Plug 'itchyny/lightline.vim'
 
-" simplifies and quickens motions
+" Simplifies and quickens motions
 Plug 'Lokaltog/vim-easymotion'
 
 " Provides an visual undo tree which can be travered
 Plug 'mbbill/undotree'
 
-" allows distraction-free writing
+" Allows distraction-free writing
 Plug 'junegunn/goyo.vim'
 
-" a wiki for vim
+" A wiki for vim
 Plug 'vimwiki/vimwiki'
 
-" synatax highlighting pack
+" Synatax highlighting pack
 Plug 'sheerun/vim-polyglot'
 
-"highlighting mcproxy config files
+" Highlighting mcproxy config files
  Plug 'mcproxy/vim-mcproxy_conf_highlighting'
 
-" my synconized spell files
+" My synconized spell files
 Plug 'aufgang001/vim-custom_spellfile', {'do': './install.sh nvim'}
 
-" opens URLs in browser
+" Opens URLs in browser
 Plug 'waiting-for-dev/www.vim'
 
-" search and open files
+" Search and open files
 Plug 'ctrlpvim/ctrlp.vim'
 
-" in file search
-Plug 'mileszs/ack.vim'
+" In file search wrapper
+Plug 'mhinz/vim-grepper'
 
-" delete, change and add surroundings in pairs
+" Delete, change and add surroundings in pairs
 Plug 'tpope/vim-surround'
 
-" allows to rename tabs
+" Allows to rename tabs
 Plug 'gcmt/taboo.vim'
 
-" highlights trailing withespaces and can delete them
+" Highlights trailing withespaces and can delete them
 Plug 'ntpeters/vim-better-whitespace'
 
-" lcd to the root of the project everytime you BufEnter a file inside a project.
+" tcd to the root of the project everytime you BufEnter a file inside a project.
 " Plug 'jpmv27/vim-project' , { 'branch': 'jpmv27_master' }
 " same plugin just with a fix
 Plug 'woelke/vim-project'
