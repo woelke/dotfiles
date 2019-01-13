@@ -316,12 +316,20 @@ let g:lightline = {
 let g:project_use_nerdtree = 1
 let g:project_enable_welcome = 1
 "let g:project_enable_win_title = 1
-"let g:project_enable_tab_title_gui = 1
-"let g:project_enable_tab_title_term = 1
-"nmap <silent> <leader>we :Welcome<CR>
-"nmap <silent> <leader>wt :TabWelcome<CR>
+let g:project_enable_tab_title_gui = 1
+let g:project_enable_tab_title_term = 1
+
+nmap <leader>p :TabWelcome<CR>
 
 "set rtp+=~/.config/nvim/plugged/vim-project
+
+"""" Example entries for the custom_nvimrc """"
+"" Sets default path or our 'Project'
+"call project#rc("~/")
+"" Uses the rc path to find .dotfiles
+"Section '.dotfiles'
+"" Use an absolute path with makes most things easier ...
+"Section '/home/woelke/.dotfiles/vim/nvim_config/', 'vimrc'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => nvim-miniyank

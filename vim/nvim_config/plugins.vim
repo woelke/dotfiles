@@ -85,7 +85,7 @@ Plug 'ntpeters/vim-better-whitespace'
 " lcd to the root of the project everytime you BufEnter a file inside a project.
 " Plug 'jpmv27/vim-project' , { 'branch': 'jpmv27_master' }
 " same plugin just with a fix
-Plug 'woelke/vim-project' , { 'branch': 'fix_neovim_welcome' }
+Plug 'woelke/vim-project'
 
 " Initialize plugin system
 call plug#end()
