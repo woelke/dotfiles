@@ -41,15 +41,15 @@ function! My_sudo_write()
   execute ":edit!"
 endfunction
 
-" toggles search highlighting
+" Toggles search highlighting
 noremap <Leader><Leader>h :set hlsearch! hlsearch?<CR>
-" quit a buffer
+" Quit a buffer
 noremap <A-q> :quit<CR>
 noremap <A-S-q> :quit!<CR>
 inoremap <A-q> <ESC>:quit<CR>
 inoremap <A-S-q> <ESC>:quit!<CR>
 tnoremap <A-q> <C-\><C-n>:quit<CR>
-" save a buffer
+" Save a buffer
 noremap <A-w> :wall<CR>
 inoremap <A-w> <ESC>:wall<CR>
 
@@ -71,17 +71,17 @@ function! Set_options_for_texting()
 
   call Set_makefile_shortcut()
 
-  "next wrong word
+  " Next wrong word
   noremap <F6> ]s
 
-  "previous wrong word
-  "h is a bugfix: I had a problem with a latex file and the keybinding
-  "]s. It jumps to the second letter of the next wrong written word, which blocks the backword jump .. for whatever reason
+  " Previous wrong word
+  " h is a bugfix: I had a problem with a latex file and the keybinding
+  " ]s. It jumps to the second letter of the next wrong written word, which blocks the backword jump .. for whatever reason
   noremap <F7> h[s
 endfunction
 
 function! Set_options_for_vimrc()
-  "reload the vimrc file
+  " Reload the vimrc file
   noremap <F5> :source %<CR>
 endfunction
 
@@ -90,7 +90,7 @@ function! Set_makefile_shortcut()
   noremap <A-S-b> :make clean<CR> :copen<CR><C-W><S-J> :redraw!<CR>
 endfunction
 
-"special character
+" Special character
 inoremap @o ö
 inoremap @u ü
 inoremap @a ä
@@ -122,7 +122,7 @@ autocmd! BufEnter term://* startinsert
 
 " ESC in terminal
 tnoremap <A-Esc> <C-\><C-n>
-" move left, right, up, down
+" Move left, right, up, down
 tnoremap <A-h> <C-\><C-n><C-w>h
 tnoremap <A-j> <C-\><C-n><C-w>j
 tnoremap <A-k> <C-\><C-n><C-w>k
@@ -135,7 +135,7 @@ inoremap <A-h> <ESC><C-w>h
 inoremap <A-j> <ESC><C-w>j
 inoremap <A-k> <ESC><C-w>k
 inoremap <A-l> <ESC><C-w>l
-" open terminal in a new tab, horizontal split and vertical split
+" Open terminal in a new tab, horizontal split and vertical split
 " enew | call termopen('...') | startinsert
 nnoremap <A-t> :tabe<CR>:terminal<CR>
 nnoremap <A-o> :new<CR>:terminal<CR>
@@ -146,11 +146,26 @@ inoremap <A-e> <ESC>:vnew<CR>:terminal<CR>
 tnoremap <A-t> <C-\><C-n>:call DoLcdToCurrentPath()<CR>:tabe<CR>:terminal<CR>
 tnoremap <A-o> <C-\><C-n>:call DoLcdToCurrentPath()<CR>:new<CR>:terminal<CR>
 tnoremap <A-e> <C-\><C-n>:call DoLcdToCurrentPath()<CR>:vnew<CR>:terminal<CR>
-" paste buffer to command line
+" Paste buffer to command line
 " temporary fix for https://github.com/equalsraf/neovim-qt/issues/215
 tnoremap <A-v> <C-\><C-n>"+pi
 
-" opens terminal automatically on vim start if no files were specified
+" Operations on Tabs
+nnoremap <A-n> :+tabnext<CR>
+inoremap <A-n> :+tabnext<CR>
+tnoremap <A-n> <C-\><C-n>:+tabnext<CR>
+nnoremap <A-p> :-tabnext<CR>
+inoremap <A-p> :-tabnext<CR>
+tnoremap <A-p> <C-\><C-n>:-tabnext<CR>
+
+nnoremap <A-S-n> :+tabmove<CR>
+inoremap <A-S-n> :+tabmove<CR>
+tnoremap <A-S-n> <C-\><C-n>:+tabmove<CR>
+nnoremap <A-S-p> :-tabmove<CR>
+inoremap <A-S-p> :-tabmove<CR>
+tnoremap <A-S-p> <C-\><C-n>:-tabmove<CR>
+
+" Opens terminal automatically on vim start if no files were specified
 "autocmd StdinReadPre * let s:std_in=1
 "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | call termopen("eval $SHELL") | endif
 
@@ -273,7 +288,6 @@ let g:www_shortcut_engines = {
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " => CtrlP
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ctrlp_map = '<C-p>'
