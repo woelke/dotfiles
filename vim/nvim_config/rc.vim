@@ -302,6 +302,7 @@ let g:ctrlp_custom_ignore = {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <Leader>g :Grepper<CR>
 
+let g:grepper = {}
 let g:grepper.highlight = 1
 
 
@@ -328,8 +329,8 @@ let g:lightline = {
 let g:project_use_nerdtree = 1
 let g:project_enable_welcome = 1
 "let g:project_enable_win_title = 1
-let g:project_enable_tab_title_gui = 1
-let g:project_enable_tab_title_term = 1
+"let g:project_enable_tab_title_gui = 1
+"let g:project_enable_tab_title_term = 1
 
 nmap <leader>p :TabWelcome<CR>
 

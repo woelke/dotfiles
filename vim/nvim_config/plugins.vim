@@ -64,7 +64,7 @@ Plug 'waiting-for-dev/www.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 
 " In file search wrapper
-Plug 'mhinz/vim-grepper'
+Plug 'mhinz/vim-grepper', { 'on': ['Grepper', '<plug>(GrepperOperator)'] }
 
 " Delete, change and add surroundings in pairs
 Plug 'tpope/vim-surround'
