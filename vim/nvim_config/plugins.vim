@@ -75,10 +75,8 @@ Plug 'gcmt/taboo.vim'
 " Highlights trailing withespaces and can delete them
 Plug 'ntpeters/vim-better-whitespace'
 
-" tcd to the root of the project everytime you BufEnter a file inside a project.
-" Plug 'jpmv27/vim-project' , { 'branch': 'jpmv27_master' }
-" same plugin just with a fix
-Plug 'woelke/vim-project'
+"This plugin provides a start screen for Vim and Neovim.
+Plug 'mhinz/vim-startify'
 
 " Initialize plugin system
 call plug#end()
