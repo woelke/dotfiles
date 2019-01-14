@@ -293,7 +293,7 @@ let g:www_shortcut_engines = {
 let g:ctrlp_map = '<C-p>'
 
 let g:ctrlp_custom_ignore = {
-  \ 'file': '\v\.(o|cxx)$'
+  \ 'file': '\v\.(o|cxx|d)$'
   \ }
 
 
