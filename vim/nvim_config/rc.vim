@@ -262,15 +262,6 @@ noremap <Leader>z :Goyo<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vimwiki
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let wiki = {}
-let wiki.path = '~/Dropbox/MyWiki/'
-let wiki.path_html = '~/Dropbox/MyWiki/'
-
-let wiki.auto_export = 0
-let wiki.ext = '.mywiki'
-let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'shell': 'sh', 'sshconfig': 'sshconfig', 'gitconfig': 'gitconfig'}
-let g:vimwiki_list = [wiki]
-
 let g:vimwiki_ext2syntax = {'.mywiki': 'default'}
 
 

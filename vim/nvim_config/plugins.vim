@@ -75,8 +75,11 @@ Plug 'gcmt/taboo.vim'
 " Highlights trailing withespaces and can delete them
 Plug 'ntpeters/vim-better-whitespace'
 
-"This plugin provides a start screen for Vim and Neovim.
+" This plugin provides a start screen for Vim and Neovim.
 Plug 'mhinz/vim-startify'
+
+" Latex live preview
+Plug 'donRaphaco/neotex'
 
 " Initialize plugin system
 call plug#end()
