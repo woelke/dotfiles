@@ -298,7 +298,6 @@ nnoremap <Leader>g :Grepper<CR>
 let g:grepper = {}
 let g:grepper.highlight = 1
 
-let g:grepper.tools = ['git']
 let g:grepper.git = {
     \ 'grepprg':    'git grep --line-number -I --ignore-case',
     \ 'grepformat': '%f:%l:%m',
