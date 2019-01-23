@@ -293,7 +293,7 @@ let g:ctrlp_custom_ignore = {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => grepper.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <Leader>g :Grepper<CR>
+nnoremap <Leader>g :Grepper -tool git<CR>
 
 let g:grepper = {}
 let g:grepper.highlight = 1
