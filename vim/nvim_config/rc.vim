@@ -293,15 +293,13 @@ let g:ctrlp_custom_ignore = {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => grepper.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <Leader>g :Grepper -tool git<CR>
+nnoremap <Leader>g :Grepper -tool grep<CR>
 
 let g:grepper = {}
 let g:grepper.highlight = 1
 
-let g:grepper.git = {
-    \ 'grepprg':    'git grep --line-number -I --ignore-case',
-    \ 'grepformat': '%f:%l:%m',
-    \ 'escape':     '\^$.*[]',
+let g:grepper.grep = {
+    \ 'grepprg':    'grep -irn',
     \ }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
