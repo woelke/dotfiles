@@ -27,9 +27,6 @@ Plug 'flazz/vim-colorschemes'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'fenetikm/falcon'
 
-" Displaying thin vertical lines at each indentation level
-Plug 'Yggdroot/indentLine'
-
 " Provides automatic closing of quotes, parenthesis, brackets, etc.
 Plug 'Raimondi/delimitMate'
 

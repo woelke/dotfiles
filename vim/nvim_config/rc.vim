@@ -182,7 +182,7 @@ set undofile            "Save undo's after file closes
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let NERDTreeIgnore=['\.o$', '\~$', '\.orig$', '\.aux$','\.fls$', '\.out$','\.toc$','\.log$','\.fdb_latexmk$', '\.idx$', '\.ilg$', '\.ing$', '\.ind$']
 
-nnoremap <Leader>n :NERDTreeFocus<CR>
+nnoremap <Leader>n :NERDTree<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
