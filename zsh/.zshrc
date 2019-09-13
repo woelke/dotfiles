@@ -54,7 +54,7 @@ DISABLE_AUTO_UPDATE="true"
 # much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Uncomment following line if you want to  shown in the command execution time stamp 
+# Uncomment following line if you want to  shown in the command execution time stamp
 # in the history command output. The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|
 # yyyy-mm-dd
 # HIST_STAMPS="mm/dd/yyyy"
@@ -91,9 +91,9 @@ export PATH=$HOME/.cargo/bin:$PATH
 
 ##-- man in vim --##
 vman() {
-    #run command SuperMan and add opend manual to arglist 
+    #run command SuperMan and add opend manual to arglist
     #this is nessasary to prevent NERDTree from pop-up
-    vim -c "SuperMan $*" -c "argadd %" 
+    vim -c "SuperMan $*" -c "argadd %"
 
     if [ "$?" != "0" ]; then
         echo "No manual entry for $*"
@@ -131,11 +131,9 @@ alias vg='nvim-gtk'
 ##-- other stuff --##
 alias logout='gnome-session-quit'
 alias rm='trash'
-alias l='exa'
-alias ll='exa -l'
 
 ##-- Keyboard --##
-#numlockx on # actrivate the nummber block 
+#numlockx on # actrivate the nummber block
 
 ##-- Makefile --##
 #run make with flag -j<number of processors>
