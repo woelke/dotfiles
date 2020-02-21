@@ -22,6 +22,9 @@ Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 " Clang-formater wrapper
 Plug 'aufgang001/vim-clang-format-py'
 
+" Plugin for formatting code
+Plug 'sbdchd/neoformat'
+
 " Highlighting schemes
 Plug 'flazz/vim-colorschemes'
 Plug 'NLKNguyen/papercolor-theme'
