@@ -11,7 +11,8 @@ set directory=~/.config/nvim/swap/
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 colorscheme falcon
 highlight ColorColumn ctermbg=0 guibg=#3e3e40 " Colored columns are dark grey.
-set scrolloff=7     " Keep 7 lines above and below the cursor.
+" TODO how to use a terminal in a terminal
+"set scrolloff=7     " Keep 7 lines above and below the cursor.
 set number          " Print the line number in front of each line.
 set relativenumber  " Show line numbers relative to the current line.
 set ignorecase      " ignore case when searching
@@ -57,6 +58,7 @@ autocmd! BufNewFile,BufRead \v*.mywiki|*.tex|*.txt|README|*.md|COMMIT_EDITMSG|de
 autocmd! BufNewFile,BufRead \v*.c|*.cpp|*.h|*.hpp call Set_options_for_cpp_coding()
 autocmd! BufNewFile,BufRead,BufWritePost    \v.vimrc|*.vim call Set_options_for_vimrc()
 
+" TODO this might be outdated fix me
 function! Set_options_for_cpp_coding()
   set cursorline " its to CPU-intensive in latex files
   call Set_makefile_shortcut()
@@ -90,20 +92,11 @@ function! Set_makefile_shortcut()
   noremap <A-S-b> :make clean<CR> :copen<CR><C-W><S-J> :redraw!<CR>
 endfunction
 
-" Special character
-inoremap @o ö
-inoremap @u ü
-inoremap @a ä
-inoremap @O Ö
-inoremap @U Ü
-inoremap @A Ä
-inoremap @s ß
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Neovim terminal
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Todo
+" TODO
 " https://github.com/mhinz/neovim-remote
 " https://github.com/kassio/neoterm
 
@@ -152,17 +145,17 @@ tnoremap <A-v> <C-\><C-n>"+pi
 
 " Operations on Tabs
 nnoremap <A-n> :+tabnext<CR>
-inoremap <A-n> :+tabnext<CR>
+inoremap <A-n> <ESC>:+tabnext<CR>
 tnoremap <A-n> <C-\><C-n>:+tabnext<CR>
 nnoremap <A-p> :-tabnext<CR>
-inoremap <A-p> :-tabnext<CR>
+inoremap <A-p> <ESC>:-tabnext<CR>
 tnoremap <A-p> <C-\><C-n>:-tabnext<CR>
 
 nnoremap <A-S-n> :+tabmove<CR>
-inoremap <A-S-n> :+tabmove<CR>
+inoremap <A-S-n> <ESC>:+tabmove<CR>
 tnoremap <A-S-n> <C-\><C-n>:+tabmove<CR>
 nnoremap <A-S-p> :-tabmove<CR>
-inoremap <A-S-p> :-tabmove<CR>
+inoremap <A-S-p> <ESC>:-tabmove<CR>
 tnoremap <A-S-p> <C-\><C-n>:-tabmove<CR>
 
 " Opens terminal automatically on vim start if no files were specified
@@ -182,7 +175,7 @@ set undofile            "Save undo's after file closes
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let NERDTreeIgnore=['\.o$', '\~$', '\.orig$', '\.aux$','\.fls$', '\.out$','\.toc$','\.log$','\.fdb_latexmk$', '\.idx$', '\.ilg$', '\.ing$', '\.ind$']
 
-nnoremap <Leader>n :NERDTree<CR>
+nnoremap <Leader>n :NERDTreeFind<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -192,40 +185,12 @@ let g:nerdtree_plugin_open_cmd = g:myOpenCmd
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => clang-format
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:clang_format_path = "clang-format-3.8"
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => nerdcommenter
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:NERDCustomDelimiters = {
-  \ 'mcproxy': { 'left': '#' }
+  \ 'mcproxy': { 'left': '#' },
+  \ 'json': { 'left': '//' }
   \}
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => youcompleteme
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-noremap <Leader>yj :YcmCompleter GoToDefinitionElseDeclaration<CR>
-noremap <Leader>yf :YcmCompleter FixIt<CR>
-noremap <Leader>yd :YcmCompleter GetDoc<CR>
-noremap <Leader>yp :YcmCompleter GetParent<CR>
-noremap <Leader>yt :YcmCompleter GetType<CR>
-
-let g:ycm_complete_in_comments = 1
-let g:ycm_complete_in_strings = 1
-let g:ycm_seed_identifiers_with_syntax = 1
-
-let g:ycm_error_symbol = '✗'
-let g:ycm_warning_symbol = '!'
-
-"prevents ycm from asking to load a config file
-let g:ycm_confirm_extra_conf = 0
-
-"let g:ycm_python_binary_path = '/usr/bin/python3.5'
-"let g:ycm_python_binary_path = '/usr/bin/python'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -234,6 +199,21 @@ let g:ycm_confirm_extra_conf = 0
 set laststatus=2 " the windows will always have a status line
 " Hides the mode information like INSERT or VISUAL in the bottom line
 set noshowmode
+
+let g:lightline = {
+\ 'colorscheme': 'falcon',
+\ 'active': {
+\   'left': [ [ 'mode', 'paste' ],
+\             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+\ },
+\ 'component_function': {
+\   'cocstatus': 'coc#status'
+\ },
+\ }
+
+" Use auocmd to force lightline update.
+autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -291,18 +271,6 @@ let g:ctrlp_custom_ignore = {
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => grepper.vim
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <Leader>g :Grepper -tool grep<CR>
-
-let g:grepper = {}
-let g:grepper.highlight = 1
-
-let g:grepper.grep = {
-    \ 'grepprg':    'grep -irn',
-    \ }
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => taboo.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:taboo_tab_format = "%N-%f "
@@ -313,35 +281,7 @@ let g:taboo_renamed_tab_format = "%N-%l "
 " => falcon colorscheme
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:falcon_lightline = 1
-let g:lightline = {
-      \ 'colorscheme': 'falcon',
-      \ }
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => nvim-miniyank
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"map p <Plug>(miniyank-autoput)
-"map P <Plug>(miniyank-autoPut)
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => neoterm
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:neoterm_position = 'horizontal'
-"let g:neoterm_automap_keys = ',tt'
-
-""nnoremap <silent> <f10> :TREPLSendFile<cr>
-""nnoremap <silent> <f9> :TREPLSendLine<cr>
-""vnoremap <silent> <f9> :TREPLSendSelection<cr>
-
-"" Useful maps
-"" hide/close terminal
-"nnoremap <silent> ,th :call neoterm#close()<cr>
-"" clear terminal
-"nnoremap <silent> ,tl :call neoterm#clear()<cr>
-"" kills the current job (send a <c-c>)
-"nnoremap <silent> ,tc :call neoterm#kill()<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => my scripts

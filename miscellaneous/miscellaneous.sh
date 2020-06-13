@@ -4,7 +4,6 @@ echo "####################################"
 echo "## $0 $@"
 echo "####################################"
 
-#my_program_path="/usr/local/sbin/"
 my_program_path="$HOME/.local/bin/"
 if [ ! -d "$my_program_path" ]; then
   mkdir $my_program_path

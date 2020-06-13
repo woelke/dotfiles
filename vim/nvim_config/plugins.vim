@@ -11,27 +11,13 @@ Plug 'aufgang001/vim-nerdtree_plugin_open'
 " Commenting of code
 Plug 'scrooloose/nerdcommenter'
 
-" Code-completion engine
-function! BuildYCM(info)
-    if a:info.status != 'unchanged'
-        !./install.py --clang-completer
-    endif
-endfunction
-Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
-
-" Clang-formater wrapper
-Plug 'aufgang001/vim-clang-format-py'
-
-" Plugin for formatting code
-Plug 'sbdchd/neoformat'
+" VSCode Intellisense engine
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Highlighting schemes
 Plug 'flazz/vim-colorschemes'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'fenetikm/falcon'
-
-" Provides automatic closing of quotes, parenthesis, brackets, etc.
-Plug 'Raimondi/delimitMate'
 
 " A light and configurable statusline/tabline
 Plug 'itchyny/lightline.vim'
@@ -52,7 +38,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'sheerun/vim-polyglot'
 
 " Highlighting mcproxy config files
- Plug 'mcproxy/vim-mcproxy_conf_highlighting'
+Plug 'mcproxy/vim-mcproxy_conf_highlighting'
 
 " My synconized spell files
 Plug 'aufgang001/vim-custom_spellfile', {'do': './install.sh nvim'}
@@ -62,9 +48,6 @@ Plug 'waiting-for-dev/www.vim'
 
 " Search and open files
 Plug 'ctrlpvim/ctrlp.vim'
-
-" In file search wrapper
-Plug 'mhinz/vim-grepper', { 'on': ['Grepper', '<plug>(GrepperOperator)'] }
 
 " Delete, change and add surroundings in pairs
 Plug 'tpope/vim-surround'
