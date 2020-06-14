@@ -57,6 +57,7 @@ if [ "$1" = "link_nvim_config" ]; then
   current_dir=$(pwd)
   cd $nvim_path
   ln -sf $current_dir/nvim_config
+  ln -sf $current_dir/coc-settings.json
 fi
 
 if [ "$1" = "set_install_rc" ]; then

@@ -1,0 +1,13 @@
+{
+// random tests
+    // random comment
+    "suggest.snippetIndicator": "►",
+
+    "diagnostic.errorSign": "✘",
+    "diagnostic.infoSign": "•",
+    "diagnostic.warningSign": "•"
+
+// coc-python
+   // use microsoft/python-language-server instead of jedi
+   // "python.jediEnabled": false
+}
