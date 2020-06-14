@@ -96,10 +96,6 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Neovim terminal
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" TODO
-" https://github.com/mhinz/neovim-remote
-" https://github.com/kassio/neoterm
-
 function! DoLcdToCurrentPath()
   " source https://github.com/neovim/neovim/issues/4299
   let l:procid = matchstr(bufname(""), '\(://.*/\)\@<=\(\d\+\)')
@@ -130,9 +126,9 @@ inoremap <A-k> <ESC><C-w>k
 inoremap <A-l> <ESC><C-w>l
 " Open terminal in a new tab, horizontal split and vertical split
 " enew | call termopen('...') | startinsert
-nnoremap <A-t> :tabe<CR>:terminal<CR>
-nnoremap <A-o> :new<CR>:terminal<CR>
-nnoremap <A-e> :vnew<CR>:terminal<CR>
+nnoremap <A-t> :call DoLcdToCurrentPath()<CR>:tabe<CR>:terminal<CR>
+nnoremap <A-o> :call DoLcdToCurrentPath()<CR>:new<CR>:terminal<CR>
+nnoremap <A-e> :call DoLcdToCurrentPath()<CR>:vnew<CR>:terminal<CR>
 inoremap <A-t> <ESC>:tabe<CR>:terminal<CR>
 inoremap <A-o> <ESC>:new<CR>:terminal<CR>
 inoremap <A-e> <ESC>:vnew<CR>:terminal<CR>
@@ -157,10 +153,6 @@ tnoremap <A-S-n> <C-\><C-n>:+tabmove<CR>
 nnoremap <A-S-p> :-tabmove<CR>
 inoremap <A-S-p> <ESC>:-tabmove<CR>
 tnoremap <A-S-p> <C-\><C-n>:-tabmove<CR>
-
-" Opens terminal automatically on vim start if no files were specified
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | call termopen("eval $SHELL") | endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

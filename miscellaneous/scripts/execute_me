@@ -1,6 +1,0 @@
-#!/bin/bash
-
-# usage:
-# ./execute_me 'echo "$2"' "test"
-
-eval "$1"

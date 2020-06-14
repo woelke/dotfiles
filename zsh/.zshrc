@@ -113,19 +113,22 @@ alias o='xdg-open'
 
 ##-- git shortcuts --##
 alias gs='git status'
-#alias gp='git push' #added by default
+alias gpush='git push'
 alias gpull='git pull'
-alias gc='git commit'
+alias gcom='git commit'
+alias gout='git checkout'
 alias ga='git add'
 alias gl='git log'
 alias gd='git diff'
 alias gr='git rebase'
+alias gf='git fetch --all'
+
 
 ##-- vim shortcuts --##
-alias v="execute_me 'nvr --remote-send \"<C-\\><C-n>:call DoLcdToCurrentPath()<CR>:edit \$2<CR>\"'"
-alias vs="execute_me 'nvr --remote-send \"<C-\\><C-n>:call DoLcdToCurrentPath()<CR>:split \$2<CR>\"'"
-alias vv="execute_me 'nvr --remote-send \"<C-\\><C-n>:call DoLcdToCurrentPath()<CR>:vsplit \$2<CR>\"'"
-alias vt="execute_me 'nvr --remote-send \"<C-\\><C-n>:call DoLcdToCurrentPath()<CR>:tabe \$2<CR>\"'"
+alias v="nvr -cc 'call DoLcdToCurrentPath()' --remote $@"
+alias vs="nvr -cc 'call DoLcdToCurrentPath()' -o $@"
+alias vv="nvr -cc 'call DoLcdToCurrentPath()' -O $@"
+alias vt="nvr -cc 'call DoLcdToCurrentPath()' --remote-tab $@"
 alias vg='nvim-gtk'
 
 ##-- other stuff --##
