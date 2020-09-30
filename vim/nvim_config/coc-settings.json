@@ -1,13 +1,18 @@
 {
-// random tests
-    // random comment
-    "suggest.snippetIndicator": "►",
+// appearance
+  "suggest.snippetIndicator": "►",
+  "diagnostic.errorSign": "✘",
+  "diagnostic.infoSign": "•",
+  "diagnostic.warningSign": "•",
 
-    "diagnostic.errorSign": "✘",
-    "diagnostic.infoSign": "•",
-    "diagnostic.warningSign": "•"
+// clangd
+  "clangd.enabled": true,
+  "clangd.path": "llvm/bin/clangd",
+  "clangd.arguments": ["--background-index","--log=verbose", "--query-driver=/opt/montavista/**"],
+  "clangd.semanticHighlighting": true,
 
-// coc-python
-   // use microsoft/python-language-server instead of jedi
-   // "python.jediEnabled": false
+// used by coc python
+  "coc.preferences.rootPatterns": [
+    ".env"
+  ]
 }

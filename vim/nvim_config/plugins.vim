@@ -14,7 +14,10 @@ Plug 'scrooloose/nerdcommenter'
 " VSCode Intellisense engine
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Highlighting schemes
+" Sematic highlighting
+Plug 'jackguo380/vim-lsp-cxx-highlight'
+
+" Color schemes
 Plug 'flazz/vim-colorschemes'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'fenetikm/falcon'
@@ -63,6 +66,9 @@ Plug 'mhinz/vim-startify'
 
 " Latex live preview
 Plug 'donRaphaco/neotex'
+
+" Vim start search without first jump
+Plug 'linjiX/vim-star'
 
 " Initialize plugin system
 call plug#end()

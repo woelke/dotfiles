@@ -3,7 +3,8 @@ let g:coc_global_extensions = [
    \ 'coc-json',
    \ "coc-python",
    \ "coc-lists",
-   \ "coc-pairs"
+   \ "coc-pairs",
+   \ "coc-clangd"
    \ ]
 
 " Extension Info
@@ -54,19 +55,12 @@ else
   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
-" TODO: Untested
-" Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
 " GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> <Leader>cd <Plug>(coc-definition)
+nnoremap <silent> <Leader>ci <Plug>(coc-implementation)
+nnoremap <silent> <Leader>ct <Plug>(coc-type-definition)
+nnoremap <silent> <Leader>cr <Plug>(coc-references)
+nnoremap <silent> <Leader>cR  :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -76,16 +70,16 @@ function! s:show_documentation()
   endif
 endfunction
 
-" TODO seems not work properly
+" TODO seems not to work properly
 " Highlight the symbol and its references when holding the cursor.
 "autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
+nmap <Leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-vmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  :call CocAction('format')<CR>
+vmap <Leader>f  <Plug>(coc-format-selected)
+nmap <Leader>f  :call CocAction('format')<CR>
 
 augroup mygroup
   autocmd!
@@ -97,10 +91,10 @@ augroup end
 
 " Applying codeAction to the selected region.
 " Example: `<leader>aap` for current paragraph
-vmap <leader>a  <Plug>(coc-codeaction-selected)<CR>
-nmap <leader>a  <Plug>(coc-codeaction-selected)<CR>
+vmap <Leader>a  <Plug>(coc-codeaction-selected)<CR>
+nmap <Leader>a  <Plug>(coc-codeaction-selected)<CR>
 " TODO: Untested
-nmap <leader>qf  <Plug>(coc-fix-current)
+nmap <Leader>qf  <Plug>(coc-fix-current)
 
 " TODO: not realy working
 " Introduce function text object
@@ -111,15 +105,22 @@ vmap ax <Plug>(coc-funcobj-a)
 
 " Mappings using CoCList:
 " Show all diagnostics.
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<CR>
 " Find symbol of current document.
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+nnoremap <silent> <space>o  :<C-u>CocList outline<CR>
 " Search workspace symbols.
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<CR>
 " Search workspace symbols.
-nnoremap <silent> <space>g :<C-u>CocList grep<cr>
+nnoremap <silent> <space>g :<C-u>CocList grep<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => coc-json
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd FileType json syntax match Comment +\/\/.\+$+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => coc-clangd
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <Leader>cs :CocCommand clangd.switchSourceHeader<CR>
+nnoremap <Leader>cT :CocCommand clangd.symbolInfo<CR>
+

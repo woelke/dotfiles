@@ -54,16 +54,23 @@ tnoremap <A-q> <C-\><C-n>:quit<CR>
 noremap <A-w> :wall<CR>
 inoremap <A-w> <ESC>:wall<CR>
 
-autocmd! BufNewFile,BufRead \v*.mywiki|*.tex|*.txt|README|*.md|COMMIT_EDITMSG|de.utf-8.add call Set_options_for_texting()
-autocmd! BufNewFile,BufRead \v*.c|*.cpp|*.h|*.hpp call Set_options_for_cpp_coding()
-autocmd! BufNewFile,BufRead,BufWritePost    \v.vimrc|*.vim call Set_options_for_vimrc()
+autocmd! BufEnter \v*.mywiki|*.tex|*.txt|README|*.md|COMMIT_EDITMSG|de.utf-8.add call Set_options_for_texting()
+autocmd! BufEnter \v*.c|*.cpp|*.h|*.hpp call Set_options_for_cpp_coding()
+autocmd! BufEnter \v*.vim call Set_options_for_vimrc()
+autocmd! BufEnter coc-settings.json call Set_options_for_coc_settings()
+autocmd! BufLeave * call Cleanup_options()
+
+function! Cleanup_options()
+  noremap <F5> <Nop>
+  noremap <F12> <Nop>
+  noremap <A-b> <Nop>
+  noremap <A-S-b> <Nop>
+endfunction
 
 " TODO this might be outdated fix me
 function! Set_options_for_cpp_coding()
   set cursorline " its to CPU-intensive in latex files
   call Set_makefile_shortcut()
-  noremap <F6> :cnext<CR>
-  noremap <F7> :cprevious<CR>
   set colorcolumn=80
   noremap <F12> :ClangFormat<CR>
 endfunction
@@ -72,19 +79,16 @@ function! Set_options_for_texting()
   setlocal spell spelllang=de,en_us
 
   call Set_makefile_shortcut()
-
-  " Next wrong word
-  noremap <F6> ]s
-
-  " Previous wrong word
-  " h is a bugfix: I had a problem with a latex file and the keybinding
-  " ]s. It jumps to the second letter of the next wrong written word, which blocks the backword jump .. for whatever reason
-  noremap <F7> h[s
 endfunction
 
 function! Set_options_for_vimrc()
   " Reload the vimrc file
   noremap <F5> :source %<CR>
+endfunction
+
+function! Set_options_for_coc_settings()
+  " Restart CoC
+  noremap <F5> :CocRestart<CR>
 endfunction
 
 function! Set_makefile_shortcut()
@@ -273,6 +277,17 @@ let g:taboo_renamed_tab_format = "%N-%l "
 " => falcon colorscheme
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:falcon_lightline = 1
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim star search
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+vmap <silent> * <Plug>(star-*)
+vmap <silent> # <Plug>(star-#)
+nmap <silent> * <Plug>(star-*)
+nmap <silent> # <Plug>(star-#)
+nmap <silent> g* <Plug>(star-g*)
+nmap <silent> g# <Plug>(star-g#)
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

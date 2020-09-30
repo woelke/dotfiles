@@ -8,6 +8,7 @@ echo "## $0 $@"
 echo "####################################"
 
 nvim_path="${HOME}/.config/nvim"
+llvm="$HOME/llvm"
 
 if [ "$1" = "all" ]; then
   $0 preperation
@@ -23,24 +24,21 @@ if [ "$1" = "all" ]; then
   $0 neovim_remote
   $0 load_spellfiles
   $0 sec_vim
+  $0 llvm
+  $0 coc_ccls
 fi
 
 if [ "$1" = "preperation" ]; then
   mkdir tmp
   sudo apt install -y libtool libtool-bin autoconf automake cmake g++ pkg-config unzip
-  sudo apt install -y python-dev python-pip python3-dev python3-pip
+  sudo apt install -y python-dev python3-dev python3-pip
   sudo apt install -y xclip
-  sudo pip2 install --upgrade pip
   sudo pip3 install --upgrade pip
 fi
 
 if [ "$1" = "install_neovim" ]; then
-  git clone https://github.com/neovim/neovim tmp/neovim
-  cd tmp/neovim
-  make CMAKE_BUILD_TYPE=Release
-  sudo make install
+  sudo apt install nvim
   # Add python suport #
-  sudo pip2 install --upgrade neovim
   sudo pip3 install --upgrade neovim
 fi
 
@@ -57,7 +55,7 @@ if [ "$1" = "link_nvim_config" ]; then
   current_dir=$(pwd)
   cd $nvim_path
   ln -sf $current_dir/nvim_config
-  ln -sf $current_dir/coc-settings.json
+  ln -sf $current_dir/nvim_config/coc-settings.json
 fi
 
 if [ "$1" = "set_install_rc" ]; then
@@ -70,17 +68,8 @@ if [ "$1" = "set_init_rc" ]; then
 fi
 
 if [ "$1" = "install_gui" ]; then
-  # neovim-qt
-  sudo apt install -y qt5-default
-  git clone https://github.com/equalsraf/neovim-qt tmp/neovim-qt
-  cd tmp/neovim-qt
-  mkdir build
-  cd build
-  cmake -DCMAKE_BUILD_TYPE=Release ..
-  make
-  sudo make install
   # neovim-gtk
-  sudo apt install -y cargo libgtk-3-dev
+  sudo apt install libatk1.0-dev libcairo2-dev libgdk-pixbuf2.0-dev libglib2.0-dev libgtk-3-dev libpango1.0-dev
   git clone https://github.com/daa84/neovim-gtk tmp/neovim-gtk
   cd tmp/neovim-gtk
   sudo make install
@@ -104,4 +93,43 @@ fi
 
 if [ "$1" = "sec_vim" ]; then
   mkdir -p $nvim_path/sec_plugged
+fi
+
+#if [ "$1" = "coc_ccls" ]; then
+  #sudo apt install zlib1g-dev libncurses-dev libncurses5 clang libclang-dev rapidjson-dev ninja-build
+
+  #git clone https://github.com/llvm/llvm-project.git tmp/llvm-project
+  #pushd tmp/llvm-project
+    #pushd llvm
+      #cmake -H. -BRelease -G Ninja -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD=X86 -DLLVM_ENABLE_PROJECTS=clang
+      #ninja -C Release clangFormat clangFrontendTool clangIndex clangTooling clang
+      #sudo ninja -C Release install
+    #popd
+  #popd
+
+  #git clone --depth=1 --recursive https://github.com/MaskRay/ccls tmp/ccls
+  #pushd tmp/ccls
+    #cmake -H. -BRelease -DCMAKE_BUILD_TYPE=Release \
+        #-DCMAKE_PREFIX_PATH=/usr/lib/llvm-10 \
+        #-DLLVM_INCLUDE_DIR=/usr/lib/llvm-10/include \
+        #-DLLVM_BUILD_INCLUDE_DIR=/usr/include/llvm-10/
+    #cmake --build Release
+    #sudo cmake --build Release --target install
+  #popd
+#fi
+
+if [ "$1" = "llvm" ]; then
+  pushd tmp
+  wget --output-document="llvm-10.0.1.tar.xz" https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.1/clang+llvm-10.0.1-x86_64-linux-gnu-ubuntu-16.04.tar.xz
+
+  if [ -d ${llvm} ]; then rm -rf ${llvm}; fi
+  mkdir ${llvm}
+
+  tar -xf llvm-10.0.1.tar.xz --directory=${llvm}  --strip 1
+  popd
+fi
+
+if [ "$1" = "coc_clangd" ]; then
+  # https://github.com/clangd/coc-clangd
+  sudo apt install nodejs
 fi
