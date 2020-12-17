@@ -5,11 +5,11 @@ call plug#begin('~/.config/nvim/plugged')
 "=> My Neovim Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Filesystem navigator
-Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree'
 Plug 'aufgang001/vim-nerdtree_plugin_open'
 
 " Commenting of code
-Plug 'scrooloose/nerdcommenter'
+Plug 'preservim/nerdcommenter'
 
 " VSCode Intellisense engine
 Plug 'neoclide/coc.nvim', {'branch': 'release'}

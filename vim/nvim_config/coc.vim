@@ -49,18 +49,17 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " TODO: Untested
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
 " position. Coc only does snippet and additional edit on confirm.
-if exists('*complete_info')
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
+"if exists('*complete_info')
+  "inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+"else
+  "inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"endif
 
-" GoTo code navigation.
-nnoremap <silent> <Leader>cd <Plug>(coc-definition)
-nnoremap <silent> <Leader>ci <Plug>(coc-implementation)
-nnoremap <silent> <Leader>ct <Plug>(coc-type-definition)
-nnoremap <silent> <Leader>cr <Plug>(coc-references)
-nnoremap <silent> <Leader>cR  :call <SID>show_documentation()<CR>
+nmap <silent> <Leader>fd <Plug>(coc-definition)
+nmap <silent> <Leader>fi <Plug>(coc-implementation)
+nmap <silent> <Leader>ft <Plug>(coc-type-definition)
+nmap <silent> <Leader>fr <Plug>(coc-references)
+nmap <silent> <Leader>fR :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -75,11 +74,11 @@ endfunction
 "autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
-nmap <Leader>rn <Plug>(coc-rename)
+nmap <Leader>fn <Plug>(coc-rename)
 
 " Formatting selected code.
-vmap <Leader>f  <Plug>(coc-format-selected)
-nmap <Leader>f  :call CocAction('format')<CR>
+"vmap <Leader>cf  <Plug>(coc-format-selected)
+"nmap <Leader>cf  :call CocAction('format')<CR>
 
 augroup mygroup
   autocmd!
@@ -91,27 +90,27 @@ augroup end
 
 " Applying codeAction to the selected region.
 " Example: `<leader>aap` for current paragraph
-vmap <Leader>a  <Plug>(coc-codeaction-selected)<CR>
-nmap <Leader>a  <Plug>(coc-codeaction-selected)<CR>
+"vmap <Leader>ca  <Plug>(coc-codeaction-selected)<CR>
+"nmap <Leader>caa  <Plug>(coc-codeaction-selected)<CR>
 " TODO: Untested
-nmap <Leader>qf  <Plug>(coc-fix-current)
+"nmap <Leader>cqf  <Plug>(coc-fix-current)
 
 " TODO: not realy working
 " Introduce function text object
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-vmap ix <Plug>(coc-funcobj-i)
-vmap ax <Plug>(coc-funcobj-a)
+"vmap ix <Plug>(coc-funcobj-i)
+"vmap ax <Plug>(coc-funcobj-a)
 
 
 " Mappings using CoCList:
 " Show all diagnostics.
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<CR>
+nnoremap <silent> <Leader>fa  :<C-u>CocList diagnostics<CR>
 " Find symbol of current document.
-nnoremap <silent> <space>o  :<C-u>CocList outline<CR>
+"nnoremap <silent> <Leader>co  :<C-u>CocList outline<CR>
 " Search workspace symbols.
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<CR>
+"nnoremap <silent> <Leader>cs  :<C-u>CocList -I symbols<CR>
 " Search workspace symbols.
-nnoremap <silent> <space>g :<C-u>CocList grep<CR>
+"nnoremap <silent> <Leader>cg :<C-u>CocList grep<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => coc-json
@@ -121,6 +120,6 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => coc-clangd
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <Leader>cs :CocCommand clangd.switchSourceHeader<CR>
-nnoremap <Leader>cT :CocCommand clangd.symbolInfo<CR>
+nnoremap <Leader>fs :CocCommand clangd.switchSourceHeader<CR>
+nnoremap <Leader>fT :CocCommand clangd.symbolInfo<CR>
 

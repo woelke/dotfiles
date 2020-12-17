@@ -7,7 +7,7 @@
 
 // clangd
   "clangd.enabled": true,
-  "clangd.path": "llvm/bin/clangd",
+  "clangd.path": "/home/woelke/llvm/bin/clangd",
   "clangd.arguments": ["--background-index","--log=verbose", "--query-driver=/opt/montavista/**"],
   "clangd.semanticHighlighting": true,
 
