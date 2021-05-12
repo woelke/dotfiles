@@ -14,6 +14,9 @@ Plug 'preservim/nerdcommenter'
 " VSCode Intellisense engine
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" Code formating e.g. C++
+Plug 'rhysd/vim-clang-format'
+
 " Sematic highlighting
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 
@@ -49,9 +52,6 @@ Plug 'aufgang001/vim-custom_spellfile', {'do': './install.sh nvim'}
 " Opens URLs in browser
 Plug 'waiting-for-dev/www.vim'
 
-" Search and open files
-Plug 'ctrlpvim/ctrlp.vim'
-
 " Delete, change and add surroundings in pairs
 Plug 'tpope/vim-surround'
 
@@ -69,6 +69,13 @@ Plug 'donRaphaco/neotex'
 
 " Vim start search without first jump
 Plug 'linjiX/vim-star'
+
+" search engine
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" Search and open files (TODO remove me when fzf is working)
+Plug 'ctrlpvim/ctrlp.vim'
 
 " Initialize plugin system
 call plug#end()

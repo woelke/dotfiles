@@ -14,5 +14,8 @@
 // used by coc python
   "coc.preferences.rootPatterns": [
     ".env"
-  ]
+  ],
+
+// coc lists
+  "list.source.grep.command": "rg"
 }

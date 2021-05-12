@@ -123,7 +123,6 @@ alias gd='git diff'
 alias gr='git rebase'
 alias gf='git fetch --all'
 
-
 ##-- vim shortcuts --##
 alias v="nvr -cc 'call DoLcdToCurrentPath()' --remote $@"
 alias vs="nvr -cc 'call DoLcdToCurrentPath()' -o $@"
@@ -134,13 +133,9 @@ alias vg='nvim-gtk'
 ##-- other stuff --##
 alias logout='gnome-session-quit'
 alias rm='trash'
-
-##-- Keyboard --##
-#numlockx on # actrivate the nummber block
+alias rg='rg --no-messages'
 
 ##-- Makefile --##
 #run make with flag -j<number of processors>
 export MAKEFLAGS="-j$(cat /proc/cpuinfo | grep processor | wc | awk '{ print $1 }')"
 
-##-- folder for go scripts --##
-#export GOPATH=~/gocode #needed by the go compiler e.g. go get github.com/svent/sift

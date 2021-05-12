@@ -14,12 +14,11 @@ highlight ColorColumn ctermbg=0 guibg=#3e3e40 " Colored columns are dark grey.
 " TODO how to use a terminal in a terminal
 "set scrolloff=7     " Keep 7 lines above and below the cursor.
 set number          " Print the line number in front of each line.
-set relativenumber  " Show line numbers relative to the current line.
 set ignorecase      " ignore case when searching
 set smartcase       " when searching try to be smart about cases
 set showmatch       " show matching brackets when text indicator is over them
 set expandtab       " expand tabs with whitespaces"
-set tabstop=2
+set tabstop=4
 set softtabstop=-1  " make 'softtabstop' follow 'shiftwidth'
 set shiftwidth=0    " make 'shiftwidth' follow 'tabstop'
 set mouse=a         " enable the use of the mouse
@@ -109,9 +108,27 @@ function! DoLcdToCurrentPath()
   endif
 endfunction
 
-" a terimal is allways entered in insert mode
+" a terimal is allways entered in insert mode but this can be deactivated
 autocmd! TermOpen * startinsert
-autocmd! BufEnter term://* startinsert
+
+function! Set_startinsert()
+   augroup startinsert_group
+      autocmd!
+      autocmd! BufEnter term://* startinsert
+   augroup END
+endfunction
+
+function! Delete_startinsert()
+   augroup startinsert_group
+      autocmd!
+   augroup END
+endfunction
+
+nnoremap <Leader>ai :call Set_startinsert()<CR>
+nnoremap <Leader>di :call Delete_startinsert()<CR>
+
+call Set_startinsert()
+
 
 " ESC in terminal
 tnoremap <A-Esc> <C-\><C-n>
@@ -288,6 +305,21 @@ nmap <silent> * <Plug>(star-*)
 nmap <silent> # <Plug>(star-#)
 nmap <silent> g* <Plug>(star-g*)
 nmap <silent> g# <Plug>(star-g#)
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => fzf.vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+noremap <Leader>g :Rg<CR>
+inoremap <Leader>g :Rg<CR>
+tnoremap <Leader>g <C-\><C-n><C-w>:Rg<CR>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-clang-format
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <Leader>ff :ClangFormat<CR>
+vnoremap <Leader>ff :ClangFormat<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

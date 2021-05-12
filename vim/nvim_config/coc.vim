@@ -110,7 +110,7 @@ nnoremap <silent> <Leader>fa  :<C-u>CocList diagnostics<CR>
 " Search workspace symbols.
 "nnoremap <silent> <Leader>cs  :<C-u>CocList -I symbols<CR>
 " Search workspace symbols.
-"nnoremap <silent> <Leader>cg :<C-u>CocList grep<CR>
+"nnoremap <silent> <Leader>fg :<C-u>CocList grep<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => coc-json
