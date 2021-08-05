@@ -1,127 +1,51 @@
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
-setopt appendhistory autocd extendedglob nomatch
-unsetopt beep notify
-bindkey -v
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/wolke/.zshrc'
+# Path to your oh-my-zsh installation.
+export ZSH="/home/woelke/.oh-my-zsh"
 
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
-
-
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-#ZSH_THEME="robbyrussell"
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="nanotech"
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
-# Uncomment this to disable bi-weekly auto-update checks
+# Uncomment the following line to disable bi-weekly auto-update checks.
 DISABLE_AUTO_UPDATE="true"
 
-# Uncomment to change how often before auto-updates occur? (in days)
-# export UPDATE_ZSH_DAYS=13
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
 
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
+# Uncomment the following line to enable command auto-correction.
+ENABLE_CORRECTION="true"
 
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
+# Uncomment the following line to display red dots whilst waiting for completion.
+COMPLETION_WAITING_DOTS="true"
 
-# Uncomment following line if you want to disable command autocorrection
-# DISABLE_CORRECTION="true"
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+HIST_STAMPS="yyyy-mm-dd"
 
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment following line if you want to disable marking untracked files under
-# VCS as dirty. This makes repository status check for large repositories much,
-# much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment following line if you want to  shown in the command execution time stamp
-# in the history command output. The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|
-# yyyy-mm-dd
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git cp screen z)
+# Add wisely, as too many plugins slow down shell startup.
+# https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins
+plugins=(git cp)
 
 source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 
 ##################
 ##-- My Stuff --##
 ##################
 
-##-- Path to cargo rust applications --#
-export PATH=$HOME/.cargo/bin:$PATH
-
-##-- man in vim --##
-vman() {
-    #run command SuperMan and add opend manual to arglist
-    #this is nessasary to prevent NERDTree from pop-up
-    vim -c "SuperMan $*" -c "argadd %"
-
-    if [ "$?" != "0" ]; then
-        echo "No manual entry for $*"
-    fi
-}
-
 setopt interactivecomments #activate the bash-syle comments, you can run a command with a comment
-
-##-- latex bib path --##
-export BIBINPUTS=/bib/:./
 
 ##-- vim color support --##
 export TERM=xterm-256color
 
 ##-- generic open cmd --##
 alias o='xdg-open'
-
-##-- git shortcuts --##
-alias gs='git status'
-alias gpush='git push'
-alias gpull='git pull'
-alias gcom='git commit'
-alias gout='git checkout'
-alias ga='git add'
-alias gl='git log'
-alias gd='git diff'
-alias gr='git rebase'
-alias gf='git fetch --all'
 
 ##-- vim shortcuts --##
 alias v="nvr -cc 'call DoLcdToCurrentPath()' --remote $@"

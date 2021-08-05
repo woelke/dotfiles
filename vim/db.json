@@ -1,0 +1,38 @@
+{
+    "deps" : [
+        {
+            "pacman" : [
+                "neovim",
+                "python-pynvim"
+            ]
+        },
+        {
+            "pip" : [
+                "neovim-remote"
+            ]
+        },
+        {
+            "aur" : [
+                {
+                    "neovide-bin" : "https://aur.archlinux.org/neovide-bin.git"
+                }
+            ]
+        }
+
+    ],
+    "links": [
+        {
+            "dest": "~/.config/nvim/nvim_config",
+            "name": "nvim_config"
+        },
+        {
+            "dest": "~/.config/nvim/coc-settings.json",
+            "name": "coc-settings.json"
+        }
+    ],
+    "scripts" : [
+        "curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim",
+        "mkdir -p ~/.config/nvim/undo ~/.config/nvim/swap",
+        "./install_plugins.sh"
+    ]
+}

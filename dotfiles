@@ -1,0 +1,194 @@
+#!/usr/bin/python
+
+import os
+import sys
+import json
+import shutil
+from pathlib import Path
+from subprocess import Popen, PIPE
+from bb_parser.bb_parser import Optional, OneOf, Exact, ParseError, String, Integer, ExistingPath, Help, Flag, NoMoreArgs
+
+DOTFILES_ROOT = Path(os.environ.get("DOTFILES_ROOT"))
+JSON_DB = "db.json"
+
+
+def load_dotfile_db_json(path):
+    with path.open() as fd:
+        return json.load(fd)
+
+def store_dotfile_db_json(path, json_db):
+    with path.open(mode="w") as fd:
+        json.dump(json_db, fd, sort_keys=True, indent=4)
+
+def init_component(component_dir):
+    component_db = component_dir / JSON_DB
+    component_dir.mkdir(parents=True, exist_ok=True)
+    if not component_db.exists():
+        store_dotfile_db_json(component_db, dict())
+
+def run_cmd(cmd):
+    print(f"### Run command: {cmd}")
+    process = Popen(cmd, stdin=PIPE, stdout=sys.stdout, stderr=sys.stderr, shell=True)
+    process.communicate()
+    if process.returncode != 0:
+        raise RuntimeError(f"cmd {cmd} failed with return code {process.returncode}")
+
+def install_link(link_info, component_dir):
+    dest = Path(link_info["dest"])
+    if dest.exists():
+        print(f"Skip install link for {dest} because file exists")
+    else:
+        dest.symlink_to(component_dir / link_info["name"])
+
+def manage(args):
+    target = args["target"]
+    if target.is_symlink():
+        raise RuntimeError(f"target {target} is a symlink and cannot be managed")
+
+    component_dir = DOTFILES_ROOT / args["component"]
+    component_db = component_dir / JSON_DB
+    init_component(component_dir)
+    db = load_dotfile_db_json(component_db)
+
+    shutil.move(str(target), str(component_dir))
+    target_new = component_dir / target.name
+
+    link_info = {"name" : target.name , "dest" : str(target)}
+    install_link(link_info, component_dir)
+
+    if "links" not in db:
+        db["links"] = []
+    db["links"].append(link_info)
+    store_dotfile_db_json(component_db, db)
+    
+def unmanage(args):
+    def does_db_manage_path_if_remove_it(db_path, target):
+        db = load_dotfile_db_json(db_path)
+        if "links" not in db:
+            return False
+        for managed_obj in db["links"]:
+            if Path(managed_obj["dest"]) == target:
+                db["links"].remove(managed_obj)
+                store_dotfile_db_json(db_path, db)
+                return True
+        return False
+
+    def next_db_on_path(path):
+        while str(DOTFILES_ROOT) in str(path):
+            db_test = path / JSON_DB
+            if db_test.exists():
+                yield db_test
+            path = path.parent
+
+    target = args["target"]
+    if not target.is_symlink():
+        raise RuntimeError(f"target {target} is a not symlink")
+
+    target_physical = target.readlink()
+    for db_path in next_db_on_path(target_physical.parent):
+        if does_db_manage_path_if_remove_it(db_path, target):
+            target.unlink()
+            shutil.move(target_physical, target)
+            return
+
+    raise RuntimeError(f"target {target} is not managed by dotfiles")
+
+def install_links(args, db, component_dir):
+    if "links" not in db:
+        print("Skip install links, no links are managed for this component.")
+    if "index" in args:
+        link_info = db["links"][args["index"]]
+        install_link(link_info, component_dir)
+    else:
+        for link_info in db["links"]:
+            install_link(link_info, component_dir)
+
+
+def install_deps(args, db, component_dir):
+    def get_first_element(dictionary):
+        return list(dictionary.items())[0]
+
+    def install_pacman_deps(deps):
+        run_cmd(f"sudo pacman --noconfirm -S {' '.join(deps)}")
+
+    def install_pip_deps(deps):
+        run_cmd(f"pip install --user {' '.join(deps)}")
+    
+    def install_pip_deps(deps):
+        for deps_dict in deps:
+            dep_name, dep = get_first_element(deps_dict)
+            run_cmd(f"cd ~/AUR && git clone {dep} {dep_name} && cd {dep_name} && makepkg && sudo pacman -U *.pkg.tar.zst")
+
+    if "deps" not in db:
+        print("Skip install dependencies, no dependencies are managed for this component.")
+    dispatch = { "pacman" : install_pacman_deps,
+                 "pip" : install_pip_deps }
+    if "index" in args:
+        deps_type, deps  = get_first_element(db["deps"][args["index"]])
+        dispatch[deps_type](deps)
+    else:
+        for deps_item in db["deps"]:
+            deps_type, deps = get_first_element(deps_item)
+            try:
+                dispatch[deps_type](deps)
+            except KeyError:
+                print(f"Skip dependencies for {deps_type}, this type is not supported")
+
+def install_scripts(args, db, component_dir):
+    if "scripts" not in db:
+        print("Skip install scripts, no scripts are managed for this component.")
+    if "index" in args:
+        run_cmd(f"cd {str(component_dir)} && {db['scripts'][args['index']]}")
+    else:
+        for script in db["scripts"]:
+            run_cmd(f"cd {str(component_dir)} && {script}")
+
+def install(args):
+    component_dir = DOTFILES_ROOT / args["component"]
+    component_db = component_dir / JSON_DB
+    db = load_dotfile_db_json(component_db)
+
+    if "action" in args:
+        dispatch = { "links" : install_links,
+                      "deps" : install_deps,
+                      "scripts" : install_scripts}
+        dispatch[args["action"]](args, db, component_dir)
+    else:
+        install_deps(args, db, component_dir)
+        install_links(args, db, component_dir)
+        install_scripts(args, db, component_dir)
+
+def command_line_argument_dispatcher():
+    manage_p = Exact("cmd", "manage") + String("component") + ExistingPath("target")
+    unmanage_p = Exact("cmd", "unmanage") + ExistingPath("target")
+    actions_p = OneOf(Exact("action", "links"), Exact("action", "deps"), Exact("action", "scripts"))
+    install_p = Exact("cmd", "install") + String("component") + Optional(actions_p + Optional(Integer("index")))
+    help_p = Flag("cmd", "help", OneOf(Help, Exact("NoArgs", "")))
+    parser = OneOf(manage_p, unmanage_p, install_p, help_p) + NoMoreArgs()
+
+    dispatch = { "manage" : manage,
+                 "unmanage" : unmanage,
+                 "install" : install,
+                 "help" : help}
+
+    try:
+        _, args = parser(sys.argv[1:])
+        dispatch[args["cmd"]](args)
+    except ParseError as err:
+        print("Failed to parse command line")
+        help("")
+        sys.exit(1)
+
+def help(args):
+    help_str = """
+usage: dotfiles [-h|--help] command args
+
+command and arguments:
+    manage <component> <file|folder>
+    unmanage <file|folder>
+    install <component> [<links|deps|scripts> [index]]
+"""
+    print(help_str)
+
+if __name__ == "__main__":
+    command_line_argument_dispatcher()

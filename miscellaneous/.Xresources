@@ -1,4 +1,0 @@
-!set new changes
-!xrdb -merge ~/.Xresources
-xterm*font:     *-fixed-*-*-*-18-*
-xterm*geometry: 100x25

@@ -7,9 +7,8 @@ My Dotfiles contain a quite complex vim configuration, my favorite Linux program
 
 Requirements
 ============
-Git:
     
-    sudo apt install -y git
+    pip install -i https://test.pypi.org/simple/ bb-parser-woelke
 
 
 Startup
@@ -21,11 +20,8 @@ Run the following commands to configure all automatically:
     ./bootstrap.sh
 
 
-And reboot your system:
+Other configurations
+====================
+Swap ESC and Caps Lock
 
-    sudo reboot
-
-
-Distribution specific configuration
-===================================
-[Ubuntu](ubuntu/README.md)
+    #gnome-tweak: Keyboard & Mouse -> Additional Layout Options -> Caps Lock key behavior -> Swap ESC and Caps Lock
