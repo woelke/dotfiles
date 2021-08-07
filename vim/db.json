@@ -3,7 +3,10 @@
         {
             "pacman" : [
                 "neovim",
-                "python-pynvim"
+                "python-pynvim",
+                "nodejs",
+                "npm",
+                "xclip"
             ]
         },
         {

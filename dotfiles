@@ -9,6 +9,7 @@ from subprocess import Popen, PIPE
 from bb_parser.bb_parser import Optional, OneOf, Exact, ParseError, String, Integer, ExistingPath, Help, Flag, NoMoreArgs
 
 DOTFILES_ROOT = Path(os.environ.get("DOTFILES_ROOT"))
+HOME = Path(os.environ.get("HOME"))
 JSON_DB = "db.json"
 
 
@@ -26,15 +27,16 @@ def init_component(component_dir):
     if not component_db.exists():
         store_dotfile_db_json(component_db, dict())
 
-def run_cmd(cmd):
+def run_cmd(cmd, cwd=None):
     print(f"### Run command: {cmd}")
-    process = Popen(cmd, stdin=PIPE, stdout=sys.stdout, stderr=sys.stderr, shell=True)
+    process = Popen(cmd, stdin=PIPE, stdout=sys.stdout, stderr=sys.stderr, cwd=cwd, shell=True)
     process.communicate()
     if process.returncode != 0:
         raise RuntimeError(f"cmd {cmd} failed with return code {process.returncode}")
 
 def install_link(link_info, component_dir):
-    dest = Path(link_info["dest"])
+    dest = Path(os.path.expanduser(link_info["dest"]))
+    dest.parent.mkdir(parents=True, exist_ok=True)
     if dest.exists():
         print(f"Skip install link for {dest} because file exists")
     else:
@@ -114,15 +116,20 @@ def install_deps(args, db, component_dir):
     def install_pip_deps(deps):
         run_cmd(f"pip install --user {' '.join(deps)}")
     
-    def install_pip_deps(deps):
+    def install_aur_deps(deps):
         for deps_dict in deps:
             dep_name, dep = get_first_element(deps_dict)
-            run_cmd(f"cd ~/AUR && git clone {dep} {dep_name} && cd {dep_name} && makepkg && sudo pacman -U *.pkg.tar.zst")
+            cwd = Path(f"{HOME}/AUR")
+            cwd.mkdir(parents=True, exist_ok=True)
+            run_cmd(f"git clone {dep} {dep_name}", str(cwd))
+            cwd = cwd / dep_name
+            run_cmd(f"makepkg -is --noconfirm", str(cwd))
 
     if "deps" not in db:
         print("Skip install dependencies, no dependencies are managed for this component.")
     dispatch = { "pacman" : install_pacman_deps,
-                 "pip" : install_pip_deps }
+                 "pip" : install_pip_deps,
+                 "aur" : install_aur_deps }
     if "index" in args:
         deps_type, deps  = get_first_element(db["deps"][args["index"]])
         dispatch[deps_type](deps)
@@ -138,10 +145,10 @@ def install_scripts(args, db, component_dir):
     if "scripts" not in db:
         print("Skip install scripts, no scripts are managed for this component.")
     if "index" in args:
-        run_cmd(f"cd {str(component_dir)} && {db['scripts'][args['index']]}")
+        run_cmd(db['scripts'][args['index']], cwd=str(component_dir))
     else:
         for script in db["scripts"]:
-            run_cmd(f"cd {str(component_dir)} && {script}")
+            run_cmd(script, cwd=str(component_dir))
 
 def install(args):
     component_dir = DOTFILES_ROOT / args["component"]
