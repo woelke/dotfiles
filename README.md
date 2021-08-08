@@ -25,3 +25,8 @@ Other configurations
 Swap ESC and Caps Lock
 
     #gnome-tweak: Keyboard & Mouse -> Additional Layout Options -> Caps Lock key behavior -> Swap ESC and Caps Lock
+
+Set Keyboard Layout EurKey 
+
+    #gnome-tweak: Keyboard & Mouse -> Show Extended Input Sources
+    #settings: Keyboard -> Input Sources -> English -> EurKEY (US)

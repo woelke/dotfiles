@@ -49,7 +49,7 @@ alias v="nvr -cc 'call DoLcdToCurrentPath()' --remote $@"
 alias vs="nvr -cc 'call DoLcdToCurrentPath()' -o $@"
 alias vv="nvr -cc 'call DoLcdToCurrentPath()' -O $@"
 alias vt="nvr -cc 'call DoLcdToCurrentPath()' --remote-tab $@"
-alias vg='nvim-gtk'
+alias vg="neovide"
 
 ##-- other stuff --##
 alias logout='gnome-session-quit'
