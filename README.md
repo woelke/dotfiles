@@ -30,3 +30,7 @@ Set Keyboard Layout EurKey
 
     #gnome-tweak: Keyboard & Mouse -> Show Extended Input Sources
     #settings: Keyboard -> Input Sources -> English -> EurKEY (US)
+
+Laggy sticky mouse input 
+
+    https://bbs.archlinux.org/viewtopic.php?id=258638

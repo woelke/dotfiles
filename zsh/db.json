@@ -5,6 +5,13 @@
                 "zsh",
                 "zsh-completions"
             ]
+        },
+        {
+            "aur" : [
+                {
+                    "autojump" : "https://aur.archlinux.org/autojump-git.git"
+                }
+            ]
         }
     ],
     "links": [
@@ -17,4 +24,4 @@
         "sh -c \"$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\"",
         "chsh -s $(which zsh)"
     ]
-}   
+}

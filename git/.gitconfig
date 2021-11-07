@@ -1,0 +1,5 @@
+[user]
+	email = sebastian.woelke@posteo.de
+	name = Sebastian Woelke
+[core]
+	editor = nvim

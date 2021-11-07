@@ -16,6 +16,9 @@ if exists('g:neovide')
   let g:neovide_cursor_trail_length=0
   let g:neovide_cursor_antialiasing=v:false
   let g:neovide_refresh_rate=60
-  set guifont=firacode:h14
+  " Seems not to work in ginit.vim I have to the guifont in init.vim
+  " At the moment neovide has no faulback font so I need DejaVu
+  " for the cool unicode icons
+  set guifont=firacode,DejaVu\ Sans\ Mono:h15
 endif
 

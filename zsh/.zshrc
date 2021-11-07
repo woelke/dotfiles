@@ -27,7 +27,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins
-plugins=(git cp)
+plugins=(git cp autojump)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -49,7 +49,8 @@ alias v="nvr -cc 'call DoLcdToCurrentPath()' --remote $@"
 alias vs="nvr -cc 'call DoLcdToCurrentPath()' -o $@"
 alias vv="nvr -cc 'call DoLcdToCurrentPath()' -O $@"
 alias vt="nvr -cc 'call DoLcdToCurrentPath()' --remote-tab $@"
-alias vg="neovide"
+#alias vg="neovide"
+alias vg="nvim-gkt"
 
 ##-- other stuff --##
 alias logout='gnome-session-quit'
@@ -59,4 +60,3 @@ alias rg='rg --no-messages'
 ##-- Makefile --##
 #run make with flag -j<number of processors>
 export MAKEFLAGS="-j$(cat /proc/cpuinfo | grep processor | wc | awk '{ print $1 }')"
-

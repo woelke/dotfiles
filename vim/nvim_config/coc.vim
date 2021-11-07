@@ -4,7 +4,8 @@ let g:coc_global_extensions = [
    \ "coc-python",
    \ "coc-lists",
    \ "coc-pairs",
-   \ "coc-clangd"
+   \ "coc-clangd",
+   \ "coc-vimtex"
    \ ]
 
 " Extension Info

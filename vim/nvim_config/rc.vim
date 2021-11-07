@@ -101,7 +101,7 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! DoLcdToCurrentPath()
   " source https://github.com/neovim/neovim/issues/4299
-  let l:procid = matchstr(bufname(""), '\(://.*/\)\@<=\(\d\+\)')
+  let l:procid = matchstr(matchstr(bufname(""), '\(://.*/\)\@<=\(\d\+\):/'), '\(\d\+\)')
   if l:procid != ""
     let l:proc_cwd = resolve('/proc/'.l:procid.'/cwd')
     execute 'lcd '.l:proc_cwd
