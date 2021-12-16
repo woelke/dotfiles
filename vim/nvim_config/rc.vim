@@ -18,7 +18,7 @@ set ignorecase      " ignore case when searching
 set smartcase       " when searching try to be smart about cases
 set showmatch       " show matching brackets when text indicator is over them
 set expandtab       " expand tabs with whitespaces"
-set tabstop=4
+set tabstop=2
 set softtabstop=-1  " make 'softtabstop' follow 'shiftwidth'
 set shiftwidth=0    " make 'shiftwidth' follow 'tabstop'
 set mouse=a         " enable the use of the mouse
@@ -202,7 +202,8 @@ let g:nerdtree_plugin_open_cmd = g:myOpenCmd
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:NERDCustomDelimiters = {
   \ 'mcproxy': { 'left': '#' },
-  \ 'json': { 'left': '//' }
+  \ 'json': { 'left': '//' },
+  \ 'haskell': { 'left': '-- ' }
   \}
 
 

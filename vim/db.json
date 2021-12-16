@@ -17,7 +17,9 @@
         {
             "aur" : [
                 {
-                    "neovide-bin" : "https://aur.archlinux.org/neovide-bin.git"
+                    "neovide-bin" : "https://aur.archlinux.org/neovide-bin.git",
+                    "neovim-gtk-git" : "https://aur.archlinux.org/neovim-gtk-git.git"
+
                 }
             ]
         }
