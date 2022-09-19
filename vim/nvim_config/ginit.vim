@@ -12,13 +12,17 @@ endif
 
 " Configuration for neovide
 if exists('g:neovide')
+  " Disable Animations
   let g:neovide_cursor_animation_length=0
   let g:neovide_cursor_trail_length=0
   let g:neovide_cursor_antialiasing=v:false
+
+  " Mis
   let g:neovide_refresh_rate=60
-  " Seems not to work in ginit.vim I have to the guifont in init.vim
-  " At the moment neovide has no faulback font so I need DejaVu
-  " for the cool unicode icons
-  set guifont=firacode,DejaVu\ Sans\ Mono:h15
+  let g:neovide_remember_window_size = v:true
+  let g:neovide_profiler = v:false
+  let g:neovide_hide_mouse_when_typing = v:true
+
+  set guifont=Fira\ Code:h12
 endif
 
