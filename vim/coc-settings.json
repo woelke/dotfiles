@@ -25,6 +25,4 @@
    }
  }
 
-// coc lists
-  "list.source.grep.command": "rg"
 }
