@@ -6,7 +6,7 @@
                 "python-pynvim",
                 "nodejs",
                 "npm",
-                "xclip"
+                "wl-clipboard"
             ]
         },
         {
