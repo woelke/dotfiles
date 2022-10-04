@@ -18,7 +18,8 @@
             "aur" : [
                 {
                     "neovide-git" : "https://aur.archlinux.org/neovide-git.git",
-                    "neovim-gtk-git" : "https://aur.archlinux.org/neovim-gtk-git.git"
+                    "neovim-gtk-git" : "https://aur.archlinux.org/neovim-gtk-git.git",
+                    "waypipe-git": "https://aur.archlinux.org/waypipe-git.git"
 
                 }
             ]
