@@ -1,0 +1,6 @@
+{
+    "scripts" : [
+        "sudo sh -c 'echo SUDO_EDITOR=nvim >> /etc/environment'",
+        "sudo sh -c 'echo EDITOR=nvim >> /etc/environment'"
+    ]
+}

@@ -62,7 +62,7 @@ def manage(args):
         db["links"] = []
     db["links"].append(link_info)
     store_dotfile_db_json(component_db, db)
-    
+
 def unmanage(args):
     def does_db_manage_path_if_remove_it(db_path, target):
         db = load_dotfile_db_json(db_path)
@@ -116,7 +116,7 @@ def install_deps(args, db, component_dir):
 
     def install_pip_deps(deps):
         run_cmd(f"pip install --user {' '.join(deps)}")
-    
+
     def install_aur_deps(deps):
         for deps_dict in deps:
             dep_name, dep = get_first_element(deps_dict)
