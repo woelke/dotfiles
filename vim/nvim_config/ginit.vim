@@ -19,9 +19,7 @@ if exists('g:neovide')
 
   " Mis
   let g:neovide_refresh_rate=60
-  let g:neovide_remember_window_size = v:true
   let g:neovide_profiler = v:false
-  let g:neovide_hide_mouse_when_typing = v:true
 
   set guifont=Fira\ Code:h12
 endif
