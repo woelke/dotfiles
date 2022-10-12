@@ -3,7 +3,8 @@
         {
             "pacman" : [
                 "zsh",
-                "zsh-completions"
+                "zsh-completions",
+                "vivid"
             ]
         },
         {

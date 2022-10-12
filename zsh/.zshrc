@@ -41,8 +41,9 @@ bindkey -M viins '^[[13;5u' sudo-command-line
 
 setopt interactivecomments #activate the bash-syle comments, you can run a command with a comment
 
-##-- vim color support --##
+##-- color support --##
 export TERM=xterm-256color
+export LS_COLORS="$(vivid generate one-dark)"
 
 ##-- generic open cmd --##
 alias o='xdg-open'
