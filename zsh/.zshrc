@@ -27,19 +27,17 @@ HIST_STAMPS="yyyy-mm-dd"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins
-plugins=(git cp autojump docker sudo)
+plugins=(git cp autojump docker vi-mode sudo)
 
 source $ZSH/oh-my-zsh.sh
-
 
 ##################
 ##-- My Stuff --##
 ##################
 
-##-- zsh plugin sudo --##
 # add sudo in front of the cmd with ctrl-<CR>
-bindkey ';5u' sudo-command-line
-
+bindkey -M vicmd '^[[13;5u' sudo-command-line
+bindkey -M viins '^[[13;5u' sudo-command-line
 
 setopt interactivecomments #activate the bash-syle comments, you can run a command with a comment
 
