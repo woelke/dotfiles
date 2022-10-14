@@ -34,6 +34,7 @@ plugins=(git
   vi-mode
   sudo
   zsh-aliases-lsd
+  zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -42,6 +43,16 @@ source $ZSH/oh-my-zsh.sh
 ##-- My Stuff --##
 ##################
 
+##-- zsh-autosuggestions --##
+# use shift tab to accept a suggestion
+bindkey '^[[Z' autosuggest-accept
+
+# Strategies to use to fetch a suggestion
+# Will try each strategy in order until a suggestion is returned
+(( ! ${+ZSH_AUTOSUGGEST_STRATEGY} )) && {
+	typeset -ga ZSH_AUTOSUGGEST_STRATEGY
+	ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+}
 
 ##-- add sudo in front of the cmd with hostkey Ctrl+CR --##
 bindkey -M vicmd '^[[13;5u' sudo-command-line
