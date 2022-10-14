@@ -42,9 +42,15 @@ source $ZSH/oh-my-zsh.sh
 ##-- My Stuff --##
 ##################
 
-# add sudo in front of the cmd with ctrl-<CR>
+
+##-- add sudo in front of the cmd with hostkey Ctrl+CR --##
 bindkey -M vicmd '^[[13;5u' sudo-command-line
 bindkey -M viins '^[[13;5u' sudo-command-line
+
+##-- bat a replacement for cat --##
+export BAT_THEME="TwoDark"
+alias cat='bat'
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 setopt interactivecomments #activate the bash-syle comments, you can run a command with a comment
 

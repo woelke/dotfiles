@@ -324,6 +324,13 @@ vnoremap <Leader>ff :ClangFormat<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-better-whitespace
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" disable withespace info for terminals + keep the default filters
+let g:better_whitespace_filetypes_blacklist=['', 'diff', 'git', 'gitcommit', 'unite', 'qf', 'help', 'markdown', 'fugitive']
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => my scripts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " inverse return

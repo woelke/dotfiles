@@ -5,7 +5,8 @@
                 "zsh",
                 "zsh-completions",
                 "vivid",
-                "lsd"
+                "lsd",
+                "bat"
             ]
         },
         {
