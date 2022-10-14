@@ -35,6 +35,7 @@ plugins=(git
   sudo
   zsh-aliases-lsd
   zsh-autosuggestions
+  zsh-syntax-highlighting # musst be the last
 )
 
 source $ZSH/oh-my-zsh.sh
