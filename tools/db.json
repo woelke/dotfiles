@@ -1,0 +1,15 @@
+{
+    "deps": [
+        {
+            "pacman": [
+                "peco"
+            ]
+        }
+    ],
+    "links": [
+        {
+            "dest": "/home/woelke/.config/peco/config.json",
+            "name": "config.json"
+        }
+    ]
+}
