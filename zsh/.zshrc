@@ -27,7 +27,14 @@ HIST_STAMPS="yyyy-mm-dd"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins
-plugins=(git cp autojump docker vi-mode sudo)
+plugins=(git
+  cp
+  autojump
+  docker
+  vi-mode
+  sudo
+  zsh-aliases-lsd
+)
 
 source $ZSH/oh-my-zsh.sh
 

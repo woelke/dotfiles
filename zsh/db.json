@@ -4,7 +4,8 @@
             "pacman" : [
                 "zsh",
                 "zsh-completions",
-                "vivid"
+                "vivid",
+                "lsd"
             ]
         },
         {
@@ -22,7 +23,7 @@
         }
     ],
     "scripts" : [
-        "sh -c \"$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\"",
+        "sh -c \"$(curl -fsSL https://raw.githubusercontent.com/woelke/ohmyzsh/master/tools/install.sh)\"",
         "sudo chsh -s $(which zsh) $(whoami)"
     ]
 }
