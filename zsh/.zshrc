@@ -35,6 +35,7 @@ plugins=(git
   sudo
   zsh-aliases-lsd
   zsh-autosuggestions
+  ripgrep
   zsh-syntax-highlighting # musst be the last
 )
 
