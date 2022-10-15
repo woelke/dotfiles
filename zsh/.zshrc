@@ -37,6 +37,7 @@ plugins=(git
   zsh-autosuggestions
   ripgrep
   fd
+  fzf
   zsh-syntax-highlighting # musst be the last
 )
 
@@ -45,6 +46,29 @@ source $ZSH/oh-my-zsh.sh
 ##################
 ##-- My Stuff --##
 ##################
+
+##-- fzf --##
+# Options to fzf command
+export FZF_COMPLETION_OPTS='--border --info=inline'
+export FZF_CTRL_T_OPTS="--select-1 --exit-0 --info=inline"
+export FZF_ALT_C_OPTS="--select-1 --exit-0 --info=inline"
+
+# CTRL-T command
+export FZF_CTRL_T_COMMAND="fd --type f --hidden --exclude .git"
+# ALT-C command
+export FZF_ALT_C_COMMAND="fd --type d --hidden --exclude .git --exclude .npm "
+
+_fzf_comprun() {
+  local command=$1
+  shift
+
+  case "$command" in
+    cd)           fzf "$@" --preview 'tree -C {} | head -200' ;;
+    export|unset) fzf "$@" --preview "eval 'echo \$'{}" ;;
+    env)          env | bat --color=always --language=bash --paging=never --plain | fzf --ansi --height=50% ;;
+    *)            fd . -t f | fzf "$@" --height=90% --preview-window=down,40% --preview 'bat --color=always --line-range :150 {}' ;;
+  esac
+}
 
 ##-- zsh-autosuggestions --##
 # use shift tab to accept a suggestion

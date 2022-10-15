@@ -2,15 +2,9 @@
     "deps": [
         {
             "pacman": [
-                "peco",
-                "fd"
+                "fd",
+                "fzf"
             ]
-        }
-    ],
-    "links": [
-        {
-            "dest": "/home/woelke/.config/peco/config.json",
-            "name": "peco_config.json"
         }
     ]
 }
