@@ -9,7 +9,7 @@
     "links": [
         {
             "dest": "/home/woelke/.config/peco/config.json",
-            "name": "config.json"
+            "name": "peco_config.json"
         }
     ]
 }
