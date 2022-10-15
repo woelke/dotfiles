@@ -54,9 +54,9 @@ export FZF_CTRL_T_OPTS="--select-1 --exit-0 --info=inline"
 export FZF_ALT_C_OPTS="--select-1 --exit-0 --info=inline"
 
 # CTRL-T command
-export FZF_CTRL_T_COMMAND="fd --type f --hidden --exclude .git"
+export FZF_CTRL_T_COMMAND="fd --type f --hidden --exclude .git --exclude .npm"
 # ALT-C command
-export FZF_ALT_C_COMMAND="fd --type d --hidden --exclude .git --exclude .npm "
+export FZF_ALT_C_COMMAND="fd --type d --hidden --exclude .git --exclude .npm"
 
 _fzf_comprun() {
   local command=$1

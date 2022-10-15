@@ -71,11 +71,8 @@ Plug 'donRaphaco/neotex'
 Plug 'linjiX/vim-star'
 
 " search engine
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-
-" Search and open files (TODO remove me when fzf is working)
-Plug 'ctrlpvim/ctrlp.vim'
 
 " Initialize plugin system
 call plug#end()
