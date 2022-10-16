@@ -156,9 +156,12 @@ inoremap <A-e> <ESC>:vnew<CR>:terminal<CR>
 tnoremap <A-t> <C-\><C-n>:call DoLcdToCurrentPath()<CR>:tabe<CR>:terminal<CR>
 tnoremap <A-o> <C-\><C-n>:call DoLcdToCurrentPath()<CR>:new<CR>:terminal<CR>
 tnoremap <A-e> <C-\><C-n>:call DoLcdToCurrentPath()<CR>:vnew<CR>:terminal<CR>
-" Paste buffer to command line
-" temporary fix for https://github.com/equalsraf/neovim-qt/issues/215
+
+" paste from clipboard
 tnoremap <A-v> <C-\><C-n>"+pi
+inoremap <A-v> <ESC>"+pi
+nnoremap <A-v> "+pi
+nnoremap <S-A-v> h"+pi
 
 " Operations on Tabs
 nnoremap <A-n> :+tabnext<CR>
