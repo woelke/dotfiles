@@ -75,7 +75,7 @@ _fzf_comprun() {
   esac
 }
 
-# overwrite widget from /usr/share/fzf/ky-bindins.zsh
+# overwrite widget from /usr/share/fzf/key-bindings.zsh
 # cd-widget changes dir automatically on an empty buffer
 # otherwise insertes the selected folder at the current cursor position
 fzf-cd-widget() {
@@ -98,6 +98,24 @@ fzf-cd-widget() {
 
   local ret=$?
   unset dir # ensure this doesn't end up appearing in prompt expansion
+  zle reset-prompt
+  return $ret
+}
+
+# overwrite widget from /usr/share/fzf/key-bindings.zsh
+# fzf-file-widget (CTRL-T) - Paste the selected file path(s) into the command line
+export CTRL_T_CMD="v "
+
+fzf-file-widget() {
+  if [[ -z "$BUFFER" ]]; then
+    BUFFER="$CTRL_T_CMD $(__fsel)"
+    zle accept-line
+  else
+    LBUFFER="$LBUFFER $(__fsel)"
+    zle end-of-line
+  fi
+
+  local ret=$?
   zle reset-prompt
   return $ret
 }
