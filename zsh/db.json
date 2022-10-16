@@ -3,7 +3,6 @@
         {
             "pacman" : [
                 "zsh",
-                "zsh-completions",
                 "vivid",
                 "lsd",
                 "bat"

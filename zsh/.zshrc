@@ -41,6 +41,11 @@ plugins=(git
   zsh-syntax-highlighting # musst be the last
 )
 
+# zsh-completions cannot be added directly to the plugins
+# thats why we have to use the fpath
+# souce: https://github.com/zsh-users/zsh-completions/issues/603
+fpath+="${ZSH_CUSTOM:-"$ZSH/custom"}/plugins/zsh-completions/src"
+
 source $ZSH/oh-my-zsh.sh
 
 ##################
