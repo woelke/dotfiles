@@ -70,6 +70,33 @@ _fzf_comprun() {
   esac
 }
 
+# overwrite widget from /usr/share/fzf/ky-bindins.zsh
+# cd-widget changes dir automatically on an empty buffer
+# otherwise insertes the selected folder at the current cursor position
+fzf-cd-widget() {
+  local cmd=$FZF_ALT_C_COMMAND
+  local lbuf=$LBUFFER
+  setopt localoptions pipefail no_aliases 2> /dev/null
+  local dir="$(eval "$cmd" | FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} --reverse --bind=ctrl-z:ignore $FZF_DEFAULT_OPTS $FZF_ALT_C_OPTS" $(__fzfcmd) +m)"
+  if [[ -z "$dir" ]]; then
+    zle redisplay
+    return 0
+  fi
+
+  if [[ -z "$BUFFER" ]]; then
+    BUFFER="builtin cd -- ${(q)dir}"
+    zle accept-line
+  else
+    LBUFFER="$LBUFFER ${(q)dir} "
+    zle end-of-line
+  fi
+
+  local ret=$?
+  unset dir # ensure this doesn't end up appearing in prompt expansion
+  zle reset-prompt
+  return $ret
+}
+
 ##-- zsh-autosuggestions --##
 # use shift tab to accept a suggestion
 bindkey '^[[Z' autosuggest-accept
