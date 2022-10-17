@@ -2,8 +2,10 @@
     "deps": [
         {
             "pacman": [
+                "ripgrep",
                 "fd",
-                "fzf"
+                "fzf",
+                "thefuck"
             ]
         }
     ]

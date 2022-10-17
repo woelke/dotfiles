@@ -181,3 +181,6 @@ setopt interactivecomments #activate the bash-syle comments, you can run a comma
 ##-- Makefile --##
 #run make with flag -j<number of processors>
 export MAKEFLAGS="-j$(cat /proc/cpuinfo | grep processor | wc | awk '{ print $1 }')"
+
+##-- configure thefuck --##
+eval $(thefuck --alias)
