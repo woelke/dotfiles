@@ -52,6 +52,27 @@ source $ZSH/oh-my-zsh.sh
 ##-- My Stuff --##
 ##################
 
+##-- terminal color support --##
+export TERM=xterm-256color
+export LS_COLORS="$(vivid generate one-dark)"
+
+##-- zsh completion details --##
+# source: https://thevaluable.dev/zsh-completion-guide-examples/
+zstyle ':completion:*' completer _extensions _complete _approximate
+zstyle ':completion:*:*:*:*:descriptions' format '%F{green}-- %d --%f'
+zstyle ':completion:*:*:*:*:corrections' format '%F{yellow}-- %d (typos: %e) --%f'
+zstyle ':completion:*:messages' format ' %F{purple} -- %d --%f'
+zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*:*:-command-:*:*' group-order alias builtins functions commands #<-- might not work???
+
+zmodload zsh/complist
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+
 ##-- fzf --##
 # Options to fzf command
 export FZF_COMPLETION_OPTS='--border --info=inline'
@@ -140,12 +161,6 @@ export BAT_THEME="TwoDark"
 alias cat='bat'
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
-setopt interactivecomments #activate the bash-syle comments, you can run a command with a comment
-
-##-- color support --##
-export TERM=xterm-256color
-export LS_COLORS="$(vivid generate one-dark)"
-
 ##-- generic open cmd --##
 alias o='xdg-open'
 
@@ -161,6 +176,7 @@ alias vg="neovide"
 alias logout='gnome-session-quit'
 alias rm='trash'
 alias rg='rg --no-messages'
+setopt interactivecomments #activate the bash-syle comments, you can run a command with a comment
 
 ##-- Makefile --##
 #run make with flag -j<number of processors>
