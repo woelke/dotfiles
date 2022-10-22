@@ -5,7 +5,8 @@ let g:coc_global_extensions = [
    \ "coc-lists",
    \ "coc-pairs",
    \ "coc-clangd",
-   \ "coc-vimtex"
+   \ "coc-vimtex",
+   \ "coc-docker"
    \ ]
 
 " This file is outdated we need to update it from a new example
