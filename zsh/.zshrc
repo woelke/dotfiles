@@ -88,10 +88,13 @@ _fzf_comprun() {
   local command=$1
   shift
 
+  local fzf_bash_cmd='sort | bat --color=always --language=bash --paging=never --plain | fzf --ansi --height=70%'
+
   case "$command" in
     cd)           fzf "$@" --preview 'tree -C {} | head -200' ;;
     export|unset) fzf "$@" --preview "eval 'echo \$'{}" ;;
-    env)          env | bat --color=always --language=bash --paging=never --plain | fzf --ansi --height=50% ;;
+    env)          env | eval $fzf_bash_cmd ;;
+    alias)        alias | eval $fzf_bash_cmd ;;
     *)            fd . -t f | fzf "$@" --height=90% --preview-window=down,40% --preview 'bat --color=always --line-range :150 {}' ;;
   esac
 }
