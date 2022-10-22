@@ -93,10 +93,8 @@ _fzf_comprun() {
   case "$command" in
     env)          env | sort | eval $fzf_bash_cmd ;;
     alias)        alias | sort | eval $fzf_bash_cmd ;;
-    kill)         echo "$(ps -ef | sed '1d' | awk '{print $2, $8}' | eval "$fzf_bash_cmd --multi --header='PID CMD'"| awk '{print $1, $1}')";;
+    kill)         echo "$(ps -ef | sed '1d' | awk '{$1=""; for (i=3; i<=7; i++) $i=""; print}' | eval "$fzf_bash_cmd --multi --header='PID CMD'"| awk '{print $1, $1}')";;
         # note: kill ** interfers with /usr/share/fzf/completion.zsh function _fzf_complete_kill[_post]
-
-    *)            fd . -t f | fzf "$@" --height=90% --preview-window=down,40% --preview 'bat --color=always --line-range :150 {}' ;;
   esac
 }
 
