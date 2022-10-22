@@ -178,6 +178,9 @@ alias rm='trash'
 alias rg='rg --no-messages'
 setopt interactivecomments #activate the bash-syle comments, you can run a command with a comment
 
+# If the last character of the alias value is a blank, then the next command word following the alias is also checked for alias expansion.
+alias sudo='sudo '
+
 ##-- Makefile --##
 #run make with flag -j<number of processors>
 export MAKEFLAGS="-j$(cat /proc/cpuinfo | grep processor | wc | awk '{ print $1 }')"
