@@ -91,10 +91,12 @@ _fzf_comprun() {
   local fzf_bash_cmd='sort | bat --color=always --language=bash --paging=never --plain | fzf --ansi --height=70%'
 
   case "$command" in
-    cd)           fzf "$@" --preview 'tree -C {} | head -200' ;;
-    export|unset) fzf "$@" --preview "eval 'echo \$'{}" ;;
     env)          env | eval $fzf_bash_cmd ;;
     alias)        alias | eval $fzf_bash_cmd ;;
+    kill)         echo "WillBeIgnored $(ps -A | eval $fzf_bash_cmd | awk '{print $1}')" ;;
+        # painfull hack
+        # kill ** interfers with /usr/share/fzf/completion.zsh function _fzf_complete_kill[_post]
+
     *)            fd . -t f | fzf "$@" --height=90% --preview-window=down,40% --preview 'bat --color=always --line-range :150 {}' ;;
   esac
 }
