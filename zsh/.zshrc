@@ -93,9 +93,8 @@ _fzf_comprun() {
   case "$command" in
     env)          env | eval $fzf_bash_cmd ;;
     alias)        alias | eval $fzf_bash_cmd ;;
-    kill)         echo "WillBeIgnored $(ps -A | eval $fzf_bash_cmd | awk '{print $1}')" ;;
-        # painfull hack
-        # kill ** interfers with /usr/share/fzf/completion.zsh function _fzf_complete_kill[_post]
+    kill)         echo "$(ps -ef | eval "$fzf_bash_cmd -m"| awk '{print $1, $2}')";;
+        # note: kill ** interfers with /usr/share/fzf/completion.zsh function _fzf_complete_kill[_post]
 
     *)            fd . -t f | fzf "$@" --height=90% --preview-window=down,40% --preview 'bat --color=always --line-range :150 {}' ;;
   esac
