@@ -88,12 +88,12 @@ _fzf_comprun() {
   local command=$1
   shift
 
-  local fzf_bash_cmd='sort | bat --color=always --language=bash --paging=never --plain | fzf --ansi --height=70%'
+  local fzf_bash_cmd='bat --color=always --language=bash --paging=never --plain | fzf --ansi --height=70%'
 
   case "$command" in
-    env)          env | eval $fzf_bash_cmd ;;
-    alias)        alias | eval $fzf_bash_cmd ;;
-    kill)         echo "$(ps -ef | eval "$fzf_bash_cmd -m"| awk '{print $1, $2}')";;
+    env)          env | sort | eval $fzf_bash_cmd ;;
+    alias)        alias | sort | eval $fzf_bash_cmd ;;
+    kill)         echo "$(ps -ef | sed '1d' | awk '{print $2, $8}' | eval "$fzf_bash_cmd --multi --header='PID CMD'"| awk '{print $1, $1}')";;
         # note: kill ** interfers with /usr/share/fzf/completion.zsh function _fzf_complete_kill[_post]
 
     *)            fd . -t f | fzf "$@" --height=90% --preview-window=down,40% --preview 'bat --color=always --line-range :150 {}' ;;
