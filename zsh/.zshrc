@@ -88,11 +88,14 @@ _fzf_comprun() {
   local command=$1
   shift
 
-  local fzf_bash_cmd='bat --color=always --language=bash --paging=never --plain | fzf --ansi --height=70%'
+  local fzf_cmd='fzf --ansi --height=70%'
+  local fzf_bat='bat --color=always --paging=never --plain'
+  local fzf_bash_cmd="${fzf_bat} --language=bash | ${fzf_cmd}"
 
   case "$command" in
     env)          env | sort | eval $fzf_bash_cmd ;;
     alias)        alias | sort | eval $fzf_bash_cmd ;;
+    mount)        mount | eval "${fzf_bat} --language=ini" | eval "${fzf_cmd}" ;;
     kill)         echo "$(ps -ef | sed '1d' | awk '{$1=""; for (i=3; i<=7; i++) $i=""; print}' | eval "$fzf_bash_cmd --multi --header='PID CMD'"| awk '{print $1, $1}')";;
         # note: kill ** interfers with /usr/share/fzf/completion.zsh function _fzf_complete_kill[_post]
   esac
