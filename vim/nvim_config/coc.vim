@@ -6,6 +6,7 @@ let g:coc_global_extensions = [
    \ "coc-pairs",
    \ "coc-clangd",
    \ "coc-vimtex",
+   \ "coc-rust-analyzer",
    \ "coc-docker"
    \ ]
 

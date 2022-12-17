@@ -55,6 +55,7 @@ inoremap <A-w> <ESC>:wall<CR>
 
 autocmd! BufEnter \v*.mywiki|*.tex|*.txt|README|*.md|COMMIT_EDITMSG|de.utf-8.add call Set_options_for_texting()
 autocmd! BufEnter \v*.c|*.cpp|*.h|*.hpp call Set_options_for_cpp_coding()
+autocmd! BufEnter \v*.rs call Set_options_for_rust_coding()
 autocmd! BufEnter \v*.vim call Set_options_for_vimrc()
 autocmd! BufEnter coc-settings.json call Set_options_for_coc_settings()
 autocmd! BufLeave * call Cleanup_options()
@@ -73,6 +74,15 @@ function! Set_options_for_cpp_coding()
   set colorcolumn=80
   noremap <F12> :ClangFormat<CR>
 endfunction
+
+function! Set_options_for_rust_coding()
+  set cursorline " its to CPU-intensive in latex files
+  set colorcolumn=80
+  noremap <A-b> :!cargo build<CR>
+  noremap <A-f> :wall<CR>:silent !cargo fmt<CR>
+  inoremap <A-f> <ESC>:wall<CR>:silent !cargo fmt<CR>
+endfunction
+
 
 function! Set_options_for_texting()
   setlocal spell spelllang=de,en_us

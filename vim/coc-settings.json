@@ -5,6 +5,7 @@
   "diagnostic.infoSign": "•",
   "diagnostic.warningSign": "•",
 
+  "suggest.noselect": true,
 // clangd
   //"clangd.enabled": true,
   //"clangd.path": "/home/woelke/llvm/bin/clangd",
