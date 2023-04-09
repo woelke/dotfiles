@@ -21,6 +21,6 @@ if exists('g:neovide')
   let g:neovide_refresh_rate=60
   let g:neovide_profiler = v:false
 
-  set guifont=Fira\ Code:h12
+  set guifont=Fira\ Code:h10
 endif
 

@@ -298,6 +298,7 @@ let g:taboo_renamed_tab_format = "%N-%l "
 " => falcon colorscheme
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:falcon_lightline = 1
+let g:falcon_background = 0
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
