@@ -29,7 +29,6 @@ HIST_STAMPS="yyyy-mm-dd"
 # https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins
 plugins=(git
   cp
-  autojump
   docker
   vi-mode
   sudo
