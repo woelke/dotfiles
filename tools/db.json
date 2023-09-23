@@ -5,8 +5,8 @@
                 "ripgrep",
                 "fd",
                 "fzf",
-                "thefuck",
-                "hyperfine"
+                "hyperfine",
+                "btop"
             ]
         }
     ]

@@ -7,13 +7,6 @@
                 "lsd",
                 "bat"
             ]
-        },
-        {
-            "aur" : [
-                {
-                    "autojump" : "https://aur.archlinux.org/autojump-git.git"
-                }
-            ]
         }
     ],
     "links": [
