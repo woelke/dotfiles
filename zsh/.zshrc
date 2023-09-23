@@ -74,9 +74,9 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 
 ##-- fzf --##
 # Options to fzf command
-export FZF_COMPLETION_OPTS='--border --info=inline'
-export FZF_CTRL_T_OPTS="--select-1 --exit-0 --info=inline"
-export FZF_ALT_C_OPTS="--select-1 --exit-0 --info=inline"
+export FZF_COMPLETION_OPTS='--border --inline-info'
+export FZF_CTRL_T_OPTS="--select-1 --exit-0 --inline-info"
+export FZF_ALT_C_OPTS="--select-1 --exit-0 --inline-info --preview 'tree -C {}'"
 
 # CTRL-T command
 export FZF_CTRL_T_COMMAND="fd --type f --hidden --exclude .git --exclude .npm"
@@ -163,7 +163,7 @@ bindkey -M viins '^[[13;5u' sudo-command-line
 ##-- bat a replacement for cat --##
 export BAT_THEME="TwoDark"
 alias cat='bat'
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANPAGER='nvim +Man!'
 
 ##-- generic open cmd --##
 alias o='xdg-open'
