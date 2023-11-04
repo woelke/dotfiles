@@ -1,5 +1,6 @@
 from pathlib import Path
 from component import Component
+import tempfile
 import utils
 
 def install_deps(args):
@@ -8,7 +9,7 @@ def install_deps(args):
 
     def install_pacman_deps(deps):
         utils.run_cmd(f"sudo pacman --noconfirm -S {' '.join(deps)}")
-
+k
     def install_pipx_deps(deps):
         utils.run_cmd(f"pipx install {' '.join(deps)}")
 
@@ -18,11 +19,11 @@ def install_deps(args):
     def install_aur_deps(deps):
         for deps_dict in deps:
             dep_name, dep = get_first_element(deps_dict)
-            cwd = Path(f"{HOME}/AUR")
-            cwd.mkdir(parents=True, exist_ok=True)
-            utils.run_cmd(f"git clone {dep} {dep_name}", str(cwd))
-            cwd = cwd / dep_name
-            utils.run_cmd(f"makepkg -is --noconfirm", str(cwd))
+            with tempfile.TemporaryDirectory() as temp_dir:
+                cwd = Path(temp_dir)
+                utils.run_cmd(f"git clone {dep} {dep_name}", str(cwd))
+                cwd = cwd / dep_name
+                utils.run_cmd(f"makepkg -is --noconfirm", str(cwd))
 
     db = Component(args["component"]).read_db()
 

@@ -1,27 +1,15 @@
 {
     "deps" : [
         {
-            "pacman" : [
+            "yay" : [
                 "neovim",
                 "python-pynvim",
                 "nodejs",
                 "npm",
-                "wl-clipboard"
-            ]
-        },
-        {
-            "pip" : [
-                "neovim-remote"
-            ]
-        },
-        {
-            "aur" : [
-                {
-                    "neovide-git" : "https://aur.archlinux.org/neovide-git.git",
-                    "neovim-gtk-git" : "https://aur.archlinux.org/neovim-gtk-git.git",
-                    "waypipe-git": "https://aur.archlinux.org/waypipe-git.git"
-
-                }
+                "wl-clipboard",
+                "neovim-remote",
+                "neovide",
+                "waypipe"
             ]
         }
 

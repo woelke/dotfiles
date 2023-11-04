@@ -1,7 +1,7 @@
 {
     "deps" : [
         {
-            "pacman" : [
+            "yay" : [
                 "zsh",
                 "vivid",
                 "lsd",
