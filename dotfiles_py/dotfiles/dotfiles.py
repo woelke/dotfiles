@@ -1,11 +1,9 @@
 import sys
-from pathlib import Path
 from bb_parser import *
 
 import scripts
 import links
 import deps
-import utils
 
 action_map = [("deps", deps.install_deps),
               ("links", links.install_links),
@@ -37,17 +35,17 @@ def main():
         args = get_cli_parser().parse(sys.argv[1:])
 
         if args["help"] or "cmd" not in args:
-            help_msg("")
+            help_msg()
             sys.exit(1)
 
         args["cmd"](args)
     except ParseError as err:
-        print("Failed to parse command line")
-        help_msg("")
+        print(f"Failed to parse command line. Error: {err}")
+        help_msg()
         sys.exit(1)
 
 
-def help_msg(args):
+def help_msg():
     help_str = """usage: dotfiles [-h|--help] command args
 
 command and args:

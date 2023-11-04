@@ -67,12 +67,10 @@ function! Cleanup_options()
   noremap <A-S-b> <Nop>
 endfunction
 
-" TODO this might be outdated fix me
 function! Set_options_for_cpp_coding()
   set cursorline " its to CPU-intensive in latex files
   call Set_makefile_shortcut()
   set colorcolumn=80
-  noremap <F12> :ClangFormat<CR>
 endfunction
 
 function! Set_options_for_rust_coding()
@@ -228,7 +226,6 @@ set laststatus=2 " the windows will always have a status line
 set noshowmode
 
 let g:lightline = {
-\ 'colorscheme': 'falcon',
 \ 'active': {
 \   'left': [ [ 'mode', 'paste' ],
 \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
@@ -297,7 +294,6 @@ let g:taboo_renamed_tab_format = "%N-%l "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => falcon colorscheme
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:falcon_lightline = 1
 let g:falcon_background = 0
 
 
@@ -317,13 +313,6 @@ nmap <silent> g# <Plug>(star-g#)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:fzf_command_prefix = 'Fzf'
 noremap <C-p> :FzfFiles<CR>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => vim-clang-format
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <Leader>ff :ClangFormat<CR>
-vnoremap <Leader>ff :ClangFormat<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
