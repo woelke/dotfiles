@@ -103,9 +103,48 @@ function! Set_makefile_shortcut()
   noremap <A-S-b> :make clean<CR> :copen<CR><C-W><S-J> :redraw!<CR>
 endfunction
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => In Terminal Navigation
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Escape the terminal
+tnoremap <A-Esc> <C-\><C-n>
+
+" A terimal is allways opened in insert mode
+autocmd! TermOpen * startinsert
+
+" A terimal is allways entered in insert mode but this can be deactivated per
+" terminal
+nnoremap <Leader>i :call ToggleTerminalInsertMode()<CR>
+tnoremap <Leader>i <C-\><C-n>:call ToggleTerminalInsertMode()<CR>
+
+let b:InTerminalInsertMode=1
+augroup startinsert_group
+   autocmd!
+   autocmd! BufEnter term://* :call StartTerminalInsert()
+augroup END
+
+function! StartTerminalInsert()
+   if !exists('b:InTerminalInsertMode')
+      let b:InTerminalInsertMode=1
+   endif
+
+   if b:InTerminalInsertMode
+      startinsert
+   endif
+endfunction
+
+function! ToggleTerminalInsertMode()
+   if b:InTerminalInsertMode
+      let b:InTerminalInsertMode=0
+   else
+      let b:InTerminalInsertMode=1
+      startinsert
+   endif
+endfunction
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Neovim terminal
+" => Inter window navigation
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! DoLcdToCurrentPath()
   " source https://github.com/neovim/neovim/issues/4299
@@ -116,30 +155,6 @@ function! DoLcdToCurrentPath()
   endif
 endfunction
 
-" a terimal is allways entered in insert mode but this can be deactivated
-autocmd! TermOpen * startinsert
-
-function! Set_startinsert()
-   augroup startinsert_group
-      autocmd!
-      autocmd! BufEnter term://* startinsert
-   augroup END
-endfunction
-
-function! Delete_startinsert()
-   augroup startinsert_group
-      autocmd!
-   augroup END
-endfunction
-
-nnoremap <Leader>ai :call Set_startinsert()<CR>
-nnoremap <Leader>di :call Delete_startinsert()<CR>
-
-call Set_startinsert()
-
-
-" ESC in terminal
-tnoremap <A-Esc> <C-\><C-n>
 " Move left, right, up, down
 tnoremap <A-h> <C-\><C-n><C-w>h
 tnoremap <A-j> <C-\><C-n><C-w>j
