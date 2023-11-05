@@ -1,29 +1,37 @@
 {
-// appearance
+  // appearance
   "suggest.snippetIndicator": "►",
   "diagnostic.errorSign": "✘",
   "diagnostic.infoSign": "•",
   "diagnostic.warningSign": "•",
-
   "suggest.noselect": true,
-// clangd
+  // clangd
   //"clangd.enabled": true,
   //"clangd.path": "/home/woelke/llvm/bin/clangd",
   //"clangd.arguments": ["--background-index","--log=verbose", "--query-driver=/opt/montavista/**"],
   //"clangd.semanticHighlighting": true,
+  // used by coc python
+  "python.linting.pylintEnabled": true,
 
-// used by coc python
-  "coc.preferences.rootPatterns": [
-    ".env"
-  ],
 
- "languageserver": {
-   "haskell": {
-     "command": "haskell-language-server-wrapper",
-     "args": ["--lsp"],
-     "rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"],
-    "filetypes": ["haskell", "lhaskell"]
-   }
- }
+  "languageserver": {
+    "haskell": {
+      "command": "haskell-language-server-wrapper",
+      "args": [
+        "--lsp"
+      ],
+      "rootPatterns": [
+        "*.cabal",
+        "stack.yaml",
+        "cabal.project",
+        "package.yaml",
+        "hie.yaml"
+      ],
+      "filetypes": [
+        "haskell",
+        "lhaskell"
+      ]
+    }
+  }
 
 }

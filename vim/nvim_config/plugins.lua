@@ -46,9 +46,6 @@ Plug('aufgang001/vim-custom_spellfile', {['do'] = './install.sh nvim'})
 -- Opens URLs in browser
 Plug 'waiting-for-dev/www.vim'
 
--- Delete, change and add surroundings in pairs
-Plug 'tpope/vim-surround'
-
 -- Allows to rename tabs
 Plug 'gcmt/taboo.vim'
 

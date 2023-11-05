@@ -1,22 +1,22 @@
 {
-    "deps" : [
-        {
-            "yay" : [
-                "zsh",
-                "vivid",
-                "lsd",
-                "bat"
-            ]
-        }
-    ],
-    "links": [
-        {
-            "dest": "~/.zshrc",
-            "name": ".zshrc"
-        }
-    ],
-    "scripts" : [
-        "sh -c \"$(curl -fsSL https://raw.githubusercontent.com/woelke/ohmyzsh/master/tools/install.sh)\"",
-        "sudo chsh -s $(which zsh) $(whoami)"
-    ]
+  "deps": [
+    {
+      "yay": [
+        "zsh",
+        "vivid",
+        "lsd",
+        "bat"
+      ]
+    }
+  ],
+  "links": [
+    {
+      "dest": "~/.zshrc",
+      "name": ".zshrc"
+    }
+  ],
+  "scripts": [
+    "sh -c \"$(curl -fsSL https://raw.githubusercontent.com/woelke/ohmyzsh/master/tools/install.sh)\"",
+    "sudo chsh -s $(which zsh) $(whoami)"
+  ]
 }

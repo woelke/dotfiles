@@ -1,7 +1,9 @@
 vim.g.coc_global_extensions = {
   'coc-json',
   'coc-pyright',
-  'coc-docker'
+  'coc-docker',
+  'coc-lists',
+  'coc-pairs'
 }
 
 -- Some servers have issues with backup files, see #649
@@ -72,5 +74,6 @@ vim.api.nvim_create_autocmd("CursorHold", {
 keyset("n", "<leader>fn", "<Plug>(coc-rename)", {silent = true})
 
 -- Formatting selected code
-keyset("x", "<leader>ff", "<Plug>(coc-format-selected)", {silent = true})
-keyset("n", "<leader>ff", "<Plug>(coc-format-selected)", {silent = true})
+keyset("v", "<leader>ff", "<Plug>(coc-format-selected)", {silent = true})
+keyset("n", "<leader>ff", ":call CocAction('format')<CR>", {silent = true})
+

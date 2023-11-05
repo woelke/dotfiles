@@ -1,13 +1,13 @@
 {
-    "deps": [
-        {
-            "yay": [
-                "ripgrep",
-                "fd",
-                "fzf",
-                "hyperfine",
-                "btop"
-            ]
-        }
-    ]
+  "deps": [
+    {
+      "yay": [
+        "ripgrep",
+        "fd",
+        "fzf",
+        "hyperfine",
+        "btop"
+      ]
+    }
+  ]
 }

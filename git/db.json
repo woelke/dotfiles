@@ -1,8 +1,8 @@
 {
-    "links": [
-        {
-            "dest": "/home/woelke/.gitconfig",
-            "name": ".gitconfig"
-        }
-    ]
+  "links": [
+    {
+      "dest": "/home/woelke/.gitconfig",
+      "name": ".gitconfig"
+    }
+  ]
 }

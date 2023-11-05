@@ -1,9 +1,9 @@
 local home = vim.fn.expand('~')
 
 dofile(home .. '/.config/nvim/nvim_config/plugins.lua')
-dofile(home .. '/.config/nvim/nvim_config/coc.lua')
-
 vim.cmd 'source ~/.config/nvim/nvim_config/rc.vim'
+
+dofile(home .. '/.config/nvim/nvim_config/coc.lua')
 vim.cmd 'source ~/.config/nvim/nvim_config/tmp.vim'
 
 if vim.g.neovide then
