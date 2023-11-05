@@ -2,11 +2,9 @@
   "deps": [
     {
       "yay": [
-        "ripgrep",
-        "fd",
-        "fzf",
         "hyperfine",
-        "btop"
+        "btop",
+        "netplan"
       ]
     }
   ]

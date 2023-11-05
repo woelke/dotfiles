@@ -5,7 +5,10 @@
         "zsh",
         "vivid",
         "lsd",
-        "bat"
+        "bat",
+        "ripgrep",
+        "fd",
+        "fzf"
       ]
     }
   ],
