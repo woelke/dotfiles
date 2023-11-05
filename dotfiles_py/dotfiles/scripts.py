@@ -1,6 +1,7 @@
 import utils
 from component import Component
 
+
 def run_scripts(args):
     component = Component(args["component"])
     db = component.read_db()

@@ -13,3 +13,21 @@ namespaces = true
 [project.scripts]
 dotfiles = "dotfiles:main"
 
+[tool.autopep8]
+max_line_length = 120
+indent-size = 4
+
+[tool.pylint.'MESSAGES CONTROL']
+disable = [
+  "missing-function-docstring",
+  "missing-class-docstring",
+  "missing-module-docstring",
+  "too-few-public-methods",
+  "invalid-name"
+]
+
+[tool.pylint.FORMAT]
+max-line-length = 120
+
+[tool.pylint.IMPORTS]
+allow-wildcard-with-all = true

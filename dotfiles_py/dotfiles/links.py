@@ -3,6 +3,7 @@ import os
 from pathlib import Path
 from component import Component, component_iter
 
+
 def manage_link(args):
     target = args["target"]
     if target.is_symlink():
@@ -12,9 +13,8 @@ def manage_link(args):
     db = component.read_db()
 
     shutil.move(str(target), component.get_dir())
-    target_new = component.get_dir() / target.name
 
-    link_info = {"name" : target.name , "dest" : str(target)}
+    link_info = {"name": target.name, "dest": str(target)}
     _set_soft_link(link_info, component.get_dir())
 
     if "links" not in db:

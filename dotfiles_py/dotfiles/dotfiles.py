@@ -1,13 +1,14 @@
 import sys
-from bb_parser import *
+from .bb_parser import *
 
-import scripts
-import links
-import deps
+from . import scripts
+from . import links
+from . import deps
 
 action_map = [("deps", deps.install_deps),
               ("links", links.install_links),
               ("scripts", scripts.run_scripts)]
+
 
 def install_dispatch(args):
     if "action" in args:
@@ -15,6 +16,7 @@ def install_dispatch(args):
     else:
         for (_, action) in action_map:
             action(args)
+
 
 def get_cli_parser():
     help_flag = Flag(Enum("-h", "--help"), key="help")
@@ -25,10 +27,11 @@ def get_cli_parser():
 
     unmanage = Exact("unmanage", key="cmd", value=links.unmanage_link) + target
 
-    action  = Enum([x[0] for x in action_map], key="action", values=[x[1] for x in action_map])
+    action = Enum([x[0] for x in action_map], key="action", values=[x[1] for x in action_map])
     install = Exact("install", key="cmd", value=install_dispatch) + String(key="component") + Optional(action + Optional(Integer(key="index")))
 
     return help_flag + Optional(FirstOf(manage, unmanage, install)) + EndOfInput()
+
 
 def main():
     try:
@@ -54,4 +57,3 @@ command and args:
     install <component> [<deps | links | scripts> [index]]
 """
     print(help_str)
-

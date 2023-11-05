@@ -13,7 +13,7 @@ class Component:
 
         if create:
             os.makedirs(str(self.get_dir()))
-            self.write_db(dict())
+            self.write_db({})
 
     def read_db(self):
         with self._get_db_path().open() as fd:
@@ -28,6 +28,7 @@ class Component:
 
     def _get_db_path(self):
         return self.get_dir() / DB_NAME
+
 
 def component_iter():
     for json_db_path in DOTFILES_ROOT.rglob(f"**/{DB_NAME}"):

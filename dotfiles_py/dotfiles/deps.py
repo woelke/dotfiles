@@ -1,7 +1,8 @@
 from pathlib import Path
-from component import Component
 import tempfile
-import utils
+from .component import Component
+from . import utils
+
 
 def install_deps(args):
     def get_first_element(dictionary):
@@ -9,7 +10,7 @@ def install_deps(args):
 
     def install_pacman_deps(deps):
         utils.run_cmd(f"sudo pacman --noconfirm -S {' '.join(deps)}")
-k
+
     def install_pipx_deps(deps):
         utils.run_cmd(f"pipx install {' '.join(deps)}")
 
@@ -30,12 +31,12 @@ k
     if "deps" not in db:
         print("Skip install dependencies, no dependencies are managed for this component.")
         return
-    dispatch = { "pacman" : install_pacman_deps,
-                 "pipx" : install_pipx_deps,
-                 "yay" : install_yay_deps,
-                 "aur" : install_aur_deps }
+    dispatch = {"pacman": install_pacman_deps,
+                "pipx": install_pipx_deps,
+                "yay": install_yay_deps,
+                "aur": install_aur_deps}
     if "index" in args:
-        deps_type, deps  = get_first_element(db["deps"][args["index"]])
+        deps_type, deps = get_first_element(db["deps"][args["index"]])
         dispatch[deps_type](deps)
     else:
         for deps_item in db["deps"]:
