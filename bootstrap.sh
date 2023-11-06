@@ -9,7 +9,7 @@ PATH_STR='${PATH}'
 echo "export PATH=${BIN_DIR}:${PATH_STR}" >> "${HOME}/.profile"
 echo "export DOTFILES_ROOT=${SCRIPT_DIR}" >> "${HOME}/.profile"
 
-echo "export PATH=${BIN_DIR}:${PATH_STR}" >> "${HOME}/.yprofile"
+echo "export PATH=${BIN_DIR}:${PATH_STR}" >> "${HOME}/.zprofile"
 echo "export DOTFILES_ROOT=${SCRIPT_DIR}" >> "${HOME}/.zprofile"
 
 pushd dotfiles_py
