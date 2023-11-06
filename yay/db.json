@@ -1,9 +1,9 @@
 {
   "deps": [
     {
-      "aur": [
-        "yay"
-      ]
+      "aur": {
+        "yay": "https://aur.archlinux.org/yay.git"
+      }
     }
   ],
   "scripts": [

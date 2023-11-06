@@ -18,13 +18,12 @@ def install_deps(args):
         utils.run_cmd(f"yay --noconfirm -S  {' '.join(deps)}")
 
     def install_aur_deps(deps):
-        for deps_dict in deps:
-            dep_name, dep = get_first_element(deps_dict)
+        for dep_name, dep in deps.items():
             with tempfile.TemporaryDirectory() as temp_dir:
                 cwd = Path(temp_dir)
                 utils.run_cmd(f"git clone {dep} {dep_name}", str(cwd))
                 cwd = cwd / dep_name
-                utils.run_cmd(f"makepkg -is --noconfirm", str(cwd))
+                utils.run_cmd("makepkg -is --noconfirm", str(cwd))
 
     db = Component(args["component"]).read_db()
 
