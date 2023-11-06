@@ -1,9 +1,9 @@
 import sys
-from .bb_parser import *
+from bb_parser import *
 
-from . import scripts
-from . import links
-from . import deps
+import scripts
+import links
+import deps
 
 action_map = [("deps", deps.install_deps),
               ("links", links.install_links),

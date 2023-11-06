@@ -1,7 +1,7 @@
 from pathlib import Path
 import tempfile
-from .component import Component
-from . import utils
+from component import Component
+import utils
 
 
 def install_deps(args):
