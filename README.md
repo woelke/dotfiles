@@ -8,25 +8,30 @@ My Dotfiles contain a quite complex vim and zsh configuration, my favorite Linux
 
 ## Requirements
 
+- Python installer
 ```sh
     pacman -S python-pipx
 ```
 
+- Github access via ssh key (needed for zsh)
+
 ## Startup
 
-Run the following commands to configure all automatically:
+Run the following commands to bootstrap dotfiles:
 
-    git clone https://github.com/aufgang001/dotfiles.git ~/.dotfiles
+```sh
+    git clone git@github.com:woelke/dotfiles.git ~/.dotfiles
     cd ~/.dotfiles
     ./bootstrap.sh
+```
 
 ## Other configurations
 
 Swap ESC and Caps Lock
 
-    #gnome-tweak: Keyboard & Mouse -> Additional Layout Options -> Caps Lock key behavior -> Swap ESC and Caps Lock
+    #gnome-tweaks: Keyboard -> Additional Layout Options -> Caps Lock key behavior -> Swap ESC and Caps Lock
 
 Set Keyboard Layout EurKey 
 
-    #gnome-tweak: Keyboard & Mouse -> Show Extended Input Sources
+    #gnome-tweaks: Keyboard -> Show Extended Input Sources
     #settings: Keyboard -> Input Sources -> English -> EurKEY (US)

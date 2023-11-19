@@ -189,5 +189,5 @@ alias sudo='sudo '
 #run make with flag -j<number of processors>
 export MAKEFLAGS="-j$(cat /proc/cpuinfo | grep processor | wc | awk '{ print $1 }')"
 
-##-- configure thefuck --##
-eval $(thefuck --alias)
+##-- pacdiff --##
+export DIFFPROG='nvim -d'

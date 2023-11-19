@@ -20,6 +20,7 @@
   ],
   "scripts": [
     "sh -c \"$(curl -fsSL https://raw.githubusercontent.com/woelke/ohmyzsh/master/tools/install.sh)\"",
-    "sudo chsh -s $(which zsh) $(whoami)"
+    "sudo chsh -s $(which zsh) $(whoami)",
+    "# REBOOT pc manually"
   ]
 }

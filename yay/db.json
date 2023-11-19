@@ -8,7 +8,7 @@
   ],
   "scripts": [
     "yay -Y --gendb",
-    "yay -Syu --devel",
+    "yay -Syu --devel --noconfirm",
     "yay -Y --devel --save"
   ]
 }

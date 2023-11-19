@@ -9,7 +9,8 @@
         "wl-clipboard",
         "neovim-remote",
         "neovide",
-        "waypipe"
+        "waypipe",
+        "ttf-fira-code"
       ]
     }
   ],

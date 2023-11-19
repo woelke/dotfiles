@@ -4,7 +4,7 @@ set -eu -o pipefail
 
 nvim_path="${HOME}/.config/nvim"
 
-echo "source ${nvim_path}/nvim_config/install_rc.lua" > ${nvim_path}/init.lua
+echo "dofile '${nvim_path}/nvim_config/install_rc.lua'" > ${nvim_path}/init.lua
 
 nvim -c "call InstallMe()"
 
