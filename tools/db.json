@@ -4,8 +4,12 @@
       "yay": [
         "hyperfine",
         "btop",
-        "netplan"
+        "netplan",
+        "reflector"
       ]
     }
+  ],
+  "scripts": [
+    "sudo systemctl enable reflector.timer"
   ]
 }
