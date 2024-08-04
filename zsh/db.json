@@ -8,7 +8,8 @@
         "bat",
         "ripgrep",
         "fd",
-        "fzf"
+        "fzf",
+        "trash-cli"
       ]
     }
   ],

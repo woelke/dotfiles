@@ -5,7 +5,12 @@
         "hyperfine",
         "btop",
         "netplan",
-        "reflector"
+        "reflector",
+        "sshfs",
+        "docker",
+        "lazydocker",
+        "docker-compose",
+        "ncdu"
       ]
     }
   ],
