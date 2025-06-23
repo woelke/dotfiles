@@ -27,15 +27,14 @@ HIST_STAMPS="yyyy-mm-dd"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins
-plugins=(git
+plugins=(
+  git
   cp
   docker
   vi-mode
   sudo
   zsh-aliases-lsd
   zsh-autosuggestions
-  ripgrep
-  fd
   fzf
   zsh-syntax-highlighting # musst be the last
 )
@@ -51,10 +50,6 @@ source $ZSH/oh-my-zsh.sh
 ##################
 ##-- My Stuff --##
 ##################
-
-##-- terminal color support --##
-export TERM=xterm-256color
-export LS_COLORS="$(vivid generate catppuccin-mocha)"
 
 ##-- zsh completion details --##
 # source: https://thevaluable.dev/zsh-completion-guide-examples/

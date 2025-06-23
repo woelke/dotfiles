@@ -9,7 +9,10 @@ vim.opt.directory = "~/.config/nvim/swap/" -- set swap directory
 ---------------------------------------------------------------
 --- VIM user interface
 ---------------------------------------------------------------
-vim.cmd("colorscheme catppuccin-mocha")
+require("catppuccin").setup({
+    term_colors = true
+})
+vim.cmd.colorscheme "catppuccin-mocha"
 
 vim.opt.number = true       -- print the line number in front of each line.
 vim.opt.ignorecase = true   -- ignore case when searching

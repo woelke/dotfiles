@@ -10,7 +10,7 @@
         "neovim-remote",
         "neovide",
         "waypipe",
-        "ttf-fira-code"
+        "ttf-firacode-nerd"
       ]
     }
   ],
