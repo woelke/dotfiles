@@ -17,7 +17,7 @@ if vim.g.neovide then
     vim.g.neovide_scroll_animation_far_lines = 0
     vim.g.neovide_scroll_animation_length = 0.00
 
-    vim.o.guifont = "Fira Code:h12"
+    vim.o.guifont = "FiraCode Nerd Font:h12"
 
     --vim.g.neovide_refresh_rate= 60
     --vim.g.neovide_profiler = true
