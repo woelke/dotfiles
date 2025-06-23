@@ -45,6 +45,7 @@ plugins=(git
 # souce: https://github.com/zsh-users/zsh-completions/issues/603
 fpath+="${ZSH_CUSTOM:-"$ZSH/custom"}/plugins/zsh-completions/src"
 
+
 source $ZSH/oh-my-zsh.sh
 
 ##################
@@ -53,7 +54,7 @@ source $ZSH/oh-my-zsh.sh
 
 ##-- terminal color support --##
 export TERM=xterm-256color
-export LS_COLORS="$(vivid generate one-dark)"
+export LS_COLORS="$(vivid generate catppuccin-mocha)"
 
 ##-- zsh completion details --##
 # source: https://thevaluable.dev/zsh-completion-guide-examples/

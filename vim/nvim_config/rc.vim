@@ -1,34 +1,4 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => General settings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:myOpenCmd = "xdg-open"
-let g:mapleader = ","
-" swap directory
-set directory=~/.config/nvim/swap/
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => VIM user interface
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-colorscheme falcon
-highlight ColorColumn ctermbg=0 guibg=#3e3e40 " Colored columns are dark grey.
-" TODO how to use a terminal in a terminal
-"set scrolloff=7     " Keep 7 lines above and below the cursor.
-set number          " Print the line number in front of each line.
-set ignorecase      " ignore case when searching
-set smartcase       " when searching try to be smart about cases
-set showmatch       " show matching brackets when text indicator is over them
-set expandtab       " expand tabs with whitespaces"
-set tabstop=2
-set softtabstop=-1  " make 'softtabstop' follow 'shiftwidth'
-set shiftwidth=0    " make 'shiftwidth' follow 'tabstop'
-set mouse=a         " enable the use of the mouse
-set hlsearch        " highlights all search matches
-
-" disable the nasty command mode
-noremap <S-q> <nop>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => shortcuts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

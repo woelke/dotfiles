@@ -18,6 +18,7 @@ Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'flazz/vim-colorschemes'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'fenetikm/falcon'
+Plug('catppuccin/nvim', {['as'] = 'catppuccin' })
 
 -- A light and configurable statusline/tabline
 Plug 'itchyny/lightline.vim'
