@@ -204,28 +204,6 @@ let g:NERDCustomDelimiters = {
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => lightline
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set laststatus=2 " the windows will always have a status line
-" Hides the mode information like INSERT or VISUAL in the bottom line
-set noshowmode
-
-let g:lightline = {
-\ 'active': {
-\   'left': [ [ 'mode', 'paste' ],
-\             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
-\ },
-\ 'component_function': {
-\   'cocstatus': 'coc#status'
-\ },
-\ }
-
-" Use auocmd to force lightline update.
-autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
-
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => easy motion
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Disable default mappings

@@ -20,8 +20,10 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'fenetikm/falcon'
 Plug('catppuccin/nvim', {['as'] = 'catppuccin' })
 
--- A light and configurable statusline/tabline
-Plug 'itchyny/lightline.vim'
+-- A Neovim statusline written in Lua.
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'nvim-tree/nvim-web-devicons' -- Icons for status line
+
 
 -- Simplifies and quickens motions
 Plug 'Lokaltog/vim-easymotion'
@@ -65,5 +67,8 @@ Plug 'linjiX/vim-star'
 -- search engine
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+
+-- Preserver the layout of windows when deleteing buffers
+Plug 'ojroques/nvim-bufdel'
 
 vim.call('plug#end')
