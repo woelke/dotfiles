@@ -26,7 +26,7 @@ inoremap <A-w> <ESC>:wall<CR>
 autocmd! BufEnter \v*.mywiki|*.tex|*.txt|README|*.md|COMMIT_EDITMSG|de.utf-8.add call Set_options_for_texting()
 autocmd! BufEnter \v*.c|*.cpp|*.h|*.hpp call Set_options_for_cpp_coding()
 autocmd! BufEnter \v*.rs call Set_options_for_rust_coding()
-autocmd! BufEnter \v*.vim call Set_options_for_vimrc()
+autocmd! BufEnter \v*.vim|*.lua call Set_options_for_vimrc()
 autocmd! BufEnter coc-settings.json call Set_options_for_coc_settings()
 autocmd! BufLeave * call Cleanup_options()
 
@@ -180,20 +180,6 @@ set undofile            "Save undo's after file closes
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Nerdtree
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let NERDTreeIgnore=['\.o$', '\~$', '\.orig$', '\.aux$','\.fls$', '\.out$','\.toc$','\.log$','\.fdb_latexmk$', '\.idx$', '\.ilg$', '\.ing$', '\.ind$']
-
-nnoremap <Leader>n :NERDTreeFind<CR>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Nerdtree plugin open
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:nerdtree_plugin_open_cmd = g:myOpenCmd
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => nerdcommenter
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:NERDCustomDelimiters = {
@@ -213,17 +199,6 @@ let g:EasyMotion_smartcase = 1
 let g:EasyMotion_space_jump_first = 1
 
 map f <Plug>(easymotion-bd-f)
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Goyo
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Map Goyo toggle to <Leader> + spacebar
-let g:goyo_width = 120
-let g:goyo_margin_top = 2
-let g:goyo_margin_bottom = 1
-
-noremap <Leader>z :Goyo<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

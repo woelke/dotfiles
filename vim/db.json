@@ -10,7 +10,8 @@
         "neovim-remote",
         "neovide",
         "waypipe",
-        "ttf-firacode-nerd"
+        "ttf-firacode-nerd",
+        "luarocks"
       ]
     }
   ],

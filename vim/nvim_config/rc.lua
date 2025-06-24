@@ -1,8 +1,7 @@
----------------------------------------------------------------
+--------------------------------------------------------------
 ---  General settings
 ---------------------------------------------------------------
 vim.g.myOpenCmd = "xdg-open"
-vim.g.mapleader = ","
 
 vim.opt.directory = "~/.config/nvim/swap/" -- set swap directory
 
@@ -26,17 +25,21 @@ vim.opt.mouse = "a"         -- enable the use of the mouse
 vim.opt.hlsearch = true     -- highlights all search matches
 
 ---------------------------------------------------------------
+--- shortcuts
+---------------------------------------------------------------
+
+
+---------------------------------------------------------------
 --- lualine.nvim
 ---------------------------------------------------------------
 local function current_buffer_num()
   return " " .. vim.fn.bufnr()
 end
 
-
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'auto',
+    theme = 'material',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {
@@ -91,7 +94,11 @@ require('lualine').setup {
 ---------------------------------------------------------------
 --- nvim-bufdel
 ---------------------------------------------------------------
-
 vim.keymap.set({'n', 'i'}, '<A-d>', '<cmd>BufDel<cr>')
 vim.keymap.set({'n', 'i'}, '<A-S-d>', '<cmd>BufDel!<cr>')
+
+---------------------------------------------------------------
+--- nvim-tree
+---------------------------------------------------------------
+require('neo-tree').setup()
 
