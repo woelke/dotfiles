@@ -98,7 +98,41 @@ vim.keymap.set({'n', 'i'}, '<A-d>', '<cmd>BufDel<cr>')
 vim.keymap.set({'n', 'i'}, '<A-S-d>', '<cmd>BufDel!<cr>')
 
 ---------------------------------------------------------------
---- nvim-tree
+--- neo-tree
 ---------------------------------------------------------------
-require('neo-tree').setup()
+require("neo-tree").setup({
+  filesystem = {
+    window = {
+      mappings = {
+        ["E"] = "system_open",
+      },
+    },
+  },
+  commands = {
+    system_open = function(state)
+      local node = state.tree:get_node()
+      local path = node:get_id()
+      vim.fn.jobstart({ "xdg-open", path }, { detach = true })
+
+      -- Windows: Without removing the file from the path, it opens in code.exe instead of explorer.exe
+      local p
+      local lastSlashIndex = path:match("^.+()\\[^\\]*$") -- Match the last slash and everything before it
+      if lastSlashIndex then
+        p = path:sub(1, lastSlashIndex - 1) -- Extract substring before the last slash
+      else
+        p = path -- If no slash found, return original path
+          end
+      vim.cmd("silent !start explorer " .. p)
+        end,
+  },
+})
+
+vim.keymap.set('n', '<leader>t', function()
+  require('neo-tree.command').execute({
+    position = 'left',
+    reveal = true,
+    dir = vim.fn.getcwd(),
+  })
+end)
+
 
