@@ -1,9 +1,27 @@
 --------------------------------------------------------------
----  General settings
+--- General settings
 ---------------------------------------------------------------
 vim.g.myOpenCmd = "xdg-open"
 
 vim.opt.directory = "~/.config/nvim/swap/" -- set swap directory
+
+
+--------------------------------------------------------------
+--- Common functions
+---------------------------------------------------------------
+local function GetCwdFromCurentTerminal()
+  local bufname = vim.api.nvim_buf_get_name(0)
+
+  local procid = bufname:match("://.-/(%d+):/")
+
+  if procid then
+    local proc_cwd = vim.fn.resolve(('/proc/%s/cwd'):format(procid))
+    return proc_cwd
+  end
+
+  return nil
+end
+
 
 ---------------------------------------------------------------
 --- VIM user interface
@@ -135,4 +153,23 @@ vim.keymap.set('n', '<leader>t', function()
   })
 end)
 
+
+---------------------------------------------------------------
+--- fzf-lua
+---------------------------------------------------------------
+require('fzf-lua').setup({
+    keymap = { } -- disable crazy default keymappings
+})
+
+vim.keymap.set('n', '<C-\\>', function()
+  require('fzf-lua').files({
+    cwd = vim.fn.getcwd(),
+  })
+end)
+
+vim.keymap.set('t', '<C-\\>', function()
+  require('fzf-lua').files({
+    cwd = GetCwdFromCurentTerminal(),
+  })
+end)
 

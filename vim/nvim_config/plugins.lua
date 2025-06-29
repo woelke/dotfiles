@@ -14,18 +14,8 @@ function load_plugins() return {
 -- Preserver the layout of windows when deleteing buffers
 { 'ojroques/nvim-bufdel' },
 
--- Search engine
-{ 'junegunn/fzf' },
-{ 'junegunn/fzf.vim' },
-
 -- Vim start search without first jump
 { 'linjiX/vim-star' },
-
--- Provides a start screen for Vim and Neovim.
-{
-  'mhinz/vim-startify',
-  lazy = false,
-},
 
 -- Highlights trailing withespaces and can delete them
 { 'ntpeters/vim-better-whitespace' },
@@ -35,9 +25,6 @@ function load_plugins() return {
 
 -- Opens URLs in browser
 { 'waiting-for-dev/www.vim' },
-
--- A wiki for vim
-{ 'vimwiki/vimwiki' },
 
 -- A visual undo tree which can be travered
 { 'mbbill/undotree' },
@@ -86,6 +73,39 @@ function load_plugins() return {
     },
   },
   lazy = false, -- neo-tree will lazily load itself
+},
+
+
+-- Provides a start screen
+{
+  "goolord/alpha-nvim",
+  dependencies = { 'nvim-tree/nvim-web-devicons' },
+  config = function()
+    local startify = require("alpha.themes.startify")
+    startify.file_icons.provider = "devicons"
+    require("alpha").setup(
+      startify.config
+    )
+  end,
+},
+
+-- Plugin to improve viewing Markdown files in Neovim
+{
+  'MeanderingProgrammer/render-markdown.nvim',
+  dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
+  config = function()
+      require('render-markdown').setup({})
+  end,
+},
+
+-- Search engine
+{
+  "ibhagwan/fzf-lua",
+  -- optional for icon support
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  -- or if using mini.icons/mini.nvim
+  -- dependencies = { "echasnovski/mini.icons" },
+  opts = {}
 },
 
 } end

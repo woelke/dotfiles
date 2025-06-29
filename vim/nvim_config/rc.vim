@@ -247,13 +247,6 @@ nmap <silent> g# <Plug>(star-g#)
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => fzf.vim
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:fzf_command_prefix = 'Fzf'
-noremap <C-p> :FzfFiles<CR>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-better-whitespace
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " disable withespace info for terminals + keep the default filters
