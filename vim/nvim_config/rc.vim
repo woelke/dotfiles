@@ -202,24 +202,18 @@ map f <Plug>(easymotion-bd-f)
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => vimwiki
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:vimwiki_ext2syntax = {'.mywiki': 'default'}
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => www
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:www_engines = {
-  \ 'dict' : 'http://www.dict.cc/?s=',
-  \ 'cpp' : 'http://en.cppreference.com/mwiki/index.php?search=',
-\}
+"let g:www_engines = {
+  "\ 'dict' : 'http://www.dict.cc/?s=',
+  "\ 'cpp' : 'http://en.cppreference.com/mwiki/index.php?search=',
+"\}
 
-let g:www_shortcut_engines = {
-  \ 'google': ['Wgoogle', '<Leader>wg'],
-  \ 'dict': ['Wdict', '<Leader>wd'],
-  \ 'cpp': ['Wcpp', '<Leader>wc'],
-\}
+"let g:www_shortcut_engines = {
+  "\ 'google': ['Wgoogle', '<Leader>wg'],
+  "\ 'dict': ['Wdict', '<Leader>wd'],
+  "\ 'cpp': ['Wcpp', '<Leader>wc'],
+"\}
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -227,12 +221,6 @@ let g:www_shortcut_engines = {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:taboo_tab_format = "%N-%f "
 let g:taboo_renamed_tab_format = "%N-%l "
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => falcon colorscheme
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:falcon_background = 0
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -253,16 +241,3 @@ nmap <silent> g# <Plug>(star-g#)
 let g:better_whitespace_filetypes_blacklist=['', 'diff', 'git', 'gitcommit', 'unite', 'qf', 'help', 'markdown', 'fugitive']
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => my scripts
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" inverse return
-inoremap <S-CR> <CR><ESC>ddkPi
-" creates a pdf of the current buffer
-noremap <Leader><Leader>pf :hardcopy > %.ps<CR> :!ps2pdf %".ps" %.pdf<CR> :!rm %.ps<CR> :execute system(g:myOpenCmd." ".expand("%").".pdf")<CR>
-" a quick terminal session
-"function! NewNeovimSession()
-  "execute "terminal"
-  "execute "vnew"
-  "execute "terminal"
-"endfunction

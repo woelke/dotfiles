@@ -9,7 +9,7 @@ vim.opt.directory = "~/.config/nvim/swap/" -- set swap directory
 --------------------------------------------------------------
 --- Common functions
 ---------------------------------------------------------------
-local function GetCwdFromCurentTerminal()
+local function GetCwdFromCurrentTerminal()
   local bufname = vim.api.nvim_buf_get_name(0)
 
   local procid = bufname:match("://.-/(%d+):/")
@@ -21,6 +21,14 @@ local function GetCwdFromCurentTerminal()
 
   return nil
 end
+
+function GetSelectedText()
+-- Yank current visual selection into the 'v' register
+    -- Note that this makes no effort to preserve this register
+    vim.cmd('noau normal! "vy"')
+    return vim.fn.getreg('v')
+end
+
 
 
 ---------------------------------------------------------------
@@ -169,7 +177,38 @@ end)
 
 vim.keymap.set('t', '<C-\\>', function()
   require('fzf-lua').files({
-    cwd = GetCwdFromCurentTerminal(),
+    cwd = GetCwdFromCurrentTerminal(),
   })
 end)
+
+---------------------------------------------------------------
+--- www
+---------------------------------------------------------------
+vim.g.www_engines = {
+  kagi = 'https://kagi.com/search?q=',
+  dict = 'https://www.dict.cc/?s=',
+}
+
+local function CreateWwwBindings(engine, mapping)
+  vim.keymap.set('v', mapping, function()
+      local selected_text = GetSelectedText()
+      vim.cmd('Wsearch ' .. engine .. ' '.. selected_text)
+  end, { desc = "kagi search selected text" })
+
+
+  vim.keymap.set('n', mapping, function()
+      local selected_text = vim.fn.expand("<cword>")
+      vim.cmd('Wsearch ' .. engine .. ' '.. selected_text)
+  end, { desc = "kagi search selected text" })
+end
+
+CreateWwwBindings('kagi', '<Leader>wg')
+CreateWwwBindings('dict', '<Leader>wd')
+
+---------------------------------------------------------------
+--- my scripts
+---------------------------------------------------------------
+
+-- inverse return
+vim.keymap.set('i', '<S-CR>', '<CR><ESC>ddkPi')
 
