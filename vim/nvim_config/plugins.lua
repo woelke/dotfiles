@@ -65,7 +65,7 @@ function load_plugins() return {
               -- if the file type is one of following, the window will be ignored
               filetype = { "neo-tree", "neo-tree-popup", "notify" },
               -- if the buffer type is one of following, the window will be ignored
-              buftype = { "terminal", "quickfix" },
+              buftype = { "quickfix" },
             },
           },
         })

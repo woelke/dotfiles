@@ -202,36 +202,10 @@ map f <Plug>(easymotion-bd-f)
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => www
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:www_engines = {
-  "\ 'dict' : 'http://www.dict.cc/?s=',
-  "\ 'cpp' : 'http://en.cppreference.com/mwiki/index.php?search=',
-"\}
-
-"let g:www_shortcut_engines = {
-  "\ 'google': ['Wgoogle', '<Leader>wg'],
-  "\ 'dict': ['Wdict', '<Leader>wd'],
-  "\ 'cpp': ['Wcpp', '<Leader>wc'],
-"\}
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => taboo.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:taboo_tab_format = "%N-%f "
 let g:taboo_renamed_tab_format = "%N-%l "
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => vim star search
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-vmap <silent> * <Plug>(star-*)
-vmap <silent> # <Plug>(star-#)
-nmap <silent> * <Plug>(star-*)
-nmap <silent> # <Plug>(star-#)
-nmap <silent> g* <Plug>(star-g*)
-nmap <silent> g# <Plug>(star-g#)
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
