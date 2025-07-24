@@ -214,6 +214,20 @@ vim.keymap.set({'v', 'n'}, '*', '<Plug>(star-*)', { silent = true })
 
 
 ---------------------------------------------------------------
+--- vim-better-whitespace
+---------------------------------------------------------------
+-- disable withespace info for terminals + keep the default filters
+do
+    local default_blacklist = {'diff', 'git', 'gitcommit', 'unite', 'qf', 'help', 'markdown', 'fugitive'}
+    local my_blacklist = {
+        '', -- for the terminal
+    }
+
+    vim.g.better_whitespace_filetypes_blacklist = vim.list_extend(default_blacklist, my_blacklist)
+end
+
+
+---------------------------------------------------------------
 --- my scripts
 ---------------------------------------------------------------
 

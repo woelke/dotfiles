@@ -207,11 +207,3 @@ map f <Plug>(easymotion-bd-f)
 let g:taboo_tab_format = "%N-%f "
 let g:taboo_renamed_tab_format = "%N-%l "
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => vim-better-whitespace
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" disable withespace info for terminals + keep the default filters
-let g:better_whitespace_filetypes_blacklist=['', 'diff', 'git', 'gitcommit', 'unite', 'qf', 'help', 'markdown', 'fugitive']
-
-
