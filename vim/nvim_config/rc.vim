@@ -173,17 +173,6 @@ set undodir=~/.config/nvim/undo "where to save undo histories
 set undofile            "Save undo's after file closes
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => easy motion
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Disable default mappings
-let g:EasyMotion_do_mapping = 0
-
-let g:EasyMotion_smartcase = 1
-let g:EasyMotion_space_jump_first = 1
-
-map f <Plug>(easymotion-bd-f)
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => taboo.vim

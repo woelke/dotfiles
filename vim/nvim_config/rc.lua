@@ -260,6 +260,18 @@ vim.g.NERDCustomDelimiters = {
 
 
 ---------------------------------------------------------------
+--- hop.vim
+---------------------------------------------------------------
+vim.keymap.set('n', 'f', function()
+    vim.cmd('HopWord')
+end, { desc = "Hint all words"})
+
+vim.keymap.set('n', 'F', function()
+    vim.cmd('HopChar1')
+end, { desc = "Type a key and immediately hint the document for this key"})
+
+
+---------------------------------------------------------------
 --- my scripts
 ---------------------------------------------------------------
 

@@ -30,7 +30,14 @@ function load_plugins() return {
 { 'mbbill/undotree' },
 
 -- Simplifies and quickens motions
-{ 'Lokaltog/vim-easymotion' },
+{
+    'smoka7/hop.nvim',
+    version = "*",
+    opts = {
+        keys = 'etovxqpdygfblzhckisuran'
+    }
+},
+
 
 -- A Neovim statusline written in Lua.
 {
