@@ -26,7 +26,6 @@ inoremap <A-w> <ESC>:wall<CR>
 autocmd! BufEnter \v*.mywiki|*.tex|*.txt|README|*.md|COMMIT_EDITMSG|de.utf-8.add call Set_options_for_texting()
 autocmd! BufEnter \v*.c|*.cpp|*.h|*.hpp call Set_options_for_cpp_coding()
 autocmd! BufEnter \v*.rs call Set_options_for_rust_coding()
-autocmd! BufEnter \v*.vim|*.lua call Set_options_for_vimrc()
 autocmd! BufEnter coc-settings.json call Set_options_for_coc_settings()
 autocmd! BufLeave * call Cleanup_options()
 
@@ -56,11 +55,6 @@ function! Set_options_for_texting()
   setlocal spell spelllang=de,en_us
 
   call Set_makefile_shortcut()
-endfunction
-
-function! Set_options_for_vimrc()
-  " Reload the vimrc file
-  noremap <F5> :source %<CR>
 endfunction
 
 function! Set_options_for_coc_settings()

@@ -49,9 +49,31 @@ vim.opt.shiftwidth = 0      -- make 'shiftwidth' follow 'tabstop'
 vim.opt.mouse = "a"         -- enable the use of the mouse
 vim.opt.hlsearch = true     -- highlights all search matches
 
+
 ---------------------------------------------------------------
 --- shortcuts
 ---------------------------------------------------------------
+vim.keymap.set("n", "<leader><leader>s", function()
+  local current_file = vim.fn.expand("%:p")  -- Get absolute path of current file
+  local allowed_path = vim.fn.expand("~/.dotfiles/vim/nvim_config")  -- Expand ~ to home directory
+
+  -- Check if current file is within the allowed path
+  if not vim.startswith(current_file, allowed_path) then
+    vim.notify("Can only source files from " .. allowed_path, vim.log.levels.WARN)
+    return
+  end
+
+  -- Source the file based on its type
+  if vim.bo.filetype == "lua" then
+    vim.cmd("luafile %")
+    vim.notify("Sourced Lua file: " .. vim.fn.expand("%:t"), vim.log.levels.INFO)
+  elseif vim.bo.filetype == "vim" then
+    vim.cmd("source %")
+    vim.notify("Sourced Vim file: " .. vim.fn.expand("%:t"), vim.log.levels.INFO)
+  else
+    vim.notify("Can only source Lua or Vim files", vim.log.levels.WARN)
+  end
+end, { desc = "nvim source current lua or vim file (restricted to nvim_config)" })
 
 
 ---------------------------------------------------------------
