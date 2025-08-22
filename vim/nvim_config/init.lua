@@ -21,6 +21,11 @@ vim.cmd 'source ~/.config/nvim/nvim_config/rc.vim'
 dofile(home .. 'coc.lua')
 vim.cmd 'source ~/.config/nvim/nvim_config/tmp.vim'
 
+local custom_file = '~/nvim_custom.lua'
+if vim.uv.fs_stat(custom_file) then
+  dofile(custom_file)
+end
+
 if vim.g.neovide then
     vim.g.neovide_position_animation_length = 0
     vim.g.neovide_cursor_animation_length = 0.00
@@ -31,9 +36,6 @@ if vim.g.neovide then
     vim.g.neovide_scroll_animation_length = 0.00
 
     vim.o.guifont = "FiraCode Nerd Font:h12"
+    require("size-matters")
 end
 
-local custom_file = '~/nvim_custom.lua'
-if vim.uv.fs_stat(custom_file) then
-  dofile(custom_file)
-end

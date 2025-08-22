@@ -115,4 +115,7 @@ function load_plugins() return {
   opts = {}
 },
 
+-- Dynamic font scaling to modern neovim GUI clients
+{ "tenxsoydev/size-matters.nvim" },
+
 } end
