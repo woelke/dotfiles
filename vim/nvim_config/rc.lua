@@ -73,7 +73,7 @@ vim.keymap.set("n", "<leader><leader>s", function()
   else
     vim.notify("Can only source Lua or Vim files", vim.log.levels.WARN)
   end
-end, { desc = "nvim source current lua or vim file (restricted to nvim_config)" })
+end, { desc = "nvim source current lua or vim (restricted to nvim_config)" })
 
 
 ---------------------------------------------------------------

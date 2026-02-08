@@ -12,8 +12,6 @@
   //"clangd.semanticHighlighting": true,
   // used by coc python
   "python.linting.pylintEnabled": true,
-
-
   "languageserver": {
     "haskell": {
       "command": "haskell-language-server-wrapper",
@@ -31,7 +29,15 @@
         "haskell",
         "lhaskell"
       ]
+    },
+    "tinymist": {
+      "command": "tinymist",
+      "filetypes": [
+        "typst"
+      ],
+      "settings": {
+        "formatterMode": "typstyle"
+      }
     }
   }
-
 }

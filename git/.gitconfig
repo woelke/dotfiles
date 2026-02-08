@@ -3,3 +3,5 @@
 	name = Sebastian Woelke
 [core]
 	editor = nvim
+[init]
+	defaultBranch = main
