@@ -3,7 +3,7 @@
 ---------------------------------------------------------------
 vim.g.myOpenCmd = "xdg-open"
 
-vim.opt.directory = "~/.config/nvim/swap/" -- set swap directory
+vim.opt.directory = vim.fn.expand("~/.config/nvim/swap/") -- set swap directory
 
 
 --------------------------------------------------------------
