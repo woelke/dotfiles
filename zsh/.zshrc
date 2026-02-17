@@ -29,8 +29,8 @@ HIST_STAMPS="yyyy-mm-dd"
 # https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins
 plugins=(
   git
-  cp
   docker
+  docker-compose
   vi-mode
   sudo
   zsh-aliases-lsd
@@ -43,7 +43,6 @@ plugins=(
 # thats why we have to use the fpath
 # souce: https://github.com/zsh-users/zsh-completions/issues/603
 fpath+="${ZSH_CUSTOM:-"$ZSH/custom"}/plugins/zsh-completions/src"
-
 
 source $ZSH/oh-my-zsh.sh
 
@@ -129,10 +128,10 @@ export CTRL_T_CMD="v "
 
 fzf-file-widget() {
   if [[ -z "$BUFFER" ]]; then
-    BUFFER="$CTRL_T_CMD $(__fsel)"
+    BUFFER="$CTRL_T_CMD $(__fzf_select)"
     zle accept-line
   else
-    LBUFFER="$LBUFFER $(__fsel)"
+    LBUFFER="$LBUFFER $(__fzf_select)"
     zle end-of-line
   fi
 
@@ -157,7 +156,7 @@ bindkey -M vicmd '^[[13;5u' sudo-command-line
 bindkey -M viins '^[[13;5u' sudo-command-line
 
 ##-- bat a replacement for cat --##
-export BAT_THEME="TwoDark"
+export BAT_THEME="Catppuccin Macchiato"
 alias cat='bat'
 export MANPAGER='nvim +Man!'
 
@@ -170,7 +169,6 @@ alias vs="nvr -cc 'call DoLcdToCurrentPath()' -o $@"
 alias vv="nvr -cc 'call DoLcdToCurrentPath()' -O $@"
 alias vt="nvr -cc 'call DoLcdToCurrentPath()' --remote-tab $@"
 alias vg="neovide"
-#alias vg="nvim-gkt"
 
 ##-- other stuff --##
 alias logout='gnome-session-quit'
