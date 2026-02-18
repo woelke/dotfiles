@@ -5,6 +5,18 @@ vim.g.myOpenCmd = "xdg-open"
 
 vim.opt.directory = vim.fn.expand("~/.config/nvim/swap/") -- set swap directory
 
+-- Detect externally changed files and reload them
+vim.api.nvim_create_augroup("auto_reload_group", { clear = true })
+vim.api.nvim_create_autocmd({ "FocusGained"
+                            , "BufEnter"
+                            , "CursorHold" -- triggers when cursor idle for >= 4s and the pressed
+                            }, {
+  group = "auto_reload_group",
+  pattern = "*",
+  command = "checktime",
+  desc = "Auto-reload files when they change externally"
+})
+
 
 --------------------------------------------------------------
 --- Common functions
@@ -277,5 +289,3 @@ end, { desc = "Type a key and immediately hint the document for this key"})
 
 -- inverse return
 vim.keymap.set('i', '<S-CR>', '<CR><ESC>ddkPi')
-
-
